@@ -13,8 +13,10 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
-from pydantic import BaseModel, Field, conint, conlist
+from pydantic import BaseModel, Field, conlist
 import pathlib
+
+from .meal_agent import MealAgent
 
 STATIC_DIR = pathlib.Path(__file__).resolve().parent.parent / "static"
 
@@ -62,22 +64,15 @@ class CookSuggestRequest(BaseModel):
     health_envelope: Optional[HealthContextEnvelope] = None
     meal_slot: Optional[str] = None
     locale: Optional[str] = None
-
-class HealthInfluencedDecision(BaseModel):
-    decision_id: str
-    base_recipe_id: Optional[str] = None
-    health_modifier_set: list[str] = []
-    explanation_text: str
-    clinical_claim_level: str = "C1" # Restricted to Wellness Personalization
-    confidence_score: float
+    chef_persona: Optional[str] = "Professional Chef"
 
 # ==========================================
-# SURVIVAL MODE CORE LOGIC
+# NOOR AI SWARM ORCHESTRATOR LOGIC
 # ==========================================
 
 @app.post("/v1/cook/suggest", response_model=dict)
-def cook_suggest(body: CookSuggestRequest) -> dict[str, Any]:
-    """Generates recipes bound by the Health Context Envelope and Medical Claim Guard."""
+async def cook_suggest(body: CookSuggestRequest) -> dict[str, Any]:
+    """Generates recipes using the NOOR-style Free-Tier Cascade Swarm Agent."""
     
     # MEDICAL CLAIM GUARD: Fail closed if client requests clinical/treatment behavior
     if body.health_envelope and body.health_envelope.mode not in ["H0", "H1"]:
@@ -86,35 +81,28 @@ def cook_suggest(body: CookSuggestRequest) -> dict[str, Any]:
             detail="MEDICAL_GUARD_ACTIVE: Unlicensed clinical modes (H2/H3) are permanently blocked in this configuration."
         )
 
-    # Base Deterministic Survival Logic (V3 Fallback)
-    first_ingredient = body.ingredients[0]
-    base_suggestion = f"Batch-prep {first_ingredient} and refrigerate."
-    explanation = "Standard pantry retrieval utilized."
     modifiers = []
-
+    
     # Apply H1 Wellness Context if present and fresh
     if body.health_envelope and body.health_envelope.snapshot:
         snap = body.health_envelope.snapshot
         if snap.data_freshness_seconds <= 1800 and snap.confidence_score >= 0.70:
             if snap.glucose_recent_trend_state == "rising":
-                modifiers.append("reduce simple-carb bias")
-                modifiers.append("increase fiber pairing score")
-                base_suggestion = f"Pair {first_ingredient} with high-fiber greens to stabilize glycemic response."
-                explanation = "Recipe adapted for lower glycemic load based on recent high-confidence trend signals."
-        else:
-            explanation = "Health data stale or low confidence. Defaulting to general culinary utility."
+                modifiers.append("Low Glycemic Load")
+                modifiers.append("High Fiber")
+            elif snap.glucose_recent_trend_state == "falling":
+                modifiers.append("Stable Carb Energy")
 
-    decision = HealthInfluencedDecision(
-        decision_id=f"dec_{int(datetime.now().timestamp())}",
-        health_modifier_set=modifiers,
-        explanation_text=explanation,
-        clinical_claim_level="C1" if modifiers else "C0",
-        confidence_score=0.95
+    agent = MealAgent()
+    payload = await agent.process_cooking_intent(
+        available_ingredients=body.ingredients,
+        chef_persona=body.chef_persona,
+        health_modifiers=modifiers
     )
 
     return {
         "action": "cook_now",
-        "suggestion": base_suggestion,
-        "health_context_decision": decision.dict(),
-        "source": "cybernetic_wellness_engine"
+        "suggestion": "Swarm Orchestrator active.",
+        "cards": payload.get("cards", []),
+        "source": "cybernetic_swarm_orchestrator"
     }
