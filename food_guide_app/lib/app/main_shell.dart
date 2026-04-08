@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'dart:ui';
 
 import 'network_banner.dart';
 import '../features/cook/cook_page.dart';
@@ -7,8 +9,6 @@ import '../features/pantry/pantry_page.dart';
 import '../features/plan/plan_page.dart';
 import '../features/profile/profile_page.dart';
 
-/// Bottom navigation — GS-FOOD3 primary tabs (§17.3).
-/// Only the active tab is built (avoids camera permission on every tab at once).
 class MainShell extends StatefulWidget {
   const MainShell({super.key});
 
@@ -38,21 +38,65 @@ class _MainShellState extends State<MainShell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true, // Necessary to push content under the floating bar
       body: NetworkBanner(child: _pages[_index]()),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _index,
-        onTap: (i) => setState(() => _index = i),
-        selectedItemColor: Theme.of(context).colorScheme.primary,
-        unselectedItemColor: Theme.of(context).colorScheme.onSurfaceVariant,
-        items: [
-          for (var i = 0; i < _items.length; i++)
-            BottomNavigationBarItem(
-              icon: Icon(_items[i].icon),
-              activeIcon: Icon(_items[i].activeIcon),
-              label: _items[i].label,
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          margin: const EdgeInsets.only(left: 24, right: 24, bottom: 16),
+          height: 72,
+          decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.5), // NOOR Glassmorphism Base
+            borderRadius: BorderRadius.circular(36), // Fully rounded Pill
+            border: Border.all(color: Colors.white.withOpacity(0.05), width: 1.5),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.3),
+                blurRadius: 20,
+                offset: const Offset(0, 10),
+              )
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(36),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0), // Deep Frost
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  for (var i = 0; i < _items.length; i++)
+                    _buildNavItem(i, _items[i]),
+                ],
+              ),
             ),
-        ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNavItem(int i, _NavItem item) {
+    final isSelected = _index == i;
+    final color = isSelected ? Theme.of(context).colorScheme.primary : Colors.white54;
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () => setState(() => _index = i),
+      child: Center(
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 250),
+          curve: Curves.easeOutCubic,
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          decoration: isSelected
+              ? BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(24),
+                )
+              : null,
+          child: Icon(
+            isSelected ? item.activeIcon : item.icon,
+            color: color,
+            size: isSelected ? 28 : 24, // NOOR fluid sizing
+          ),
+        ),
       ),
     );
   }
@@ -60,7 +104,6 @@ class _MainShellState extends State<MainShell> {
 
 class _NavItem {
   const _NavItem(this.label, this.icon, this.activeIcon);
-
   final String label;
   final IconData icon;
   final IconData activeIcon;
