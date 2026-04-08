@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'network_banner.dart';
-import '../features/ask/ask_page.dart';
-import '../features/audits/audits_page.dart';
 import '../features/cook/cook_page.dart';
-import '../features/saved/saved_page.dart';
-import '../features/scan/scan_page.dart';
-import '../features/settings/settings_page.dart';
-import '../features/use_first/use_first_page.dart';
+import '../features/home/home_page.dart';
+import '../features/pantry/pantry_page.dart';
+import '../features/plan/plan_page.dart';
+import '../features/profile/profile_page.dart';
 
 /// Bottom navigation — GS-FOOD3 primary tabs (§17.3).
 /// Only the active tab is built (avoids camera permission on every tab at once).
@@ -22,23 +20,19 @@ class _MainShellState extends State<MainShell> {
   int _index = 0;
 
   static final _pages = <Widget Function()>[
-    () => const ScanPage(),
-    () => const AskPage(),
+    () => const HomePage(),
     () => const CookPage(),
-    () => const UseFirstPage(),
-    () => const AuditsPage(),
-    () => const SavedPage(),
-    () => const SettingsPage(),
+    () => const PantryPage(),
+    () => const PlanPage(),
+    () => const ProfilePage(),
   ];
 
   static const _items = <_NavItem>[
-    _NavItem('Scan', Icons.photo_camera_outlined, Icons.photo_camera),
-    _NavItem('Ask', Icons.chat_bubble_outline, Icons.chat_bubble),
+    _NavItem('Home', Icons.home_outlined, Icons.home),
     _NavItem('Cook', Icons.restaurant_menu_outlined, Icons.restaurant_menu),
-    _NavItem('Use first', Icons.priority_high_outlined, Icons.priority_high),
-    _NavItem('Audits', Icons.fact_check_outlined, Icons.fact_check),
-    _NavItem('Saved', Icons.bookmark_outline, Icons.bookmark),
-    _NavItem('Settings', Icons.settings_outlined, Icons.settings),
+    _NavItem('Pantry', Icons.kitchen_outlined, Icons.kitchen),
+    _NavItem('Plan', Icons.calendar_today_outlined, Icons.calendar_today),
+    _NavItem('Profile', Icons.person_outline, Icons.person),
   ];
 
   @override
