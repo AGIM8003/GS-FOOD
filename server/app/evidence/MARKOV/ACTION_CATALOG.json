@@ -1,0 +1,34 @@
+{
+  "catalog_version": "1.0.0",
+  "actions": {
+    "A1": {"name": "CREATE_ROLLBACK_ANCHOR", "risk": "low"},
+    "A2": {"name": "INITIALIZE_EVIDENCE_STORE", "risk": "low"},
+    "A3": {"name": "LOAD_PREVIOUS_BLUEPRINT", "risk": "low"},
+    "A4": {"name": "START_TASK", "risk": "medium"},
+    "A5": {"name": "RUN_QUICK_GATE", "risk": "low"},
+    "A6": {"name": "RUN_FULL_GATE", "risk": "low"},
+    "A7": {"name": "RECORD_OBSERVATION", "risk": "low"},
+    "A8": {"name": "APPLY_REMEDIATION", "risk": "medium"},
+    "A9": {"name": "ENTER_CANARY", "risk": "high", "requires_rollback": true},
+    "A10": {"name": "ROLLBACK", "risk": "medium"},
+    "A11": {"name": "CLOSE_TASK", "risk": "low"},
+    "A12": {"name": "ENTER_GAD", "risk": "low"},
+    "A13": {"name": "COMPLETE_GAD", "risk": "low"},
+    "A14": {"name": "TRIGGER_STOP", "risk": "critical"},
+    "A15": {"name": "ASK_CLARIFYING_QUESTION", "risk": "none"},
+    "A16": {"name": "DENY_HIGH_RISK_ACTION", "risk": "none"}
+  },
+  "canary_required_for": [
+    "health_mode_change",
+    "creator_package_publish",
+    "rescue_connector_change",
+    "decision_engine_ranking_change",
+    "markov_threshold_change"
+  ],
+  "rollback_triggers": [
+    "violation_increase > 10%",
+    "success_drop > 15%",
+    "unknown_state_spike > drift_threshold",
+    "policy_override_rate > 0.20"
+  ]
+}

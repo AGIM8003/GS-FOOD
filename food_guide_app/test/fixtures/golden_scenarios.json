@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "scenarios": [
+    {
+      "id": "barcode_empty",
+      "kind": "safety",
+      "input": { "barcode": "" },
+      "expect": { "product": null }
+    },
+    {
+      "id": "ask_storage_tomato",
+      "kind": "ux",
+      "input": { "question": "store tomato" },
+      "expect": {
+        "max_clarifications": 1,
+        "answer_headline_contains": "tomato"
+      }
+    },
+    {
+      "id": "ocr_adversarial_empty",
+      "kind": "adversarial",
+      "input": { "ocr_text": "" },
+      "expect": { "fallback": "clarify_or_manual" }
+    }
+  ]
+}

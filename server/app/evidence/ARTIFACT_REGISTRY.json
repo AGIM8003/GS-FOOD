@@ -1,0 +1,20 @@
+{
+  "registry_version": "1.0.0",
+  "ordering": "lexicographic_by_path",
+  "artifacts": [
+    {"artifact_id": "ART-001", "path": "server/app/main.py", "category": "core_api", "producing_task": "P2-HEALTH"},
+    {"artifact_id": "ART-002", "path": "server/app/packages.py", "category": "creator_economy", "producing_task": "P4-CREATOR"},
+    {"artifact_id": "ART-003", "path": "server/app/surplus_rescue.py", "category": "rescue_network", "producing_task": "P5-RESCUE"},
+    {"artifact_id": "ART-004", "path": "server/app/governance.py", "category": "claims_control", "producing_task": "P6-GOVERNANCE"},
+    {"artifact_id": "ART-005", "path": "server/app/analytics.py", "category": "telemetry", "producing_task": "P7-ANALYTICS"},
+    {"artifact_id": "ART-006", "path": "food_guide_app/lib/features/health_context/health_manager.dart", "category": "flutter_health", "producing_task": "P2-HEALTH"},
+    {"artifact_id": "ART-007", "path": "food_guide_app/lib/features/spatial_intelligence/spatial_engine.dart", "category": "flutter_spatial", "producing_task": "P3-SPATIAL"}
+  ],
+  "observation_schema": {
+    "observation_id": "string",
+    "part_id": "string",
+    "task_id": "string",
+    "evidence_refs": ["artifact_id"],
+    "result": "PASS|FAIL|PARTIAL"
+  }
+}

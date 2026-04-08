@@ -1,0 +1,12 @@
+# After `snyk auth`, run locally: cd food_guide_app && snyk test
+# Or add SNYK_TOKEN to repo secrets and extend this workflow with the official Snyk CLI action.
+name: Snyk placeholder
+
+on:
+  workflow_dispatch:
+
+jobs:
+  instructions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Run snyk auth once, then snyk test in food_guide_app (uplift U5)."

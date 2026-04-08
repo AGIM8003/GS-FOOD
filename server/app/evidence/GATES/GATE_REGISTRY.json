@@ -1,0 +1,23 @@
+{
+  "gates": {
+    "GATE-GS-HEALTH-001": {"description": "Health mode beyond H1/H2 policy allowance", "result": "NO-GO on violation"},
+    "GATE-GS-HEALTH-002": {"description": "Health output lacks explanation or confidence", "result": "NO-GO on violation"},
+    "GATE-GS-AR-001": {"description": "AR failure blocks recipe completion", "result": "NO-GO on violation"},
+    "GATE-GS-CREATOR-001": {"description": "Unsigned/unmoderated package allowed", "result": "NO-GO on violation"},
+    "GATE-GS-CREATOR-002": {"description": "Creator package leaks household private data", "result": "NO-GO on violation"},
+    "GATE-GS-RESCUE-001": {"description": "Unsafe food routed to sharing", "result": "NO-GO on violation"},
+    "GATE-GS-DECISION-001": {"description": "Generation before retrieval without explicit bypass", "result": "NO-GO on violation"},
+    "GATE-GS-DEGRADE-001": {"description": "Deterministic survival mode nonfunctional", "result": "NO-GO on violation"},
+    "GATE-GS-PRIVACY-001": {"description": "Sensitive raw telemetry in logs without policy", "result": "NO-GO on violation"},
+    "GATE-MC-SCHEMA-PINNING-001": {"description": "Markov schema or action catalog missing/unpinned", "result": "NO-GO on violation"},
+    "GATE-CLOSURE-INVARIANT-001": {"description": "Task closed without observations + remediation + gate evidence", "result": "NO-GO on violation"}
+  },
+  "quick_gate_frequency": "every_task_cycle",
+  "full_gate_frequency": "every_3_cycles_or_before_done_or_after_auth_data_core_changes",
+  "stop_always_conditions": [
+    "GATE-GS-HEALTH-001 violation",
+    "GATE-GS-RESCUE-001 violation",
+    "GATE-GS-PRIVACY-001 violation",
+    "unknown_markov_state_rate > 0.05"
+  ]
+}

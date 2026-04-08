@@ -1,0 +1,19 @@
+{
+  "run_id": "gsfood_v4fh1_20260408",
+  "project": "GS FOOD V4: Nexus Paradigm",
+  "blueprint_version": "V4-FH.1",
+  "rollback_anchor": "pre_v4fh1_baseline",
+  "evidence_store_initialized": true,
+  "markov_control_enabled": true,
+  "previous_v4_included_by_force": true,
+  "scope": "additive_only_hardening",
+  "created_utc": "2026-04-08T20:49:00Z",
+  "non_negotiables": [
+    "retrieval_first_generation_second",
+    "non_clinical_default",
+    "ar_optional",
+    "household_hard_rule_supremacy",
+    "safe_rescue_routing",
+    "offline_deterministic_survival"
+  ]
+}

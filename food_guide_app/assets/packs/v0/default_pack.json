@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "region": "default",
+  "locale": "en",
+  "ontology_hints": {
+    "tomato": { "storage": "counter_or_fridge", "separate_from": ["ethylene_sensitive"] },
+    "milk": { "storage": "fridge", "use_first_hours": 72 }
+  },
+  "disclaimer": "Bundled hints are not medical or regulatory advice. Verify packaging and local guidance."
+}

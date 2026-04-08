@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "states": {
+    "S0": {"name": "UNINITIALIZED", "allows_implementation": false},
+    "S1": {"name": "BASELINE_LOCKED", "allows_implementation": false},
+    "S2": {"name": "TASK_READY", "allows_implementation": true},
+    "S3": {"name": "TASK_IN_PROGRESS", "allows_implementation": true, "closure_forbidden": true},
+    "S4": {"name": "TASK_UNDER_TEST", "allows_implementation": false},
+    "S5": {"name": "TASK_BLOCKED", "allows_implementation": false},
+    "S6": {"name": "TASK_REMEDIATION", "allows_implementation": true},
+    "S7": {"name": "TASK_CANARY", "allows_implementation": false, "rollback_armed": true},
+    "S8": {"name": "TASK_VERIFIED", "allows_implementation": false},
+    "S9": {"name": "GAD_PENDING", "allows_implementation": false},
+    "S10": {"name": "GAD_COMPLETE", "allows_implementation": false},
+    "S11": {"name": "NO_GO", "terminal": true}
+  },
+  "unknown_state_policy": "DENY_HIGH_RISK_ACTION",
+  "unknown_state_max_rate": 0.05,
+  "drift_threshold": 0.10,
+  "transitions": {
+    "S0->S1": ["A1_CREATE_ROLLBACK", "A2_INIT_EVIDENCE", "A3_LOAD_BLUEPRINT"],
+    "S1->S2": ["scope_pinned", "constraints_pinned"],
+    "S2->S3": ["no_blocking_gate"],
+    "S3->S4": ["implementation_artifact_exists"],
+    "S4->S8": ["all_must_be_true_pass"],
+    "S4->S6": ["must_be_true_failure"],
+    "S6->S4": ["remediation_applied"],
+    "S8->S9": ["all_tasks_verified"],
+    "S9->S10": ["gad1_pass"],
+    "ANY->S11": ["STOP_ALWAYS_triggered"]
+  }
+}

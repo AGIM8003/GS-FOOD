@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GS FOOD V4 — Cybernetic Culinary OS</title>
+    <meta name="description" content="GS FOOD V4 Nexus Paradigm Dashboard — Cybernetic Culinary Operating System">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+    <div class="app-shell">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="url(#g1)" stroke-width="2.5"/><path d="M14 26 L20 12 L26 26 M16 22 H24" stroke="url(#g1)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="g1" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#34d399"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">GS FOOD</span>
+                    <span class="brand-version">V4 Nexus</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="dashboard" onclick="switchSection('dashboard',this)">
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zm10 0a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-section="health" onclick="switchSection('health',this)">
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/></svg>
+                    <span>Health Context</span>
+                </a>
+                <a href="#" class="nav-item" data-section="spatial" onclick="switchSection('spatial',this)">
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <span>Spatial AR</span>
+                </a>
+                <a href="#" class="nav-item" data-section="chef" onclick="switchSection('chef',this)">
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"/></svg>
+                    <span>Chef Packages</span>
+                </a>
+                <a href="#" class="nav-item" data-section="rescue" onclick="switchSection('rescue',this)">
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"/></svg>
+                    <span>Surplus Rescue</span>
+                </a>
+                <a href="#" class="nav-item" data-section="markov" onclick="switchSection('markov',this)">
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"/></svg>
+                    <span>Markov Control</span>
+                </a>
+                <a href="#" class="nav-item" data-section="governance" onclick="switchSection('governance',this)">
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5C17.944 5.66 18 6.322 18 7c0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.678.056-1.34.166-1.999z"/></svg>
+                    <span>Governance</span>
+                </a>
+                <a href="#" class="nav-item" data-section="persona" onclick="switchSection('persona',this)">
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <span>AI Persona</span>
+                </a>
+                <a href="#" class="nav-item" data-section="settings" onclick="switchSection('settings',this)">
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"/></svg>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="system-status pulse-green">
+                    <span class="status-dot"></span>
+                    <span>System Operational</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <header class="top-bar">
+                <button class="hamburger" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+                <div class="search-box">
+                    <svg viewBox="0 0 20 20" fill="currentColor" class="search-icon"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"/></svg>
+                    <input type="text" placeholder="Search recipes, ingredients, health data..." id="globalSearch">
+                </div>
+                <div class="top-actions">
+                    <div class="notification-bell" id="notifBell">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/></svg>
+                        <span class="notif-badge">3</span>
+                    </div>
+                    <div class="avatar-ring">
+                        <div class="avatar-initials">GS</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- DASHBOARD SECTION -->
+            <section class="content-section active" id="sec-dashboard">
+                <div class="section-header fade-in">
+                    <h1>Cybernetic Culinary OS</h1>
+                    <p class="subtitle">Real-time system overview — all subsystems operational</p>
+                </div>
+                <div class="kpi-grid fade-in-delay-1">
+                    <div class="kpi-card glow-emerald">
+                        <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"/></svg></div>
+                        <div class="kpi-data"><span class="kpi-value" id="kpiRecipes">2,847</span><span class="kpi-label">Recipes Generated</span></div>
+                    </div>
+                    <div class="kpi-card glow-cyan">
+                        <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/></svg></div>
+                        <div class="kpi-data"><span class="kpi-value" id="kpiHealth">H1</span><span class="kpi-label">Health Mode Active</span></div>
+                    </div>
+                    <div class="kpi-card glow-violet">
+                        <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"/></svg></div>
+                        <div class="kpi-data"><span class="kpi-value" id="kpiChefs">14</span><span class="kpi-label">Chef Packages</span></div>
+                    </div>
+                    <div class="kpi-card glow-amber">
+                        <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1z"/></svg></div>
+                        <div class="kpi-data"><span class="kpi-value" id="kpiRescues">96%</span><span class="kpi-label">Rescue Success</span></div>
+                    </div>
+                </div>
+
+                <!-- GATE STATUS TABLE -->
+                <div class="panel fade-in-delay-2">
+                    <div class="panel-header"><h2>Gate Status Monitor</h2><span class="badge badge-green">All Clear</span></div>
+                    <div class="table-wrap">
+                        <table class="data-table" id="gateTable">
+                            <thead><tr><th>Gate ID</th><th>Description</th><th>Status</th><th>Last Check</th></tr></thead>
+                            <tbody>
+                                <tr><td class="mono">GATE-GS-HEALTH-001</td><td>Health mode policy allowance</td><td><span class="badge badge-green">PASS</span></td><td>2 min ago</td></tr>
+                                <tr><td class="mono">GATE-GS-HEALTH-002</td><td>Explanation & confidence present</td><td><span class="badge badge-green">PASS</span></td><td>2 min ago</td></tr>
+                                <tr><td class="mono">GATE-GS-AR-001</td><td>AR non-blocking for recipes</td><td><span class="badge badge-green">PASS</span></td><td>5 min ago</td></tr>
+                                <tr><td class="mono">GATE-GS-CREATOR-001</td><td>Package signing enforced</td><td><span class="badge badge-green">PASS</span></td><td>5 min ago</td></tr>
+                                <tr><td class="mono">GATE-GS-RESCUE-001</td><td>Safe rescue routing</td><td><span class="badge badge-green">PASS</span></td><td>1 min ago</td></tr>
+                                <tr><td class="mono">GATE-GS-DECISION-001</td><td>Retrieval-first enforcement</td><td><span class="badge badge-green">PASS</span></td><td>1 min ago</td></tr>
+                                <tr><td class="mono">GATE-GS-DEGRADE-001</td><td>Survival mode operational</td><td><span class="badge badge-green">PASS</span></td><td>3 min ago</td></tr>
+                                <tr><td class="mono">GATE-GS-PRIVACY-001</td><td>No raw telemetry leaks</td><td><span class="badge badge-green">PASS</span></td><td>4 min ago</td></tr>
+                                <tr><td class="mono">GATE-MC-SCHEMA-001</td><td>Markov schema pinned</td><td><span class="badge badge-green">PASS</span></td><td>6 min ago</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- DEGRADATION LADDER -->
+                <div class="panel fade-in-delay-3">
+                    <div class="panel-header"><h2>Degradation Ladder</h2></div>
+                    <div class="degrade-ladder">
+                        <div class="degrade-step active"><span class="step-num">L0</span><span class="step-label">Full Nexus</span><span class="step-desc">Health + Retrieval + Generation + Spatial + Rescue + Creator</span></div>
+                        <div class="degrade-step"><span class="step-num">L1</span><span class="step-label">No Health</span><span class="step-desc">Standard culinary intelligence, no physiological context</span></div>
+                        <div class="degrade-step"><span class="step-num">L2</span><span class="step-label">No Spatial</span><span class="step-desc">Standard guided cooking without AR</span></div>
+                        <div class="degrade-step"><span class="step-num">L3</span><span class="step-label">No Connectors</span><span class="step-desc">Manual rescue flows, no external APIs</span></div>
+                        <div class="degrade-step"><span class="step-num">L4</span><span class="step-label">Local Smart</span><span class="step-desc">Cached recipes, creator styles, rule-based rescue</span></div>
+                        <div class="degrade-step"><span class="step-num">L5</span><span class="step-label">Survival</span><span class="step-desc">Pantry truth + rules + emergency assembly only</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HEALTH SECTION -->
+            <section class="content-section" id="sec-health">
+                <div class="section-header fade-in"><h1>Health Context Layer</h1><p class="subtitle">Bounded wellness adaptation — non-clinical by default</p></div>
+                <div class="health-modes-grid fade-in-delay-1">
+                    <div class="mode-card mode-active"><div class="mode-badge">Active</div><h3>H0 — Off</h3><p>No health telemetry used</p></div>
+                    <div class="mode-card mode-primary"><div class="mode-badge">Primary</div><h3>H1 — Wellness</h3><p>Trends influence ranking. Non-diagnostic.</p></div>
+                    <div class="mode-card"><h3>H2 — Condition-Aware</h3><p>Stronger guardrails, clinician export, mandatory disclaimers</p></div>
+                    <div class="mode-card mode-locked"><div class="mode-badge badge-red">Locked</div><h3>H3 — Clinical</h3><p>Fail-closed. Disabled unless regulated pathway.</p></div>
+                </div>
+                <div class="panel fade-in-delay-2">
+                    <div class="panel-header"><h2>Claims Control Matrix</h2></div>
+                    <div class="claims-matrix">
+                        <div class="claim-row"><span class="claim-level c0">C0</span><span class="claim-desc">General Food Utility — inventory, meal planning, waste rescue</span><span class="badge badge-green">ALLOWED</span></div>
+                        <div class="claim-row"><span class="claim-level c1">C1</span><span class="claim-desc">Wellness Personalization — health-aware ranking, trend suggestions</span><span class="badge badge-green">ALLOWED</span></div>
+                        <div class="claim-row"><span class="claim-level c2">C2</span><span class="claim-desc">Condition-Aware — clinician export, structured caution</span><span class="badge badge-yellow">GATED</span></div>
+                        <div class="claim-row"><span class="claim-level c3">C3</span><span class="claim-desc">Clinical Decision / Therapy — diagnosis, insulin, medication</span><span class="badge badge-red">BLOCKED</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SPATIAL SECTION -->
+            <section class="content-section" id="sec-spatial">
+                <div class="section-header fade-in"><h1>Spatial Kitchen Intelligence</h1><p class="subtitle">Practical AR guidance with automatic 2D fallback</p></div>
+                <div class="tier-grid fade-in-delay-1">
+                    <div class="tier-card tier-a"><h3>Tier A — LiDAR</h3><p>Best spatial alignment and occlusion. iPhone Pro, iPad Pro.</p><span class="badge badge-green">Full AR</span></div>
+                    <div class="tier-card tier-b"><h3>Tier B — Standard</h3><p>Camera/depth approximations. Most AR-capable Android phones.</p><span class="badge badge-yellow">Reduced Precision</span></div>
+                    <div class="tier-card tier-c"><h3>Tier C — Fallback</h3><p>No reliable AR. Falls back to 2D annotated overlays and clips.</p><span class="badge badge-blue">2D Guided</span></div>
+                </div>
+                <div class="panel fade-in-delay-2">
+                    <div class="panel-header"><h2>Spatial Capabilities</h2></div>
+                    <div class="capability-list">
+                        <div class="cap-item"><span class="cap-tag">S1</span><span>Plating Preview — realistic reference overlay anchored to counter</span></div>
+                        <div class="cap-item"><span class="cap-tag">S2</span><span>Step Alignment — ingredient pathing, bowl/pan targets, handoff cues</span></div>
+                        <div class="cap-item"><span class="cap-tag">S3</span><span>Cut / Portion / Doneness — slice widths, volume estimates, browning refs</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CHEF PACKAGES SECTION -->
+            <section class="content-section" id="sec-chef">
+                <div class="section-header fade-in"><h1>Creator Package Exchange</h1><p class="subtitle">Governed culinary monetization — signed, moderated, version-pinned</p></div>
+                <div class="chef-grid fade-in-delay-1">
+                    <div class="chef-card"><div class="chef-avatar">🇫🇷</div><h3>Chef Lyon</h3><p class="chef-cuisine">French Cuisine</p><p class="chef-desc">Michelin-trained classical technique. Butter-forward, precise timing.</p><div class="chef-meta"><span class="badge badge-green">Signed</span><span class="badge badge-green">Approved</span><span class="mono">v1.2.0</span></div></div>
+                    <div class="chef-card"><div class="chef-avatar">🇹🇷</div><h3>Chef Anatolia</h3><p class="chef-cuisine">Turkish / Anatolian</p><p class="chef-desc">Ottoman-heritage spice mastery. Slow-cooked, bold aromatics.</p><div class="chef-meta"><span class="badge badge-green">Signed</span><span class="badge badge-green">Approved</span><span class="mono">v2.0.1</span></div></div>
+                    <div class="chef-card"><div class="chef-avatar">🇯🇵</div><h3>Chef Kyoto</h3><p class="chef-cuisine">Japanese / Washoku</p><p class="chef-desc">Kaiseki precision. Umami-focused, seasonal ingredient worship.</p><div class="chef-meta"><span class="badge badge-green">Signed</span><span class="badge badge-yellow">Review</span><span class="mono">v1.0.0</span></div></div>
+                    <div class="chef-card"><div class="chef-avatar">🇧🇦</div><h3>Chef Balkan</h3><p class="chef-cuisine">Balkan / Southeast European</p><p class="chef-desc">Ćevapi, sarma, burek expertise. Hearty, smoky, communal.</p><div class="chef-meta"><span class="badge badge-green">Signed</span><span class="badge badge-green">Approved</span><span class="mono">v1.1.0</span></div></div>
+                </div>
+            </section>
+
+            <!-- RESCUE SECTION -->
+            <section class="content-section" id="sec-rescue">
+                <div class="section-header fade-in"><h1>Surplus Rescue Network</h1><p class="subtitle">Zero-waste orchestration with multi-path rescue actions</p></div>
+                <div class="rescue-actions fade-in-delay-1">
+                    <div class="rescue-card r-cook"><h3>R1 — Cook & Consume</h3><p>Highest priority if feasible. Generate immediate recipe from surplus.</p></div>
+                    <div class="rescue-card r-freeze"><h3>R2 — Prep & Freeze</h3><p>Batch cook into stable state and immediately freeze.</p></div>
+                    <div class="rescue-card r-transform"><h3>R3 — Transform</h3><p>Sauce, soup, stock, purée, pickle, dehydrate.</p></div>
+                    <div class="rescue-card r-share"><h3>R4 — Community Share</h3><p>Listing via approved connector or manual QR handoff.</p></div>
+                    <div class="rescue-card r-discard"><h3>R5 — Safe Discard</h3><p>When spoilage or uncertainty is too high. Bio-bin disposal.</p></div>
+                </div>
+                <div class="panel fade-in-delay-2">
+                    <div class="panel-header"><h2>Active Surplus Alerts</h2></div>
+                    <div class="alert-list">
+                        <div class="alert-item alert-warn"><span class="alert-icon">⚠️</span><span>Tomatoes (1.2kg) — 36h to spoilage. Rescue: R1 or R3 recommended.</span></div>
+                        <div class="alert-item alert-info"><span class="alert-icon">ℹ️</span><span>Chicken breast (0.5kg) — 4 days remaining. Status: Nominal.</span></div>
+                        <div class="alert-item alert-danger"><span class="alert-icon">🚫</span><span>Yogurt (200g) — Safety threshold exceeded. Route: R5 Safe Discard.</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MARKOV SECTION -->
+            <section class="content-section" id="sec-markov">
+                <div class="section-header fade-in"><h1>Markov Control Layer</h1><p class="subtitle">Implementation workflow state tracking and drift detection</p></div>
+                <div class="markov-state-grid fade-in-delay-1">
+                    <div class="markov-node" id="ms0"><span class="ms-label">S0</span><span class="ms-name">Uninitialized</span></div>
+                    <div class="markov-arrow">→</div>
+                    <div class="markov-node" id="ms1"><span class="ms-label">S1</span><span class="ms-name">Baseline Locked</span></div>
+                    <div class="markov-arrow">→</div>
+                    <div class="markov-node active-state" id="ms8"><span class="ms-label">S8</span><span class="ms-name">Verified</span></div>
+                    <div class="markov-arrow">→</div>
+                    <div class="markov-node" id="ms10"><span class="ms-label">S10</span><span class="ms-name">GAD Complete</span></div>
+                </div>
+                <div class="panel fade-in-delay-2">
+                    <div class="panel-header"><h2>Drift & Policy Metrics</h2></div>
+                    <div class="metrics-row">
+                        <div class="metric"><span class="metric-val">0.00</span><span class="metric-label">Unknown State Rate</span><span class="metric-limit">Limit: 0.05</span></div>
+                        <div class="metric"><span class="metric-val">0.02</span><span class="metric-label">Drift Score</span><span class="metric-limit">Limit: 0.10</span></div>
+                        <div class="metric"><span class="metric-val">0</span><span class="metric-label">Policy Overrides</span><span class="metric-limit">Limit: 20%</span></div>
+                        <div class="metric"><span class="metric-val">0</span><span class="metric-label">Rollback Triggers</span><span class="metric-limit">Target: 0</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GOVERNANCE SECTION -->
+            <section class="content-section" id="sec-governance">
+                <div class="section-header fade-in"><h1>Governance & Safety</h1><p class="subtitle">Claims control, privacy enforcement, and audit trails</p></div>
+                <div class="panel fade-in-delay-1">
+                    <div class="panel-header"><h2>Privacy & Retention Rules</h2></div>
+                    <div class="config-grid">
+                        <div class="config-item"><span class="config-key">HEALTH_MODE</span><span class="config-val">H1</span></div>
+                        <div class="config-item"><span class="config-key">HEALTH_READ_ONLY</span><span class="config-val">true</span></div>
+                        <div class="config-item"><span class="config-key">HEALTH_FRESHNESS_MAX</span><span class="config-val">1800s</span></div>
+                        <div class="config-item"><span class="config-key">HEALTH_MIN_CONFIDENCE</span><span class="config-val">0.70</span></div>
+                        <div class="config-item"><span class="config-key">CLINICAL_LANGUAGE</span><span class="config-val badge-red">disabled</span></div>
+                        <div class="config-item"><span class="config-key">RETENTION_HEALTH_DAYS</span><span class="config-val">7</span></div>
+                        <div class="config-item"><span class="config-key">RETENTION_RAW_EVENTS</span><span class="config-val">0 (purged)</span></div>
+                        <div class="config-item"><span class="config-key">PROVIDER_EXPORTS</span><span class="config-val">enabled</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI PERSONA SECTION -->
+            <section class="content-section" id="sec-persona">
+                <div class="section-header fade-in"><h1>AI Persona & Capabilities</h1><p class="subtitle">Meet the intelligence behind GS FOOD V4</p></div>
+                <div class="persona-hero fade-in-delay-1">
+                    <div class="persona-avatar-large">🧠</div>
+                    <div class="persona-info">
+                        <h2>The Nexus Chef Engine</h2>
+                        <p class="persona-tagline">A cybernetic culinary operating system that fuses pantry truth, optional health context, spatial guidance, creator-grade personalization, and surplus rescue orchestration under strict policy control.</p>
+                        <div class="persona-traits">
+                            <span class="trait">🔒 Privacy-First</span>
+                            <span class="trait">🧪 Evidence-Backed</span>
+                            <span class="trait">📡 Offline-Resilient</span>
+                            <span class="trait">🛡️ Non-Clinical Default</span>
+                            <span class="trait">🔄 Self-Healing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel fade-in-delay-2">
+                    <div class="panel-header"><h2>Skills & Capabilities</h2></div>
+                    <div class="skills-grid">
+                        <div class="skill-card"><h4>Inventory Intelligence</h4><p>Real-time pantry truth via ML Kit scanning, barcode, and OCR.</p><div class="skill-bar"><div class="skill-fill" style="width:96%"></div></div></div>
+                        <div class="skill-card"><h4>Generative Recipes</h4><p>Swarm AI synthesis from exact inventory. Zero food waste.</p><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+                        <div class="skill-card"><h4>Health Adaptation</h4><p>Bounded wellness meal ranking from HealthKit / Health Connect.</p><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+                        <div class="skill-card"><h4>Spatial AR Guidance</h4><p>Plating preview, cut overlays, and portion visualization.</p><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+                        <div class="skill-card"><h4>Creator Economy</h4><p>Signed, moderated Chef Packages with provenance and royalties.</p><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+                        <div class="skill-card"><h4>Surplus Rescue</h4><p>Multi-path zero-waste orchestration with manual fallbacks.</p><div class="skill-bar"><div class="skill-fill" style="width:94%"></div></div></div>
+                    </div>
+                </div>
+                <div class="panel fade-in-delay-3">
+                    <div class="panel-header"><h2>Builder Profile</h2></div>
+                    <div class="builder-profile">
+                        <p><strong>Built by:</strong> AGIM Antigravity Ecosystem</p>
+                        <p><strong>Architecture:</strong> Cybernetic Culinary Operating System with Implementation-Forcing Delivery Framework</p>
+                        <p><strong>Vision:</strong> Transform household food management from a passive utility into a sensor-fused, privacy-gated, evidence-backed decision system that remains useful from full-cloud to complete offline survival mode.</p>
+                        <p><strong>Philosophy:</strong> Retrieval first, generation second. No clinical claims. No vendor lock-in. Every feature optional. Every decision auditable.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SETTINGS SECTION -->
+            <section class="content-section" id="sec-settings">
+                <div class="section-header fade-in"><h1>Settings</h1><p class="subtitle">System configuration and profile management</p></div>
+                <div class="panel fade-in-delay-1">
+                    <div class="panel-header"><h2>Profile</h2></div>
+                    <form class="settings-form">
+                        <div class="form-group"><label>Display Name</label><input type="text" value="Household Admin" id="settingName"></div>
+                        <div class="form-group"><label>Default Cuisine</label><select id="settingCuisine">
+                            <option>Auto-Detect (GPS)</option><option>French</option><option>Turkish</option><option>Balkan</option><option>Japanese</option><option>Italian</option><option>Nordic</option><option>Indian</option><option>Chinese</option>
+                        </select></div>
+                        <div class="form-group"><label>Health Mode</label><select id="settingHealth"><option>H0 — Off</option><option selected>H1 — Wellness</option><option>H2 — Condition-Aware</option></select></div>
+                        <div class="form-group"><label>Spatial Mode</label><select id="settingSpatial"><option>Auto-Detect</option><option>Off</option><option>Preview Only</option><option selected>Full Guided</option></select></div>
+                        <div class="form-group"><label>Offline Model</label><div class="toggle-row"><input type="checkbox" id="settingNano"><label for="settingNano">Enable Gemini Nano (1.5GB download)</label></div></div>
+                        <button type="button" class="btn-primary" onclick="alert('Settings saved!')">Save Settings</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/static/dashboard.js"></script>
+</body>
+</html>
