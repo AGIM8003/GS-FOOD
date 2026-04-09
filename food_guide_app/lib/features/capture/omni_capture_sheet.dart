@@ -26,7 +26,7 @@ class _OmniCaptureSheetState extends State<OmniCaptureSheet> {
   bool _isScanning = false;
   bool _scanComplete = false;
   String _scanResult = "";
-  bool _isSafe = true;
+  bool? _isSafe; // Null means unverified
   final TextEditingController _inputController = TextEditingController();
 
   void _triggerScan() async {
@@ -39,24 +39,21 @@ class _OmniCaptureSheetState extends State<OmniCaptureSheet> {
       _scanComplete = false;
     });
 
-    // Simulated Sanctity check (Pending backend rules engine integration)
-    final isCompliant = true; 
+    // Vision is offline. We have no structural tag data to feed the Sanctity Engine.
+    // We cannot simulate compliance. We must default to unverified.
 
     setState(() {
       _isScanning = false;
       _scanComplete = true;
       _scanResult = input;
-      _isSafe = isCompliant;
+      _isSafe = null; 
     });
 
-    // Automatically add to inventory on successful scan
-    if (isCompliant) {
-      await AppServices.inventory.addInventoryItem(
-        _scanResult, 
-        DateTime.now().add(const Duration(days: 4))
-      );
-      HapticFeedback.heavyImpact();
-    }
+    await AppServices.inventory.addInventoryItem(
+      _scanResult, 
+      DateTime.now().add(const Duration(days: 4))
+    );
+    HapticFeedback.heavyImpact();
   }
 
   @override
@@ -146,17 +143,30 @@ class _OmniCaptureSheetState extends State<OmniCaptureSheet> {
   }
 
   Widget _buildResult() {
+    final isCompliant = _isSafe;
+    
+    IconData statusIcon = Icons.help_outline;
+    Color statusColor = Colors.white54;
+    String statusText = 'Added to Storage • Sanctity Unverified (Text Mode)';
+
+    if (isCompliant == true) {
+      statusIcon = Icons.check_circle;
+      statusColor = const Color(0xFF00FF66);
+      statusText = 'Sanctity Verified • Added to Storage';
+    } else if (isCompliant == false) {
+      statusIcon = Icons.warning_rounded;
+      statusColor = Colors.redAccent;
+      statusText = 'Sanctity Violation Detected';
+    }
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(_isSafe ? Icons.check_circle : Icons.warning_rounded, 
-             color: _isSafe ? const Color(0xFF00FF66) : Colors.redAccent, 
-             size: 80),
+        Icon(statusIcon, color: statusColor, size: 80),
         const SizedBox(height: 16),
         Text(_scanResult, style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
         const SizedBox(height: 8),
-        Text(_isSafe ? 'Sanctity Verified • Added to Storage' : 'Sanctity Violation Detected', 
-             style: TextStyle(color: _isSafe ? const Color(0xFF00FF66) : Colors.redAccent, fontSize: 14)),
+        Text(statusText, style: TextStyle(color: statusColor, fontSize: 14)),
         const SizedBox(height: 48),
         TextButton(
           onPressed: () {

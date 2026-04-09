@@ -43,42 +43,12 @@ class _CameraScanPageState extends State<CameraScanPage> with SingleTickerProvid
     });
 
     Future.delayed(const Duration(seconds: 2), () {
-       bool compliant = true;
-       String message = '$itemName Logged Successfully';
-
-       // Ritual Check
-       if (_prefs!.activeRitualProtocol == 'kosher' && tags.contains('pork')) {
-          compliant = false;
-          message = 'VIOLATION: Non-Kosher Ingredient Detected ($itemName)';
-       }
-       if (_prefs!.activeRitualProtocol == 'halal' && tags.contains('alcohol')) {
-          compliant = false;
-          message = 'VIOLATION: Non-Halal Ingredient Detected ($itemName)';
-       }
-
-       // Medical Check
-       if (_prefs!.activeMedicalConditions.contains('hypertension') && tags.contains('high_sodium')) {
-          compliant = false;
-          message = 'MEDICAL INTERCEPT: High Sodium triggers Hypertension ($itemName)';
-       }
-
-       // Allergen Check
-       if (_prefs!.allergens.any((a) => tags.contains(a.toLowerCase()))) {
-          compliant = false;
-          message = 'SEVERE ALLERGEN DETECTED ($itemName)';
-       }
-
        setState(() {
          _isScanning = false;
          _showResult = true;
-         _isCompliant = compliant;
-         _scanMessage = message;
+         _isCompliant = false; // Always fail closed if we can't truly scan
+         _scanMessage = 'Computer Vision Model Not Loaded. Auto-Scan Unavailable.';
        });
-
-       if (!compliant) {
-         // simulated haptic pulse
-       }
-    });
   }
 
   @override
@@ -226,16 +196,10 @@ class _CameraScanPageState extends State<CameraScanPage> with SingleTickerProvid
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           ElevatedButton.icon(
-                            style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF00FF66).withOpacity(0.2), foregroundColor: const Color(0xFF00FF66)),
-                            icon: const Icon(Icons.qr_code_scanner),
-                            label: const Text('Scan Organic Tofu'),
-                            onPressed: _showResult || _isScanning ? null : () => _simulateScan('Organic Tofu', ['soy', 'vegan']),
-                          ),
-                          ElevatedButton.icon(
-                            style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFFF3333).withOpacity(0.2), foregroundColor: const Color(0xFFFF3333)),
-                            icon: const Icon(Icons.qr_code_scanner),
-                            label: const Text('Scan Soy Sauce'),
-                            onPressed: _showResult || _isScanning ? null : () => _simulateScan('Soy Sauce', ['high_sodium', 'soy']),
+                            style: ElevatedButton.styleFrom(backgroundColor: Colors.white12, foregroundColor: Colors.white38),
+                            icon: const Icon(Icons.videocam_off),
+                            label: const Text('Vision Offline'),
+                            onPressed: _showResult || _isScanning ? null : () => _simulateScan('Null', []),
                           ),
                         ],
                       )
