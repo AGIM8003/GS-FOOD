@@ -86,19 +86,26 @@ class SwarmOrchestrator:
                     "title": "Mediterranean Spinach Skillet",
                     "time": "15 min",
                     "cuisine": "Mediterranean",
-                    "matchType": "Best Match",
-                    "available": ["Spinach", "Eggs"],
-                    "missing": ["Feta Cheese"],
-                    "whyThis": "Matches your prompt directly and fits a high-protein diet."
-                },
-                {
-                    "title": "Egg Rescue Bowl",
-                    "time": "10 min",
-                    "cuisine": "Fast Family",
-                    "matchType": "Save Food",
-                    "available": ["Eggs"],
-                    "missing": [],
-                    "whyThis": "Rescues your eggs before expiry tomorrow."
+                    "match_type": "Best Match",
+                    "used_inventory_ingredients": [
+                        {"name": "Spinach", "quantity": 2.0, "unit": "cups", "category": "Produce", "is_substitution": False, "substitution_for": None},
+                        {"name": "Eggs", "quantity": 2.0, "unit": "pcs", "category": "Dairy", "is_substitution": False, "substitution_for": None}
+                    ],
+                    "missing_shopping_deficits": [
+                        {"name": "Feta Cheese", "quantity": 0.5, "unit": "cups", "category": "Dairy", "is_substitution": False, "substitution_for": None}
+                    ],
+                    "compliance": {
+                        "is_compliant": True,
+                        "violated_rules": [],
+                        "blocked_ingredients": [],
+                        "warning_level": "SAFE",
+                        "explanation": "No medical or dietary flags triggered."
+                    },
+                    "ai_explanation_trace": [
+                        "User requested high-protein.",
+                        "Spinach and eggs approach expiration.",
+                        "Combined for optimal macronutrient load."
+                    ]
                 }
             ]
         })

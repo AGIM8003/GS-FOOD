@@ -60,19 +60,54 @@ class HealthContextEnvelope(BaseModel):
     hydration_proxy: Optional[str] = None
 
 class CookSuggestRequest(BaseModel):
-    ingredients: conlist(str, min_length=1)
+    ingredients: list[str] = Field(min_length=1)
     health_envelope: Optional[HealthContextEnvelope] = None
     meal_slot: Optional[str] = None
     locale: Optional[str] = None
     chef_persona: Optional[str] = "Professional Chef"
 
 # ==========================================
+# RESPONSE CONTRACTS (V4 MACHINE PARSABLE)
+# ==========================================
+
+class StructuredIngredient(BaseModel):
+    name: str
+    quantity: float
+    unit: str
+    category: str
+    is_substitution: bool = False
+    substitution_for: Optional[str] = None
+
+class SanctityComplianceResult(BaseModel):
+    is_compliant: bool
+    violated_rules: list[str]
+    blocked_ingredients: list[str]
+    warning_level: str
+    explanation: str
+
+class StructuredMealCard(BaseModel):
+    title: str
+    time: str
+    cuisine: str
+    match_type: str
+    used_inventory_ingredients: list[StructuredIngredient]
+    missing_shopping_deficits: list[StructuredIngredient]
+    compliance: SanctityComplianceResult
+    ai_explanation_trace: list[str]
+
+class CookSuggestResponse(BaseModel):
+    action: str
+    suggestion: str
+    cards: list[StructuredMealCard]
+    source: str
+
+# ==========================================
 # NOOR AI SWARM ORCHESTRATOR LOGIC
 # ==========================================
 
-@app.post("/v1/cook/suggest", response_model=dict)
-async def cook_suggest(body: CookSuggestRequest) -> dict[str, Any]:
-    """Generates recipes using the NOOR-style Free-Tier Cascade Swarm Agent."""
+@app.post("/v1/cook/suggest", response_model=CookSuggestResponse)
+async def cook_suggest(body: CookSuggestRequest) -> CookSuggestResponse:
+    """Generates structured recipes using the NOOR-style Free-Tier Cascade Swarm Agent."""
     
     # MEDICAL CLAIM GUARD: Fail closed if client requests clinical/treatment behavior
     if body.health_envelope and body.health_envelope.mode not in ["H0", "H1"]:
@@ -100,9 +135,9 @@ async def cook_suggest(body: CookSuggestRequest) -> dict[str, Any]:
         health_modifiers=modifiers
     )
 
-    return {
-        "action": "cook_now",
-        "suggestion": "Swarm Orchestrator active.",
-        "cards": payload.get("cards", []),
-        "source": "cybernetic_swarm_orchestrator"
-    }
+    return CookSuggestResponse(
+        action="cook_now",
+        suggestion="Swarm Orchestrator active.",
+        cards=payload.get("cards", []),
+        source="cybernetic_swarm_orchestrator"
+    )
