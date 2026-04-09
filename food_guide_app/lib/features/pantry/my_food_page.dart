@@ -8,10 +8,10 @@ class MyFoodPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _mockInventory = [
+      {'name': 'Organic Milk (Half Gal)', 'location': 'Fridge Door', 'daysLeft': 1, 'critical': true, 'icon': Icons.water_drop},
       {'name': 'Fresh Spinach', 'location': 'Crisper', 'daysLeft': 2, 'critical': true, 'icon': Icons.grass},
-      {'name': 'Raw Chicken Breast', 'location': 'Deep Freeze', 'daysLeft': 3, 'critical': true, 'icon': Icons.set_meal},
-      {'name': 'Feta Cheese', 'location': 'Top Shelf', 'daysLeft': 7, 'critical': false, 'icon': Icons.cake},
-      {'name': 'Eggs', 'location': 'Door Bins', 'daysLeft': 14, 'critical': false, 'icon': Icons.egg},
+      {'name': 'Charred Heirloom Tomatoes', 'location': 'Counter', 'daysLeft': 3, 'critical': false, 'icon': Icons.lunch_dining},
+      {'name': 'Saffron', 'location': 'Pantry Spice Rack', 'daysLeft': 180, 'critical': false, 'icon': Icons.eco},
     ];
 
     return Scaffold(
