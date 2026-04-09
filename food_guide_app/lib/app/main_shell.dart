@@ -6,9 +6,8 @@ import '../../core/i18n.dart';
 import '../features/home/home_dashboard.dart';
 import '../features/pantry/pantry_page.dart';
 import '../features/cook/cook_page.dart';
-import '../features/plan/plan_page.dart';
-import '../features/shop/shop_page.dart';
 import '../features/chat/global_food_chat.dart';
+import '../features/shop/fulfillment_shell.dart';
 
 class MainShell extends StatefulWidget {
   const MainShell({super.key});
@@ -24,8 +23,7 @@ class _MainShellState extends State<MainShell> {
     () => const HomeDashboard(),
     () => const PantryPage(),
     () => const CookPage(),
-    () => const PlanPage(),
-    () => const ShopPage(),
+    () => const FulfillmentShell(),
   ];
 
   @override
@@ -34,24 +32,28 @@ class _MainShellState extends State<MainShell> {
       valueListenable: I18n.currentLanguage,
       builder: (context, lang, child) {
         final _items = <_NavItem>[
-          _NavItem('Home', Icons.home_outlined, Icons.home),
-          _NavItem('My Food', Icons.kitchen_outlined, Icons.kitchen),
+          _NavItem('Command', Icons.space_dashboard_outlined, Icons.space_dashboard),
+          _NavItem('Pantry', Icons.kitchen_outlined, Icons.kitchen),
           _NavItem('Cook', Icons.restaurant_menu_outlined, Icons.restaurant_menu),
-          _NavItem('Plan', Icons.calendar_month_outlined, Icons.calendar_month),
-          _NavItem('Shop', Icons.shopping_basket_outlined, Icons.shopping_basket),
+          _NavItem('Fulfill', Icons.receipt_long_outlined, Icons.receipt_long),
         ];
 
         return Scaffold(
           extendBody: true, 
           body: NetworkBanner(child: _pages[_index]()),
           
-          floatingActionButton: FloatingActionButton(
-             backgroundColor: Colors.orange.shade500,
-             child: const Icon(Icons.mic, color: Colors.white),
-             onPressed: () {
-               HapticFeedback.heavyImpact();
-               GlobalFoodChat.show(context);
-             },
+          floatingActionButton: SizedBox(
+            height: 64, width: 64,
+            child: FloatingActionButton(
+               backgroundColor: const Color(0xFF00FF66),
+               elevation: 8,
+               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+               child: const Icon(Icons.center_focus_weak, color: Colors.black, size: 32),
+               onPressed: () {
+                 HapticFeedback.heavyImpact();
+                 GlobalFoodChat.show(context);
+               },
+            ),
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           
@@ -66,10 +68,9 @@ class _MainShellState extends State<MainShell> {
                 children: [
                   _buildNavItem(0, _items[0]),
                   _buildNavItem(1, _items[1]),
-                  const SizedBox(width: 48), // Chat FAB gap
+                  const SizedBox(width: 64), // Omni-Capture FAB gap
                   _buildNavItem(2, _items[2]),
                   _buildNavItem(3, _items[3]),
-                  _buildNavItem(4, _items[4]),
                 ],
               ),
             ),
