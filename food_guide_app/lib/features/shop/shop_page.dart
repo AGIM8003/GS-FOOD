@@ -22,7 +22,7 @@ class ShopPage extends StatefulWidget {
 class _ShopPageState extends State<ShopPage> {
   Map<ShoppingWave, List<ShoppingItem>> _groupedItems = {};
   bool _isLoading = true;
-  bool _isCheckingOut = false;
+
   List<String> _activeMedicalConditions = [];
 
   @override
@@ -103,31 +103,8 @@ class _ShopPageState extends State<ShopPage> {
                         ShoppingWave.bulkRestock.description
                       ),
 
-                    if (_groupedItems.values.any((l) => l.isNotEmpty)) ...[
-                      const SizedBox(height: 16),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton.icon(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF00FF66),
-                              foregroundColor: Colors.black,
-                              padding: const EdgeInsets.symmetric(vertical: 18),
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                            ),
-                            icon: _isCheckingOut 
-                                ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.black))
-                                : const Icon(Icons.shopping_bag),
-                            label: Text(_isCheckingOut ? 'Calculating...' : '1-Click API Checkout (Predictive)', 
-                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)
-                            ),
-                            onPressed: _isCheckingOut ? null : _triggerOneClickCheckout,
-                          ),
-                        ),
-                      )
-                    ],
-                      
+                    // Removed fake 1-Click checkout to abide by Production Hardening (no exposing internal dumps to consumers)
+
                     if (_groupedItems.values.every((l) => l.isEmpty))
                       const Padding(
                         padding: EdgeInsets.all(32.0),
@@ -240,47 +217,4 @@ class _ShopPageState extends State<ShopPage> {
         ),
       ),
     );
-  }
-
-  Future<void> _triggerOneClickCheckout() async {
-    setState(() => _isCheckingOut = true);
-    try {
-      final inventory = await AppServices.inventory.getAll();
-      
-      // Flatten current unchecked shopping items
-      final allUnchecked = _groupedItems.values.expand((element) => element).where((i) => !i.checked).toList();
-      
-      final payload = await AppServices.forecastingEngine.generateCheckoutPayload(allUnchecked, inventory);
-      final jsonStr = const JsonEncoder.withIndent('  ').convert(payload);
-
-      if (mounted) {
-        showDialog(context: context, builder: (_) => AlertDialog(
-          backgroundColor: const Color(0xFF111111),
-          title: const Text('Cart Prediction Export', style: TextStyle(color: Color(0xFF00FF66), fontWeight: FontWeight.bold)),
-          content: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text('AI successfully forecasted staple depletion and grouped active manual items. Ready for Instacart API:', style: TextStyle(color: Colors.white70)),
-                const SizedBox(height: 16),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  color: Colors.black,
-                  child: Text(jsonStr, style: const TextStyle(color: Color(0xFF00FF66), fontFamily: 'monospace', fontSize: 12)),
-                )
-              ],
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text('Execute Webhook', style: TextStyle(color: Color(0xFF00FF66)))
-            )
-          ],
-        ));
-      }
-    } finally {
-      if (mounted) setState(() => _isCheckingOut = false);
-    }
-  }
 }

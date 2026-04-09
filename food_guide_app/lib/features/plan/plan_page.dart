@@ -118,16 +118,6 @@ class _PlanPageState extends State<PlanPage> {
                           },
                         ),
                       ),
-                      
-                      const SizedBox(height: 32),
-                      
-                      // Show details for today or selected day
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.0),
-                        child: Text('Nutrition Summary', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
-                      ),
-                      const SizedBox(height: 16),
-                      _buildNutritionCard(),
                     ] else ...[
                       const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -195,40 +185,4 @@ class _PlanPageState extends State<PlanPage> {
            ),
         ],
       ),
-    );
-  }
-  
-  Widget _buildNutritionCard() {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      decoration: BoxDecoration(
-         color: const Color(0xFF111111),
-         borderRadius: BorderRadius.circular(20),
-         border: Border.all(color: Colors.white.withOpacity(0.08)),
-      ),
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _buildNutrientStat('Protein', '65g', const Color(0xFF00FF66)),
-              _buildNutrientStat('Carbs', '120g', const Color(0xFFFF8C00)),
-              _buildNutrientStat('Fats', '45g', const Color(0xFF00BFFF)),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-  
-  Widget _buildNutrientStat(String label, String value, Color color) {
-    return Column(
-      children: [
-        Text(value, style: TextStyle(color: color, fontSize: 24, fontWeight: FontWeight.w900)),
-        const SizedBox(height: 4),
-        Text(label, style: const TextStyle(color: Colors.white54, fontSize: 12, fontWeight: FontWeight.w600)),
-      ],
-    );
-  }
 }
