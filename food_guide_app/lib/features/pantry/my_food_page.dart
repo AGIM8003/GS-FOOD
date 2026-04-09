@@ -2,8 +2,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../../core/i18n.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class MyFoodPage extends StatelessWidget {
+  const MyFoodPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black, // OLED Mode
       appBar: AppBar(
-        title: Text(I18n.get('storage.title', fallback: 'My Pantry Inventory'), style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w900, letterSpacing: -0.5)),
+        title: Text(I18n.get('pantry.title', fallback: 'My Food & Storage'), style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w900, letterSpacing: -0.5)),
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),

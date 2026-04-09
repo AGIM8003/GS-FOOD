@@ -1,226 +1,122 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
-class CookPage extends StatefulWidget {
+class CookPage extends StatelessWidget {
   const CookPage({super.key});
-
-  @override
-  State<CookPage> createState() => _CookPageState();
-}
-
-class _CookPageState extends State<CookPage> {
-  // Mock generation state
-  bool _isGenerating = false;
-
-  void _generateCards() {
-    setState(() => _isGenerating = true);
-    Future.delayed(const Duration(seconds: 2), () {
-      if (mounted) setState(() => _isGenerating = false);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black, // Dark OLED
       appBar: AppBar(
-        title: const Text('Cook Now'),
-        centerTitle: true,
+        title: const Text('Cook Now', style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w900, letterSpacing: -0.5)),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         actions: [
-          IconButton(icon: const Icon(Icons.filter_list), onPressed: () {}),
+          IconButton(icon: const Icon(Icons.filter_list, color: Colors.blueAccent), onPressed: () {}),
         ],
       ),
-      body: _isGenerating
-          ? const Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircularProgressIndicator(),
-                  SizedBox(height: 16),
-                  Text('Consulting your Pantry & Chef Style...'),
-                ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.only(bottom: 120),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Top Filters
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    _buildFilterChip('Use What I Have', true),
+                    _buildFilterChip('Under 30m', false),
+                    _buildFilterChip('High Protein', false),
+                    _buildFilterChip('Balkan Style', false),
+                  ],
+                ),
               ),
-            )
-          : ListView(
-              padding: const EdgeInsets.all(16.0),
-              children: [
-                ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 400),
-                  child: ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-                      foregroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
-                    ),
-                    icon: const Icon(Icons.auto_awesome),
-                    label: const Text('Generate Meal Ideas'),
-                    onPressed: _generateCards,
-                  ),
-                ),
-                const SizedBox(height: 24),
-                
-                // Categories
-                const _CategoryTitle('Best Match (100% Pantry)'),
-                const _CookCard(
-                  title: 'Greek Lemon Chicken',
-                  time: '35 min',
-                  cuisine: 'Mediterranean',
-                  matchType: '100% Match',
-                  missing: [],
-                  available: ['Chicken Breast', 'Lemon', 'Garlic', 'Olive Oil'],
-                  whyThis: 'Uses exactly what you have in the fridge and fits your high-protein preference.',
-                ),
-                
-                const SizedBox(height: 16),
-                const _CategoryTitle('Save Food (Expiring Soon)'),
-                const _CookCard(
-                  title: 'Spinach & Feta Omelette',
-                  time: '15 min',
-                  cuisine: 'Balkan',
-                  matchType: 'Save Food',
-                  missing: [],
-                  available: ['Spinach', 'Eggs', 'Feta'],
-                  whyThis: 'Rescues the spinach expiring tomorrow to prevent food waste.',
-                ),
+              const SizedBox(height: 24),
+              
+              _buildRankedSection('Save Food / Expiry Rescue', [
+                _buildMealCard('Spinach & Feta Omelet', 'Mediterranean • 15m', '98% Match', 'You have Spinach expiring tomorrow.', Colors.redAccent.shade400)
+              ]),
 
-                const SizedBox(height: 16),
-                const _CategoryTitle('Fastest (Missing 1 Item)'),
-                const _CookCard(
-                  title: 'Shrimp Tacos',
-                  time: '15 min',
-                  cuisine: 'Mexican',
-                  matchType: 'Fastest',
-                  missing: ['Avocado'],
-                  available: ['Frozen Shrimp', 'Tortillas', 'Lime'],
-                  whyThis: 'The quickest meal to prepare, but you will need to substitute or buy Avocado.',
-                ),
-              ],
-            ),
-    );
-  }
-}
-
-class _CategoryTitle extends StatelessWidget {
-  final String title;
-  const _CategoryTitle(this.title);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
-      child: Text(
-        title,
-        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              _buildRankedSection('Best Match for You', [
+                _buildMealCard('Balkan Chicken Skillet', 'Balkan • 35m', '100% Match', 'Matches your "Balkan Grandma" Chef Style and uses available chicken.', Colors.blueAccent.shade400),
+                _buildMealCard('Protein Bowl', 'General • 10m', '80% Match', 'Fast prep, meets High Protein preference.', Colors.greenAccent.shade400)
+              ]),
+            ],
+          ),
+        ),
       ),
     );
   }
-}
 
-class _CookCard extends StatelessWidget {
-  final String title;
-  final String time;
-  final String cuisine;
-  final String matchType;
-  final List<String> missing;
-  final List<String> available;
-  final String whyThis;
+  Widget _buildFilterChip(String label, bool active) {
+    return Container(
+      margin: const EdgeInsets.only(right: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      decoration: BoxDecoration(
+        color: active ? Colors.blueAccent.withOpacity(0.2) : Colors.white.withOpacity(0.05),
+        border: Border.all(color: active ? Colors.blueAccent : Colors.white24),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Text(label, style: TextStyle(color: active ? Colors.blueAccent : Colors.white, fontWeight: FontWeight.bold)),
+    );
+  }
 
-  const _CookCard({
-    required this.title,
-    required this.time,
-    required this.cuisine,
-    required this.matchType,
-    required this.missing,
-    required this.available,
-    required this.whyThis,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+  Widget _buildRankedSection(String title, List<Widget> cards) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            height: 120,
-            color: Colors.orange.shade100,
-            child: Stack(
-              children: [
-                const Center(child: Icon(Icons.restaurant, size: 48, color: Colors.orange)),
-                Positioned(
-                  top: 8,
-                  right: 8,
-                  child: Chip(
-                    label: Text(
-                      matchType,
-                      style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
-                    ),
-                    backgroundColor: matchType == 'Save Food'
-                        ? Colors.red.shade100
-                        : Colors.green.shade100,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        title,
-                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Text(time, style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.grey)),
-                  ],
-                ),
-                Text(cuisine, style: TextStyle(color: Theme.of(context).colorScheme.primary)),
-                const SizedBox(height: 12),
-                
-                // Ingredients Section
-                const Text('Available:', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
-                Wrap(
-                  spacing: 4,
-                  children: available.map((item) => Text('✓ $item', style: const TextStyle(fontSize: 12, color: Colors.green))).toList(),
-                ),
-                if (missing.isNotEmpty) ...[
-                  const SizedBox(height: 8),
-                  const Text('Missing:', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
-                  Wrap(
-                    spacing: 4,
-                    children: missing.map((item) => Text('✗ $item', style: const TextStyle(fontSize: 12, color: Colors.red))).toList(),
-                  ),
-                ],
-                
-                const Divider(height: 24),
-                // Why This? Section
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(Icons.lightbulb_outline, size: 16, color: Colors.orange),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(whyThis, style: const TextStyle(fontSize: 12, fontStyle: FontStyle.italic)),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 16),
-                SizedBox(
-                  width: double.infinity,
-                  child: FilledButton(
-                    onPressed: () {},
-                    child: const Text('Start Cooking'),
-                  ),
-                )
-              ],
-            ),
-          )
+          Text(title, style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w800)),
+          const SizedBox(height: 12),
+          ...cards,
+          const SizedBox(height: 16),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMealCard(String title, String subtitle, String match, String whyThis, Color accent) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      decoration: BoxDecoration(
+         color: Colors.white.withOpacity(0.04),
+         borderRadius: BorderRadius.circular(20),
+         border: Border.all(color: accent.withOpacity(0.3), width: 1.5),
+      ),
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+           Row(
+             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+             children: [
+               Expanded(child: Text(title, style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold))),
+               Container(
+                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                 decoration: BoxDecoration(color: accent.withOpacity(0.2), borderRadius: BorderRadius.circular(8)),
+                 child: Text(match, style: TextStyle(color: accent, fontSize: 10, fontWeight: FontWeight.bold)),
+               )
+             ],
+           ),
+           const SizedBox(height: 4),
+           Text(subtitle, style: const TextStyle(color: Colors.white54, fontSize: 12)),
+           const SizedBox(height: 12),
+           Container(
+             padding: const EdgeInsets.all(10),
+             decoration: BoxDecoration(color: Colors.black45, borderRadius: BorderRadius.circular(8)),
+             child: Row(
+               children: [
+                 const Icon(Icons.info_outline, color: Colors.white54, size: 16),
+                 const SizedBox(width: 8),
+                 Expanded(child: Text('Why this? $whyThis', style: const TextStyle(color: Colors.white70, fontSize: 12, fontStyle: FontStyle.italic))),
+               ]
+             )
+           )
         ],
       ),
     );

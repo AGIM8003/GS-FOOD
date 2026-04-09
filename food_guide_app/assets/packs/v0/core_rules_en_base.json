@@ -1,0 +1,42 @@
+{
+  "manifest": {
+    "pack_id": "core_rules_en_base",
+    "pack_type": "country_pack",
+    "semantic_version": "1.0.0",
+    "region_scope": ["US", "GLOBAL"],
+    "language_scope": ["en-US"],
+    "authority_sources": ["foodkeeper", "openfda_enforcement"],
+    "min_schema_version": 1
+  },
+  "rules": [
+    {
+      "rule_id": "safety_raw_adjacent_rte_uncovered",
+      "family": "safety",
+      "severity": "hard_safety",
+      "predicate": {
+        "item_state": "raw_animal_product",
+        "nearby_item_state": "ready_to_eat_uncovered"
+      },
+      "outcome": {
+        "action": "enforce_separation",
+        "confidence": "HIGH",
+        "message": "KEEP APART: Move raw meat away from uncovered ready-to-eat foods immediately to prevent cross-contamination."
+      }
+    },
+    {
+      "rule_id": "storage_tomato_whole_counter_default",
+      "family": "storage",
+      "severity": "soft",
+      "predicate": {
+        "canonical_name": "tomato",
+        "state": "whole"
+      },
+      "outcome": {
+        "action": "store_here",
+        "location": "Counter",
+        "confidence": "HIGH",
+        "message": "STORE HERE: Counter until ripe, then short counter hold or fridge if needed."
+      }
+    }
+  ]
+}
