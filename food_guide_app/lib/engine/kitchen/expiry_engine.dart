@@ -1,3 +1,6 @@
+import '../../app/services.dart';
+import '../../data/repositories/inventory_repository.dart';
+import '../../data/repositories/use_first_repository.dart';
 import '../models/inventory_item.dart';
 
 /// Deterministic expiry engine — real food safety logic.
@@ -108,5 +111,56 @@ class ExpiryEngine {
       case StorageLocation.other:
         return 'Follow package instructions for best storage.';
     }
+  }
+
+  /// LEVEL A + B: Continuous Pantry Re-valuation 
+  /// Triggers a full-sweep mathematical re-score. Skips if <12hr since last run.
+  Future<void> runContinuousRevaluation() async {
+    final prefs = AppServices.preferences;
+    final lastRun = await prefs.getLastRevaluationTime();
+    final now = DateTime.now().millisecondsSinceEpoch;
+    
+    // Support Level: Prevent redundant IO thrashing (12h cooldown)
+    if (now - lastRun < (12 * 60 * 60 * 1000)) {
+       return; 
+    }
+    
+    final invRepo = AppServices.inventory;
+    final useFirstRepo = AppServices.useFirst;
+    
+    final items = await invRepo.getAll();
+    final activeUseFirst = await useFirstRepo.listOrdered();
+    final existingRescueLabels = activeUseFirst.map((e) => e.label.toLowerCase()).toSet();
+    
+    for (var item in items) {
+      bool needSave = false;
+      
+      // Calculate true estimated expiry bounds combining location and opened state
+      if (item.expiryDate == null) {
+        final computed = estimateExpiry(item);
+        item = item.copyWith(expiryDate: computed);
+        needSave = true;
+      }
+      
+      // Persistent State Overwrite -> Fixes UI sorting native dependency
+      if (needSave) {
+        await invRepo.updateItem(item);
+      }
+      
+      // Auto-Rescue Pathway (Is Critical / Expiring <= 2 days)
+      if (item.isUrgent) {
+         final targetLabel = 'Use ${item.name}';
+         if (!existingRescueLabels.contains(targetLabel.toLowerCase())) {
+            // Idempotent Rescue Insert
+            await useFirstRepo.add(
+              label: targetLabel, 
+              note: 'Rescued by Auto-Valuation. ${urgencyMessage(item)}'
+            );
+            existingRescueLabels.add(targetLabel.toLowerCase());
+         }
+      }
+    }
+    
+    await prefs.setLastRevaluationTime(now);
   }
 }

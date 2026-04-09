@@ -104,4 +104,18 @@ class PreferencesRepository {
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
+
+  Future<void> setLastRevaluationTime(int ms) async {
+    await _d.insert(
+      _table,
+      {'key': 'last_reval_time', 'value': ms.toString()},
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<int> getLastRevaluationTime() async {
+    final rows = await _d.query(_table, where: 'key = ?', whereArgs: ['last_reval_time']);
+    if (rows.isEmpty) return 0;
+    return int.tryParse(rows.first['value'] as String) ?? 0;
+  }
 }

@@ -18,5 +18,10 @@ Future<void> main() async {
     await registerPackWorkmanager();
   }
   
+  // LEVEL A: Fire-and-forget Continuous Re-valuation on startup
+  AppServices.expiryEngine.runContinuousRevaluation().catchError((e) {
+    // Fail silently in background
+  });
+  
   runApp(const FoodGuideApp());
 }
