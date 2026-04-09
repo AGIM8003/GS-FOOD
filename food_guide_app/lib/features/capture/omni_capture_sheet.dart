@@ -1,9 +1,11 @@
 import 'dart:ui';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../app/services.dart';
 import '../../perception/food_classifier_tflite.dart';
+import '../../engine/models/user_preferences.dart';
 import 'package:image_picker/image_picker.dart';
 
 /// GS FOOD V4 Omni-Capture Gateway
@@ -54,14 +56,19 @@ class _OmniCaptureSheetState extends State<OmniCaptureSheet> {
     });
 
     final result = await AppServices.foodClassifier.classifyImagePath(image.path);
+    final candidateName = result.success ? result.label : 'Failed to Identify';
 
     setState(() {
       _isScanning = false;
       _scanComplete = true;
       _visionResult = result;
-      _scanResult = result.success ? result.label : 'Failed to Identify';
+      _scanResult = candidateName;
       _isSafe = null; // Cannot verify strict compliance off coarse label alone
     });
+
+    if (result.success) {
+      _resolveTaxonomyAndSanctity(candidateName);
+    }
   }
 
   void _triggerTextUpload() async {
@@ -76,6 +83,50 @@ class _OmniCaptureSheetState extends State<OmniCaptureSheet> {
       _visionResult = null;
       _isSafe = null; 
     });
+    
+    _resolveTaxonomyAndSanctity(input);
+  }
+
+  Future<void> _resolveTaxonomyAndSanctity(String candidate) async {
+    // LEVEL A + B: Bridge coarse input to OFF Data Plane and run Rule Engine intersection
+    final prefs = await AppServices.preferences.load();
+    final taxonomy = await AppServices.products.resolveTaxonomyFromName(candidate);
+    
+    if (!mounted) return;
+    if (taxonomy == null) return; // Leave Unverified
+    
+    try {
+      final map = json.decode(taxonomy.payloadJson) as Map<String, dynamic>;
+      final allergensList = map['allergens'] as List<dynamic>? ?? [];
+      final ingredients = (map['ingredientsText'] as String?)?.toLowerCase() ?? '';
+      final brands = (map['brands'] as String?) ?? '';
+      
+      bool compliant = true;
+      
+      // Strict Allergen Intersection
+      for (final bad in prefs.allergens) {
+        final block = bad.toLowerCase();
+        if (allergensList.any((id) => id.toString().contains(block)) || ingredients.contains(block)) {
+           compliant = false;
+           break;
+        }
+      }
+      
+      // Apply exact brands if identified
+      if (brands.isNotEmpty && _scanResult == candidate) {
+         _scanResult = '$brands $candidate'.trim();
+      }
+
+      setState(() {
+         _isSafe = compliant;
+      });
+      
+      if (!compliant) {
+         HapticFeedback.vibrate();
+      }
+    } catch (e) {
+      // Data decode error -> Leave Unverified
+    }
   }
 
   void _confirmAndStore() async {
@@ -205,16 +256,16 @@ class _OmniCaptureSheetState extends State<OmniCaptureSheet> {
     
     IconData statusIcon = Icons.help_outline;
     Color statusColor = Colors.white54;
-    String statusText = 'Sanctity Unverified (Coarse Label)';
+    String statusText = 'Resolving taxonomy... (Sanctity Unverified)';
 
     if (isCompliant == true) {
       statusIcon = Icons.check_circle;
       statusColor = const Color(0xFF00FF66);
-      statusText = 'Sanctity Verified';
+      statusText = 'Sanctity Verified (Data Placed)';
     } else if (isCompliant == false) {
       statusIcon = Icons.warning_rounded;
       statusColor = Colors.redAccent;
-      statusText = 'Sanctity Violation Detected';
+      statusText = 'Medical/Dietary Intercept (Violation)';
     }
 
     bool hasConfidenceWarning = _visionResult != null && _visionResult!.success && _visionResult!.confidence < 0.6;

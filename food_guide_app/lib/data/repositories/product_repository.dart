@@ -87,6 +87,56 @@ class ProductRepository {
       'nutriscore': product.nutriscore,
     };
   }
+
+  /// LEVEL B: SUPPORT LAYER - Resolves un-barcoded Vision labels (e.g. "Apple") or text to exact Product taxonomies
+  Future<CachedProduct?> resolveTaxonomyFromName(String name) async {
+    final normalized = name.trim().toLowerCase();
+    if (normalized.isEmpty) return null;
+
+    // Check fast cache first via name pattern
+    final rows = await _database.query(
+      'product_cache',
+      where: 'payload_json LIKE ?',
+      whereArgs: ['%"productName":"%$normalized%"%'],
+      limit: 1,
+    );
+
+    if (rows.isNotEmpty) {
+      final payload = rows.first['payload_json']! as String;
+      return CachedProduct(barcode: rows.first['barcode']! as String, payloadJson: payload, stale: false, source: 'cache_name');
+    }
+
+    try {
+      final config = ProductSearchQueryConfiguration(
+        parametersList: [SearchTerms(terms: [normalized])],
+        language: OpenFoodFactsLanguage.ENGLISH,
+        fields: [ProductField.ALL],
+        version: ProductQueryVersion.v3,
+      );
+      final result = await OpenFoodAPIClient.searchProducts(null, config);
+
+      if (result.products == null || result.products!.isEmpty) return null;
+
+      final bestHit = result.products!.first;
+      final map = _productToMap(bestHit);
+      final jsonStr = json.encode(map);
+      
+      // Store under its real barcode for future speed
+      await _database.insert(
+        'product_cache',
+        {
+          'barcode': bestHit.barcode ?? ('tx_' + normalized.replaceAll(" ", "_")),
+          'payload_json': jsonStr,
+          'fetched_at': DateTime.now().millisecondsSinceEpoch,
+          'etag': null,
+        },
+        conflictAlgorithm: ConflictAlgorithm.replace,
+      );
+      return CachedProduct(barcode: bestHit.barcode ?? 'unknown', payloadJson: jsonStr, stale: false, source: 'network_search');
+    } catch (e) {
+      return null; // Silent degradation to manual mode
+    }
+  }
 }
 
 class CachedProduct {
