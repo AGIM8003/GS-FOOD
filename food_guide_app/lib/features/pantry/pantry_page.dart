@@ -177,7 +177,25 @@ class _PantryPageState extends State<PantryPage> {
               // Text Content
               Text(item.name, style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold, letterSpacing: -0.3), textAlign: TextAlign.center, maxLines: 1, overflow: TextOverflow.ellipsis),
               const SizedBox(height: 4),
-              Text('${item.category.name.toUpperCase()} • ${item.quantity.toInt()}${item.unit}', style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: 9, fontWeight: FontWeight.w900, letterSpacing: 1.0)),
+              Text('${item.category.toUpperCase()} • ${item.quantity.toInt()} ${item.unit}', style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: 9, fontWeight: FontWeight.w900, letterSpacing: 1.0)),
+              const SizedBox(height: 8),
+
+              // Storage & Opened Tags
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(item.storageLocation == StorageLocation.fridge ? Icons.kitchen : Icons.shelves, color: Colors.white54, size: 12),
+                  const SizedBox(width: 4),
+                  Text(item.storageLocation.displayName, style: const TextStyle(color: Colors.white54, fontSize: 10, fontWeight: FontWeight.bold)),
+                  const SizedBox(width: 8),
+                  if (item.opened)
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                      decoration: BoxDecoration(color: const Color(0xFFFF8C00).withOpacity(0.2), borderRadius: BorderRadius.circular(4)),
+                      child: const Text('OPENED', style: TextStyle(color: Color(0xFFFF8C00), fontSize: 8, fontWeight: FontWeight.bold)),
+                    )
+                ],
+              ),
               const Spacer(),
               
               // Status Pill

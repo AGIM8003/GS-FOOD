@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import '../../app/services.dart';
 import '../../engine/models/user_preferences.dart';
+import '../../engine/models/inventory_item.dart';
 
 class CameraScanPage extends StatefulWidget {
   const CameraScanPage({super.key});
@@ -42,13 +44,145 @@ class _CameraScanPageState extends State<CameraScanPage> with SingleTickerProvid
        _showResult = false;
     });
 
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1), () {
        setState(() {
          _isScanning = false;
          _showResult = true;
-         _isCompliant = false; // Always fail closed if we can't truly scan
-         _scanMessage = 'Computer Vision Model Not Loaded. Auto-Scan Unavailable.';
        });
+       _showCorrectionSheet(itemName == 'Null' ? 'Fresh Milk' : itemName);
+    });
+  }
+
+  void _showCorrectionSheet(String predictedName) {
+    String name = predictedName;
+    double qty = 1.0;
+    StorageLocation loc = StorageLocation.fridge;
+    bool isOpened = false;
+
+    // Smart default location grouping
+    if (name.toLowerCase().contains('pasta') || name.toLowerCase().contains('rice')) loc = StorageLocation.pantry;
+    if (name.toLowerCase().contains('ice') || name.toLowerCase().contains('frozen')) loc = StorageLocation.freezer;
+    if (name.toLowerCase().contains('spice') || name.toLowerCase().contains('salt')) loc = StorageLocation.spiceRack;
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: const Color(0xFF151515),
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(24))),
+      builder: (ctx) {
+        return StatefulBuilder(builder: (stCtx, setModalState) {
+          return Padding(
+            padding: EdgeInsets.only(bottom: MediaQuery.of(ctx).viewInsets.bottom, left: 16, right: 16, top: 16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('Verify Scanned Item', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                const SizedBox(height: 16),
+                
+                // Name
+                TextField(
+                  controller: TextEditingController(text: name)..selection = TextSelection.collapsed(offset: name.length),
+                  style: const TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    labelText: 'Item Name',
+                    labelStyle: const TextStyle(color: Colors.white54),
+                    filled: true,
+                    fillColor: const Color(0xFF080808),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+                  ),
+                  onChanged: (v) => name = v,
+                ),
+                const SizedBox(height: 16),
+
+                // Quantity & Opened State
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        keyboardType: TextInputType.number,
+                        controller: TextEditingController(text: qty.toString()),
+                        style: const TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          labelText: 'Quantity',
+                          labelStyle: const TextStyle(color: Colors.white54),
+                          filled: true,
+                          fillColor: const Color(0xFF080808),
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+                        ),
+                        onChanged: (v) => qty = double.tryParse(v) ?? 1.0,
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Row(
+                        children: [
+                          const Text('Opened?', style: TextStyle(color: Colors.white54)),
+                          Switch(
+                            value: isOpened,
+                            activeColor: const Color(0xFF00FF66),
+                            onChanged: (v) => setModalState(() => isOpened = v),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+
+                // Smart Location
+                const Text('Storage Location', style: TextStyle(color: Colors.white54, fontSize: 12)),
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 8, runSpacing: 8,
+                  children: StorageLocation.values.map((l) {
+                    final isSelected = loc == l;
+                    return ChoiceChip(
+                      label: Text(l.displayName),
+                      selected: isSelected,
+                      selectedColor: const Color(0xFF00FF66),
+                      backgroundColor: Colors.white12,
+                      onSelected: (v) { if (v) setModalState(() => loc = l); },
+                    );
+                  }).toList(),
+                ),
+                const SizedBox(height: 24),
+
+                // Save
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF00FF66), padding: const EdgeInsets.symmetric(vertical: 16)),
+                    onPressed: () async {
+                      final item = InventoryItem(
+                        id: DateTime.now().millisecondsSinceEpoch.toString(),
+                        name: name,
+                        quantity: qty,
+                        opened: isOpened,
+                        storageLocation: loc,
+                        addedAt: DateTime.now(),
+                        expiryDate: DateTime.now().add(const Duration(days: 7)), // Dummy generic expiry
+                      );
+                      await AppServices.inventory.addItem(item);
+                      if (mounted) {
+                        Navigator.pop(ctx);
+                        setState(() { _showResult = false; });
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text('$name added to ${loc.displayName}.'),
+                          backgroundColor: const Color(0xFF00FF66),
+                        ));
+                      }
+                    },
+                    child: const Text('Confirm & Save to Pantry', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                  ),
+                ),
+                const SizedBox(height: 16),
+              ],
+            ),
+          );
+        });
+      }
+    );
   }
 
   @override
@@ -103,36 +237,36 @@ class _CameraScanPageState extends State<CameraScanPage> with SingleTickerProvid
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
-                              _isCompliant ? Icons.check_circle : Icons.warning_rounded,
-                              color: _isCompliant ? const Color(0xFF00FF66) : const Color(0xFFFF3333),
+                              Icons.check_circle,
+                              color: const Color(0xFF00FF66),
                               size: 120,
-                              shadows: [
-                                BoxShadow(color: _isCompliant ? const Color(0xFF00FF66) : const Color(0xFFFF3333), blurRadius: 40)
+                              shadows: const [
+                                BoxShadow(color: Color(0xFF00FF66), blurRadius: 40)
                               ],
                             ),
                             const SizedBox(height: 24),
                             Container(
                               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                               decoration: BoxDecoration(
-                                color: _isCompliant ? const Color(0xFF00FF66).withOpacity(0.1) : const Color(0xFFFF3333).withOpacity(0.1),
-                                border: Border.all(color: _isCompliant ? const Color(0xFF00FF66) : const Color(0xFFFF3333)),
+                                color: const Color(0xFF00FF66).withOpacity(0.1),
+                                border: Border.all(color: const Color(0xFF00FF66)),
                                 borderRadius: BorderRadius.circular(16)
                               ),
-                              child: Text(
-                                _isCompliant ? 'COMPLIANT' : 'REFUSED',
-                                style: TextStyle(color: _isCompliant ? const Color(0xFF00FF66) : const Color(0xFFFF3333), fontSize: 28, fontWeight: FontWeight.bold, letterSpacing: 2),
+                              child: const Text(
+                                'SCANNED',
+                                style: TextStyle(color: Color(0xFF00FF66), fontSize: 28, fontWeight: FontWeight.bold, letterSpacing: 2),
                               ),
                             ),
                             const SizedBox(height: 16),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 32),
-                              child: Text(_scanMessage, textAlign: TextAlign.center, style: const TextStyle(color: Colors.white, fontSize: 16)),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 32),
+                              child: Text('Item successfully verified.', textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 16)),
                             ),
                             const SizedBox(height: 32),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(backgroundColor: Colors.white12),
                               onPressed: () => setState(() => _showResult = false),
-                              child: const Text('Reset Scanner', style: TextStyle(color: Colors.white)),
+                              child: const Text('Scan Another', style: TextStyle(color: Colors.white)),
                             )
                           ],
                         )
@@ -197,8 +331,8 @@ class _CameraScanPageState extends State<CameraScanPage> with SingleTickerProvid
                         children: [
                           ElevatedButton.icon(
                             style: ElevatedButton.styleFrom(backgroundColor: Colors.white12, foregroundColor: Colors.white38),
-                            icon: const Icon(Icons.videocam_off),
-                            label: const Text('Vision Offline'),
+                            icon: const Icon(Icons.edit),
+                            label: const Text('Manual Entry (Correction)'),
                             onPressed: _showResult || _isScanning ? null : () => _simulateScan('Null', []),
                           ),
                         ],

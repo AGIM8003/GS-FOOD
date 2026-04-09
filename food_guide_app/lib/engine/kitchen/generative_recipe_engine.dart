@@ -26,6 +26,10 @@ class AIGenerativeRecipeEngine {
         ? "Servings: ${prefs.servings}"
         : "Servings: Scale the output volume specifically for ${prefs.calculatedHouseholdServings} standard adult servings to feed this exact household composition: [${prefs.householdMembers.map((m) => m.role.name).join(', ')}].";
 
+    final memoryConstraints = prefs.positiveAffinities.isNotEmpty || prefs.negativeAffinities.isNotEmpty
+        ? "- Learning Memory (Favored Cuisines/Flavors): ${prefs.positiveAffinities.join(', ')}\n    - Learning Memory (Avoided/Disliked): ${prefs.negativeAffinities.join(', ')}"
+        : "";
+
     final prompt = '''
     [SYSTEM-V6: EXACT SYNTHESIS MODE]
     You are to procedurally generate a completely new recipe perfectly calibrated to consume exactly the following ingredients to achieve zero food waste:
@@ -36,6 +40,7 @@ class AIGenerativeRecipeEngine {
     - $householdConstraints
     - High Protein: ${prefs.highProtein}
     - Family Safe / Allergens avoided: ${prefs.allergens.join(',')}
+    $memoryConstraints
     
     $medicalOverride
     $ritualOverride

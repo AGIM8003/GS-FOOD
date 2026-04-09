@@ -20,6 +20,7 @@ class _HomePageState extends State<HomePage> {
   List<InventoryItem> _items = [];
   UserPreferences? _prefs;
   RecipeMatch? _perfectMatch;
+  int _buyNowCount = 0;
   bool _isLoading = true;
 
   @override
@@ -35,6 +36,8 @@ class _HomePageState extends State<HomePage> {
     final recipes = AppServices.matchEngine.getEmergencyRecipes();
     final ranked = AppServices.matchEngine.rankRecipes(recipes, allItems);
     
+    final shopping = await AppServices.shopping.getGroupedByWave();
+    
     if (mounted) {
       setState(() {
         _items = allItems;
@@ -42,6 +45,8 @@ class _HomePageState extends State<HomePage> {
         if (ranked.isNotEmpty) {
           _perfectMatch = ranked.first; 
         }
+        // SUPPORT-LAYER: Cached length check avoids parsing full models continuously in UI.
+        _buyNowCount = shopping[ShoppingWave.buyNow]?.length ?? 0;
         _isLoading = false;
       });
     }
@@ -59,112 +64,113 @@ class _HomePageState extends State<HomePage> {
     final int urgentCount = _items.where((i) => i.isUrgent).length;
     final int requiredProtein = _prefs?.highProtein == true ? 120 : 60; // Example stat
 
-    return GoldenGourmetScaffold(
-      backgroundColor: Colors.black, // OLED Mode
-      appBar: SanctityHeader(
-        title: 'Command Center',
+      backgroundColor: const Color(0xFF0A0A0A), // Calm Dark Mode
+      appBar: AppBar(
+        title: const Text('Home', style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w900, letterSpacing: -0.5)),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 100),
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 100),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Greeting Header
-              Text(
-                'PREDICTIVE COMMAND CENTER',
-                style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 2.0),
-              ),
-              const SizedBox(height: 4),
-              const Text(
-                'Good Evening, Chef.',
-                style: TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.w900, letterSpacing: -1.0),
-              ),
-              const SizedBox(height: 24),
-
-              // Daily Culinary Briefing
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'DAILY CULINARY BRIEFING',
-                    style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 1.5),
-                  ),
-                  const Text(
-                    'SYSTEM: OPTIMIZED',
-                    style: TextStyle(color: Color(0xFF00FF66), fontSize: 10, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              
-              ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-                  child: Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.05),
-                      border: Border.all(color: Colors.white.withOpacity(0.1)),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(child: _buildBriefingStat(Icons.sync_alt, 'BIO-SYNC', 'Needs ${requiredProtein}g Protein', const Color(0xFF00FF66), 0.6)),
-                            const SizedBox(width: 8),
-                            Expanded(child: _buildBriefingStat(Icons.timer, 'FRESHNESS', '$urgentCount Items Critical', const Color(0xFFFF3333), urgentCount > 0 ? 0.8 : 0.1)),
-                            const SizedBox(width: 8),
-                            Expanded(child: _buildBriefingStat(Icons.event_note, 'SCHEDULE', 'Gym @ 19:00', const Color(0xFFFF8C00), 0.3)),
-                          ],
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          '"Chef, metabolic recovery suggests a high-protein, low-sodium dinner tonight using your expiring ingredients."',
-                          style: TextStyle(color: Colors.white.withOpacity(0.4), fontSize: 12, fontStyle: FontStyle.italic),
-                        ),
-                      ],
-                    ),
+              if (_prefs != null && _prefs!.householdMembers.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 24),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.family_restroom, color: Colors.white54, size: 16),
+                      const SizedBox(width: 8),
+                      Text('Cooking for ${_prefs!.householdMembers.where((m) => m.isIncludedInSharedMeals).length} people today', style: const TextStyle(color: Colors.white54, fontSize: 13, fontWeight: FontWeight.bold)),
+                    ],
                   ),
                 ),
-              ),
-              
-              const SizedBox(height: 32),
 
-              // The Perfect Match Hero Card
+              // Action 1: What to cook tonight (The Perfect Match)
               if (_perfectMatch != null) ...[
+                const Text('Top Suggestion', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                const SizedBox(height: 12),
+                _buildEditorialHeroCard(_perfectMatch!),
+                const SizedBox(height: 32),
+              ],
+
+              // Action 2: What must be used (Rescue Now)
+              if (urgentCount > 0) ...[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'THE PERFECT MATCH',
-                      style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 1.5),
-                    ),
-                    const Text(
-                      'FLAVOR DNA OPTIMIZED',
-                      style: TextStyle(color: Color(0xFFFF8C00), fontSize: 10, fontWeight: FontWeight.bold),
-                    ),
+                    const Text('Rescue Now', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                    Text('$urgentCount Expiring', style: const TextStyle(color: Color(0xFFFF3333), fontSize: 13, fontWeight: FontWeight.bold)),
                   ],
                 ),
-                const SizedBox(height: 8),
-                _buildEditorialHeroCard(_perfectMatch!),
-              ] else ...[
-                // Empty state handled elegantly
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(32.0),
-                    child: Column(
+                const SizedBox(height: 12),
+                ..._items.where((i) => i.isUrgent).take(3).map((item) => 
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 8),
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFFF3333).withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: const Color(0xFFFF3333).withOpacity(0.3)),
+                    ),
+                    child: Row(
                       children: [
-                        Icon(Icons.inventory_2_outlined, size: 48, color: Colors.white.withOpacity(0.2)),
-                        const SizedBox(height: 16),
-                        Text('Pantry is fully optimal. No rescue matches needed.', style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: 12)),
+                        const Icon(Icons.warning_amber, color: Color(0xFFFF3333), size: 16),
+                        const SizedBox(width: 12),
+                        Expanded(child: Text(item.name, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                        Text('${item.daysRemaining} days left', style: const TextStyle(color: Color(0xFFFF3333), fontSize: 12)),
                       ],
                     ),
-                  ),
-                )
+                  )
+                ).toList(),
+                const SizedBox(height: 32),
               ],
+
+              // Action 3: What to buy now
+              if (_buyNowCount > 0) ...[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text('Shopping Deficits', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                    Text('$_buyNowCount Urgent', style: const TextStyle(color: Color(0xFFFF8C00), fontSize: 13, fontWeight: FontWeight.bold)),
+                  ],
+                ),
+                const SizedBox(height: 12),
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF151515),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.shopping_cart, color: Color(0xFFFF8C00)),
+                      const SizedBox(width: 16),
+                      const Expanded(child: Text('You have immediate missing ingredients for your planned meals or predictive staples.', style: TextStyle(color: Colors.white70, fontSize: 13))),
+                      const Icon(Icons.chevron_right, color: Colors.white24),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 32),
+              ],
+
+              // Focus Block: Safety Rules (If active)
+              if (_prefs != null && (_prefs!.allergens.isNotEmpty || _prefs!.activeMedicalConditions.isNotEmpty || _prefs!.activeRitualProtocol != 'none')) ...[
+                const Text('Active Guardians', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                const SizedBox(height: 12),
+                Wrap(
+                  spacing: 8, runSpacing: 8,
+                  children: [
+                    if (_prefs!.activeRitualProtocol != 'none')
+                      Chip(label: Text(_prefs!.activeRitualProtocol.toUpperCase()), backgroundColor: const Color(0xFF00FF66).withOpacity(0.1), labelStyle: const TextStyle(color: Color(0xFF00FF66), fontSize: 10, fontWeight: FontWeight.bold)),
+                    ..._prefs!.allergens.map((a) => Chip(label: Text('NO ${a.toUpperCase()}'), backgroundColor: const Color(0xFFFF3333).withOpacity(0.1), labelStyle: const TextStyle(color: Color(0xFFFF3333), fontSize: 10, fontWeight: FontWeight.bold))),
+                    ..._prefs!.activeMedicalConditions.map((m) => Chip(label: Text(m.toUpperCase()), backgroundColor: Colors.white12, labelStyle: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold))),
+                  ],
+                ),
+              ],
+
             ],
           ),
         ),
