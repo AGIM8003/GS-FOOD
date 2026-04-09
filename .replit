@@ -1,0 +1,9 @@
+run = "cd food_guide_app && flutter run -d web-server --web-port 3000 --web-hostname 0.0.0.0"
+compile = "cd food_guide_app && flutter pub get"
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "cd food_guide_app && flutter build web && python3 -m http.server 3000 -d build/web"]
+deploymentTarget = "cloudrun"
