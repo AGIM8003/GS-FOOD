@@ -41,69 +41,7 @@ class PreferencesRepository {
     return UserPreferences.fromMap(map);
   }
 
-  Future<void> setChefPersona(String personaId) async {
-    await _d.insert(
-      _table,
-      {'key': 'chef_persona_id', 'value': personaId},
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
-  }
 
-  Future<void> setHighProtein(bool value) async {
-    await _d.insert(
-      _table,
-      {'key': 'high_protein', 'value': value ? '1' : '0'},
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
-  }
-
-  Future<void> setLowSodium(bool value) async {
-    await _d.insert(
-      _table,
-      {'key': 'low_sodium', 'value': value ? '1' : '0'},
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
-  }
-
-  Future<void> setFamilySafe(bool value) async {
-    await _d.insert(
-      _table,
-      {'key': 'family_safe', 'value': value ? '1' : '0'},
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
-  }
-
-  Future<void> setAllergens(List<String> allergens) async {
-    await _d.insert(
-      _table,
-      {'key': 'allergens', 'value': allergens.join(',')},
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
-  }
-
-  Future<void> setLanguage(String lang) async {
-    await _d.insert(
-      _table,
-      {'key': 'language', 'value': lang},
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
-  }
-
-  Future<void> setRitualProtocol(String protocol) async {
-    await _d.insert(
-      _table,
-      {'key': 'active_ritual_protocol', 'value': protocol},
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
-  }
-
-  Future<void> setMedicalConditions(List<String> conditions) async {
-    await _d.insert(
-      _table,
-      {'key': 'active_medical_conditions', 'value': conditions.join(',')},
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
-  }
 
   Future<void> setLastRevaluationTime(int ms) async {
     await _d.insert(

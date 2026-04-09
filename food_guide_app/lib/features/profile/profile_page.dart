@@ -62,9 +62,18 @@ class _ProfilePageState extends State<ProfilePage> {
     });
   }
 
-  Future<void> _updatePref(Future<void> Function() updateFn) async {
-    await updateFn();
-    await _loadPrefs(); // Reload after update
+  Future<void> _updatePref(UserPreferences Function(UserPreferences current) modifier) async {
+    if (_prefs == null) return;
+    final newPrefs = modifier(_prefs!);
+    
+    // Support-Layer: Unified normalized save. Prevents desyncs by writing the whole governed object.
+    await AppServices.preferences.save(newPrefs);
+    
+    if (mounted) {
+      setState(() {
+        _prefs = newPrefs;
+      });
+    }
   }
 
   @override
@@ -107,76 +116,92 @@ class _ProfilePageState extends State<ProfilePage> {
             _buildActionTile('Active Cooking Mode', Icons.timer, 'Test large stove-side UI.', iconColor: const Color(0xFF00FF66), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ActiveCookingPage(recipeTitle: 'Test Recipe View')))),
           ]),
 
-          _buildSettingsSection('Health Preferences', [
-            _buildSwitchTile(
-              'High Protein Focus', 
-              'Rank meals with greater protein availability.', 
-              _prefs?.highProtein ?? false,
-              (v) => _updatePref(() => AppServices.preferences.setHighProtein(v))
-            ),
-            _buildSwitchTile(
-              'Low Sodium Mode', 
-              'Prioritize recipes leveraging fresh herbs.', 
-              _prefs?.lowSodium ?? false,
-              (v) => _updatePref(() => AppServices.preferences.setLowSodium(v))
-            ),
-            _buildSwitchTile(
-              'Family Safe / Allergy Guard', 
-              'Strict blocking of declared allergens.', 
-              _prefs?.familySafe ?? true,
-              (v) => _updatePref(() => AppServices.preferences.setFamilySafe(v))
-            ),
-          ]),
-
-          _buildSettingsSection('Allergens & Dietary', [
+          _buildSettingsSection('Hard Safety & Dietary Rules', [
             _buildActionTile(
               'Manage Allergens', 
               Icons.warning_amber_rounded, 
               _prefs?.allergens.isEmpty == true 
                   ? 'No allergens declared' 
                   : 'Active: ${_prefs?.allergens.join(", ")}',
+              iconColor: const Color(0xFFFF3333),
               onTap: () {
                 // Future dialog to manage array
               }
             ),
+            _buildSwitchTile(
+              'Family Safe / Allergy Guard', 
+              'Strictly block unsafe ingredients across the app.', 
+              _prefs?.familySafe ?? true,
+              (v) => _updatePref((p) => p.copyWith(familySafe: v))
+            ),
           ]),
 
           _buildCollapsibleSettingsSection(
-            'Guardian Protocols', 
+            'Guardian Protocols (Hard Constraints)', 
             _guardianExpanded,
             () => setState(() => _guardianExpanded = !_guardianExpanded),
             [
-              _buildActionTile(
-                'Active Ritual Protocol', 
-                Icons.add_circle, 
-                _prefs?.activeRitualProtocol.toUpperCase() ?? 'NONE',
-                iconColor: const Color(0xFF00FF66),
-                onTap: _showRitualProtocolSelector,
+              _buildChoiceGroup<String>(
+                title: 'Active Ritual Mode',
+                values: const ['none', 'kosher', 'halal', 'hindu', 'vegan_strict'],
+                labels: const ['None', 'Kosher', 'Halal', 'Hindu', 'Vegan'],
+                selectedValue: _prefs?.activeRitualProtocol ?? 'none',
+                onSelected: (v) => _updatePref((p) => p.copyWith(activeRitualProtocol: v)),
               ),
-              _buildActionTile(
-                'Active Medical Conditions', 
-                Icons.add_circle, 
-                _prefs?.activeMedicalConditions.isNotEmpty == true ? _prefs!.activeMedicalConditions.join(', ').toUpperCase() : 'NONE',
-                iconColor: const Color(0xFFFF3333),
-                onTap: _showMedicalConditionSelector,
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: Divider(color: Colors.white12),
               ),
-              _buildActionTile(
-                'Premium Fitness Sync', 
-                Icons.monitor_heart, 
-                'Sync Apple Health / Connect',
-                iconColor: const Color(0xFF00BFFF),
-                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const FitnessDashboardPage())),
+              _buildMultiSelectGroup(
+                title: 'Active Medical Intercepts',
+                values: const ['diabetes', 'hypertension', 'celiac'],
+                labels: const ['Diabetes', 'Hypertension', 'Celiac'],
+                selectedValues: _prefs?.activeMedicalConditions ?? [],
+                onSelected: (v) => _updatePref((p) => p.copyWith(activeMedicalConditions: v)),
               ),
           ]),
 
-          _buildSettingsSection('System & Language', [
+          _buildSettingsSection('Dietary Optimization (Soft Preferences)', [
+            _buildSwitchTile(
+              'High Protein Focus', 
+              'Suggest meals with greater protein availability.', 
+              _prefs?.highProtein ?? false,
+              (v) => _updatePref((p) => p.copyWith(highProtein: v))
+            ),
+            _buildSwitchTile(
+              'Low Sodium Mode', 
+              'Prioritize recipes leveraging fresh herbs over salt.', 
+              _prefs?.lowSodium ?? false,
+              (v) => _updatePref((p) => p.copyWith(lowSodium: v))
+            ),
+          ]),
+
+          // Premium Features moved logic below Language
+          _buildSettingsSection('System & Intelligence', [
+             _buildActionTile(
+              'Active Persona: ${activePersona.name}', 
+              Icons.face, 
+              'Change Chef style and tone.',
+              iconColor: const Color(0xFF00FF66),
+              onTap: _showPersonaSelector
+            ),
             _buildActionTile(
               'App Language: ${_prefs?.language.toUpperCase() ?? 'EN'}', 
               Icons.language, 
               'Change regional localization.',
+              iconColor: const Color(0xFF00FF66),
               onTap: _showLanguageSelector
             ),
+            _buildActionTile(
+              'Premium Fitness Sync', 
+              Icons.monitor_heart, 
+              'Sync Apple Health / Connect',
+              iconColor: const Color(0xFF00BFFF),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const FitnessDashboardPage())),
+            ),
           ]),
+
+
 
           const SizedBox(height: 32),
           
@@ -275,101 +300,92 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  void _showRitualProtocolSelector() {
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: const Color(0xFF151515),
-      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(24))),
-      builder: (context) {
-        final protocols = ['none', 'kosher', 'halal', 'hindu', 'vegan_strict'];
-        return SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Padding(
-                padding: EdgeInsets.all(20.0),
-                child: Text('Select Guardian Ritual', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
-              ),
-              Flexible(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: protocols.length,
-                  itemBuilder: (context, index) {
-                    final p = protocols[index];
-                    final isActive = _prefs?.activeRitualProtocol == p;
-                    return ListTile(
-                      leading: Icon(Icons.balance, color: isActive ? const Color(0xFF00FF66) : Colors.white54),
-                      title: Text(p.toUpperCase(), style: TextStyle(color: isActive ? Colors.white : Colors.white70, fontWeight: FontWeight.bold)),
-                      trailing: isActive ? const Icon(Icons.check, color: Color(0xFF00FF66)) : null,
-                      onTap: () async {
-                        Navigator.pop(context);
-                        await AppServices.preferences.setRitualProtocol(p);
-                        await _loadPrefs(); 
-                      },
-                    );
-                  },
-                ),
-              )
-            ],
+  Widget _buildChoiceGroup<T>({
+    required String title,
+    required List<T> values,
+    required List<String> labels,
+    required T selectedValue,
+    required ValueChanged<T> onSelected,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: Text(title, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
           ),
-        );
-      }
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: List.generate(values.length, (index) {
+              final isSelected = values[index] == selectedValue;
+              return ChoiceChip(
+                label: Text(labels[index], style: TextStyle(color: isSelected ? Colors.black : Colors.white70, fontSize: 12, fontWeight: isSelected ? FontWeight.bold : FontWeight.normal)),
+                selected: isSelected,
+                selectedColor: const Color(0xFF00FF66),
+                backgroundColor: Colors.white12,
+                onSelected: (bool selected) {
+                  if (selected) onSelected(values[index]);
+                },
+              );
+            }),
+          ),
+        ],
+      ),
     );
   }
 
-  void _showMedicalConditionSelector() {
-    // In a real app this would be a multi-select checkbox list. Keeping simple toggle for demonstration.
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: const Color(0xFF151515),
-      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(24))),
-      builder: (context) {
-        final conditions = ['diabetes', 'hypertension', 'celiac'];
-        return SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Padding(
-                padding: EdgeInsets.all(20.0),
-                child: Text('Select Active Medical Intercepts', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Text('Selecting these will cause the AI to mutate recipes for safety.', style: TextStyle(color: Colors.redAccent, fontSize: 12)),
-              ),
-              Flexible(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: conditions.length,
-                  itemBuilder: (context, index) {
-                    final c = conditions[index];
-                    final currentConditions = _prefs?.activeMedicalConditions ?? [];
-                    final isActive = currentConditions.contains(c);
-                    return ListTile(
-                      leading: Icon(Icons.medical_services, color: isActive ? const Color(0xFFFF3333) : Colors.white54),
-                      title: Text(c.toUpperCase(), style: TextStyle(color: isActive ? Colors.white : Colors.white70, fontWeight: FontWeight.bold)),
-                      trailing: isActive ? const Icon(Icons.check, color: Color(0xFFFF3333)) : null,
-                      onTap: () async {
-                        Navigator.pop(context);
-                        final newList = List<String>.from(currentConditions);
-                        if (isActive) {
-                          newList.remove(c);
-                        } else {
-                          newList.add(c);
-                        }
-                        await AppServices.preferences.setMedicalConditions(newList);
-                        await _loadPrefs(); 
-                      },
-                    );
-                  },
-                ),
-              )
-            ],
+  Widget _buildMultiSelectGroup<T>({
+    required String title,
+    required List<T> values,
+    required List<String> labels,
+    required List<T> selectedValues,
+    required ValueChanged<List<T>> onSelected,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 4.0),
+            child: Text(title, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
           ),
-        );
-      }
+          const Padding(
+            padding: EdgeInsets.only(bottom: 8.0),
+            child: Text('Changes force AI to mutate recipes for safety.', style: TextStyle(color: Color(0xFFFF3333), fontSize: 10, fontStyle: FontStyle.italic)),
+          ),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: List.generate(values.length, (index) {
+              final isSelected = selectedValues.contains(values[index]);
+              return FilterChip(
+                label: Text(labels[index], style: TextStyle(color: isSelected ? Colors.white : Colors.white70, fontSize: 12, fontWeight: isSelected ? FontWeight.bold : FontWeight.normal)),
+                selected: isSelected,
+                selectedColor: const Color(0xFFFF3333).withOpacity(0.8),
+                backgroundColor: Colors.white12,
+                checkmarkColor: Colors.white,
+                onSelected: (bool selected) {
+                  final newList = List<T>.from(selectedValues);
+                  if (selected) {
+                    newList.add(values[index]);
+                  } else {
+                    newList.remove(values[index]);
+                  }
+                  onSelected(newList);
+                },
+              );
+            }),
+          ),
+        ],
+      ),
     );
   }
+
+
 
   void _showPersonaSelector() {
     showModalBottomSheet(
@@ -400,7 +416,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       trailing: isActive ? const Icon(Icons.check, color: Color(0xFF00FF66)) : null,
                       onTap: () {
                         Navigator.pop(context);
-                        _updatePref(() => AppServices.preferences.setChefPersona(p.id));
+                        _updatePref((pref) => pref.copyWith(chefPersonaId: p.id));
                       },
                     );
                   },
@@ -442,9 +458,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       trailing: isActive ? const Icon(Icons.check, color: Color(0xFF00FF66)) : null,
                       onTap: () async {
                         Navigator.pop(context);
-                        await AppServices.preferences.setLanguage(l.code);
+                        _updatePref((p) => p.copyWith(language: l.code));
                         AppServices.languageEngine.setLanguage(l.code);
-                        await _loadPrefs(); // Refresh UI
                       },
                     );
                   },
