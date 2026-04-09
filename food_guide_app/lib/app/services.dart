@@ -9,7 +9,7 @@ import '../data/repositories/shopping_repository.dart';
 import '../data/repositories/meal_plan_repository.dart';
 import '../data/repositories/preferences_repository.dart';
 import '../data/repositories/premium_repositories.dart';
-import '../data/repositories/hardware_repository.dart';
+
 import '../engine/entity_normalizer.dart';
 import '../engine/rule_engine.dart';
 import '../engine/kitchen/expiry_engine.dart';
@@ -46,8 +46,6 @@ class AppServices {
   static late final SustainabilityRepository sustainability;
   static late final CommunityRepository community;
   
-  // Hardware Hub (V6)
-  static late final HardwareRepository hardware;
 
   static late final FoodClassifierTflite foodClassifier;
   static late final RoiDetector roiDetector;
@@ -93,8 +91,7 @@ class AppServices {
     sustainability = SustainabilityRepository();
     community = CommunityRepository();
 
-    // Hardware Repository (V6)
-    hardware = HardwareRepository();
+
 
     // AI & Deterministic Engines
     foodClassifier = FoodClassifierTflite();
