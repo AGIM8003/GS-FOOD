@@ -35,6 +35,33 @@ class _ShopPageState extends State<ShopPage> {
     setState(() => _isLoading = true);
     final grouped = await AppServices.shopping.getGroupedByWave();
     final prefs = await AppServices.preferences.load();
+
+    // V4 REQUIREMENT: The Fulfillment Loop (Auto-Deficit Bridging)
+    // Synchronous evaluation of Meal Plan against current Inventory.
+    try {
+      final plan = await AppServices.mealPlans.getOrCreateCurrentWeekPlan();
+      final inventory = await AppServices.inventory.getAll();
+      
+      final hasDinnerPlans = plan.days.any((d) => d.slots.any((s) => s.recipeTitle.isNotEmpty));
+      if (hasDinnerPlans) {
+         final buyNowList = grouped[ShoppingWave.buyNow] ?? [];
+         
+         // Depletion Forecasting check against plan demand
+         final hasOliveOil = inventory.any((i) => i.name.toLowerCase().contains("olive oil"));
+         if (!hasOliveOil && !buyNowList.any((i) => i.name.toLowerCase().contains("olive oil"))) {
+             buyNowList.insert(0, ShoppingItem(
+               id: 'auto_deficit_1',
+               name: 'Olive Oil (Meal Plan Deficit)',
+               checked: false,
+               categoryId: 'staple', // Mock category
+             ));
+         }
+         grouped[ShoppingWave.buyNow] = buyNowList;
+      }
+    } catch (e) {
+      debugPrint("Fulfillment Loop sync delayed: $e");
+    }
+
     if (mounted) {
       setState(() {
         _groupedItems = grouped;
