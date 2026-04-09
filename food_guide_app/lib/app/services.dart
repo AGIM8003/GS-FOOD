@@ -18,6 +18,7 @@ import '../engine/kitchen/match_engine.dart';
 import '../engine/kitchen/shopping_wave_engine.dart';
 import '../engine/kitchen/generative_recipe_engine.dart';
 import '../engine/kitchen/forecasting_engine.dart';
+import '../engine/kitchen/recipe_importer.dart';
 import '../engine/integration/hardware_sync_engine.dart';
 import '../engine/i18n/online_translator.dart';
 import '../engine/i18n/language_engine.dart';
@@ -63,6 +64,7 @@ class AppServices {
   static late final Explainability explainability;
   static late final PersonaEngine personaEngine;
   static late final AIGenerativeRecipeEngine generativeRecipeEngine;
+  static late final RecipeImporter recipeImporter;
   static late final ForecastingEngine forecastingEngine;
   static late final HardwareSyncEngine hardwareSyncEngine;
   static late final OnlineTranslator onlineTranslator;
@@ -110,6 +112,7 @@ class AppServices {
     explainability = Explainability();
     personaEngine = PersonaEngine();
     generativeRecipeEngine = AIGenerativeRecipeEngine();
+    recipeImporter = RecipeImporter();
     forecastingEngine = ForecastingEngine();
     hardwareSyncEngine = HardwareSyncEngine();
     onlineTranslator = OnlineTranslator();

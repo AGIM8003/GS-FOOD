@@ -9,6 +9,7 @@ import '../../ui/golden_gourmet_scaffold.dart';
 import '../../ui/sanctity_header.dart';
 import '../premium/molecular_flavor_lab_page.dart';
 import 'recipe_detail_sheet.dart';
+import 'import_recipe_page.dart';
 
 /// Production Cook Page.
 ///
@@ -62,6 +63,9 @@ class _CookPageState extends State<CookPage> {
       appBar: SanctityHeader(
         title: 'Cook Now',
         actions: [
+          IconButton(icon: const Icon(Icons.download, color: Color(0xFF00FF66)), onPressed: () {
+             Navigator.push(context, MaterialPageRoute(builder: (_) => const RecipeImportPage()));
+          }),
           IconButton(icon: const Icon(Icons.filter_list, color: Color(0xFF00FF66)), onPressed: () {}),
         ],
       ),
