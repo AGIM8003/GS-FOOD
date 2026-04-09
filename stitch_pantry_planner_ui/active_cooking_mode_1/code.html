@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Active Cooking Mode - GS FOOD</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-primary": "#561f00",
+                    "surface": "#131313",
+                    "surface-container": "#1f1f1f",
+                    "on-tertiary": "#690003",
+                    "background": "#131313",
+                    "tertiary-fixed": "#ffdad5",
+                    "inverse-on-surface": "#303030",
+                    "inverse-surface": "#e2e2e2",
+                    "tertiary-fixed-dim": "#ffb4aa",
+                    "on-tertiary-fixed-variant": "#930005",
+                    "on-surface": "#e2e2e2",
+                    "surface-tint": "#ffb693",
+                    "on-surface-variant": "#e2bfb0",
+                    "secondary-fixed": "#6bff83",
+                    "on-secondary-fixed-variant": "#00531b",
+                    "surface-container-highest": "#353535",
+                    "secondary-fixed-dim": "#00e55b",
+                    "outline": "#a98a7d",
+                    "outline-variant": "#5a4136",
+                    "error": "#ffb4ab",
+                    "on-tertiary-container": "#6a0003",
+                    "primary-fixed-dim": "#ffb693",
+                    "tertiary-container": "#ff6858",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-bright": "#393939",
+                    "on-secondary-fixed": "#002107",
+                    "on-primary-fixed": "#351000",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#572000",
+                    "on-tertiary-fixed": "#410001",
+                    "primary": "#ffb693",
+                    "surface-dim": "#131313",
+                    "on-error": "#690005",
+                    "on-background": "#e2e2e2",
+                    "on-secondary-container": "#007128",
+                    "error-container": "#93000a",
+                    "surface-variant": "#353535",
+                    "primary-container": "#ff6b00",
+                    "secondary-container": "#00fe66",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "on-secondary": "#003911",
+                    "tertiary": "#ffb4aa",
+                    "surface-container-low": "#1b1b1b",
+                    "secondary": "#ebffe6",
+                    "inverse-primary": "#a04100",
+                    "primary-fixed": "#ffdbcc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #000000;
+            color: #e2e2e2;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(25, 25, 25, 0.4);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+        }
+        .glow-text-primary {
+            text-shadow: 0 0 20px rgba(255, 107, 0, 0.6);
+        }
+        .ambient-glow {
+            background: radial-gradient(circle at center, rgba(255, 107, 0, 0.15) 0%, transparent 70%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="overflow-hidden h-screen w-full flex flex-col">
+<!-- Hero Background Layer -->
+<div class="fixed inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 grayscale-[0.3]" data-alt="Close-up of chef hands whisking oil into a dark ceramic bowl with dramatic side lighting and shallow depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqSqTd2IYhiiGopnq4staM7IKo9JxEqgiAojEjZOkHDTeu3ItDjUcU02FClwZi2AvmBHNXvgnIw0f_MWee7lK2329SQ0uME6x1zJyRSvG49kdELsGSeKR2rpOu26jQsgQaCk2CgrjPWgtvYkUhaqerFPZPf81EOJ1e-8cXsie7Usd3skkRRmraxSVx8PdSvjbY4H3xK4UWK5eSFp3H1QyckVwimOTVyTq1FnbPj0yoM_npYkA5w1w34-dK2len3ffnJaml8IYi3fU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/80"></div>
+</div>
+<!-- Top App Bar (Shared Component Style) -->
+<header class="fixed top-0 w-full z-50 bg-[#131313]/80 backdrop-blur-xl shadow-[0_0_20px_rgba(255,107,0,0.1)] flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#FF6B00]" data-icon="restaurant_menu">restaurant_menu</span>
+<div class="flex flex-col">
+<span class="text-[10px] text-white/40 uppercase tracking-[0.2em] font-bold">Active Session</span>
+<h1 class="font-['Inter'] tracking-tight font-bold text-lg uppercase text-white">SMOKED WAGYU TARTARE</h1>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 items-center mr-8">
+<span class="text-[#FF6B00] text-sm font-bold tracking-widest uppercase">Step 4 of 12</span>
+<div class="w-24 h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="w-[33%] h-full bg-[#FF6B00]"></div>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-white" data-icon="settings_voice">settings_voice</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="relative z-10 flex-1 flex flex-col items-center justify-center px-6 pt-24 pb-32">
+<!-- Step Instruction -->
+<div class="text-center max-w-4xl mb-12">
+<span class="text-secondary-fixed-dim text-xs font-black tracking-[0.4em] uppercase mb-4 block">Current Task</span>
+<h2 class="text-4xl md:text-7xl font-black tracking-tighter leading-none text-white uppercase drop-shadow-2xl">
+                EMULSIFY THE <br/>
+<span class="text-primary">TRUFFLE INFUSION</span>
+</h2>
+</div>
+<!-- Central Timer Section -->
+<div class="relative flex flex-col items-center justify-center group">
+<!-- Background Glow -->
+<div class="absolute inset-0 ambient-glow scale-[2.5] opacity-50"></div>
+<div class="glass-panel relative z-10 p-12 rounded-full border border-outline-variant/20 shadow-[0_0_60px_rgba(255,107,0,0.2)] aspect-square flex flex-col items-center justify-center min-w-[280px]">
+<span class="text-white/40 text-[10px] uppercase tracking-[0.3em] font-bold mb-2">Resting Timer</span>
+<div class="text-7xl md:text-8xl font-black tracking-tighter text-[#FF6B00] glow-text-primary tabular-nums">
+                    02:45
+                </div>
+<div class="flex gap-4 mt-6">
+<button class="material-symbols-outlined text-white/60 hover:text-white transition-colors" data-icon="pause">pause</button>
+<button class="material-symbols-outlined text-white/60 hover:text-white transition-colors" data-icon="replay">replay</button>
+</div>
+</div>
+<!-- Side Information: Asymmetric Layout -->
+<div class="absolute -right-16 top-0 hidden lg:block">
+<div class="glass-panel p-6 rounded-lg border border-outline-variant/10 max-w-[200px]">
+<span class="material-symbols-outlined text-secondary-fixed-dim mb-2" data-icon="tempest">storm</span>
+<p class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Target Temp</p>
+<p class="text-xl font-bold">14.5°C</p>
+</div>
+</div>
+<div class="absolute -left-20 bottom-0 hidden lg:block">
+<div class="glass-panel p-6 rounded-lg border border-outline-variant/10 max-w-[200px]">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="opacity">opacity</span>
+<p class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Viscosity</p>
+<p class="text-xl font-bold">Silky</p>
+</div>
+</div>
+</div>
+<!-- Next Action Button (The Ignition) -->
+<div class="fixed bottom-24 left-0 w-full flex justify-center px-6 z-40">
+<button class="group bg-primary-container text-on-primary-container px-12 py-6 rounded-full font-black text-xl uppercase tracking-widest flex items-center gap-4 shadow-[0_20px_40px_rgba(255,107,0,0.4)] active:scale-95 transition-all hover:shadow-[0_25px_50px_rgba(255,107,0,0.6)]">
+                NEXT STEP
+                <span class="material-symbols-outlined font-black transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Shared Component Style) -->
+<nav class="fixed bottom-0 w-full z-50 bg-black/90 backdrop-blur-2xl rounded-t-[32px] shadow-[0_-10px_40px_rgba(255,107,0,0.15)] flex justify-around items-center pt-4 pb-8 px-6">
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-[#00FE66] transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Curate</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#FF6B00] drop-shadow-[0_0_8px_rgba(255,107,0,0.8)] cursor-pointer">
+<span class="material-symbols-outlined" data-icon="eco" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Fresh</span>
+</div>
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-[#00FE66] transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-[#00FE66] transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Profile</span>
+</div>
+</nav>
+<!-- Subtle Edge Gradient Overlays -->
+<div class="fixed inset-0 pointer-events-none z-20">
+<div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black/60 to-transparent"></div>
+<div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black/60 to-transparent"></div>
+</div>
+</body></html>

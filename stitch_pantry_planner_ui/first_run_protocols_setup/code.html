@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GS FOOD | First Run Setup</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800;900&amp;family=Manrope:wght@300;400;600&amp;family=Space_Grotesk:wght@300;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#003911",
+                        "on-secondary-container": "#007128",
+                        "on-secondary-fixed": "#002107",
+                        "inverse-surface": "#e2e2e2",
+                        "on-primary-container": "#572000",
+                        "primary-fixed-dim": "#ffb693",
+                        "secondary-container": "#00fe66",
+                        "inverse-on-surface": "#303030",
+                        "outline-variant": "#5a4136",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-container": "#059eff",
+                        "secondary-fixed": "#6bff83",
+                        "background": "#131313",
+                        "inverse-primary": "#a04100",
+                        "primary-fixed": "#ffdbcc",
+                        "on-tertiary": "#003257",
+                        "surface": "#131313",
+                        "on-primary": "#561f00",
+                        "surface-bright": "#393939",
+                        "surface-variant": "#353535",
+                        "secondary-fixed-dim": "#00e55b",
+                        "on-primary-fixed": "#351000",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#131313",
+                        "primary": "#ffb693",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "outline": "#a98a7d",
+                        "on-secondary-fixed-variant": "#00531b",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-low": "#1b1b1b",
+                        "on-surface-variant": "#e2bfb0",
+                        "on-surface": "#e2e2e2",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#d0e4ff",
+                        "on-tertiary-fixed": "#001d35",
+                        "primary-container": "#ff6b00",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "on-tertiary-container": "#003357",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "surface-container-highest": "#353535",
+                        "secondary": "#ebffe6",
+                        "tertiary": "#9ccaff",
+                        "on-error": "#690005",
+                        "on-background": "#e2e2e2",
+                        "surface-tint": "#ffb693",
+                        "error": "#ffb4ab",
+                        "surface-container": "#1f1f1f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Epilogue"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+body {
+    background-color: #131313;
+    color: #e2e2e2;
+    -webkit-font-smoothing: antialiased
+    }
+.glass-panel {
+    background: rgba(53, 53, 53, 0.4);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px)
+    }
+.rituals-bg {
+    background-image: linear-gradient(rgba(19, 19, 19, 0.9), rgba(19, 19, 19, 0.9)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCjT0z3FHAS3BxJWi15vtNwhVTVCVk9T_rMZQkv4lA9npP3e4A0oYYuSxmv-pqxE09jSQ3MPYcoJCXWJZXe0SFXeLphXHlSHsvyg0MRykqrf3HIsGNDbZ9tj7O1nZBgwpJdLWS1i9qdlpzmGO8tNv5mg7TeN61XepPJ8eK23nIxa39AzvVpAVBQZ3U_ewm1ES6N46xyY80LJO_P8m4MZEFj68bfsUHYUBjKNs9Ph0g8zG94s2z4SRYKAebHRqHliPP22z_ROlkd58E);
+    background-size: cover;
+    background-position: center
+    }
+.glow-orange {
+    box-shadow: 0 0 32px rgba(255, 107, 0, 0.1)
+    }
+.ghost-border {
+    border: 0.5px solid rgba(255, 182, 147, 0.3)
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body rituals-bg min-h-screen pb-32">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-[#131313]/40 backdrop-blur-3xl shadow-[0_0_32px_rgba(255,107,0,0.1)] flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#FF6B00]">close</span>
+</div>
+<div class="font-['Epilogue'] tracking-widest uppercase font-bold text-xl text-[#FF6B00]">GS FOOD</div>
+<div class="font-['Epilogue'] tracking-tighter uppercase font-bold text-sm text-[#FF6B00]">Step 1 of 5</div>
+</header>
+<main class="max-w-4xl mx-auto pt-32 px-6">
+<!-- Language Selector -->
+<div class="flex justify-end mb-16">
+<div class="glass-panel ghost-border px-4 py-2 flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-sm">language</span>
+<span class="font-label text-xs uppercase tracking-widest">English (US)</span>
+<span class="material-symbols-outlined text-xs">expand_more</span>
+</div>
+</div>
+<!-- Hero Branding & Alert -->
+<section class="mb-24 text-center">
+<h1 class="font-headline font-black text-6xl md:text-8xl tracking-tighter mb-8 leading-none">
+                THE <span class="text-primary-container">PROTOCOL</span>
+</h1>
+<div class="max-w-xl mx-auto space-y-6">
+<p class="text-on-surface/70 font-body text-lg leading-relaxed">
+                    Welcome to the digital sanctuary of nourishment. To curate your experience, we require your fundamental medical and ritual constraints.
+                </p>
+<div class="inline-flex items-center gap-3 bg-error-container/20 px-6 py-3 rounded-lg border border-error/20">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-label text-xs uppercase tracking-tighter text-error">Warning: These choices are permanent filters.</span>
+</div>
+</div>
+</section>
+<!-- Main Selection Clusters -->
+<div class="grid grid-cols-1 gap-12">
+<!-- Ritual Protocols Section -->
+<div class="group">
+<div class="flex justify-between items-end mb-6">
+<div>
+<span class="font-label text-xs text-primary/50 tracking-widest uppercase">Protocol 01</span>
+<h2 class="font-headline text-3xl font-bold tracking-tight">Ritual Protocols</h2>
+</div>
+<span class="font-label text-xs text-secondary-container bg-secondary-container/10 px-3 py-1">Active: None</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Protocol Card: Halal -->
+<div class="glass-panel ghost-border p-6 relative overflow-hidden group/card cursor-pointer hover:bg-primary-container/5 transition-all">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-primary-container text-4xl">temple_hindu</span>
+<div class="w-4 h-4 rounded-full border border-primary-container group-hover/card:bg-primary-container transition-colors"></div>
+</div>
+<div class="flex justify-between items-end">
+<div class="font-headline text-xl font-bold uppercase tracking-tighter">Halal</div>
+<div class="font-label text-[10px] uppercase opacity-50">Code: H-LAL</div>
+</div>
+</div>
+<!-- Protocol Card: Vegan -->
+<div class="glass-panel ghost-border p-6 relative overflow-hidden group/card cursor-pointer hover:bg-primary-container/5 transition-all">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-primary-container text-4xl">eco</span>
+<div class="w-4 h-4 rounded-full border border-primary-container"></div>
+</div>
+<div class="flex justify-between items-end">
+<div class="font-headline text-xl font-bold uppercase tracking-tighter">Vegan</div>
+<div class="font-label text-[10px] uppercase opacity-50">Code: V-GAN</div>
+</div>
+</div>
+<!-- Protocol Card: Kosher -->
+<div class="glass-panel ghost-border p-6 relative overflow-hidden group/card cursor-pointer hover:bg-primary-container/5 transition-all">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-primary-container text-4xl">synagogue</span>
+<div class="w-4 h-4 rounded-full border border-primary-container"></div>
+</div>
+<div class="flex justify-between items-end">
+<div class="font-headline text-xl font-bold uppercase tracking-tighter">Kosher</div>
+<div class="font-label text-[10px] uppercase opacity-50">Code: K-SHR</div>
+</div>
+</div>
+<!-- Protocol Card: Hindu -->
+<div class="glass-panel ghost-border p-6 relative overflow-hidden group/card cursor-pointer hover:bg-primary-container/5 transition-all border-primary-container/10">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-primary-container text-4xl">shrine</span>
+<div class="w-4 h-4 rounded-full border border-primary-container"></div>
+</div>
+<div class="flex justify-between items-end">
+<div class="font-headline text-xl font-bold uppercase tracking-tighter">Hindu</div>
+<div class="font-label text-[10px] uppercase opacity-50">Code: H-NDU</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Health Conditions Section -->
+<div class="group mt-8">
+<div class="flex justify-between items-end mb-6">
+<div>
+<span class="font-label text-xs text-primary/50 tracking-widest uppercase">Protocol 02</span>
+<h2 class="font-headline text-3xl font-bold tracking-tight">Health Conditions</h2>
+</div>
+<span class="font-label text-xs text-secondary-container bg-secondary-container/10 px-3 py-1">Active: Healthy</span>
+</div>
+<div class="space-y-4">
+<!-- Expanded Medical Entry -->
+<div class="glass-panel p-8 ghost-border group/medical cursor-pointer hover:shadow-[0_0_20px_rgba(255,107,0,0.05)] transition-all">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary-container" style="font-size: 32px">bloodtype</span>
+<div>
+<h3 class="font-headline text-xl font-bold uppercase tracking-widest">Diabetes Management</h3>
+<p class="font-body text-sm text-on-surface/50">Filters for glycemic load and insulin-spike triggers.</p>
+</div>
+</div>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+<!-- Standard Medical Entry -->
+<div class="glass-panel p-8 ghost-border group/medical cursor-pointer transition-all">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary-container" style="font-size: 32px">monitor_heart</span>
+<div>
+<h3 class="font-headline text-xl font-bold uppercase tracking-widest">Hypertension Protocol</h3>
+<p class="font-body text-sm text-on-surface/50">Sodium-restricted architecture for cardiovascular safety.</p>
+</div>
+</div>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+<!-- Standard Medical Entry -->
+<div class="glass-panel p-8 ghost-border group/medical cursor-pointer transition-all">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary-container" style="font-size: 32px">fitness_center</span>
+<div>
+<h3 class="font-headline text-xl font-bold uppercase tracking-widest">Weight Management</h3>
+<p class="font-body text-sm text-on-surface/50">Caloric precision with macro-nutrient balancing.</p>
+</div>
+</div>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Accents/Visuals -->
+<div class="mt-32 grid grid-cols-2 gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
+<img class="h-64 w-full object-cover rounded-lg" data-alt="extreme close-up of vibrant orange spices and herbs on a dark basalt surface with cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyukjSv90lTRfAM0UDiuGWXv0TbkJruQDYEkQQKeNZ2KXTpayN5Joqfk8SbyuNkCJsuXelllbxrRsWj7TArTXd1WtKEI_NgjvVNrsZBD6wBfu1-cRkSdTsrJCVA8FxpuAX8XpSeoyy8isUQytSYiX9yA7xP0HujoSpUi5vrLiXSl-PAcRxJr9_kaKCzNKIUS9wPdFGl6Tr9kpYoNAf4OId1BOako4BLLdgTVeDBai_8iFHMQVFj_XyldrqQVHdEnL4vxeDPwagyIQ"/>
+<img class="h-64 w-full object-cover rounded-lg" data-alt="architectural shot of minimalist organic food arrangement with dramatic shadows and deep black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY1XUbLxcqN7wzLRLj7pqhQGRQdZ3P0l1IiiJHkhFYPb77bCutrUwKgtN_dgFxkm-IZxd7HmZzOe6GWylF6pr91eG-f8qC-KxHqmXqbW8cRnraohRO-echpGQH6z4EBzGsvbfXu3xP_AiJKmgWb654AK9H19yBsIOMakyq2kWSvnda7bkBwJ9T2xEyjhYfMLNQ3gxwuB3HUHk23KUYWMnKDqeGsKt9RrQ5TnfCQ-wSgO_XAaG6WMg_wRvUmylIHsSa4hR5qKiW3V8"/>
+</div>
+</main>
+<!-- Bottom Navigation Anchor -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-8 pb-8 bg-[#131313]/60 backdrop-blur-2xl h-24 rounded-t-xl shadow-[0_-10px_40px_rgba(0,0,0,0.8)]">
+<div class="flex flex-col items-center justify-center text-gray-400 px-6 cursor-pointer hover:bg-[#FF6B00]/10 transition-all group">
+<span class="material-symbols-outlined text-2xl group-active:scale-95 transition-transform">arrow_back</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Back</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#FF6B00] text-black rounded-sm px-10 py-4 font-bold cursor-pointer hover:bg-[#FF6B00]/90 transition-all active:scale-[0.98] duration-200">
+<div class="flex items-center gap-3">
+<span class="font-['Space_Grotesk'] text-[14px] uppercase tracking-widest font-bold">Save &amp; Continue</span>
+<span class="material-symbols-outlined">east</span>
+</div>
+</div>
+</nav>
+</body></html>

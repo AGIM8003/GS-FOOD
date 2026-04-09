@@ -20,7 +20,7 @@ class AppDatabase {
   }
 
   /// Bump on schema changes; keep [onUpgrade] in sync.
-  static const _version = 8;
+  static const _version = 9;
 
   Future<void> open() async {
     if (kIsWeb) {
@@ -41,6 +41,7 @@ class AppDatabase {
         await _createV6(db);
         await _createV7(db);
         await _createV8(db);
+        await _createV9(db);
       },
       onUpgrade: (db, oldVersion, newVersion) async {
         if (oldVersion < 2) {
@@ -63,6 +64,9 @@ class AppDatabase {
         }
         if (oldVersion < 8) {
           await _createV8(db);
+        }
+        if (oldVersion < 9) {
+          await _createV9(db);
         }
       },
     );
@@ -227,6 +231,43 @@ class AppDatabase {
       CREATE TABLE IF NOT EXISTS user_preferences (
         key TEXT PRIMARY KEY,
         value TEXT NOT NULL
+      )
+    ''');
+  }
+
+  /// Premium Stitch features (V5 production upgrade).
+  static Future<void> _createV9(Database db) async {
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS wine_inventory (
+        id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        type TEXT NOT NULL DEFAULT '',
+        vintage TEXT NOT NULL DEFAULT '',
+        region TEXT NOT NULL DEFAULT '',
+        pairing_notes TEXT NOT NULL DEFAULT '',
+        quantity INTEGER NOT NULL DEFAULT 1,
+        added_at INTEGER NOT NULL
+      )
+    ''');
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS sustainability_logs (
+        id TEXT PRIMARY KEY,
+        action_type TEXT NOT NULL,
+        waste_saved_kg REAL NOT NULL DEFAULT 0.0,
+        carbon_neutralized_kg REAL NOT NULL DEFAULT 0.0,
+        money_saved REAL NOT NULL DEFAULT 0.0,
+        logged_at INTEGER NOT NULL
+      )
+    ''');
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS community_posts (
+        id TEXT PRIMARY KEY,
+        chef_name TEXT NOT NULL,
+        chef_avatar_url TEXT,
+        title TEXT NOT NULL,
+        description TEXT NOT NULL,
+        likes INTEGER NOT NULL DEFAULT 0,
+        posted_at INTEGER NOT NULL
       )
     ''');
   }

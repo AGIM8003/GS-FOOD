@@ -1,0 +1,30 @@
+# GS FOOD: "Golden Grade" System Integration & Implementation Guide v3
+
+## 1. Core Architecture: The "Safe-Consumption" Engine
+The system must move beyond simple filtering. It requires a hard-coded "Protocol Layer" that intercepts every inventory scan, recipe match, and shopping trigger.
+
+### 1.1 Ritual Dietary Compliance (KOSHER / HALAL / HINDU)
+- **Logic:** Cross-reference ingredient barcodes with Global Rabbinical or Halal certification databases.
+- **Visuals:** Use a "Sanctity Seal" on item cards. For Kosher, implement the "Meat/Dairy Separation" logic in the pantry scanner—alerting the user if dairy is stored too close to meat if the "Strict" setting is active.
+- **Action:** Block "Non-Compliant" recipes and shopping suggestions automatically.
+
+### 1.2 Clinical Medical Nutrition (DIABETES / HYPERTENSION / WEIGHT)
+- **Logic:** Integration with Continuous Glucose Monitors (CGM) or Apple Health/Google Fit.
+- **Visuals:** Real-time "Glycemic Impact" forecast for every planned meal.
+- **Guidance:** Automatic "Medical Substitution" suggestions (e.g., "Replace White Rice with Cauliflower Rice to prevent 20:00 Glucose Spike").
+
+## 2. Implementation Steps for AI Agents
+To implement these improvements, follow this sequence:
+
+1.  **Protocol Selection:** Use the `Chef Persona` onboarding screen to capture "Hard Restrictions" (Ritual) and "Medical Conditions" (Health).
+2.  **Inventory Metadata:** Enrich the `My Food` data structure with `certification_status` and `glycemic_index` tags.
+3.  **The "Safety Intercept" (Cook):** Before displaying `Recipe Matches`, the AI agent must run a `Protocol Check`. If a recipe violates a "Hard Restriction," it is removed. If it violates a "Medical Condition," it is flagged with a "Warning: Medical Impact" label and offered a substitution.
+4.  **Shopping Logic:** `Activity-Driven Shopping` must prioritize `Restock for Condition` (e.g., high-magnesium items for hypertension recovery).
+
+## 3. SOTA Feature: "The Virtual Sommelier of Health"
+Instead of just showing "Fat" or "Carbs," show "Impact on your specific condition." 
+- For Overweight: Show "Satiety Index" and "Caloric Density" visualizations.
+- For Heart Health: Show "Inflammatory Score" and "Sodium/Potassium Balance" radar charts.
+
+---
+*End of Guide*

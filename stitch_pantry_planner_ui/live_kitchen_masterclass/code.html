@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#131313",
+                    "surface-container-highest": "#353535",
+                    "on-primary-fixed": "#351000",
+                    "tertiary-fixed-dim": "#ffb4aa",
+                    "primary-fixed": "#ffdbcc",
+                    "inverse-surface": "#e2e2e2",
+                    "inverse-on-surface": "#303030",
+                    "on-tertiary-fixed-variant": "#930005",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-surface-variant": "#e2bfb0",
+                    "on-secondary-fixed-variant": "#00531b",
+                    "on-error": "#690005",
+                    "surface-container-low": "#1b1b1b",
+                    "surface-bright": "#393939",
+                    "primary-fixed-dim": "#ffb693",
+                    "secondary": "#ebffe6",
+                    "on-primary": "#561f00",
+                    "tertiary": "#ffb4aa",
+                    "error": "#ffb4ab",
+                    "inverse-primary": "#a04100",
+                    "surface-container-high": "#2a2a2a",
+                    "outline-variant": "#5a4136",
+                    "on-primary-container": "#572000",
+                    "surface": "#131313",
+                    "secondary-fixed-dim": "#00e55b",
+                    "surface-container": "#1f1f1f",
+                    "background": "#131313",
+                    "primary": "#ffb693",
+                    "on-secondary": "#003911",
+                    "on-background": "#e2e2e2",
+                    "error-container": "#93000a",
+                    "tertiary-fixed": "#ffdad5",
+                    "on-secondary-fixed": "#002107",
+                    "on-tertiary": "#690003",
+                    "secondary-container": "#00fe66",
+                    "primary-container": "#ff6b00",
+                    "secondary-fixed": "#6bff83",
+                    "surface-variant": "#353535",
+                    "on-surface": "#e2e2e2",
+                    "tertiary-container": "#ff6858",
+                    "on-tertiary-fixed": "#410001",
+                    "surface-tint": "#ffb693",
+                    "outline": "#a98a7d",
+                    "on-secondary-container": "#007128",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-container": "#6a0003"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .chef-glow {
+            box-shadow: 0 0 15px rgba(0, 254, 102, 0.3);
+        }
+        .pulse-secondary {
+            animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 1; filter: brightness(1); }
+            50% { opacity: 0.7; filter: brightness(1.3); }
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-lowest text-on-surface font-body overflow-hidden h-screen w-screen selection:bg-primary-container selection:text-white">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-black/40 backdrop-blur-xl shadow-[0_4px_30px_rgba(255,107,0,0.1)]">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-white" data-icon="close">close</span>
+</button>
+<h1 class="font-['Inter'] font-black tracking-tighter uppercase text-2xl text-[#FF6B00]">LIVE KITCHEN</h1>
+</div>
+<div class="flex items-center gap-3">
+<div class="bg-tertiary-container/20 border border-tertiary-container/30 px-3 py-1 rounded-full flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span>
+<span class="font-label text-xs font-bold tracking-widest text-tertiary-container uppercase">Live</span>
+<span class="text-xs text-white/70 font-medium">1.2k Viewers</span>
+</div>
+<img alt="Chef" class="w-10 h-10 rounded-full border-2 border-primary-container object-cover" data-alt="Professional executive chef headshot with black uniform and focused expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcvN_mkfQ733e1wDehKiwUMRmkmBmufP2s3_cd-kWgXkaMFiBezZz_9vPZkGD3JukwM-SKoxKYqI357pAf9KJE0ptXpr_MEWnIJ0wq1hp17gR8gDjL5VW7ESjv3O5tMgivbyK0d_g3tVLshj5Mpie2ebrtCkRL5w3CYwMUsdMuiyPhC5anRFO7aqVEMQ7h2fh1GSScQkPjhMoMqOBaPPoG_kfnxNXPNCgJIS4bcrgqWK3oW-kOGRJlmpyZPsEOyOXlWPnIP2IsRF8"/>
+</div>
+</header>
+<!-- Main Immersive Content -->
+<main class="relative h-screen w-screen flex flex-col md:flex-row bg-black">
+<!-- Video Feed Container -->
+<div class="relative flex-1 h-full overflow-hidden bg-surface-lowest">
+<img alt="Live Feed" class="absolute inset-0 w-full h-full object-cover opacity-80" data-alt="Cinematic wide shot of a professional kitchen with steam rising from a pan, warm overhead lighting, and gourmet ingredients spread out on a dark counter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsJSysAdt27tdYijEkirDwXVgL59O23hcrMSG66fP1u9SyOERA2rKwXAbFqoaXYz9QSbiFyQrq7lwU2Hwt81GaOUMaUSBtjWV2YuHU9os3wPXWny2ZtJlc4n_8dkM1ChCYVwchrGlJzAtkfcpnXIQ2VRRBiHj7haq2HEG6rDN1M7aYqu3QZLy8DjxeNY3hHAhByVMTc8J6GgGqw5mGtjm0E--cYIrV6wCTAbRjN_TgLtMZCT6KxDcgwmjVBDUUigoymFf8DlQgtWc"/>
+<!-- Floating Overlay: Voice Help -->
+<button class="absolute top-24 left-6 z-20 group flex items-center gap-3 bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold shadow-[0_10px_30px_rgba(255,107,0,0.4)] active:scale-95 transition-all">
+<span class="material-symbols-outlined group-hover:rotate-12 transition-transform" data-icon="mic">mic</span>
+<span class="font-label uppercase tracking-widest text-sm">Voice Help</span>
+</button>
+<!-- Bottom Sheet: Current Step & AI Timer -->
+<div class="absolute bottom-10 left-6 right-6 md:right-auto md:w-[600px] z-30">
+<div class="glass-panel p-8 rounded-lg border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
+<div class="flex flex-col gap-6">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="text-secondary-container font-label text-xs font-black uppercase tracking-[0.2em]">Step 4 of 12</span>
+<h2 class="text-3xl font-black text-white leading-tight">Searing the Wagyu</h2>
+</div>
+<div class="flex flex-col items-end gap-1">
+<div class="flex items-center gap-3 bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-lg" data-icon="shutter_speed">shutter_speed</span>
+<span class="text-xl font-black tabular-nums">04:20</span>
+</div>
+<span class="text-[10px] uppercase tracking-widest text-white/40 font-bold">AI Prediction Accuracy: 98%</span>
+</div>
+</div>
+<p class="text-white/70 text-lg leading-relaxed max-w-lg">
+                            Ensure the pan is smoking hot. Place the steak away from you and let the Maillard reaction develop for 2 minutes per side. <span class="text-primary font-bold">Do not move the meat.</span>
+</p>
+<div class="flex gap-2 h-1 mt-2">
+<div class="flex-1 bg-white/20 rounded-full overflow-hidden">
+<div class="h-full w-full bg-secondary-container rounded-full"></div>
+</div>
+<div class="flex-1 bg-white/20 rounded-full"></div>
+<div class="flex-1 bg-white/20 rounded-full"></div>
+<div class="flex-1 bg-white/10 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar: Live Chat -->
+<aside class="w-full md:w-[380px] h-[40%] md:h-full bg-black/60 backdrop-blur-2xl border-l border-white/5 flex flex-col z-40">
+<div class="p-6 border-b border-white/5">
+<h3 class="font-bold text-white uppercase tracking-widest text-xs flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container text-sm" data-icon="chat_bubble">chat_bubble</span>
+                    Community Chat
+                </h3>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-6 no-scrollbar">
+<!-- Chat Message: User -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="text-white/40 font-bold text-[10px] uppercase tracking-wider">Marco_V</span>
+<span class="text-white/20 text-[10px]">19:04</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl rounded-tl-none border border-white/5">
+<p class="text-sm text-white/80">The marbling on that cut is insane! Where did you source it?</p>
+</div>
+</div>
+<!-- Chat Message: Chef -->
+<div class="flex flex-col gap-1 items-start">
+<div class="flex items-center gap-2">
+<span class="text-secondary-container font-black text-[10px] uppercase tracking-[0.15em] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                            Chef Julian
+                        </span>
+<span class="bg-secondary-container/10 text-secondary-container text-[8px] px-1.5 rounded uppercase font-bold border border-secondary-container/20">Host</span>
+</div>
+<div class="bg-secondary-container/10 p-4 rounded-2xl rounded-tl-none border border-secondary-container/20 chef-glow">
+<p class="text-sm text-secondary-container font-medium">This is A5 Grade from Kagoshima Prefecture. Today we are focusing on the dry-aging technique.</p>
+</div>
+</div>
+<!-- Chat Message: User -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="text-white/40 font-bold text-[10px] uppercase tracking-wider">Elena_Gourmet</span>
+<span class="text-white/20 text-[10px]">19:06</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl rounded-tl-none border border-white/5">
+<p class="text-sm text-white/80">Can I substitute with a high-end ribeye if I can't find Wagyu locally? 🥩</p>
+</div>
+</div>
+<!-- Chat Message: User -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="text-white/40 font-bold text-[10px] uppercase tracking-wider">FoodiePhil</span>
+<span class="text-white/20 text-[10px]">19:07</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl rounded-tl-none border border-white/5">
+<p class="text-sm text-white/80">The AI timer is so helpful for someone like me who always overcooks steak lol</p>
+</div>
+</div>
+</div>
+<!-- Chat Input -->
+<div class="p-6 bg-surface-container-low/50">
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-high border-none rounded-full py-4 pl-6 pr-14 text-sm text-white placeholder:text-white/20 focus:ring-1 focus:ring-primary-container transition-all" placeholder="Join the conversation..." type="text"/>
+<button class="absolute right-2 p-2 bg-primary-container text-on-primary-container rounded-full hover:scale-105 active:scale-90 transition-all shadow-lg">
+<span class="material-symbols-outlined text-lg" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</aside>
+</main>
+<!-- Bottom Nav Anchor (Responsive) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-[#131313]/80 backdrop-blur-2xl rounded-t-[32px] shadow-[0_-8px_40px_rgba(0,0,0,0.5)]">
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-white transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest mt-1">Feed</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#FF6B00] drop-shadow-[0_0_8px_rgba(255,107,0,0.6)] active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="live_tv" style="font-variation-settings: 'FILL' 1;">live_tv</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest mt-1">Events</span>
+</div>
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-white transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="wine_bar">wine_bar</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest mt-1">Cellar</span>
+</div>
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-white transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest mt-1">Concierge</span>
+</div>
+</nav>
+</body></html>

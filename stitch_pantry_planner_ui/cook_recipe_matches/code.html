@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Nocturnal Chef - Cook</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#131313",
+                    "primary-container": "#ff6b00",
+                    "inverse-primary": "#a04100",
+                    "on-tertiary-fixed": "#410001",
+                    "tertiary-fixed": "#ffdad5",
+                    "surface-container": "#1f1f1f",
+                    "tertiary-fixed-dim": "#ffb4aa",
+                    "surface-bright": "#393939",
+                    "on-tertiary-container": "#6a0003",
+                    "on-secondary-fixed-variant": "#00531b",
+                    "primary": "#ffb693",
+                    "outline-variant": "#5a4136",
+                    "on-primary-fixed": "#351000",
+                    "background": "#131313",
+                    "secondary-fixed": "#6bff83",
+                    "inverse-surface": "#e2e2e2",
+                    "surface-dim": "#131313",
+                    "on-secondary-container": "#007128",
+                    "surface-variant": "#353535",
+                    "on-tertiary": "#690003",
+                    "tertiary": "#ffb4aa",
+                    "surface-container-low": "#1b1b1b",
+                    "on-primary": "#561f00",
+                    "on-surface-variant": "#e2bfb0",
+                    "on-secondary-fixed": "#002107",
+                    "on-tertiary-fixed-variant": "#930005",
+                    "surface-tint": "#ffb693",
+                    "on-secondary": "#003911",
+                    "error-container": "#93000a",
+                    "inverse-on-surface": "#303030",
+                    "secondary-container": "#00fe66",
+                    "secondary": "#ebffe6",
+                    "on-surface": "#e2e2e2",
+                    "surface-container-high": "#2a2a2a",
+                    "primary-fixed-dim": "#ffb693",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "on-error": "#690005",
+                    "secondary-fixed-dim": "#00e55b",
+                    "surface-container-highest": "#353535",
+                    "primary-fixed": "#ffdbcc",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#572000",
+                    "tertiary-container": "#ff6858",
+                    "on-background": "#e2e2e2",
+                    "outline": "#a98a7d",
+                    "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-transparent">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-orange-500 text-2xl">menu</span>
+<h1 class="font-['Inter'] text-2xl font-black tracking-tighter uppercase text-orange-500 drop-shadow-[0_0_10px_rgba(255,107,0,0.5)]">GS FOOD</h1>
+</div>
+<div class="w-10 h-10 rounded-full border border-white/20 overflow-hidden">
+<img alt="User Profile" data-alt="Close-up portrait of a professional chef in a dark kitchen setting, soft moody lighting, high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJenebjSyPpZa7ln75uZygR1ZC7fcczjstqWqFIlZA4Wcu9zTrWXZFjtKYuXQ_pMeh5-oLyVJ9m6D7ISjVmuzigyuUzJWL5yKYmA1CSaKIXIdN66RohsJzVa2NzDC7tcmB8jBabLge744uZh5DxSxmEmqvTf_o1WqVPMuWCe20Fzkhkp8vSv1klF43Jq5OolVI23k3RQVQJFC_OOf3tg4UoZOdW_mStJ1-kTGKEqNagTMajj6uZiRkCNhNWHhpr2qHU9QJG5dDr_U"/>
+</div>
+</div>
+</header>
+<main class="pt-28 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Editorial Header -->
+<section class="mb-12">
+<h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-4 leading-none">CRAFTED FOR<br/><span class="text-primary">YOUR PALATE.</span></h2>
+<p class="text-on-surface-variant max-w-md text-lg leading-relaxed">Personalized matches based on your inventory and culinary style.</p>
+</section>
+<!-- Filter Chips -->
+<div class="flex gap-3 overflow-x-auto no-scrollbar mb-10 pb-2">
+<button class="bg-secondary-container text-on-secondary-container px-6 py-3 rounded-full font-bold text-sm tracking-wide transition-all scale-105 shadow-[0_0_15px_rgba(0,254,102,0.3)]">All Matches</button>
+<button class="bg-surface-container-highest text-on-surface px-6 py-3 rounded-full font-bold text-sm tracking-wide hover:bg-surface-bright transition-colors">Italian</button>
+<button class="bg-surface-container-highest text-on-surface px-6 py-3 rounded-full font-bold text-sm tracking-wide hover:bg-surface-bright transition-colors">High Protein</button>
+<button class="bg-surface-container-highest text-on-surface px-6 py-3 rounded-full font-bold text-sm tracking-wide hover:bg-surface-bright transition-colors">Under 30m</button>
+<button class="bg-surface-container-highest text-on-surface px-6 py-3 rounded-full font-bold text-sm tracking-wide hover:bg-surface-bright transition-colors">Plant Based</button>
+</div>
+<!-- Bento Grid Recipes -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Hero Card: 95% Match -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-lg bg-surface-container-low p-1">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container/20 to-transparent pointer-events-none"></div>
+<div class="relative h-[500px] rounded-lg overflow-hidden glass-card flex flex-col justify-end p-8">
+<div class="absolute top-0 right-0 p-8">
+<div class="flex flex-col items-end">
+<span class="text-6xl font-black text-primary drop-shadow-2xl">98%</span>
+<span class="text-[10px] font-bold tracking-widest uppercase text-primary-container">Match Rate</span>
+</div>
+</div>
+<div class="absolute top-8 left-8">
+<span class="bg-tertiary-container text-on-tertiary-container px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                            Uses your expiring Salmon
+                        </span>
+</div>
+<img alt="Miso Salmon" class="absolute inset-0 w-full h-full object-cover -z-10 opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="Exquisite plating of seared salmon with vibrant miso glaze, dark slate background, professional culinary lighting, steam rising" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI7ghCc4p4PDGa2IWf6dl7wSVB3pbGJEynQibugGRERPzxh1T_GmKRjHhfcnQbZZ0edpnx1QbDCnkUOpL-k_oQeFJssKL9CxjNbc7sycQrIPpRhoe5pjVZKYk-MU13NfLb0zvgFH8cwu3DMalbgA7jEg8VsruL24KKFOOqdFgv0koJg6EPU3dcnczyp7rUNYfPRhVf0cvqBi_CxhE2FQvPmKBy3NO8-kDA67zwOaqU8n-4XtCsf1dueg-Ko98wjKR-0TnDhi26gl0"/>
+<div class="relative">
+<h3 class="text-5xl font-black tracking-tighter mb-4 max-w-lg">PAN-SEARED MISO SALMON WITH BOK CHOY</h3>
+<div class="flex gap-6 mb-6">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-primary tracking-widest uppercase">Prep</span>
+<span class="text-lg font-medium">12 MIN</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-primary tracking-widest uppercase">Energy</span>
+<span class="text-lg font-medium">450 KCAL</span>
+</div>
+</div>
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-full font-black text-sm tracking-widest uppercase shadow-[0_10px_30px_rgba(255,107,0,0.3)] hover:scale-105 active:scale-95 transition-all">START COOKING</button>
+</div>
+</div>
+</div>
+<!-- Secondary Card -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-lg bg-surface-container-low border border-white/5">
+<div class="h-[500px] flex flex-col">
+<div class="relative h-2/3 overflow-hidden">
+<img alt="Poke Bowl" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Overhead shot of a colorful healthy grain bowl with avocado, tuna, and sesame seeds on a matte black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTdQwOZ8l8g4GFHewoF9Pt0WHMxVK0MCBeyToJ7dGSI8vm5oKMRuDznEUaE1mK6sgq8ZrMb_hc9jhVTkEGzUKYF6n5fCzyZO2sMPhNe1RxpkzZDcu3yQrTUeEcqZED1NlrsQv-3SiJyqp5z2KeJZyAuXz1c7-Eo8iwZ02wGxmK7apN3WeIU6YqN9SyfcEqGyMRGPjfFHl9FsUkiK8VLDorpWNHxoWsjsWs2DEUqOudSfRcwaUHX_XSYBJxNsp9NHp92EJx1we6xx0"/>
+<div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-white font-black text-xs">92% MATCH</div>
+</div>
+<div class="p-6 flex flex-col justify-between flex-grow">
+<div>
+<span class="text-[10px] font-bold text-secondary-container tracking-widest uppercase mb-2 block">High Protein</span>
+<h4 class="text-xl font-bold tracking-tight mb-2 uppercase">Ahi Tuna Poke Bowl with Ginger</h4>
+<p class="text-sm text-on-surface-variant line-clamp-2">Matches your love for raw seafood and fresh greens.</p>
+</div>
+<div class="mt-4 flex justify-between items-center">
+<span class="text-xs font-bold opacity-50 tracking-widest">20 MIN</span>
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Asymmetric Grid Row -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-lg bg-surface-container-low border border-white/5">
+<div class="h-[400px] flex flex-col">
+<div class="relative h-1/2 overflow-hidden">
+<img alt="Pasta" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Rustic Italian pasta dish with tomatoes and basil, low key dramatic lighting, moody aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAdv0wiA4IBNkrPEdwP5Rxk261thd9n8szZ56NsojV9Lc9ARejixFOPmCFlamC9orJ3cYacEdTSeHj9-kCywqRwH49aLZJAfH_gjhG97jPQuvDfQU2uQy0HG5W57olwCJz1QGnEfDqbVMVoiUix8wF3mRCH_ldDFaZioGY3q_lLa4fk4RKJEVl-OmPXfl4l9vuvJftxESfpaDI9EGuQItiTLyo-SpoYLZQK37zxyydx1bXlMPRAeq0wf_N_JakLfoh7o7RepP54b4"/>
+<div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-white font-black text-xs">88% MATCH</div>
+</div>
+<div class="p-6">
+<span class="text-[10px] font-bold text-orange-400 tracking-widest uppercase mb-2 block">Italian Night</span>
+<h4 class="text-xl font-bold tracking-tight mb-2 uppercase">Wild Mushroom Linguine</h4>
+<p class="text-sm text-on-surface-variant">Uses your heavy cream before it expires tomorrow.</p>
+</div>
+</div>
+</div>
+<div class="md:col-span-8 group relative overflow-hidden rounded-lg glass-card border border-white/5">
+<div class="h-[400px] flex flex-col md:flex-row">
+<div class="md:w-1/2 h-full">
+<img alt="Steak" class="w-full h-full object-cover group-hover:brightness-110 transition-all duration-700" data-alt="Medium rare grilled ribeye steak with rosemary sprig, dark cast iron background, cinematic high-contrast lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1ftIh1byCX-pOjizMabF9zfNOEBlA4sZmxXFcHYqSrUCPMcfoOXnXZ1pfeiZKdd69zyQTdOOeRgMzCRoL9cxmByU_Xec8b7E5zC1jKgDtN-lMLkchA5EXtSxVG4aV6xZ47lnOzy-mHiA52MDMKNGCDxt4A2KmLwJ2ZsqD4fRvqrZ3heeMexoPu_Stq5BkfwMxjNy1HDjdI4SphRnnq6Tb2m_nfoA5MxhzGNMI222h9a6MFBwxvy8tBLeEaOwuIHp1EeKjlpTa7MM"/>
+</div>
+<div class="md:w-1/2 p-10 flex flex-col justify-center">
+<div class="mb-4">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">Weekend Special</span>
+</div>
+<h4 class="text-3xl font-black tracking-tighter mb-4 uppercase">Herb-Crusted Tomahawk</h4>
+<p class="text-on-surface-variant mb-8 leading-relaxed">A professional-grade dish for your collection. Matches your 'Culinary Explorer' status.</p>
+<div class="flex items-center gap-4">
+<div class="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[85%]"></div>
+</div>
+<span class="text-xs font-black text-primary">85%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full px-6 py-4 flex justify-between items-center bg-black/40 backdrop-blur-2xl border-t border-white/10 z-50 rounded-t-[32px] shadow-[0_-8px_30px_rgba(255,107,0,0.1)]">
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">My Food</span>
+</div>
+<!-- ACTIVE TAB: COOK -->
+<div class="flex flex-col items-center justify-center text-orange-500 scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings_voice</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">Cook</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">Plan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">Shop</span>
+</div>
+</nav>
+<!-- FAB (Suppressed on Details/Transactional, kept here for Home/Main Explore states as per mandate) -->
+<button class="fixed bottom-24 right-6 w-16 h-16 bg-primary-container rounded-full flex items-center justify-center shadow-[0_15px_40px_rgba(255,107,0,0.4)] hover:scale-110 active:scale-90 transition-all z-40">
+<span class="material-symbols-outlined text-white text-3xl">add</span>
+</button>
+</body></html>

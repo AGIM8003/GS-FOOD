@@ -1,0 +1,32 @@
+# GS FOOD: "Golden Grade" Technical Implementation & Protocol Blueprint v4
+
+## 1. The "Protocol Intercept" Engine (Core Logic)
+To implement the ritual and medical compliance requested, the application must move from "Display-Only" to "Logic-Enforcement."
+
+### 1.1 Persistent Global State
+- **Variable:** `active_protocol_profile`
+- **Scope:** Global App State (persisted to user DB).
+- **Function:** When `KOSHER` or `HALAL` is toggled in `{{DATA:SCREEN:SCREEN_44}}`, this ID is sent to the backend. Every subsequent API call for `recipes`, `shopping_items`, or `pantry_matches` MUST include this profile ID. The backend then filters out non-compliant items *before* the UI receives data.
+
+### 1.2 The "Binary Check" Scanner (Green/Red Logic)
+- **Feature:** Instant Ritual Validation.
+- **Logic:** When scanning a barcode (via `{{DATA:SCREEN:SCREEN_34}}`), the system performs a `Ritual Check`.
+    - **Green Result:** `certification_match == true`. UI displays a glowing green halo and a "COMPLIANT" badge.
+    - **Red Result:** `certification_match == false`. UI displays a vibrating red pulse and a "NON-COMPLIANT" warning with the reason (e.g., "Contains Non-Kosher Gelatin").
+
+## 2. Dynamic UI Reconfiguration
+The application must visually signal that it is in a "Protected State."
+
+### 2.1 The "Sanctity Header"
+- Every screen must show the active protocol in the `TopAppBar`. If "Kosher" is active, the header displays a gold "KOSHER ACTIVE" badge. This serves as a constant confirmation of the "Permanent" choice requested.
+
+### 2.2 Medical Guided Shopping
+- **Logic:** If `DIABETES` is active, the `SHOP` wave logic (`{{DATA:SCREEN:SCREEN_52}}`) prioritizes low-glycemic items and auto-flags high-sugar items with a red warning even if they are on a shopping list.
+
+## 3. Developer Guidance for AI Agents
+- **Metadata Tagging:** Every item in the food database must have a `ritual_tags` array (e.g., `["kosher_mehadrin", "halal_certified", "vegan"]`).
+- **Safety Intercepts:** Implement a middleware in the coding layer that rejects any `pantry.add()` operation if the item tags do not match the `active_protocol_profile`.
+- **Substitution Engine:** If a recipe is 90% compliant but contains one non-compliant item, the AI must trigger a `get_compliant_substitution()` call instead of just showing the recipe as invalid.
+
+## 4. Purpose Integration
+The goal is **User Safety and Peace of Mind**. The intelligence is not just in the data, but in the *prevention* of error. The "Red/Green" scanner is the ultimate expression of this—reducing cognitive load for the user by making the app the ultimate authority on their specific rules.

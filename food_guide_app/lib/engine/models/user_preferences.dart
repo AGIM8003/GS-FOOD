@@ -11,6 +11,8 @@ class UserPreferences {
     this.maxCookMinutes = 60,
     this.servings = 2,
     this.language = 'en',
+    this.activeRitualProtocol = 'none',
+    this.activeMedicalConditions = const [],
   });
 
   final String chefPersonaId;
@@ -23,6 +25,8 @@ class UserPreferences {
   final int maxCookMinutes;
   final int servings;
   final String language;
+  final String activeRitualProtocol;
+  final List<String> activeMedicalConditions;
 
   bool isAllergen(String ingredient) {
     final lower = ingredient.toLowerCase();
@@ -40,6 +44,8 @@ class UserPreferences {
     'max_cook_minutes': maxCookMinutes,
     'servings': servings,
     'language': language,
+    'active_ritual_protocol': activeRitualProtocol,
+    'active_medical_conditions': activeMedicalConditions.join(','),
   };
 
   factory UserPreferences.fromMap(Map<String, dynamic> m) => UserPreferences(
@@ -53,6 +59,8 @@ class UserPreferences {
     maxCookMinutes: (m['max_cook_minutes'] as int?) ?? 60,
     servings: (m['servings'] as int?) ?? 2,
     language: (m['language'] as String?) ?? 'en',
+    activeRitualProtocol: (m['active_ritual_protocol'] as String?) ?? 'none',
+    activeMedicalConditions: _splitList(m['active_medical_conditions']),
   );
 
   static List<String> _splitList(dynamic v) {
@@ -73,6 +81,8 @@ class UserPreferences {
     int? maxCookMinutes,
     int? servings,
     String? language,
+    String? activeRitualProtocol,
+    List<String>? activeMedicalConditions,
   }) => UserPreferences(
     chefPersonaId: chefPersonaId ?? this.chefPersonaId,
     allergens: allergens ?? this.allergens,
@@ -84,5 +94,7 @@ class UserPreferences {
     maxCookMinutes: maxCookMinutes ?? this.maxCookMinutes,
     servings: servings ?? this.servings,
     language: language ?? this.language,
+    activeRitualProtocol: activeRitualProtocol ?? this.activeRitualProtocol,
+    activeMedicalConditions: activeMedicalConditions ?? this.activeMedicalConditions,
   );
 }

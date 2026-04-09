@@ -12,6 +12,7 @@ Future<void> main() async {
   // Initialize Database and Services
   await AppDatabase.instance.open();
   AppServices.register();
+  await AppServices.languageEngine.init();
 
   if (!kIsWeb) {
     await registerPackWorkmanager();

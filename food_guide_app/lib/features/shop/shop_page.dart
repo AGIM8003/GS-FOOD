@@ -2,7 +2,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../../app/services.dart';
+import 'dart:convert';
 import '../../engine/models/shopping_item.dart';
+import '../premium/origin_trace_modal.dart';
+import '../../ui/golden_gourmet_scaffold.dart';
+import '../../ui/sanctity_header.dart';
 
 /// Production Shopping Page.
 ///
@@ -18,6 +22,8 @@ class ShopPage extends StatefulWidget {
 class _ShopPageState extends State<ShopPage> {
   Map<ShoppingWave, List<ShoppingItem>> _groupedItems = {};
   bool _isLoading = true;
+  bool _isCheckingOut = false;
+  List<String> _activeMedicalConditions = [];
 
   @override
   void initState() {
@@ -28,9 +34,11 @@ class _ShopPageState extends State<ShopPage> {
   Future<void> _loadData() async {
     setState(() => _isLoading = true);
     final grouped = await AppServices.shopping.getGroupedByWave();
+    final prefs = await AppServices.preferences.load();
     if (mounted) {
       setState(() {
         _groupedItems = grouped;
+        _activeMedicalConditions = prefs.activeMedicalConditions;
         _isLoading = false;
       });
     }
@@ -43,12 +51,10 @@ class _ShopPageState extends State<ShopPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GoldenGourmetScaffold(
       backgroundColor: const Color(0xFF000000), // OLED Black
-      appBar: AppBar(
-        title: const Text('Shopping Waves', style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w900, letterSpacing: -0.5)),
-        elevation: 0,
-        backgroundColor: Colors.transparent,
+      appBar: const SanctityHeader(
+        title: 'Shopping Waves',
       ),
       body: SafeArea(
         child: _isLoading 
@@ -96,6 +102,31 @@ class _ShopPageState extends State<ShopPage> {
                         const Color(0xFF00BFFF), // Stable Blue
                         ShoppingWave.bulkRestock.description
                       ),
+
+                    if (_groupedItems.values.any((l) => l.isNotEmpty)) ...[
+                      const SizedBox(height: 16),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF00FF66),
+                              foregroundColor: Colors.black,
+                              padding: const EdgeInsets.symmetric(vertical: 18),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                            ),
+                            icon: _isCheckingOut 
+                                ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.black))
+                                : const Icon(Icons.shopping_bag),
+                            label: Text(_isCheckingOut ? 'Calculating...' : '1-Click API Checkout (Predictive)', 
+                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)
+                            ),
+                            onPressed: _isCheckingOut ? null : _triggerOneClickCheckout,
+                          ),
+                        ),
+                      )
+                    ],
                       
                     if (_groupedItems.values.every((l) => l.isEmpty))
                       const Padding(
@@ -160,20 +191,45 @@ class _ShopPageState extends State<ShopPage> {
               padding: const EdgeInsets.only(bottom: 12.0),
               child: InkWell(
                 onTap: () => _toggleItem(item),
+                onLongPress: () {
+                   showModalBottomSheet(
+                      context: context, 
+                      isScrollControlled: true,
+                      backgroundColor: Colors.transparent,
+                      builder: (_) => OriginTraceModal(itemName: item.name)
+                   );
+                },
                 child: Row(
                   children: [
                     Icon(item.checked ? Icons.check_circle : Icons.radio_button_unchecked, 
                          color: item.checked ? const Color(0xFF00FF66) : Colors.white38, size: 24),
                     const SizedBox(width: 12),
                     Expanded(
-                      child: Text(
-                        '${item.name} ${item.displayQuantity.isNotEmpty ? "(${item.displayQuantity})" : ""}', 
-                        style: TextStyle(
-                          color: item.checked ? Colors.white38 : Colors.white, 
-                          fontSize: 16, 
-                          fontWeight: FontWeight.w600,
-                          decoration: item.checked ? TextDecoration.lineThrough : null
-                        )
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${item.name} ${item.displayQuantity.isNotEmpty ? "(${item.displayQuantity})" : ""}', 
+                            style: TextStyle(
+                              color: item.checked ? Colors.white38 : Colors.white, 
+                              fontSize: 16, 
+                              fontWeight: FontWeight.w600,
+                              decoration: item.checked ? TextDecoration.lineThrough : null
+                            )
+                          ),
+                          if (_activeMedicalConditions.isNotEmpty && !item.checked)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 4.0),
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                decoration: BoxDecoration(color: const Color(0xFFFF3333).withOpacity(0.2), borderRadius: BorderRadius.circular(4)),
+                                child: Text(
+                                  'Bio-Sync: Intercept required for ${_activeMedicalConditions.first.toUpperCase()}', 
+                                  style: const TextStyle(color: Color(0xFFFF3333), fontSize: 10, fontWeight: FontWeight.bold)
+                                ),
+                              ),
+                            )
+                        ],
                       ),
                     ),
                   ],
@@ -184,5 +240,47 @@ class _ShopPageState extends State<ShopPage> {
         ),
       ),
     );
+  }
+
+  Future<void> _triggerOneClickCheckout() async {
+    setState(() => _isCheckingOut = true);
+    try {
+      final inventory = await AppServices.inventory.getAll();
+      
+      // Flatten current unchecked shopping items
+      final allUnchecked = _groupedItems.values.expand((element) => element).where((i) => !i.checked).toList();
+      
+      final payload = await AppServices.forecastingEngine.generateCheckoutPayload(allUnchecked, inventory);
+      final jsonStr = const JsonEncoder.withIndent('  ').convert(payload);
+
+      if (mounted) {
+        showDialog(context: context, builder: (_) => AlertDialog(
+          backgroundColor: const Color(0xFF111111),
+          title: const Text('Cart Prediction Export', style: TextStyle(color: Color(0xFF00FF66), fontWeight: FontWeight.bold)),
+          content: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('AI successfully forecasted staple depletion and grouped active manual items. Ready for Instacart API:', style: TextStyle(color: Colors.white70)),
+                const SizedBox(height: 16),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Colors.black,
+                  child: Text(jsonStr, style: const TextStyle(color: Color(0xFF00FF66), fontFamily: 'monospace', fontSize: 12)),
+                )
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Execute Webhook', style: TextStyle(color: Color(0xFF00FF66)))
+            )
+          ],
+        ));
+      }
+    } finally {
+      if (mounted) setState(() => _isCheckingOut = false);
+    }
   }
 }

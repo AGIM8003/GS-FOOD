@@ -88,4 +88,20 @@ class PreferencesRepository {
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
+
+  Future<void> setRitualProtocol(String protocol) async {
+    await _d.insert(
+      _table,
+      {'key': 'active_ritual_protocol', 'value': protocol},
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<void> setMedicalConditions(List<String> conditions) async {
+    await _d.insert(
+      _table,
+      {'key': 'active_medical_conditions', 'value': conditions.join(',')},
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
 }

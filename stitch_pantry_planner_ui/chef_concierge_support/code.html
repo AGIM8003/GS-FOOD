@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#131313",
+                    "surface-container-highest": "#353535",
+                    "on-primary-fixed": "#351000",
+                    "tertiary-fixed-dim": "#ffb4aa",
+                    "primary-fixed": "#ffdbcc",
+                    "inverse-surface": "#e2e2e2",
+                    "inverse-on-surface": "#303030",
+                    "on-tertiary-fixed-variant": "#930005",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-surface-variant": "#e2bfb0",
+                    "on-secondary-fixed-variant": "#00531b",
+                    "on-error": "#690005",
+                    "surface-container-low": "#1b1b1b",
+                    "surface-bright": "#393939",
+                    "primary-fixed-dim": "#ffb693",
+                    "secondary": "#ebffe6",
+                    "on-primary": "#561f00",
+                    "tertiary": "#ffb4aa",
+                    "error": "#ffb4ab",
+                    "inverse-primary": "#a04100",
+                    "surface-container-high": "#2a2a2a",
+                    "outline-variant": "#5a4136",
+                    "on-primary-container": "#572000",
+                    "surface": "#131313",
+                    "secondary-fixed-dim": "#00e55b",
+                    "surface-container": "#1f1f1f",
+                    "background": "#131313",
+                    "primary": "#ffb693",
+                    "on-secondary": "#003911",
+                    "on-background": "#e2e2e2",
+                    "error-container": "#93000a",
+                    "tertiary-fixed": "#ffdad5",
+                    "on-secondary-fixed": "#002107",
+                    "on-tertiary": "#690003",
+                    "secondary-container": "#00fe66",
+                    "primary-container": "#ff6b00",
+                    "secondary-fixed": "#6bff83",
+                    "surface-variant": "#353535",
+                    "on-surface": "#e2e2e2",
+                    "tertiary-container": "#ff6858",
+                    "on-tertiary-fixed": "#410001",
+                    "surface-tint": "#ffb693",
+                    "outline": "#a98a7d",
+                    "on-secondary-container": "#007128",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-container": "#6a0003"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #000000; font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 182, 147, 0.1); }
+        .glow-border { box-shadow: 0 0 15px rgba(255, 107, 0, 0.1); border: 1px solid rgba(255, 107, 0, 0.2); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface antialiased overflow-hidden h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full shadow-[0_4px_30px_rgba(255,107,0,0.1)]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#FF6B00]">menu</span>
+<h1 class="font-['Inter'] font-black tracking-tighter uppercase text-2xl text-[#FF6B00]">GS FOOD</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-right hidden sm:block">
+<p class="text-[10px] uppercase tracking-widest text-white/50 font-bold">Concierge Active</p>
+<p class="text-xs font-bold text-white">Chef Julian</p>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-primary-container overflow-hidden">
+<img alt="Chef Profile Picture" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional executive chef in a white uniform with a confident expression in a dimly lit high-end kitchen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWCBnH1BqWbjTjhaGyZGqVyKOnb_DpY9AE54LjeTVbLBN-EYR3pwEGojVkBtrQsAl7pbsYFgZYvGDOaAQDIkDe_7WS44ycq63oCpY-K09BAvInFggS6iYP8bFQ_f3uhndTUteaGWvXUbgJwJ7AjwKyg8vHa0Xb-F1xwW-t9ydVq8Sx-MplaUhWuHbekIcUuhGyAduohLblyel6t1DTyfoGbZjkY8X2s7_PwAg0r4GfnKsYZbCOpI_aT5VcANhMo0UNx9IbRYa5NzU"/>
+</div>
+</div>
+</header>
+<!-- Main Chat Canvas -->
+<main class="flex-1 mt-20 mb-28 px-4 overflow-y-auto no-scrollbar max-w-4xl mx-auto w-full flex flex-col gap-8 py-6">
+<!-- Welcome Section -->
+<div class="text-center pt-8 pb-4">
+<div class="w-24 h-24 mx-auto rounded-full p-1 bg-gradient-to-tr from-primary-container to-secondary-container mb-6">
+<div class="w-full h-full rounded-full overflow-hidden bg-black">
+<img class="w-full h-full object-cover" data-alt="Close-up of a Master Sommelier pouring red wine into a crystal glass with soft dramatic lighting reflecting off the glass." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ1jLWCwp0pvR3dU2rTIJXfmU30rAo6MruyzF4svDgdmJ_gZB7bEwo_Dhq8i-7kVU_jc8yLQWiVURDAsNUh1Xz3WBCUagAkpF8ymivOOg8SkWaZuzHPz4VGz9HJObdH-3Rr_ZV3C8S0izzynQfQd1vUBEGjKbEkNqNNsVQx--Xhtz9xRejh1U7IVx9mDQ2RjIEIFpCKz-HKTmr-D-rQ0CNaPGMvbGJSEs0Gnpqxx_A1QGKyBnsyNgSLb4qM3vuYdszJl5qwS6TBn8"/>
+</div>
+</div>
+<h2 class="text-3xl font-black tracking-tighter mb-2">Chef Concierge</h2>
+<p class="text-white/60 text-sm max-w-xs mx-auto font-medium">Your private line to master chefs and sommeliers for tonight's service.</p>
+</div>
+<!-- Chat History -->
+<div class="space-y-6">
+<!-- System/Chef Message -->
+<div class="flex flex-col items-start max-w-[85%]">
+<div class="glass-panel glow-border rounded-t-xl rounded-br-xl p-4">
+<p class="text-sm leading-relaxed">Good evening. I'm Julian, your dedicated Master Chef for tonight. I see you're looking at the <span class="text-secondary-fixed-dim font-bold">Wagyu A5 Striploin</span>. Would you like a wine pairing recommendation or perhaps some insight into our sourcing?</p>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-white/30 mt-2 ml-1">Chef Julian • 19:42</span>
+</div>
+<!-- User Message -->
+<div class="flex flex-col items-end max-w-[85%] self-end">
+<div class="bg-primary-container/10 border border-primary-container/30 rounded-t-xl rounded-bl-xl p-4">
+<p class="text-sm text-primary-fixed leading-relaxed">I'm interested in the sourcing. Is the marbling consistent with the Miyazakigyu region?</p>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-white/30 mt-2 mr-1">You • 19:44</span>
+</div>
+<!-- Chef Detailed Response with Image -->
+<div class="flex flex-col items-start max-view-[90%]">
+<div class="glass-panel glow-border rounded-t-xl rounded-br-xl overflow-hidden">
+<div class="p-4 space-y-4">
+<p class="text-sm leading-relaxed">Absolutely. Our current selection is Grade A5 from the Miyazaki Prefecture. Here is a live shot of the specific cut we have reserved for your table tonight.</p>
+<div class="rounded-lg overflow-hidden h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="Close-up of raw A5 Wagyu beef with intricate white marbling on a dark slate background with professional studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIiGLiQNcM5RjuljJII29JXOdzaVPemIOlfd7ZNUp41vhNHHwpR_wvilXuIFHlmxpgmGNlOK_hxDjQ2F5FNqGoUQFWvHAMJ-Y3QqARAlTJLlf5Z6Zzf6JkqV8IW2RNHfLmImaOFKToXCxER6Qy7w1wfDv_sFy-rIdRUtgScWTmB4ZQE9Whs_zYCBD_wgZPxmzw4IjCdJpVem2mMncjZgvUNTRbgiflFohrmSEcC754ys24uk7JJQNRBmefrnXUyCR-ny1BriGY7Y8"/>
+</div>
+<p class="text-sm italic text-white/70">Notice the BMS (Beef Marbling Score) of 11—it's exceptionally buttery.</p>
+</div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-white/30 mt-2 ml-1">Chef Julian • 19:45</span>
+</div>
+</div>
+<!-- Quick Action Chips -->
+<div class="flex flex-wrap gap-2 justify-center py-4">
+<button class="bg-surface-container-highest/50 border border-white/5 px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-white/80 hover:bg-primary-container/20 hover:border-primary-container/50 transition-all active:scale-95">
+                Ingredient Sourcing
+            </button>
+<button class="bg-surface-container-highest/50 border border-white/5 px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-white/80 hover:bg-primary-container/20 hover:border-primary-container/50 transition-all active:scale-95">
+                Technique Help
+            </button>
+<button class="bg-surface-container-highest/50 border border-white/5 px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-white/80 hover:bg-primary-container/20 hover:border-primary-container/50 transition-all active:scale-95">
+                Order Status
+            </button>
+<button class="bg-secondary-container/10 border border-secondary-container/30 px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-secondary-fixed-dim hover:bg-secondary-container/20 transition-all active:scale-95">
+                Sommelier Call
+            </button>
+</div>
+</main>
+<!-- Bottom Chat Input -->
+<div class="fixed bottom-24 left-0 w-full px-4 z-50">
+<div class="max-w-4xl mx-auto glass-panel p-2 rounded-full flex items-center gap-2 glow-border">
+<button class="w-10 h-10 flex items-center justify-center text-white/40 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-sm text-white placeholder:text-white/20 px-2" placeholder="Inquire about ingredients, techniques..." type="text"/>
+<button class="bg-primary-container text-on-primary-container w-10 h-10 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(255,107,0,0.4)] active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-[#131313]/80 backdrop-blur-2xl rounded-t-[32px] shadow-[0_-8px_40px_rgba(0,0,0,0.5)]">
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-white transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest mt-1">Feed</span>
+</div>
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-white transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">live_tv</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest mt-1">Events</span>
+</div>
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-white transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">wine_bar</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest mt-1">Cellar</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#FF6B00] drop-shadow-[0_0_8px_rgba(255,107,0,0.6)] active:scale-90 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest mt-1">Concierge</span>
+</div>
+</nav>
+</body></html>

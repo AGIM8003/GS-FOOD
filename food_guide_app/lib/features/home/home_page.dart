@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../../core/i18n.dart';
+import '../../ui/golden_gourmet_scaffold.dart';
+import '../../ui/sanctity_header.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,12 +16,10 @@ class HomePage extends StatelessWidget {
       {'name': 'Eggs', 'location': 'Door Bins', 'daysLeft': 14, 'critical': false, 'icon': Icons.egg},
     ];
 
-    return Scaffold(
+    return GoldenGourmetScaffold(
       backgroundColor: Colors.black, // OLED Mode
-      appBar: AppBar(
-        title: Text(I18n.get('storage.title', fallback: 'My Pantry Inventory'), style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w900, letterSpacing: -0.5)),
-        elevation: 0,
-        backgroundColor: Colors.transparent,
+      appBar: SanctityHeader(
+        title: I18n.get('storage.title', fallback: 'My Pantry Inventory'),
       ),
       body: SafeArea(
         child: ListView.builder(
@@ -28,7 +28,14 @@ class HomePage extends StatelessWidget {
           itemBuilder: (context, index) {
             final item = _mockInventory[index];
             final isCritical = item['critical'] as bool;
-            final expirationColor = isCritical ? Colors.redAccent.shade400 : Colors.greenAccent.shade400;
+            final daysLeft = item['daysLeft'] as int;
+            
+            // Calculate simulated Freshness Decay (14 days = 100% quality)
+            final double freshnessRatio = (daysLeft / 14).clamp(0.0, 1.0);
+            
+            final decayColor = isCritical 
+                ? const Color(0xFFFF3333) // Deep Red 
+                : freshnessRatio > 0.5 ? const Color(0xFF00FF66) : const Color(0xFFFF8C00);
 
             return Padding(
               padding: const EdgeInsets.only(bottom: 16.0),
@@ -41,17 +48,17 @@ class HomePage extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.04),
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: expirationColor.withOpacity(0.5), width: isCritical ? 2.0 : 1.0),
+                      border: Border.all(color: decayColor.withOpacity(0.5), width: isCritical ? 2.0 : 1.0),
                       boxShadow: [
-                         if (isCritical) BoxShadow(color: expirationColor.withOpacity(0.1), blurRadius: 20)
+                         if (isCritical) BoxShadow(color: decayColor.withOpacity(0.1), blurRadius: 20)
                       ]
                     ),
                     child: Row(
                       children: [
                         Container(
                           height: 56, width: 56,
-                          decoration: BoxDecoration(color: expirationColor.withOpacity(0.15), shape: BoxShape.circle),
-                          child: Icon(item['icon'] as IconData, color: expirationColor, size: 28),
+                          decoration: BoxDecoration(color: decayColor.withOpacity(0.15), shape: BoxShape.circle),
+                          child: Icon(item['icon'] as IconData, color: decayColor, size: 28),
                         ),
                         const SizedBox(width: 16),
                         Expanded(
@@ -64,13 +71,24 @@ class HomePage extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text('${item['daysLeft']} Days', style: TextStyle(color: expirationColor, fontSize: 20, fontWeight: FontWeight.w900, letterSpacing: -0.5)),
-                            const SizedBox(height: 2),
-                            const Text('Remaining', style: TextStyle(color: Colors.white54, fontSize: 11, fontWeight: FontWeight.w600)),
-                          ],
+                        Expanded(
+                          flex: 3,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text('${(freshnessRatio * 100).toInt()}%', style: TextStyle(color: decayColor, fontSize: 18, fontWeight: FontWeight.w900, letterSpacing: -0.5)),
+                              const SizedBox(height: 4),
+                              LinearProgressIndicator(
+                                value: freshnessRatio,
+                                backgroundColor: Colors.white12,
+                                valueColor: AlwaysStoppedAnimation<Color>(decayColor),
+                                borderRadius: BorderRadius.circular(10),
+                                minHeight: 6,
+                              ),
+                              const SizedBox(height: 4),
+                              Text('Quality Index', style: TextStyle(color: Colors.white.withOpacity(0.4), fontSize: 9, fontWeight: FontWeight.bold)),
+                            ],
+                          ),
                         )
                       ],
                     ),

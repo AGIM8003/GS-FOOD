@@ -90,6 +90,19 @@ class AIOrchestrator {
     }
   }
 
+  /// Direct raw instruction bypassing normal messaging routing, for internal engine features.
+  Future<String> instructEngineDirect(String prompt) async {
+    if (!providers.hasAnyProvider) {
+      throw Exception('No AI providers configured for generative engine.');
+    }
+    final response = await providers.executeWithFailover(
+      '',
+      systemPrompt: prompt,
+      config: {'temperature': 0.8, 'max_tokens': 1024},
+    );
+    return response.text;
+  }
+
   /// Classify user intent from message.
   UserIntent _classifyIntent(String message) {
     final lower = message.toLowerCase();

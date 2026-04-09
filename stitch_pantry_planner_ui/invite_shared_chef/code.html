@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#a98a7d",
+                        "on-surface-variant": "#e2bfb0",
+                        "on-tertiary": "#690003",
+                        "surface-container": "#1f1f1f",
+                        "secondary-container": "#00fe66",
+                        "on-primary-fixed": "#351000",
+                        "on-primary": "#561f00",
+                        "tertiary-fixed-dim": "#ffb4aa",
+                        "on-tertiary-container": "#6a0003",
+                        "secondary-fixed": "#6bff83",
+                        "on-error": "#690005",
+                        "on-background": "#e2e2e2",
+                        "surface-container-highest": "#353535",
+                        "outline-variant": "#5a4136",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "inverse-primary": "#a04100",
+                        "surface-variant": "#353535",
+                        "on-secondary-container": "#007128",
+                        "on-secondary": "#003911",
+                        "primary-fixed": "#ffdbcc",
+                        "surface-dim": "#131313",
+                        "surface-tint": "#ffb693",
+                        "on-tertiary-fixed": "#410001",
+                        "primary-container": "#ff6b00",
+                        "background": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-container": "#ff6858",
+                        "on-tertiary-fixed-variant": "#930005",
+                        "tertiary-fixed": "#ffdad5",
+                        "surface-bright": "#393939",
+                        "secondary-fixed-dim": "#00e55b",
+                        "inverse-surface": "#e2e2e2",
+                        "on-primary-container": "#572000",
+                        "surface": "#131313",
+                        "error": "#ffb4ab",
+                        "primary": "#ffb693",
+                        "on-secondary-fixed-variant": "#00531b",
+                        "tertiary": "#ffb4aa",
+                        "on-surface": "#e2e2e2",
+                        "surface-container-low": "#1b1b1b",
+                        "surface-container-high": "#2a2a2a",
+                        "on-secondary-fixed": "#002107",
+                        "secondary": "#ebffe6",
+                        "primary-fixed-dim": "#ffb693",
+                        "inverse-on-surface": "#303030"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#000000] text-on-background font-body min-h-screen selection:bg-primary-container/30">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/20">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="close-up portrait of a professional chef in a white uniform against a dark atmospheric kitchen background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4bZaqPWdjaVGfT-LRI3D8xDhJ1CiczruXVAq8YPa9OmBnvljVcztZp2fbo766TKPYsOvid6YQCVIwOj01a4gZn7N46uSPNs4q6_rhg5hgaKp6xGYCdjheLbsnwQzqrsP5fXYbLtHmVNa5EofHvigGTdQD8_Tx_5gM_teYtJ6wIRrfR7t9_xufASfeatgDnoCd4rVYQ7nmjcu6EbzH6pWMnfdTfyRIhnnC7jUr72bAQSVf5ai1O1ULtL-bqZsgSgXwd0x3VVCOr64"/>
+</div>
+<span class="text-2xl font-black tracking-tighter text-[#FF6B00] drop-shadow-[0_0_10px_rgba(255,107,0,0.4)] uppercase">GS FOOD</span>
+</div>
+<button class="text-[#FFB693] hover:text-white transition-colors active:scale-95 active:duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-lg mx-auto relative overflow-hidden">
+<!-- Background Ambient Glows -->
+<div class="absolute top-20 -left-20 w-64 h-64 bg-primary-container/20 blur-[100px] rounded-full"></div>
+<div class="absolute bottom-40 -right-20 w-64 h-64 bg-secondary-container/10 blur-[100px] rounded-full"></div>
+<!-- Illustration Section -->
+<div class="relative mb-12 flex justify-center">
+<div class="absolute -inset-4 bg-primary-container/5 blur-2xl rounded-full"></div>
+<div class="relative w-72 h-72">
+<img alt="Two chefs collaborating" class="w-full h-full object-cover rounded-xl shadow-[0_0_50px_rgba(255,107,0,0.2)] grayscale contrast-125 brightness-75 border border-white/5" data-alt="two professional chefs in modern black uniforms high-fiving in a high-tech minimalist kitchen with warm glowing orange lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLRrv_rqc2SRVl-iRMjhuP7QM-VXiwK6lVug_QQNZRB0fy7auA_VPEbhpVqwldPablyZo75rCSs7N_Awx7cVxYYX3QRSC7gumSJfUMUwpHfsU2bnyQH_VzPf79sRbB-405-9UYnMueGriNWGtephLpupT1HgarbHTNICJlhwmhPozbtZg0WTLByzXgI5Vkp-zgZV2eukadx83n1yv40zrjQg-khQFsP2vE3mnAaecnCVUQxnWvyjg5892PcXP6pb-V-kkp_tFebsE"/>
+<div class="absolute -bottom-4 -right-4 w-24 h-24 bg-secondary-container rounded-lg flex items-center justify-center p-2 shadow-2xl rotate-6">
+<div class="bg-black p-2 rounded-md">
+<span class="material-symbols-outlined text-secondary-container text-4xl" data-icon="restaurant" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Headline & Subtext -->
+<div class="text-center mb-10">
+<h1 class="text-4xl md:text-5xl font-black tracking-tighter mb-4 text-on-background leading-none">
+                Two Chefs are <span class="text-primary-container">Better</span> Than One
+            </h1>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-xs mx-auto">
+                Share your pantry and sync your meal plans.
+            </p>
+</div>
+<!-- Invitation Glass Card -->
+<div class="glass-card rounded-lg p-8 relative border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden">
+<!-- Decorative Light Leak -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/10 blur-3xl"></div>
+<div class="flex flex-col items-center gap-8">
+<!-- QR Code Representation -->
+<div class="relative group">
+<div class="absolute -inset-2 bg-gradient-to-tr from-primary-container to-secondary-container opacity-20 blur-lg group-hover:opacity-40 transition-opacity"></div>
+<div class="relative bg-white p-4 rounded-lg shadow-inner">
+<div class="w-40 h-40 bg-black flex items-center justify-center relative">
+<!-- Simulated QR Grid -->
+<div class="grid grid-cols-4 grid-rows-4 gap-2 opacity-80">
+<div class="w-6 h-6 bg-white rounded-sm"></div>
+<div class="w-6 h-6 bg-white rounded-sm"></div>
+<div class="w-6 h-6 bg-black rounded-sm"></div>
+<div class="w-6 h-6 bg-white rounded-sm"></div>
+<div class="w-6 h-6 bg-black rounded-sm"></div>
+<div class="w-6 h-6 bg-white rounded-sm"></div>
+<div class="w-6 h-6 bg-white rounded-sm"></div>
+<div class="w-6 h-6 bg-black rounded-sm"></div>
+<div class="w-6 h-6 bg-white rounded-sm"></div>
+<div class="w-6 h-6 bg-black rounded-sm"></div>
+<div class="w-6 h-6 bg-white rounded-sm"></div>
+<div class="w-6 h-6 bg-white rounded-sm"></div>
+<div class="w-6 h-6 bg-white rounded-sm"></div>
+<div class="w-6 h-6 bg-white rounded-sm"></div>
+<div class="w-6 h-6 bg-black rounded-sm"></div>
+<div class="w-6 h-6 bg-white rounded-sm"></div>
+</div>
+<!-- Center Icon Overlay -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-primary-container p-2 rounded-full shadow-xl">
+<span class="material-symbols-outlined text-black font-bold" data-icon="grid_view">grid_view</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full space-y-4">
+<button class="w-full bg-primary-container text-black font-black uppercase tracking-widest py-5 rounded-full flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(255,107,0,0.3)] hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="link">link</span>
+                        Invite via Link
+                    </button>
+<button class="w-full bg-white/5 border border-white/10 text-on-surface-variant font-bold py-4 rounded-full flex items-center justify-center gap-3 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+                        Share QR Code
+                    </button>
+</div>
+</div>
+</div>
+<!-- Features Bento Hint -->
+<div class="mt-12 grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary-container mb-3" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface">Live Pantry</h3>
+<p class="text-xs text-on-surface-variant mt-2">See what's in stock across kitchens.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary-container mb-3" data-icon="event_repeat" style="font-variation-settings: 'FILL' 1;">event_repeat</span>
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface">Auto Sync</h3>
+<p class="text-xs text-on-surface-variant mt-2">Meals shared and scheduled together.</p>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-[32px] bg-black/90 backdrop-blur-2xl shadow-[0_-10px_40px_rgba(255,182,147,0.1)] flex justify-around items-center h-20 px-4 pb-safe w-full">
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-[#FFB693] transition-all scale-110 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-[#FFB693] transition-all scale-110 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">My Food</span>
+</div>
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-[#FFB693] transition-all scale-110 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="outdoor_grill">outdoor_grill</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Cook</span>
+</div>
+<!-- ACTIVE TAB: PLAN (Assuming Kitchen collaboration is a planning feature) -->
+<div class="flex flex-col items-center justify-center text-[#FF6B00] bg-[#FF6B00]/10 rounded-full px-4 py-1 scale-110 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="calendar_today" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Plan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-[#FFB693] transition-all scale-110 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Shop</span>
+</div>
+</nav>
+</body></html>

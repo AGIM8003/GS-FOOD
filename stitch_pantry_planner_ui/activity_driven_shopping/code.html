@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#353535",
+                    "on-primary-fixed": "#351000",
+                    "surface-dim": "#131313",
+                    "tertiary-fixed-dim": "#ffb4aa",
+                    "primary-fixed": "#ffdbcc",
+                    "inverse-surface": "#e2e2e2",
+                    "inverse-on-surface": "#303030",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed-variant": "#930005",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-surface-variant": "#e2bfb0",
+                    "on-secondary-fixed-variant": "#00531b",
+                    "secondary": "#ebffe6",
+                    "on-primary": "#561f00",
+                    "tertiary": "#ffb4aa",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#1b1b1b",
+                    "surface-bright": "#393939",
+                    "primary-fixed-dim": "#ffb693",
+                    "inverse-primary": "#a04100",
+                    "surface-container-high": "#2a2a2a",
+                    "outline-variant": "#5a4136",
+                    "on-primary-container": "#572000",
+                    "surface": "#131313",
+                    "surface-container": "#1f1f1f",
+                    "secondary-fixed-dim": "#00e55b",
+                    "on-secondary": "#003911",
+                    "on-background": "#e2e2e2",
+                    "error-container": "#93000a",
+                    "background": "#131313",
+                    "primary": "#ffb693",
+                    "on-tertiary": "#690003",
+                    "tertiary-fixed": "#ffdad5",
+                    "on-secondary-fixed": "#002107",
+                    "secondary-container": "#00fe66",
+                    "primary-container": "#ff6b00",
+                    "surface-variant": "#353535",
+                    "on-surface": "#e2e2e2",
+                    "secondary-fixed": "#6bff83",
+                    "tertiary-container": "#ff6858",
+                    "on-tertiary-fixed": "#410001",
+                    "on-error-container": "#ffdad6",
+                    "surface-tint": "#ffb693",
+                    "outline": "#a98a7d",
+                    "on-secondary-container": "#007128",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "on-tertiary-container": "#6a0003"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #000000; font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .glow-orange {
+            box-shadow: 0 0 40px -10px rgba(255, 107, 0, 0.2);
+        }
+        .glow-green {
+            box-shadow: 0 0 40px -10px rgba(0, 254, 102, 0.15);
+        }
+        .text-glow {
+            text-shadow: 0 0 12px rgba(255, 182, 147, 0.4);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface select-none">
+<!-- TopAppBar -->
+<header class="bg-neutral-950/80 backdrop-blur-xl fixed top-0 w-full z-50">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-200 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-orange-500">menu</span>
+</button>
+</div>
+<h1 class="font-['Inter'] tracking-tight font-bold text-2xl uppercase text-orange-500 drop-shadow-[0_0_8px_rgba(255,107,0,0.4)]">GS FOOD</h1>
+<div class="active:scale-95 duration-200 hover:opacity-80 transition-opacity">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/20 overflow-hidden">
+<img alt="Executive Chef" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional male chef in a white uniform with a confident expression in a dark kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwEtTdnx0iGYCFjlt-So-KirzHgT3MQOFQo2tbykHTaNFdvBTDGq8a4ukcec65jVzFES7G5oZgJW3fAG1acz4nAGj732kaD6IU0dkesxkPADasc5ssAwxeUmlPrym9-bq1aRM88bqdEIycChnLSWW9Iq7B_b2MEamO9exlgcb50ru0xl7LQcS0-6ddQJuzg-2JqjiJW2f0-rKKNi_fB7zVIvj4MaC_jw2PZDMXg6UzUa6qzo0bs3XGKXWaLwOUdSKzxnI5aNiqUsI"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-screen-xl mx-auto">
+<!-- Header Section -->
+<section class="mb-12">
+<h2 class="text-[3.5rem] font-black tracking-tighter leading-none mb-4">Activity<br/>Driven List</h2>
+<div class="flex gap-3 overflow-x-auto no-scrollbar">
+<div class="flex-none bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                    2 Active Triggers
+                </div>
+<div class="flex-none bg-surface-container-highest text-on-surface px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">notifications_active</span>
+                    Last Updated 12m Ago
+                </div>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Event Prep: Gala Dinner (Large Column) -->
+<div class="md:col-span-7 flex flex-col gap-6">
+<div class="glass-card glow-orange rounded-lg p-8 relative overflow-hidden group">
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-primary-container/10 rounded-full blur-[60px] group-hover:bg-primary-container/20 transition-all duration-700"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-8">
+<div>
+<span class="text-xs font-bold tracking-[0.2em] uppercase text-primary mb-1 block">Event Prep</span>
+<h3 class="text-3xl font-bold tracking-tight text-glow">Gala Dinner</h3>
+<p class="text-sm text-neutral-400 mt-1">Friday, October 27th • 12 Guests</p>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl">celebration</span>
+</div>
+<div class="space-y-6">
+<!-- Item 1 -->
+<div class="flex items-center gap-6 group/item">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-none">
+<img alt="Truffle Oil" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A small premium bottle of truffle oil with a minimalist label on a dark slate background with elegant lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOpIsfOboyQFsM-WlxDGSJs8YE1eJkqN5pkEeDYoyPQiuRc_uAd2gbQcoeQ6g5nRTwt8T1YRpiHUpDWTNGxEV63x7gcJ5pwaAR3h7RBY7gCsYTwyf9RJPYOC4X-PlUzHDvq6UOA8mZszGy-CWc-vfJOWaGc_80MjdDMGdzuqFH2bsCr5cMfESkWTxF-JsiPZrR8SYCm6I6gvrYkr7v-9kkcn2415ZXtVnR1_AD_lDLg0cBR2glb5gQXoYQSDhSUp_XCMEQV-rlA5I"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-lg font-bold">White Truffle Oil</h4>
+<p class="text-xs font-bold tracking-widest text-primary uppercase mt-1">Why This? <span class="font-medium text-neutral-400 lowercase tracking-normal">Essential for the Risotto course</span></p>
+</div>
+<div class="flex-none">
+<button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-neutral-400">add</span>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-6 group/item">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-none">
+<img alt="Beef Tenderloin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Close up of a raw wagyu beef tenderloin with marbled fat on a dark wooden cutting board" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD37dB9oYlCS7R7e5ngmBUZAwes3e5sqDuNfQtCW8d0ovxkyOCIo7P9l9JRXm6AWLxAc8ewlK4nYHaKWFNeMwCzVrNzBN6nEehOvNj2e_pdFW7qfhr0DPHAgDUy7xWy24DUPjwpOCoW7AcAdKvjoDEwwdi2IoguggpZnJqM-TiXCe4MR7JGUZDhe5fGjP03fezTVeJErI3F0RitfIcnj6tnV70O-SobAPK84O7B0jlMnrmUvuCK4U8wFNoQdC1RoIIHo2uLDFmpE_o"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-lg font-bold">Center-Cut Wagyu</h4>
+<p class="text-xs font-bold tracking-widest text-primary uppercase mt-1">Why This? <span class="font-medium text-neutral-400 lowercase tracking-normal">Main course core ingredient</span></p>
+</div>
+<div class="flex-none">
+<button class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">check</span>
+</button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center gap-6 group/item">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-none">
+<img alt="Saffron Threads" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Macro photo of vibrant red saffron threads in a small glass jar on a dark reflective surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwprF98xtZnhN6uv_xxTsVRosKpU6AF2E5k1ACaVQJ0rz0WPLQjS0zXuLrSv0B4mAM8ljbMrujE_BA38OsaB4sevkbEEUqHNEMphzEywQ1F114J-3byQGDQr4ULRN-tWF-PjbHDVaLZAzrT96HmiQxIbTItdbogC_8WMUo1jWE9IBwm-bJrGoXpyQYFZnwxXPYOsnmvsbHmgYq7eTUjJgGSV8nrmbWINISylLgfXYJN0bkrr7IdsaP1IbLVrjqsEpoUM-DC7SVHpY"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-lg font-bold">Iranian Saffron</h4>
+<p class="text-xs font-bold tracking-widest text-primary uppercase mt-1">Why This? <span class="font-medium text-neutral-400 lowercase tracking-normal">Signature spice for guest pairings</span></p>
+</div>
+<div class="flex-none">
+<button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-neutral-400">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Health Goal: Muscle Recovery (Right Column) -->
+<div class="md:col-span-5 flex flex-col gap-6">
+<div class="glass-card glow-green rounded-lg p-8 relative overflow-hidden group">
+<div class="absolute -bottom-12 -left-12 w-32 h-32 bg-secondary-container/10 rounded-full blur-[40px]"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-8">
+<div>
+<span class="text-xs font-bold tracking-[0.2em] uppercase text-secondary-container mb-1 block">Health Goal</span>
+<h3 class="text-2xl font-bold tracking-tight">Muscle Recovery</h3>
+<p class="text-sm text-neutral-400 mt-1">Marathon Training Phase</p>
+</div>
+<span class="material-symbols-outlined text-secondary-container text-3xl">fitness_center</span>
+</div>
+<div class="space-y-8">
+<!-- Recovery Item -->
+<div class="relative group/card">
+<div class="flex items-center justify-between mb-2">
+<h4 class="font-bold text-lg">Pure Whey Isolate</h4>
+<span class="text-xs font-black bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded">HIGH PROTEIN</span>
+</div>
+<p class="text-xs text-neutral-500 leading-relaxed">Added because your last 20km run burned 1,400 kcal. Optimal recovery window is 48h.</p>
+<div class="mt-4 h-1 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-3/4"></div>
+</div>
+<div class="flex justify-between items-center mt-3">
+<span class="text-[10px] font-bold tracking-widest uppercase text-neutral-400">Recommended Stock</span>
+<button class="text-secondary-container font-bold text-sm">ADD TO CART</button>
+</div>
+</div>
+<!-- Magnesium -->
+<div class="relative group/card p-4 rounded-xl bg-surface-container-low">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary-container">pill</span>
+<div>
+<h4 class="font-bold text-base">Magnesium Glycinate</h4>
+<p class="text-xs text-neutral-500 mt-1">Prevents nocturnal muscle cramping during high-mileage weeks.</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-[10px] bg-neutral-800 text-neutral-400 px-2 py-0.5 rounded-full">Why This? Sleep Quality</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Salmon -->
+<div class="relative group/card">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-none">
+<img alt="Wild Salmon" class="w-full h-full object-cover" data-alt="Fresh raw salmon fillet with a slice of lemon and sprig of rosemary on a dark stone surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwRuWdXOquqlNE0X30C92egLuoXgzed3dlk6I-7IC9aSCYhgKlEdMEMJtz3QmvkYs3oRYwy3RCewcnQsXzR7Iz8PyHukoSCapWXDOY8A4-o64jcaVdte2Uj4XWJRCQ62qt5F0w7dsC2gGC2uHyP9HW9mANqRskM0Rj0Ey2EzUMgJVoE0AjOsM95rVRi1y4R9zb3UfUTVcFQybCJae8q_gK9qximPj79rNUZSNrbSV8PI7lxBfR-DyNwEWO0gSVlcOxg9FUNt8Jt9Q"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold">Wild Caught Salmon</h4>
+<p class="text-xs text-neutral-500">Omega-3 for joint inflammation</p>
+</div>
+<span class="material-symbols-outlined text-secondary-container">add_circle</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Chef's Pulse -->
+<div class="bg-neutral-900 rounded-lg p-6 border-l-4 border-secondary-container">
+<div class="flex items-center gap-3">
+<div class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-secondary-container"></span>
+</div>
+<span class="text-xs font-bold tracking-widest uppercase text-on-surface">Chef's Pulse: Market Trends</span>
+</div>
+<p class="text-sm text-neutral-400 mt-3 leading-snug">Organic Avocado prices are dropping in your local area. Consider adding to Marathon Prep for healthy fats.</p>
+</div>
+</div>
+</div>
+<!-- Floating Action Section -->
+<div class="mt-12 flex flex-col items-center">
+<button class="bg-primary-container text-on-primary-fixed font-black tracking-widest uppercase px-12 py-5 rounded-full shadow-[0_0_30px_rgba(255,107,0,0.4)] active:scale-95 transition-all duration-300 flex items-center gap-4">
+                Finalize List
+                <span class="material-symbols-outlined">shopping_cart_checkout</span>
+</button>
+<p class="text-[10px] text-neutral-600 mt-4 tracking-[0.3em] uppercase">Smart Sync Enabled</p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-end px-4 pb-8 h-24 bg-black/90 backdrop-blur-2xl rounded-t-[32px] shadow-[0_-4px_24px_rgba(0,0,0,0.8)]">
+<!-- Home -->
+<div class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Home</span>
+</div>
+<!-- My Food -->
+<div class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">My Food</span>
+</div>
+<!-- Cook -->
+<div class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined">outdoor_grill</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Cook</span>
+</div>
+<!-- Plan -->
+<div class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Plan</span>
+</div>
+<!-- Shop (Active) -->
+<div class="flex flex-col items-center justify-center text-orange-500 drop-shadow-[0_0_12px_rgba(255,182,147,0.6)] active:scale-90 transition-all duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Shop</span>
+</div>
+</nav>
+</body></html>

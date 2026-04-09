@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Editorial Pantry - Inventory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#717973",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#31302f",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#410003",
+                        "on-surface": "#1c1c1a",
+                        "primary": "#002d1c",
+                        "surface-container-highest": "#e5e2df",
+                        "tertiary-container": "#503700",
+                        "primary-fixed": "#b1f0ce",
+                        "surface-bright": "#fcf9f6",
+                        "tertiary": "#342300",
+                        "secondary-fixed": "#ffdad6",
+                        "inverse-primary": "#95d4b3",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f3f0ed",
+                        "on-secondary-container": "#600006",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e5e2df",
+                        "on-background": "#1c1c1a",
+                        "surface": "#fcf9f6",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "outline-variant": "#c1c8c2",
+                        "surface-container-high": "#eae8e5",
+                        "surface-container-low": "#f6f3f0",
+                        "secondary-fixed-dim": "#ffb4ac",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dcdad7",
+                        "primary-fixed-dim": "#95d4b3",
+                        "surface-container": "#f0edea",
+                        "primary-container": "#00452e",
+                        "on-primary-fixed": "#002114",
+                        "on-tertiary-container": "#d89b00",
+                        "on-secondary-fixed-variant": "#92030f",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "secondary-container": "#ff5a52",
+                        "on-surface-variant": "#414844",
+                        "background": "#fcf9f6",
+                        "on-primary-container": "#76b394",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#ffdea9",
+                        "on-primary-fixed-variant": "#0e5138",
+                        "on-tertiary-fixed": "#271900",
+                        "secondary": "#b52424",
+                        "surface-tint": "#2c694e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 8px 24px rgba(28, 28, 26, 0.06);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed">
+<!-- TopAppBar -->
+<nav class="w-full pt-4 pb-2 bg-[#fcf9f6] dark:bg-[#1C1C1A]">
+<div class="flex justify-between items-center px-6 max-w-screen-xl mx-auto">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close-up portrait of a sophisticated man with a warm smile, soft natural lighting, editorial photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwbYu3-ImIRxsEbqXtfo7R-wJO6-kHIO5QkEY5vAYtj0g1uOC0NeXFklIYWHASFwT_IIWu5S-dpFrkeT62llzIswk_VMqY_4Q-olywJXEYX7g8EvT--wSn_2MGUqHSXJwSXX7ZT-ySazjkzadOAGgtmEsu75NHzIZuM5HBVxc82pNNM4C3Zi0l6yBFnOSSiS7OtL6qnHKaB4ebZJgRQQW9llf6RBUPmWS4oY44uLIsV51dyHq-sodHaIwpY7hUlF9yrinI86vmhlw"/>
+</div>
+<h1 class="text-2xl font-headline italic text-[#002d1c] dark:text-[#fcf9f6]">The Editorial Pantry</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#002d1c] font-bold font-label text-sm uppercase tracking-widest" href="#">Inventory</a>
+<a class="text-[#342300] opacity-70 font-label text-sm uppercase tracking-widest hover:opacity-100 transition-opacity" href="#">Plan</a>
+<a class="text-[#342300] opacity-70 font-label text-sm uppercase tracking-widest hover:opacity-100 transition-opacity" href="#">Shop</a>
+<a class="text-[#342300] opacity-70 font-label text-sm uppercase tracking-widest hover:opacity-100 transition-opacity" href="#">Recipes</a>
+</div>
+<button class="text-[#002d1c] dark:text-[#E0E0E0] hover:bg-[#f0edea] dark:hover:bg-[#2d2d2a] p-2 rounded-full transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="max-w-screen-xl mx-auto px-6 pt-8 pb-32">
+<!-- Search & Action Bar -->
+<header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<p class="font-label text-xs uppercase tracking-[0.2rem] text-tertiary mb-2">Current Collection</p>
+<h2 class="font-headline text-5xl font-bold text-primary leading-tight">Your Kitchen <br/><span class="italic font-normal">Manuscript</span></h2>
+</div>
+<div class="flex gap-3">
+<div class="relative group">
+<input class="bg-transparent border-none border-b-2 border-surface-variant focus:border-primary focus:ring-0 transition-all duration-300 w-64 py-3 px-0 font-body text-sm" placeholder="Search your pantry..." type="text"/>
+</div>
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-6 py-3 rounded-xl font-label text-sm flex items-center gap-2 editorial-shadow hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined text-lg" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span>Scan Item</span>
+</button>
+</div>
+</header>
+<!-- CATEGORY: EXPIRING SOON (Asymmetric Grid) -->
+<section class="mb-20">
+<div class="flex items-baseline gap-4 mb-10">
+<h3 class="font-headline text-3xl text-primary">Expiring Soon</h3>
+<div class="h-[1px] flex-grow bg-surface-variant/30"></div>
+<span class="font-label text-xs uppercase tracking-widest text-secondary font-bold">Priority Action</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<!-- Large Feature Card -->
+<div class="md:col-span-7 group">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden editorial-shadow flex flex-col md:flex-row h-full">
+<div class="md:w-1/2 relative overflow-hidden h-64 md:h-auto">
+<img alt="Organic Milk" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Premium organic whole milk in a glass bottle on a light marble surface with soft morning light and a sprig of mint" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfh4wpZJrVTVhjwbyJr1Vohm_AuY-mtoDGJ920hKSmAyqyuyvgOrqE0_3DlVgpjzSbHcuefAOgAFqxmAgkmie-UZE8awBCsxDyWOT2DqHTKVMGeVGnwX_YANWMFoT8w4zOEHZ2ZbzsqKkp00inqppcLhjl-qnhtfxLNEfIBvbJN_OIKPCirQi1CM8AfPwYVxXsMhwtH6TJEsL9JMdgxATywARbdUmdQeXKI9TyQOj_2Z4rwkBjEjosvzCpLnhmIA1V4RFzF8_Uu18"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold font-label editorial-shadow">
+                                Expiring Today
+                            </div>
+</div>
+<div class="p-8 md:w-1/2 flex flex-col justify-between">
+<div>
+<p class="text-xs font-label uppercase tracking-widest text-tertiary mb-2">Dairy &amp; Eggs</p>
+<h4 class="text-2xl font-headline font-bold text-primary mb-4">Whole Organic Milk</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Artisan farm-fresh milk. Ideal for your morning latte or a creamy béchamel sauce before the weekend.</p>
+</div>
+<div class="mt-8 flex justify-between items-center">
+<span class="text-xs font-label font-bold text-primary">Qty: 1.2 Liters</span>
+<button class="text-primary hover:translate-x-1 transition-transform">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Cards (Stacked) -->
+<div class="md:col-span-5 space-y-8">
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl editorial-shadow flex items-center gap-6 group">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Spinach" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Close-up of fresh baby spinach leaves with water droplets on a rustic wooden background, bright airy lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz4UMOgUWzon_TabFE3wJx3prf0GDeeBjwsWErc57hjh-YdHVOSLVL4CVp7_IIMf3iUVbLLxQToeQOSW0sw4MqLHApJuDogplM4-uG2v83KGELYHYpJVYML-PZ2jCdschsfPU9H0dHK0D2GR3ZTKlghIgRufmQ3EiDEfxNMCcccz6xqgkutwAbS4w4FavvF2zkxnmz_Je4tUKGB2jZ5q9W6xdpdvhuLl9kHk1hfmmGoLQkFSsXaEdkXMDBV77hKX4-Nfx_yKXJg9o"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline font-bold text-primary">Baby Spinach</h4>
+<span class="bg-secondary-container/20 text-on-secondary-fixed-variant px-2 py-0.5 rounded-full text-[10px] font-bold font-label uppercase">2 Days Left</span>
+</div>
+<p class="text-xs text-on-surface-variant font-label uppercase tracking-tighter">Produce • 200g</p>
+<div class="mt-3 h-1 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-1/4"></div>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl editorial-shadow flex items-center gap-6 group">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Berries" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Macro photography of vibrant red strawberries and blueberries in a ceramic bowl, soft focus background, natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtmEsIfApzC7Olle79OqpPDLirkH5G9b_Tjd_OAHuLC3jJkWw-Lk3ct8G3uhO29jH7ds6MwCTM9Srde-RWf4nGn0O5TrZLmjAaLbMfXN_PMvv83FdlJeQ2XjmO1KaMUPVD8O7Le3Ymtk4x0e0y0LR48ekKroi4rF3dVtUVbx8-MMEyyHedQ_dlZOd3cl0Sdh8crR_eVLdIKUqPDmF_bUDVGNqWgmg8EBGT9WDQmAoxIaQzTjTsOzraA0kGhPlkJLTBAl8CpVEZc3Y"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline font-bold text-primary">Mixed Berries</h4>
+<span class="bg-secondary-container/20 text-on-secondary-fixed-variant px-2 py-0.5 rounded-full text-[10px] font-bold font-label uppercase">3 Days Left</span>
+</div>
+<p class="text-xs text-on-surface-variant font-label uppercase tracking-tighter">Fruits • 1 Box</p>
+<div class="mt-3 h-1 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-1/3"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CATEGORY: FRESH (Zebra Staggered) -->
+<section class="mb-20">
+<div class="flex items-baseline gap-4 mb-10">
+<h3 class="font-headline text-3xl text-primary">Fresh Inventory</h3>
+<div class="h-[1px] flex-grow bg-surface-variant/30"></div>
+<span class="font-label text-xs uppercase tracking-widest text-primary-container font-bold">Good Standing</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Staggered Card 1 -->
+<div class="mt-0 group">
+<div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-xl">
+<img alt="Avocado" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="Slices of perfectly ripe avocado on an artisan ceramic plate, minimal composition, moody lighting, green and cream tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHY3bFDbvAXucq0ztATnlfdDrkQtIC-s8ab_BgEA-fMYlCkcSoZ6QfsyPogCTyq0u3zUZZph37aeECEt3YVZeuVFeWtgtYRyJcWHLqa8uukGOb_tidsKEtC_loKqQvmjQvEsim0BltyuZWDpZHZsxMQdV3iobBM1jqJ2F5zcGG0oaTEgK6bUQUSdxDwH91yFgr6OA4Dy-1Thmw9iyGbf6_-_DwZSzIBrVlLirNAHav3KoJEKGTTAWk__4lUWO7xYy1936wRjNxQIY"/>
+<div class="absolute bottom-4 left-4">
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full text-xs font-bold font-label editorial-shadow">Fresh: 7 Days</span>
+</div>
+</div>
+<h4 class="font-headline text-xl font-bold text-primary">Hass Avocados</h4>
+<p class="text-sm text-on-surface-variant mt-2 font-label uppercase tracking-widest">3 Units • Pantry</p>
+</div>
+<!-- Staggered Card 2 -->
+<div class="md:mt-16 group">
+<div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-xl">
+<img alt="Heirloom Carrots" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="Bundle of multi-colored heirloom carrots with green tops on a dark slate surface, dramatic shadows, high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD31Ykh-iqlX37fbKtiN3f9pmd6Oknowb_JNWsI7m9_TUk8PzOsdL9rUZHkJCssnlcaWatHUWtAMG-JwAgX7pWGtY5Aof5WwyOzo3rZRIsoiZexfB1ugox51pZ39oU4T2v2e3w_9-WLnmrdL5TiTUAzQfS4ORheg4p57NUcDcm1tjOM1yzacKvRY0YeWphz6Jk3YiLD-JFMnGWFZs3m7TROYxvupH2kEsnTfiE-Vlw6W3b8WvCI0J5kJKcqvAZXsknSXU9Dn-AOjbU"/>
+<div class="absolute bottom-4 left-4">
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full text-xs font-bold font-label editorial-shadow">Fresh: 12 Days</span>
+</div>
+</div>
+<h4 class="font-headline text-xl font-bold text-primary">Heirloom Carrots</h4>
+<p class="text-sm text-on-surface-variant mt-2 font-label uppercase tracking-widest">500g • Crisper</p>
+</div>
+<!-- Staggered Card 3 -->
+<div class="mt-0 group">
+<div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-xl">
+<img alt="Ginger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="Fresh ginger root on a clean white background, artistic culinary photography, bright and sharp details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3R7bOCTWXLp_ivNF8V4HmWFuRUulwwYUAmOpztrycag6A3VC6F2vP0zlJFCcX0Eqao2myf4TNTYxarSI8VJDFrPAca9nTs_gudimaZRahpwHD_0IJ6CT8dme9U61ckmQzT--490BqgU_9bFPxITKJg6cYo8g8vdhx8PiwRGeHsPKj8vgHryzhL4XiwZWUtQDX3MZOwKy1-PiHJUR8mgPrSer6W8Q1bRjzCY958bJ1X4VkINJaFE1OaIf34Sz7ENcNvz_yH-fIbjw"/>
+<div class="absolute bottom-4 left-4">
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full text-xs font-bold font-label editorial-shadow">Fresh: 14 Days</span>
+</div>
+</div>
+<h4 class="font-headline text-xl font-bold text-primary">Fresh Ginger</h4>
+<p class="text-sm text-on-surface-variant mt-2 font-label uppercase tracking-widest">150g • Root Box</p>
+</div>
+</div>
+</section>
+<!-- CATEGORY: PANTRY STAPLES (Minimal List) -->
+<section class="mb-20">
+<div class="flex items-baseline gap-4 mb-10">
+<h3 class="font-headline text-3xl text-primary">Pantry Staples</h3>
+<div class="h-[1px] flex-grow bg-surface-variant/30"></div>
+<span class="font-label text-xs uppercase tracking-widest text-tertiary font-bold">Long Shelf Life</span>
+</div>
+<div class="space-y-6">
+<!-- Staple Item 1 -->
+<div class="bg-surface-container-low p-5 rounded-xl flex items-center justify-between hover:bg-surface-container-high transition-colors duration-300">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container-highest">
+<img alt="Olive Oil" class="w-full h-full object-cover" data-alt="Close-up of a premium olive oil bottle pouring liquid gold, warm backlighting, culinary atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgV2LJ5WIIlWRpkSVTBLYYgU0sSxENNK6avCwVbApDbDk6Mu-djF2yqovz-T_jNWzuLeKkxylhfyc9z9a0ZDgJO3sVjrjmzHtDyG3k6Fy_P0GbjEbO7F3rR0rRyLx2lq4yIke96yxxp9uFXvI242ZoOfddCW8Whi5eSdyi74Kg8NlnXzt5zdIglEdVPpPunfnGc3-m0tU7UiXmEXQHRXAU6UElMywZ1Lg0yVb63dAseAq3LtPSdGyc4eI04JAPDS923wE53o1aXvc"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-primary">EVOO • Cold Pressed</h4>
+<p class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Oils &amp; Vinegars • 75% Remaining</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<span class="text-xs font-label text-on-surface-variant hidden md:block">Last restocked: Oct 12</span>
+<div class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold font-label uppercase">Stable</div>
+</div>
+</div>
+<!-- Staple Item 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl flex items-center justify-between hover:bg-surface-container-high transition-colors duration-300">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container-highest">
+<img alt="Jasmine Rice" class="w-full h-full object-cover" data-alt="Grains of jasmine rice spilling from a burlap sack, high-end food textures, warm natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwjQA8uZPPsEdR_9fHjiNusWug5Oxghqa6eIl_dY3yRBRzK359DPJflLKv2lUiQfpSywHCKJ7Gj-8cA7jw3raq05LF-EqIaX_93HtDS5qCQ-wPmihBmHeMCUGuX5N9_6OBbOjhMe_h2fllRDny6qzL8np2rk0dbdUCQQ0BESHGvh95KQjowGCgEqmIFWEZdHnmqud5p_Ho4Kw5wJZ3Hwc7vsFdAx2ywkPAy244Oj4TD02tPzk7x_23QSToR_xJk-Ch0y2g7zleCZA"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-primary">Jasmine Rice</h4>
+<p class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Grains • 2.5kg</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<span class="text-xs font-label text-on-surface-variant hidden md:block">Last restocked: Nov 05</span>
+<div class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold font-label uppercase">Stable</div>
+</div>
+</div>
+<!-- Staple Item 3 -->
+<div class="bg-surface-container-low p-5 rounded-xl flex items-center justify-between hover:bg-surface-container-high transition-colors duration-300">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container-highest">
+<img alt="Chickpeas" class="w-full h-full object-cover" data-alt="Dried chickpeas in a glass jar, rustic kitchen pantry aesthetic, warm golden tones, sharp focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZjiSU5Ur0VEXkspLfDpkihWUJdF-2N7N_CSD0aAgwoF9R3L_dzGQaXnnqmG-BXAiCQQtcd-HK4twvxf1Hsjf7_ZzZTPzw8IOlu9t6esnrUVFHClw1CyYGtmQAB3p3uHD7oaeoL470aW1bQqPXfMwNjM37wzyKAiYynxd_l7WLC9syrUUoCrAXFRdN9i-XeKhi6EgrP-gAa6-0obl10LGeNJjwYLg6LclGn-QELkfTjFP2vbRtHzRQOF2RxtvdgeBS7xhFbHqCETk"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-primary">Dried Chickpeas</h4>
+<p class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Legumes • 1kg</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<span class="text-xs font-label text-on-surface-variant hidden md:block">Last restocked: Sep 28</span>
+<div class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold font-label uppercase">Stable</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 rounded-t-3xl bg-[#fcf9f6]/85 dark:bg-[#1C1C1A]/85 backdrop-blur-md shadow-[0_-8px_24px_rgba(28,28,26,0.06)] md:hidden">
+<div class="flex justify-around items-center px-4 pt-3 pb-8">
+<a class="flex flex-col items-center justify-center bg-[#002d1c] text-white rounded-full px-5 py-1.5 transition-all duration-500 scale-95-on-tap" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label text-[10px] font-medium tracking-tight">Inventory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#002d1c]/60 dark:text-[#fcf9f6]/60 px-5 py-1.5 hover:text-[#002d1c] dark:hover:text-white transition-opacity scale-95-on-tap" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label text-[10px] font-medium tracking-tight">Plan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#002d1c]/60 dark:text-[#fcf9f6]/60 px-5 py-1.5 hover:text-[#002d1c] dark:hover:text-white transition-opacity scale-95-on-tap" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+<span class="font-label text-[10px] font-medium tracking-tight">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#002d1c]/60 dark:text-[#fcf9f6]/60 px-5 py-1.5 hover:text-[#002d1c] dark:hover:text-white transition-opacity scale-95-on-tap" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-label text-[10px] font-medium tracking-tight">Recipes</span>
+</a>
+</div>
+</nav>
+<!-- FAB (Suppressed on details but active for main inventory) -->
+<div class="fixed bottom-28 right-6 md:bottom-8 md:right-8 group">
+<button class="bg-gradient-to-tr from-primary to-primary-container text-white w-14 h-14 rounded-full flex items-center justify-center editorial-shadow hover:scale-110 transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<span class="absolute right-16 top-1/2 -translate-y-1/2 bg-on-surface text-surface px-3 py-1 rounded text-xs font-label opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Quick Add Item</span>
+</div>
+</body></html>

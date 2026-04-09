@@ -5,6 +5,9 @@ import '../../app/services.dart';
 import '../../engine/models/inventory_item.dart';
 import '../../engine/models/recipe.dart';
 import '../../engine/models/user_preferences.dart';
+import '../../ui/golden_gourmet_scaffold.dart';
+import '../../ui/sanctity_header.dart';
+import '../premium/molecular_flavor_lab_page.dart';
 
 /// Production Cook Page.
 ///
@@ -22,6 +25,7 @@ class _CookPageState extends State<CookPage> {
   List<RecipeMatch> _bestMatches = [];
   UserPreferences? _prefs;
   bool _isLoading = true;
+  bool _isSynthesizing = false;
 
   @override
   void initState() {
@@ -52,12 +56,10 @@ class _CookPageState extends State<CookPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GoldenGourmetScaffold(
       backgroundColor: const Color(0xFF000000), // OLED Black
-      appBar: AppBar(
-        title: const Text('Cook Now', style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w900, letterSpacing: -0.5)),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+      appBar: SanctityHeader(
+        title: 'Cook Now',
         actions: [
           IconButton(icon: const Icon(Icons.filter_list, color: Color(0xFF00FF66)), onPressed: () {}),
         ],
@@ -86,8 +88,54 @@ class _CookPageState extends State<CookPage> {
                     ),
                     const SizedBox(height: 24),
                     
-                    if (_rescueMatches.isNotEmpty)
+                    if (_rescueMatches.isNotEmpty) ...[
                       _buildRankedSection('Save Food / Expiry Rescue', _rescueMatches, isRescue: true),
+                      
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF00FF66).withOpacity(0.1),
+                              side: const BorderSide(color: Color(0xFF00FF66)),
+                              padding: const EdgeInsets.symmetric(vertical: 16),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                            ),
+                            icon: _isSynthesizing 
+                                ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Color(0xFF00FF66)))
+                                : const Icon(Icons.auto_awesome, color: Color(0xFF00FF66)),
+                            label: Text(_isSynthesizing ? 'Synthesizing...' : 'Synthesize Exact Match (Zero Waste)', 
+                              style: const TextStyle(color: Color(0xFF00FF66), fontWeight: FontWeight.bold)
+                            ),
+                            onPressed: _isSynthesizing ? null : _synthesizeExactMatch,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFFFF8C00).withOpacity(0.1),
+                              side: const BorderSide(color: Color(0xFFFF8C00)),
+                              padding: const EdgeInsets.symmetric(vertical: 16),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                            ),
+                            icon: const Icon(Icons.science, color: Color(0xFFFF8C00)),
+                            label: const Text('Molecular Flavor Lab (SOTA)', 
+                              style: TextStyle(color: Color(0xFFFF8C00), fontWeight: FontWeight.bold)
+                            ),
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => const MolecularFlavorLabPage()));
+                            },
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                    ],
 
                     if (_bestMatches.isNotEmpty)
                       _buildRankedSection('Best Matches for You', _bestMatches, isRescue: false),
@@ -139,64 +187,157 @@ class _CookPageState extends State<CookPage> {
   }
 
   Widget _buildMealCard(RecipeMatch match, {required bool isRescue}) {
-    // Red/Orange for rescue, Neon Green for standard
     final accent = isRescue ? const Color(0xFFFF3333) : const Color(0xFF00FF66);
-    
-    // Explainability Engine text
     final whyThis = AppServices.explainability.whyRecommended(match);
 
     return Container(
-      margin: const EdgeInsets.only(bottom: 12),
+      margin: const EdgeInsets.only(bottom: 16),
+      height: 280, // Taller for Editorial Discovery look
       decoration: BoxDecoration(
-         color: const Color(0xFF111111),
-         borderRadius: BorderRadius.circular(20),
+         borderRadius: BorderRadius.circular(24),
          border: Border.all(color: accent.withOpacity(0.3), width: 1.5),
          boxShadow: [
-           BoxShadow(color: accent.withOpacity(0.05), blurRadius: 10, spreadRadius: 1)
-         ]
+           BoxShadow(color: accent.withOpacity(0.1), blurRadius: 20, spreadRadius: 2)
+         ],
+         // Placeholder image mimicking full-bleed editorial imagery.
+         image: const DecorationImage(
+           image: NetworkImage('https://images.unsplash.com/photo-1544025162-8315147817eb?q=80&w=1400&fit=crop'), 
+           fit: BoxFit.cover
+         )
       ),
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Stack(
         children: [
-           Row(
-             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-             children: [
-               Expanded(child: Text(match.recipe.title, style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold))),
-               Container(
-                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                 decoration: BoxDecoration(color: accent.withOpacity(0.15), borderRadius: BorderRadius.circular(8)),
-                 child: Text(match.matchDisplay, style: TextStyle(color: accent, fontSize: 10, fontWeight: FontWeight.bold)),
-               )
-             ],
-           ),
-           const SizedBox(height: 4),
-           Text('${match.recipe.cuisine} • ${match.recipe.timeDisplay}', style: const TextStyle(color: Colors.white54, fontSize: 12)),
-           
-           if (!match.isFullMatch && match.missingIngredients.isNotEmpty) ...[
-             const SizedBox(height: 8),
-             Text('Missing: ${match.missingIngredients.join(', ')}', style: const TextStyle(color: Color(0xFFFF8C00), fontSize: 12, fontWeight: FontWeight.w500)),
-           ],
+          // Dark gradient overlay to ensure text legibility
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(24),
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.transparent,
+                  Colors.black.withOpacity(0.5),
+                  const Color(0xFF000000).withOpacity(0.9),
+                ],
+                stops: const [0.0, 0.4, 1.0],
+              )
+            ),
+          ),
+          
+          // Content
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Expanded(child: Text(match.recipe.title, style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w900, letterSpacing: -0.5))),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                      decoration: BoxDecoration(color: accent, borderRadius: BorderRadius.circular(12)),
+                      child: Text(match.matchDisplay, style: const TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.w900)),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Text('${match.recipe.cuisine.toUpperCase()} • ${match.recipe.timeDisplay}', style: const TextStyle(color: Colors.white70, fontSize: 11, fontWeight: FontWeight.bold, letterSpacing: 1.5)),
+                
+                if (!match.isFullMatch && match.missingIngredients.isNotEmpty) ...[
+                  const SizedBox(height: 12),
+                  Wrap(
+                    spacing: 6,
+                    children: match.missingIngredients.map((i) => Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.6),
+                        border: Border.all(color: const Color(0xFFFF8C00)),
+                        borderRadius: BorderRadius.circular(8)
+                      ),
+                      child: Text('Missing: $i', style: const TextStyle(color: Color(0xFFFF8C00), fontSize: 9, fontWeight: FontWeight.bold)),
+                    )).toList()
+                  ),
+                ],
 
-           const SizedBox(height: 12),
-           Container(
-             padding: const EdgeInsets.all(12),
-             decoration: BoxDecoration(
-               color: const Color(0xFF080808), 
-               borderRadius: BorderRadius.circular(12),
-               border: Border.all(color: Colors.white.withOpacity(0.05))
-             ),
-             child: Row(
-               crossAxisAlignment: CrossAxisAlignment.start,
-               children: [
-                 Icon(isRescue ? Icons.health_and_safety : Icons.lightbulb_outline, color: accent.withOpacity(0.8), size: 16),
-                 const SizedBox(width: 8),
-                 Expanded(child: Text(whyThis, style: const TextStyle(color: Colors.white70, fontSize: 12, height: 1.3))),
-               ]
-             )
-           )
+                const SizedBox(height: 16),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                    child: Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.05),
+                        border: Border.all(color: Colors.white.withOpacity(0.1)),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(isRescue ? Icons.health_and_safety : Icons.lightbulb_outline, color: accent, size: 18),
+                          const SizedBox(width: 12),
+                          Expanded(child: Text(whyThis, style: const TextStyle(color: Colors.white, fontSize: 13, height: 1.4))),
+                        ]
+                      )
+                    ),
+                  ),
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
+  }
+
+  Future<void> _synthesizeExactMatch() async {
+    setState(() => _isSynthesizing = true);
+    try {
+      final allItems = await AppServices.inventory.getAll();
+      final expiring = allItems.where((i) => i.isUrgent).toList();
+      if (expiring.isEmpty) return;
+
+      final persona = AppServices.personaEngine.getPersona(_prefs?.chefPersonaId ?? 'core_assistant');
+      final result = await AppServices.generativeRecipeEngine.synthesizeExactMatch(expiring, persona.style);
+      
+      if (mounted) {
+        showDialog(context: context, builder: (_) => AlertDialog(
+          backgroundColor: const Color(0xFF111111),
+          title: Text(result['title'], style: const TextStyle(color: Color(0xFF00FF66), fontWeight: FontWeight.bold)),
+          content: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Ingredients: ${result['ingredientList'].join(', ')}', style: const TextStyle(color: Colors.white70)),
+                const SizedBox(height: 16),
+                ...List.generate(result['instructions'].length, (i) {
+                  final inst = result['instructions'][i];
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Text('${inst['step']}. ${inst['text']}', style: const TextStyle(color: Colors.white)),
+                  );
+                })
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                AppServices.hardware.sendInstruction('ov_1', targetTemp: 400);
+                Navigator.pop(context);
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content: Text('Sent preheating command to Smart Convection Oven (400°F).', style: TextStyle(color: Colors.black)),
+                  backgroundColor: Color(0xFF00FF66),
+                ));
+              },
+              child: const Text('Send to Appliances', style: TextStyle(color: Color(0xFF00FF66)))
+            )
+          ],
+        ));
+      }
+    } finally {
+      if (mounted) setState(() => _isSynthesizing = false);
+    }
   }
 }

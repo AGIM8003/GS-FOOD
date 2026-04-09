@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Editorial Pantry | Grocery List</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#717973",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#31302f",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#410003",
+                    "on-surface": "#1c1c1a",
+                    "primary": "#002d1c",
+                    "surface-container-highest": "#e5e2df",
+                    "tertiary-container": "#503700",
+                    "primary-fixed": "#b1f0ce",
+                    "surface-bright": "#fcf9f6",
+                    "tertiary": "#342300",
+                    "secondary-fixed": "#ffdad6",
+                    "inverse-primary": "#95d4b3",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f3f0ed",
+                    "on-secondary-container": "#600006",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e5e2df",
+                    "on-background": "#1c1c1a",
+                    "surface": "#fcf9f6",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "outline-variant": "#c1c8c2",
+                    "surface-container-high": "#eae8e5",
+                    "surface-container-low": "#f6f3f0",
+                    "secondary-fixed-dim": "#ffb4ac",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#dcdad7",
+                    "primary-fixed-dim": "#95d4b3",
+                    "surface-container": "#f0edea",
+                    "primary-container": "#00452e",
+                    "on-primary-fixed": "#002114",
+                    "on-tertiary-container": "#d89b00",
+                    "on-secondary-fixed-variant": "#92030f",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "secondary-container": "#ff5a52",
+                    "on-surface-variant": "#414844",
+                    "background": "#fcf9f6",
+                    "on-primary-container": "#76b394",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#ffdea9",
+                    "on-primary-fixed-variant": "#0e5138",
+                    "on-tertiary-fixed": "#271900",
+                    "secondary": "#b52424",
+                    "surface-tint": "#2c694e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        .font-serif { font-family: 'Noto Serif', serif; }
+        .asymmetric-stagger:nth-child(even) { margin-left: 2rem; }
+        .asymmetric-stagger:nth-child(odd) { margin-right: 2rem; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="w-full pt-4 pb-2 bg-[#fcf9f6] dark:bg-[#1C1C1A]">
+<div class="flex justify-between items-center px-6 max-w-screen-xl mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="Professional portrait of a sophisticated culinary editor with soft natural window lighting and a neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw53rQfDTPE2DVD5UBbAj9opHmJeaAGD-hpYfamfbzxrP6CC5Q2CH79qiPSUcY34mr7b4svDQFB4yISp7_p8RyK8NL_rX1pi6s2AH_UZdpRRuq4t6fFzLStUSR9ZFPyWpmi6GOLiJ6YrUs5bq26a3vABJT0oTh874lWOJ8mhMOl8l-J4Uw-UqESCNxyQ2VBtE8oRrzjJ3ZpZj-BZ9RMX-1Vp8ERjjc14BpeULLDLMDvw9A1b-VqojNXGqo-1pPxdtcUqaBdSWDBHk"/>
+</div>
+</div>
+<h1 class="text-2xl font-serif italic text-[#002d1c] dark:text-[#fcf9f6]">The Editorial Pantry</h1>
+<button class="text-[#002d1c] dark:text-[#E0E0E0] hover:bg-[#f0edea] dark:hover:bg-[#2d2d2a] transition-colors duration-300 p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</header>
+<main class="max-w-screen-xl mx-auto px-6 mt-8">
+<!-- Hero & Action Area -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="font-label text-xs uppercase tracking-widest text-tertiary mb-2 block">Current Provisioning</span>
+<h2 class="text-5xl font-serif text-primary leading-tight">Weekly Grocery List</h2>
+</div>
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-8 py-4 rounded-xl flex items-center gap-3 shadow-[0_8px_24px_rgba(28,28,26,0.06)] hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label font-bold">Add items from meal plan</span>
+</button>
+</div>
+</section>
+<!-- Staggered Lists by Aisle -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
+<!-- Aisle: Produce -->
+<section>
+<div class="flex items-center gap-4 mb-8">
+<h3 class="text-2xl font-serif text-primary">Produce</h3>
+<div class="h-px flex-grow bg-surface-variant opacity-50"></div>
+<span class="font-label text-xs text-outline">4 ITEMS</span>
+</div>
+<div class="space-y-6">
+<!-- Item 1 -->
+<div class="asymmetric-stagger group flex items-center gap-6 bg-surface-container-lowest p-5 rounded-xl shadow-[0_8px_24px_rgba(28,28,26,0.04)] transition-all hover:bg-surface-container-low">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Macro photography of fresh organic organic rosemary sprigs on a rustic linen background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7Xb-5BKXOWliTgyrmkmzF_yLTNPgckTgdT9aMD4NEe87MaWajrqGRjuPksxLI_lO758tiqNeyfoAvqQUkvELKq0wSrkwzwOf-aGFv_qa8qubzBSkefuBkovgEnl-jcbuTK95zyIjlBK8LoVS-6PGkW9ctEDSrLhstgemvXaQCghdm-I1EmltNDo2OnIYdKjE2brRcFMi6UggVe3sOI122BlvNxKKX8M05AYy1cydrrxD6XRhnxhG6Y9Gys6vL0MGMvZ3-_uCclQU"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-primary">Fresh Rosemary</h4>
+<p class="text-sm text-outline">1 bunch • Organic</p>
+</div>
+<label class="relative flex items-center cursor-pointer">
+<input class="peer h-6 w-6 rounded-full border-2 border-outline-variant text-primary focus:ring-0 focus:ring-offset-0 transition-all" type="checkbox"/>
+<span class="absolute material-symbols-outlined text-white text-sm opacity-0 peer-checked:opacity-100 left-1 pointer-events-none">check</span>
+</label>
+</div>
+<!-- Item 2 -->
+<div class="asymmetric-stagger group flex items-center gap-6 bg-surface-container-lowest p-5 rounded-xl shadow-[0_8px_24px_rgba(28,28,26,0.04)] transition-all hover:bg-surface-container-low">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Clean aesthetic shot of red cherry tomatoes on a white porcelain plate with dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ4sgctv_gNxL4fRZ5F3jyF8p4vIrslvqZsBp_zy79PdEyic_mFyjqyo7GMY3dGbQmWG1ztHEXnrVJvw8zMtNJFMN1EyS9rNicWzGms3KKvsW07QUnA4y9J5rrlT2xKdq0gVyvXMoSnYmFGy6nPhhFKaTwI7ONXkcOe1IG5OCmekgnnE_qJKlkO1GwR2EbXsgey86zK9jzNeFn73tErWuE9UJKW-oNW2BFGTawG9JoBVLG8IHLmafh1JswHwu5LF2sBIxV5mfvC5c"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-primary">Heirloom Tomatoes</h4>
+<p class="text-sm text-outline">500g • Ripe</p>
+</div>
+<label class="relative flex items-center cursor-pointer">
+<input class="peer h-6 w-6 rounded-full border-2 border-outline-variant text-primary focus:ring-0 focus:ring-offset-0 transition-all" type="checkbox"/>
+<span class="absolute material-symbols-outlined text-white text-sm opacity-0 peer-checked:opacity-100 left-1 pointer-events-none">check</span>
+</label>
+</div>
+<!-- Item 3 -->
+<div class="asymmetric-stagger group flex items-center gap-6 bg-surface-container-lowest p-5 rounded-xl shadow-[0_8px_24px_rgba(28,28,26,0.04)] transition-all hover:bg-surface-container-low">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Vibrant orange organic carrots with green tops arranged artistically on a light stone surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMB46Q31819_txoCBGWeFboiHmtGxBDgGbhmYcZnOZoufy2I7eJINJrCXbb9mxyskx-1v1rjfkk50gOPmfYFwSpVnAk7QAlGiM79Xn8LAHjDfFgoqLZNSSasn9Mr66RWVVH2Z2AgvU9vqsicTo5RPjNvScp9NdwAaYZxElXsi2GPx1AmzNofH4oJp0d7nz5KCxPg3YG6RbfqaOI_wFkNxuQdIgiMKUrr6KEeBHZHR9P75eUBM-PagI78H43xfibYF2yIGTlCFcOF8"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-primary">Heirloom Carrots</h4>
+<p class="text-sm text-outline">1 bunch • Rainbow</p>
+</div>
+<label class="relative flex items-center cursor-pointer">
+<input class="peer h-6 w-6 rounded-full border-2 border-outline-variant text-primary focus:ring-0 focus:ring-offset-0 transition-all" type="checkbox"/>
+<span class="absolute material-symbols-outlined text-white text-sm opacity-0 peer-checked:opacity-100 left-1 pointer-events-none">check</span>
+</label>
+</div>
+</div>
+</section>
+<!-- Aisle: Dairy & Provisions -->
+<section>
+<div class="flex items-center gap-4 mb-8">
+<h3 class="text-2xl font-serif text-primary">Dairy &amp; Provisions</h3>
+<div class="h-px flex-grow bg-surface-variant opacity-50"></div>
+<span class="font-label text-xs text-outline">3 ITEMS</span>
+</div>
+<div class="space-y-6">
+<!-- Item 1 -->
+<div class="asymmetric-stagger group flex items-center gap-6 bg-surface-container-lowest p-5 rounded-xl shadow-[0_8px_24px_rgba(28,28,26,0.04)] transition-all hover:bg-surface-container-low">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Minimalist glass carafe of fresh whole milk against a soft cream background with elegant shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlYLUV2iQyb-LRW2qjNvjeQ8n8VNRwFgmnUwfkKn-MKJBHUncsnT9HyC6zjopchm8kvdj_9d80yMzBUzcaRaBPHonuFSHSdfB0ZSoIw4Kf3CbmMFEPMwpKJj9Mx59camsNkM_R9wdrfcjPfjCyS7mFTwVGELVNFur7ctugG6j8OuqbB5iknaZ5VoVB_vTSc11GM_dyyxtLRXCLseTJusqP6fcIBPAZPtMHSglyLoYEHx0fN1TBb1OagYPf5fgZxt-rJJJOYZ9N1ZM"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-primary">Whole A2 Milk</h4>
+<p class="text-sm text-outline">1L • Glass Bottle</p>
+</div>
+<label class="relative flex items-center cursor-pointer">
+<input class="peer h-6 w-6 rounded-full border-2 border-outline-variant text-primary focus:ring-0 focus:ring-offset-0 transition-all" type="checkbox"/>
+<span class="absolute material-symbols-outlined text-white text-sm opacity-0 peer-checked:opacity-100 left-1 pointer-events-none">check</span>
+</label>
+</div>
+<!-- Item 2 -->
+<div class="asymmetric-stagger group flex items-center gap-6 bg-surface-container-lowest p-5 rounded-xl shadow-[0_8px_24px_rgba(28,28,26,0.04)] transition-all hover:bg-surface-container-low">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up of artisan unsalted butter wrapped in parchment paper on a marble slab" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4rxsgd_o0pctd6ZXnavqg3YN5UutZyYWBpTT9G-m1Er_gwj_O-sV9f2C6REuGKLyrz_ojXxecU_KA4k0xDQe7wZ1zQ09y-2pKHQWVcR3Xzkoe9oOTx_O7NFtD1hzJ9f66gTNaBGE5GyU3BTvSVzb5qm16yDEEureLoRCTGe3aqc4DCtUa9ogTqfWaT09Zv2JTHsxPmpOdC3HnKWHdJiwXiez8lzqUXZH8RG7iC5y0AKH3_HzVD_EHMm8x8xtPldu3-bz5-ILK7ac"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-primary">European Butter</h4>
+<p class="text-sm text-outline">250g • Unsalted</p>
+</div>
+<label class="relative flex items-center cursor-pointer">
+<input class="peer h-6 w-6 rounded-full border-2 border-outline-variant text-primary focus:ring-0 focus:ring-offset-0 transition-all" type="checkbox"/>
+<span class="absolute material-symbols-outlined text-white text-sm opacity-0 peer-checked:opacity-100 left-1 pointer-events-none">check</span>
+</label>
+</div>
+<!-- Item 3 -->
+<div class="asymmetric-stagger group flex items-center gap-6 bg-surface-container-lowest p-5 rounded-xl shadow-[0_8px_24px_rgba(28,28,26,0.04)] transition-all hover:bg-surface-container-low">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Macro shot of rich yellow farm eggs in a recycled cardboard carton with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw8F0p5Mf6QDoA_kRjlAy21OO7oJmOXaVKpwAG-tWvYpy6sAC6omuoPdYnE3lP_Y2TdIBMksVUgQnuFYxx59xZcgcSwuj85HjDwBYGtuEThVPCi8XhJftWoSszUI5UBVEtagv7TedBPwGofvVz_3blFsejqLRB7LFaKqYJu4_cZzkPrlnGct-EOcsow4mYc1VIMqGtQNek3uVgjJCoNzHdZRLjoOFkAcXWzC6XVOIPzoue509EFOtnFKRyU5UOKt3g17BFEtc5Jm0"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-primary">Pasture Eggs</h4>
+<p class="text-sm text-outline">1 Dozen • Large</p>
+</div>
+<label class="relative flex items-center cursor-pointer">
+<input checked="" class="peer h-6 w-6 rounded-full border-2 border-outline-variant text-primary focus:ring-0 focus:ring-offset-0 transition-all" type="checkbox"/>
+<span class="absolute material-symbols-outlined text-white text-sm opacity-100 left-1 pointer-events-none">check</span>
+</label>
+</div>
+</div>
+</section>
+<!-- Aisle: Grains & Pantry -->
+<section class="lg:col-span-2">
+<div class="flex items-center gap-4 mb-8">
+<h3 class="text-2xl font-serif text-primary">Grains &amp; Pantry</h3>
+<div class="h-px flex-grow bg-surface-variant opacity-50"></div>
+<span class="font-label text-xs text-outline">2 ITEMS</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="group flex items-center gap-6 bg-surface-container-lowest p-5 rounded-xl shadow-[0_8px_24px_rgba(28,28,26,0.04)] transition-all hover:bg-surface-container-low">
+<div class="w-16 h-16 bg-surface-container rounded-lg flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Freshly baked artisan sourdough loaf with a crispy crust on a dark wooden cutting board" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASH2YQBl27R-n0dOC58Lat6I6hNjdwt7lIb-2S7KhpnepXOQ1WqlR3vUawYkcP4KjoklOTIgKtA8VKGDT8OVkDPU8GA84VmQihrzFmt7-5xJn5RtAVDIe2d1-O03N6rX_JkfddZKRb6NtAuHXttuyyO86AX0Z9dwYtgGQtd8IpoUTZfMT-3vIpNBwzl4Uys_3DVHEU2eNM4ZOH0YD2NrRYasVgIgJ5SRtLAUcJUDnc1nn6RSUqmV_yzxODDuPgOdTznXD57OYiecY"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-primary">Sourdough Loaf</h4>
+<p class="text-sm text-outline">1 Loaf • Country Style</p>
+</div>
+<label class="relative flex items-center cursor-pointer">
+<input class="peer h-6 w-6 rounded-full border-2 border-outline-variant text-primary focus:ring-0 focus:ring-offset-0 transition-all" type="checkbox"/>
+<span class="absolute material-symbols-outlined text-white text-sm opacity-0 peer-checked:opacity-100 left-1 pointer-events-none">check</span>
+</label>
+</div>
+<div class="group flex items-center gap-6 bg-surface-container-lowest p-5 rounded-xl shadow-[0_8px_24px_rgba(28,28,26,0.04)] transition-all hover:bg-surface-container-low">
+<div class="w-16 h-16 bg-surface-container rounded-lg flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Artisanal glass jar of locally sourced golden honey with a wooden dipper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKdGfcdIzzG0p9hiFCAqhEgq-b5PLmyhy2L3VohXno10AmoezopcC5wFRh_ppEfSn9RztE3OxGGCevaabpSCAD3omDiJLsXt1G5BMtlREgwGA4-8WDo3yyNGIDJoRLqxzp12IMKHAlK6RhF8IZi7gWZf7b_5o15L-6lV50F1ZXmntw381n0moqgy-AokJZ1VwvpLHDcSMm57je2tfJqM-5bP8shsVubat_uBsf-gUlMcOxadJodLgo1D8IWq8JeJ0hcnm6CBG-KaI"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-primary">Wildflower Honey</h4>
+<p class="text-sm text-outline">350ml • Local Sourced</p>
+</div>
+<label class="relative flex items-center cursor-pointer">
+<input class="peer h-6 w-6 rounded-full border-2 border-outline-variant text-primary focus:ring-0 focus:ring-offset-0 transition-all" type="checkbox"/>
+<span class="absolute material-symbols-outlined text-white text-sm opacity-0 peer-checked:opacity-100 left-1 pointer-events-none">check</span>
+</label>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pt-3 pb-8 bg-[#fcf9f6]/85 dark:bg-[#1C1C1A]/85 backdrop-blur-md z-50 rounded-t-3xl shadow-[0_-8px_24px_rgba(28,28,26,0.06)]">
+<a class="flex flex-col items-center justify-center text-[#002d1c]/60 dark:text-[#fcf9f6]/60 px-5 py-1.5 transition-opacity hover:text-[#002d1c]" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label text-[10px] font-medium tracking-tight mt-1">Inventory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#002d1c]/60 dark:text-[#fcf9f6]/60 px-5 py-1.5 transition-opacity hover:text-[#002d1c]" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label text-[10px] font-medium tracking-tight mt-1">Plan</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#002d1c] text-white rounded-full px-5 py-1.5 transition-all duration-500 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+<span class="font-label text-[10px] font-medium tracking-tight mt-1">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#002d1c]/60 dark:text-[#fcf9f6]/60 px-5 py-1.5 transition-opacity hover:text-[#002d1c]" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-label text-[10px] font-medium tracking-tight mt-1">Recipes</span>
+</a>
+</nav>
+<!-- FAB for adding custom item -->
+<button class="fixed right-6 bottom-28 w-14 h-14 rounded-full bg-tertiary text-white flex items-center justify-center shadow-[0_8px_24px_rgba(28,28,26,0.12)] hover:bg-tertiary-container transition-all active:scale-90 z-40">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</body></html>
