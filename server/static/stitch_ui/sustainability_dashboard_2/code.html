@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#1b1b1b",
+                        "on-tertiary-fixed": "#410001",
+                        "on-secondary-fixed-variant": "#00531b",
+                        "secondary-fixed": "#6bff83",
+                        "secondary-fixed-dim": "#00e55b",
+                        "tertiary": "#ffb4aa",
+                        "inverse-primary": "#a04100",
+                        "on-surface": "#e2e2e2",
+                        "on-background": "#e2e2e2",
+                        "tertiary-fixed-dim": "#ffb4aa",
+                        "secondary-container": "#00fe66",
+                        "on-background": "#e2e2e2",
+                        "tertiary-fixed": "#ffdad5",
+                        "on-secondary": "#003911",
+                        "primary-fixed-dim": "#ffb693",
+                        "outline-variant": "#5a4136",
+                        "inverse-on-surface": "#303030",
+                        "tertiary-container": "#ff6858",
+                        "surface-container": "#1f1f1f",
+                        "surface": "#131313",
+                        "on-tertiary-container": "#6a0003",
+                        "surface-tint": "#ffb693",
+                        "on-tertiary-fixed-variant": "#930005",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#002107",
+                        "surface-bright": "#393939",
+                        "primary": "#ffb693",
+                        "secondary": "#ebffe6",
+                        "primary-container": "#ff6b00",
+                        "on-primary-fixed": "#351000",
+                        "surface-variant": "#353535",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "on-error-container": "#ffdad6",
+                        "outline": "#a98a7d",
+                        "on-secondary-container": "#007128",
+                        "on-primary-container": "#572000",
+                        "inverse-surface": "#e2e2e2",
+                        "primary-fixed": "#ffdbcc",
+                        "on-surface-variant": "#e2bfb0",
+                        "surface-container-highest": "#353535",
+                        "surface-dim": "#131313",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error": "#690005",
+                        "background": "#131313",
+                        "on-tertiary": "#690003",
+                        "surface-container-lowest": "#0e0e0e",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #e2e2e2;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(90, 65, 54, 0.1);
+        }
+        .glow-orange {
+            box-shadow: 0 0 30px rgba(255, 107, 0, 0.15);
+        }
+        .glow-green {
+            box-shadow: 0 0 30px rgba(0, 254, 102, 0.15);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#131313]/80 backdrop-blur-xl shadow-[0_0_20px_rgba(255,107,0,0.1)] flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#FF6B00]">restaurant_menu</span>
+<span class="text-xl font-black tracking-tighter text-[#FF6B00]">THE NOCTURNAL CHEF</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-['Inter'] tracking-tight font-bold text-lg uppercase text-white/60">Your Impact</span>
+<span class="material-symbols-outlined text-[#FFB693] transition-colors hover:text-[#FFB693]">settings_voice</span>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-7xl mx-auto">
+<!-- Hero Editorial Section -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-[3.5rem] font-black tracking-tighter leading-none mb-4 text-white">Your Impact</h1>
+<p class="text-white/60 text-lg max-w-xl font-medium leading-relaxed">
+                        Precision tracking of culinary preservation. Every gram saved is a testament to sustainable craftsmanship.
+                    </p>
+</div>
+<div class="flex gap-4 mb-2">
+<div class="px-6 py-2 rounded-full border border-outline-variant/20 bg-surface-container-low text-xs font-bold uppercase tracking-widest">Global Ranking: #12</div>
+<div class="px-6 py-2 rounded-full border border-outline-variant/20 bg-surface-container-low text-xs font-bold uppercase tracking-widest text-secondary-container">Master Curator</div>
+</div>
+</div>
+</section>
+<!-- Circular Impact Dashboard -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+<!-- Food Saved Chart -->
+<div class="glass-panel rounded-lg p-8 flex flex-col items-center justify-center glow-green relative overflow-hidden group">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-secondary-container/10 blur-3xl rounded-full transition-all group-hover:scale-150"></div>
+<div class="relative w-48 h-48 mb-6">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-white/5" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-secondary-container" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="552.92" stroke-dashoffset="110" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-black text-white">82%</span>
+<span class="text-[10px] uppercase font-bold tracking-widest text-white/40">Food Saved</span>
+</div>
+</div>
+<div class="text-center">
+<p class="text-xl font-bold mb-1">124.5 kg</p>
+<p class="text-sm text-white/40 uppercase tracking-widest font-bold">Monthly Reduction</p>
+</div>
+</div>
+<!-- CO2 Impact Chart -->
+<div class="glass-panel rounded-lg p-8 flex flex-col items-center justify-center glow-orange relative overflow-hidden group">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary-container/10 blur-3xl rounded-full transition-all group-hover:scale-150"></div>
+<div class="relative w-48 h-48 mb-6">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-white/5" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary-container" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="552.92" stroke-dashoffset="200" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-black text-white">64%</span>
+<span class="text-[10px] uppercase font-bold tracking-widest text-white/40">CO2 Offset</span>
+</div>
+</div>
+<div class="text-center">
+<p class="text-xl font-bold mb-1">312 CO2e</p>
+<p class="text-sm text-white/40 uppercase tracking-widest font-bold">Carbon Neutralized</p>
+</div>
+</div>
+<!-- Eco-Efficiency -->
+<div class="glass-panel rounded-lg p-8 relative overflow-hidden lg:col-span-1 md:col-span-2">
+<div class="flex items-center gap-4 mb-8">
+<div class="p-3 bg-secondary-container/10 rounded-2xl text-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Eco-Efficiency</h3>
+<p class="text-xs uppercase tracking-tighter text-white/40">Real-time optimization</p>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-xs font-bold uppercase tracking-widest mb-2">
+<span>Sourcing Purity</span>
+<span class="text-secondary-container">94%</span>
+</div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[94%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold uppercase tracking-widest mb-2">
+<span>Compost Level</span>
+<span class="text-primary">72%</span>
+</div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[72%]"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-white/5">
+<p class="text-sm italic text-white/60">"Your kitchen is currently performing in the top 3% of nocturnal curators worldwide."</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Monthly Savings Bar Chart (Asymmetric Bento Grid) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+<div class="lg:col-span-2 glass-panel rounded-lg p-8">
+<div class="flex justify-between items-center mb-10">
+<h3 class="text-xl font-bold uppercase tracking-widest">Monthly Savings</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary-container"></div>
+<span class="text-[10px] uppercase font-bold tracking-widest text-white/40">Saved</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<span class="text-[10px] uppercase font-bold tracking-widest text-white/40">Waste</span>
+</div>
+</div>
+</div>
+<div class="flex items-end justify-between h-64 gap-2">
+<!-- Bar Chart Visual Representation -->
+<div class="flex flex-col gap-1 w-full items-center group">
+<div class="w-full bg-primary-container/20 rounded-t-lg group-hover:bg-primary-container/40 transition-all" style="height: 40%"></div>
+<div class="w-full bg-secondary-container rounded-t-lg shadow-[0_0_15px_rgba(0,254,102,0.3)]" style="height: 60%"></div>
+<span class="text-[10px] mt-2 font-bold opacity-40">JAN</span>
+</div>
+<div class="flex flex-col gap-1 w-full items-center group">
+<div class="w-full bg-primary-container/20 rounded-t-lg group-hover:bg-primary-container/40 transition-all" style="height: 30%"></div>
+<div class="w-full bg-secondary-container rounded-t-lg shadow-[0_0_15px_rgba(0,254,102,0.3)]" style="height: 70%"></div>
+<span class="text-[10px] mt-2 font-bold opacity-40">FEB</span>
+</div>
+<div class="flex flex-col gap-1 w-full items-center group">
+<div class="w-full bg-primary-container/20 rounded-t-lg group-hover:bg-primary-container/40 transition-all" style="height: 50%"></div>
+<div class="w-full bg-secondary-container rounded-t-lg shadow-[0_0_15px_rgba(0,254,102,0.3)]" style="height: 50%"></div>
+<span class="text-[10px] mt-2 font-bold opacity-40">MAR</span>
+</div>
+<div class="flex flex-col gap-1 w-full items-center group">
+<div class="w-full bg-primary-container/20 rounded-t-lg group-hover:bg-primary-container/40 transition-all" style="height: 20%"></div>
+<div class="w-full bg-secondary-container rounded-t-lg shadow-[0_0_15px_rgba(0,254,102,0.3)]" style="height: 80%"></div>
+<span class="text-[10px] mt-2 font-bold opacity-40">APR</span>
+</div>
+<div class="flex flex-col gap-1 w-full items-center group">
+<div class="w-full bg-primary-container/20 rounded-t-lg group-hover:bg-primary-container/40 transition-all" style="height: 15%"></div>
+<div class="w-full bg-secondary-container rounded-t-lg shadow-[0_0_15px_rgba(0,254,102,0.3)]" style="height: 85%"></div>
+<span class="text-[10px] mt-2 font-bold opacity-40">MAY</span>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-lg overflow-hidden flex flex-col">
+<img class="h-48 object-cover w-full opacity-60" data-alt="close-up of vibrant fresh microgreens on a black slate tray with soft artistic dramatic side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVdYQKkiKq9qJLn42ki2hnYdytsECnkakzN9SfcIrDRzfcb8CY7HmUqBjitzk03Zm3VktaWIeOQHkK0sFNNy381LLrL3zHjV_2bhsWarN6bM-PHM0anzF3y9AHkbMb65iyppd9pIKISV6eCDiJbejOwciO4qEX32-nYETaDTN4gBUU1q9oZp5uD0DZjKO7K6tZQozgNCDbgeot35OhXaQ2pfKAcTitkBbboV0sUvoswFI7o3XMvPXfWxC6mLbUo15HoCTQPqT7QEE"/>
+<div class="p-6">
+<h4 class="text-sm font-bold uppercase tracking-widest text-[#FF6B00] mb-2">Sustainable Tip</h4>
+<p class="text-sm text-white/80 leading-relaxed mb-4">"Using citrus peels for artisanal infusions can reduce your organic waste footprint by another 4.2% this month."</p>
+<button class="w-full py-3 bg-white/5 border border-white/10 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition-colors">Learn Infusion Techniques</button>
+</div>
+</div>
+</div>
+<!-- Waste Prevention Leaderboard -->
+<section class="mb-12">
+<h3 class="text-xl font-bold uppercase tracking-widest mb-8 px-2">Waste Prevention Leaderboard</h3>
+<div class="space-y-4">
+<div class="glass-panel rounded-lg p-4 flex items-center justify-between group hover:bg-white/5 transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-[#1b1b1b] flex items-center justify-center font-black text-[#FF6B00]">01</div>
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="portrait of a professional chef in black culinary uniform against a dark moody kitchen background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEzQyzctZvPq_h8ew0BhLISp4w6-AkcFaCe-YtJIkIOSXDII8yjsz6sb-izjzBTNHj_BqjNWMRXVG_ZZzrUtXa3jCABvqTYtnjR5KAXQlBZmJb60PvoxFKe2ReN6Pe5M8bSZ1Onx_Ahcedx58HAPds4UlDEnDkipMJtLFQjNk-COXTWRLNCxOOOlMVISSK4-qznbxm996BTGS7McNHS7QddH186G7j4zvKRq0pn1BJDx4qlrQ8yscQlkFenirL5S_O28qYfhMXS_U"/>
+</div>
+<div>
+<p class="font-bold">Chef Julian Vance</p>
+<p class="text-[10px] text-white/40 font-bold uppercase tracking-widest">Paris, France</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-secondary-container font-black">99.2%</p>
+<p class="text-[10px] text-white/40 font-bold uppercase tracking-widest">Efficiency</p>
+</div>
+</div>
+<div class="glass-panel rounded-lg p-4 flex items-center justify-between border-primary-container/30 glow-orange">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center font-black text-on-primary">12</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="close up headshot of a smiling executive chef in a dark studio setting with warm amber lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk2pcF8Z-MXl7QQTdCCAvSq8kywcz-lbTlRElrVP1CfpqNzR0oZ7vmS_n5gLr9_xaJAXEEEfMXDequzziu7HJ7lum3lrCsWBubIX9_6Yu8qSzXE5eXGKhnEF-5xO3ZHXMsuvpXiMFuCOMjBtOSmU7P8MHrZ1Y6caez8Jdoh6inNdZeiv9Kzk04qjLYI0qD-PXAFWC5WO1nt-TUd9zpEmpnLCqBPXk2S79iALNyClMIt8Zl2TI2bXksqYlLWiB2OV2pQeelL_1doAw"/>
+</div>
+<div>
+<p class="font-bold text-white">You (The Curator)</p>
+<p class="text-[10px] text-primary font-bold uppercase tracking-widest">Master Level 9</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-secondary-container font-black">82.0%</p>
+<p class="text-[10px] text-white/40 font-bold uppercase tracking-widest">Efficiency</p>
+</div>
+</div>
+<div class="glass-panel rounded-lg p-4 flex items-center justify-between opacity-60">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-[#1b1b1b] flex items-center justify-center font-black text-white/20">13</div>
+<div class="w-10 h-10 rounded-full overflow-hidden grayscale">
+<img class="w-full h-full object-cover" data-alt="professional portrait of a chef looking focused with atmospheric kitchen steam in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT0r5R6LbtgCKGLslVOH1ITAwZZv9MbKF-2YEBskn32FHGQJa2F8en4pdovLBlbUz8A2KuuMU04nnGbvJ2tjxUH-VZKYPCIZ_M85nlEsMJzwuNkWuh1M612whqBwHjX2_B0Kq3T8MASvXTyNSv7SoeEQau_FisHz3msg0zs4-61hnX_ULiudwpDoyRHBD84oGwVEn8o5zNIZMqZoesj09eDsbhKNC4aOvHKH_SIURe19zJUmBBSVC6evT_Wvy_2O6QZCKy8PPBHZE"/>
+</div>
+<div>
+<p class="font-bold">Elena Rodriguez</p>
+<p class="text-[10px] text-white/40 font-bold uppercase tracking-widest">Madrid, Spain</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-secondary-container font-black">81.4%</p>
+<p class="text-[10px] text-white/40 font-bold uppercase tracking-widest">Efficiency</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-black/90 backdrop-blur-2xl rounded-t-[32px] shadow-[0_-10px_40px_rgba(255,107,0,0.15)] flex justify-around items-center pt-4 pb-8 px-6">
+<button class="flex flex-col items-center justify-center text-white/40 hover:text-[#00FE66] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined mb-1">auto_awesome</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest">Curate</span>
+</button>
+<button class="flex flex-col items-center justify-center text-white/40 hover:text-[#00FE66] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined mb-1">eco</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest">Fresh</span>
+</button>
+<button class="flex flex-col items-center justify-center text-white/40 hover:text-[#00FE66] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined mb-1">receipt_long</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest">Orders</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#FF6B00] drop-shadow-[0_0_8px_rgba(255,107,0,0.8)] active:scale-90 transition-transform">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest">Profile</span>
+</button>
+</nav>
+</body></html>

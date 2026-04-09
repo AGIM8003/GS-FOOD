@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#a98a7d",
+                    "on-surface-variant": "#e2bfb0",
+                    "on-tertiary": "#690003",
+                    "surface-container": "#1f1f1f",
+                    "secondary-container": "#00fe66",
+                    "on-primary-fixed": "#351000",
+                    "on-primary": "#561f00",
+                    "tertiary-fixed-dim": "#ffb4aa",
+                    "on-tertiary-container": "#6a0003",
+                    "secondary-fixed": "#6bff83",
+                    "on-error": "#690005",
+                    "on-background": "#e2e2e2",
+                    "surface-container-highest": "#353535",
+                    "outline-variant": "#5a4136",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "inverse-primary": "#a04100",
+                    "surface-variant": "#353535",
+                    "on-secondary-container": "#007128",
+                    "on-secondary": "#003911",
+                    "primary-fixed": "#ffdbcc",
+                    "surface-dim": "#131313",
+                    "surface-tint": "#ffb693",
+                    "on-tertiary-fixed": "#410001",
+                    "primary-container": "#ff6b00",
+                    "background": "#131313",
+                    "on-error-container": "#ffdad6",
+                    "error-container": "#93000a",
+                    "surface-container-lowest": "#0e0e0e",
+                    "tertiary-container": "#ff6858",
+                    "on-tertiary-fixed-variant": "#930005",
+                    "tertiary-fixed": "#ffdad5",
+                    "surface-bright": "#393939",
+                    "secondary-fixed-dim": "#00e55b",
+                    "inverse-surface": "#e2e2e2",
+                    "on-primary-container": "#572000",
+                    "surface": "#131313",
+                    "error": "#ffb4ab",
+                    "primary": "#ffb693",
+                    "on-secondary-fixed-variant": "#00531b",
+                    "tertiary": "#ffb4aa",
+                    "on-surface": "#e2e2e2",
+                    "surface-container-low": "#1b1b1b",
+                    "surface-container-high": "#2a2a2a",
+                    "on-secondary-fixed": "#002107",
+                    "secondary": "#ebffe6",
+                    "primary-fixed-dim": "#ffb693",
+                    "inverse-on-surface": "#303030"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-transparent">
+<nav class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="w-12 h-12 flex items-center justify-center rounded-full glass-card text-white hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+</div>
+<h1 class="font-headline text-2xl font-black tracking-tighter uppercase text-orange-500 drop-shadow-[0_0_10px_rgba(255,107,0,0.5)]">GS FOOD</h1>
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="User avatar" data-alt="Close up portrait of a professional chef smiling in a modern kitchen setting with warm ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHnouOo0pbNZcnWLJLe9LbioXhMHJ1fgInvfwB-93w3A3uStFClzUMOqGXRXIO3G4DlJ_gexFRW0rFqT2u13jxcjmAj_XkjKWaDd_88BFu5IXJebr_xKtjGJv03CFuFn6vokLv4HBai1-dKzakTPeSWv4WClVKifheITBq9f9VbfkLR8AnA1wllwmYLuM8XtPfqlPepaIPaUDT8miwSL4Ig2yuOKz9tRg8YO7IkyoXaAzxLjyuIu5qM3_b1OsHuETKUDFWosDuSLM"/>
+</div>
+</nav>
+</header>
+<main class="pb-32">
+<!-- Hero Section -->
+<section class="relative h-[574px] w-full overflow-hidden">
+<img alt="Miso Glazed Salmon" class="w-full h-full object-cover" data-alt="Exquisite close-up of miso-glazed salmon fillet with a glossy caramelized finish, garnished with sesame seeds and scallions on a dark ceramic plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUPNLGj8ZIlpnB8v3NMwqOrnSKFrHrteW8mz4dlN0tdWbxshixJIfK45gpp5IjvyB_L9jtm9wfZg_fFtn6TWdy_J582tNAz6qJrdoIk0JSKy0pEx4SSzKpbudMvCGAONroCSAJtaAuAZHCW-tJMWVrFrw-WU0sHpCyTqd7_AaX9bMM_zM3SwPk-u2bp1JphLJ7Yeyvowg45WL59eiMd9LHCB7MuDxlTirF9sZ7FVT51pETb2MhD0h4JxccwTw4W0PP7TH--jeB5ug"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full px-8 pb-12">
+<div class="max-w-4xl mx-auto">
+<div class="flex gap-3 mb-4">
+<span class="px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-widest">High Protein</span>
+<span class="px-4 py-1 rounded-full bg-primary-container/20 text-primary-fixed border border-primary/30 text-[10px] font-bold uppercase tracking-widest">Chef's Choice</span>
+</div>
+<h2 class="font-headline text-5xl md:text-7xl font-black tracking-tighter text-white mb-4 leading-none">Miso Glazed <br/><span class="text-primary-container">Salmon</span></h2>
+<div class="flex items-center gap-8 text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">timer</span>
+<span class="text-sm font-bold tracking-tight">25 MINS</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">local_fire_department</span>
+<span class="text-sm font-bold tracking-tight">420 KCAL</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">star</span>
+<span class="text-sm font-bold tracking-tight">4.9 (1.2k)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Match Analysis Bento Grid -->
+<section class="px-8 mt-12 max-w-7xl mx-auto">
+<div class="flex items-baseline justify-between mb-8">
+<h3 class="font-headline text-2xl font-bold tracking-tight">MATCH ANALYSIS</h3>
+<span class="text-secondary font-bold text-xs tracking-widest uppercase">Pantry Rescue Active</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Salmon -->
+<div class="group relative aspect-square rounded-lg bg-surface-container-low p-6 overflow-hidden transition-all hover:bg-surface-container border border-white/5">
+<div class="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-colors"></div>
+<div class="relative z-10 h-full flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary text-3xl">set_meal</span>
+<div>
+<p class="text-xs text-on-surface-variant font-medium mb-1">Main Protein</p>
+<h4 class="font-bold text-lg leading-tight">Salmon Fillet</h4>
+</div>
+</div>
+</div>
+<!-- Miso -->
+<div class="group relative aspect-square rounded-lg bg-surface-container-low p-6 overflow-hidden border border-white/5">
+<div class="absolute top-2 right-2 px-2 py-1 bg-tertiary-container text-on-tertiary-container text-[8px] font-black uppercase rounded-sm z-20 shadow-lg">Expiring Soon</div>
+<div class="absolute -top-4 -right-4 w-24 h-24 bg-tertiary-container/10 rounded-full blur-2xl"></div>
+<div class="relative z-10 h-full flex flex-col justify-between">
+<span class="material-symbols-outlined text-tertiary-container text-3xl">soup_kitchen</span>
+<div>
+<p class="text-xs text-on-surface-variant font-medium mb-1">Flavor Base</p>
+<h4 class="font-bold text-lg leading-tight">White Miso</h4>
+</div>
+</div>
+</div>
+<!-- Bok Choy -->
+<div class="group relative aspect-square rounded-lg bg-surface-container-low p-6 overflow-hidden border border-white/5">
+<div class="absolute top-2 right-2 px-2 py-1 bg-tertiary-container text-on-tertiary-container text-[8px] font-black uppercase rounded-sm z-20 shadow-lg">Expiring Soon</div>
+<div class="absolute -top-4 -right-4 w-24 h-24 bg-tertiary-container/10 rounded-full blur-2xl"></div>
+<div class="relative z-10 h-full flex flex-col justify-between">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-3xl">eco</span>
+<div>
+<p class="text-xs text-on-surface-variant font-medium mb-1">Fresh Greens</p>
+<h4 class="font-bold text-lg leading-tight">Bok Choy</h4>
+</div>
+</div>
+</div>
+<!-- Ginger -->
+<div class="group relative aspect-square rounded-lg bg-surface-container-low p-6 overflow-hidden border border-white/5">
+<div class="relative z-10 h-full flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary text-3xl">psychiatry</span>
+<div>
+<p class="text-xs text-on-surface-variant font-medium mb-1">Aromatic</p>
+<h4 class="font-bold text-lg leading-tight">Fresh Ginger</h4>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Instructions Section -->
+<section class="px-8 mt-20 max-w-4xl mx-auto">
+<h3 class="font-headline text-3xl font-black tracking-tight mb-12">THE PREPARATION</h3>
+<div class="space-y-16">
+<!-- Step 1 -->
+<div class="flex gap-8 group">
+<div class="flex-none">
+<div class="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center text-primary font-black text-xl group-hover:bg-primary group-hover:text-black transition-colors">1</div>
+</div>
+<div class="pt-2">
+<h4 class="text-lg font-bold text-white mb-2 uppercase tracking-wide">Prepare the Glaze</h4>
+<p class="text-on-surface-variant leading-relaxed text-lg">Whisk together white miso paste, mirin, sake, and a touch of brown sugar until smooth. The consistency should be thick but pourable.</p>
+<div class="mt-6 rounded-lg overflow-hidden h-48 w-full border border-white/5">
+<img alt="Preparing glaze" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A small glass bowl containing thick golden-brown miso glaze being whisked with a small bamboo tool, soft focus kitchen background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApHI0uwpy6IBN19rMeO09i6QK2hUolvNu0QHkuJKQS9kI4bqHgtv5rHIkp_QF4Dzeiuzi07g2LIK_uxjjxWFGGF9N4TSpSdoq73kErTl2jFo7kFmjeRBEbR10NG3oIe-xDP4votE6t9x5Q494aK-QCnHgFPTv121TYw9_hEwLmKGZffSvVdsmPuz2UaO5F3wTqaKQRCnblyx4Z6uM3aHagxc5L7u4opHlodpAd1xww7k4TLyVcFlUmI7m_OHLvgthToRvIdRUbOCo"/>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex gap-8 group">
+<div class="flex-none">
+<div class="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center text-primary font-black text-xl group-hover:bg-primary group-hover:text-black transition-colors">2</div>
+</div>
+<div class="pt-2">
+<h4 class="text-lg font-bold text-white mb-2 uppercase tracking-wide">Marinate Salmon</h4>
+<p class="text-on-surface-variant leading-relaxed text-lg">Coat the salmon fillets generously with the glaze. Let them sit for at least 15 minutes at room temperature to absorb the deep umami notes.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex gap-8 group">
+<div class="flex-none">
+<div class="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center text-primary font-black text-xl group-hover:bg-primary group-hover:text-black transition-colors">3</div>
+</div>
+<div class="pt-2">
+<h4 class="text-lg font-bold text-white mb-2 uppercase tracking-wide">High-Heat Broil</h4>
+<p class="text-on-surface-variant leading-relaxed text-lg">Place salmon under a preheated broiler. Cook for 6-8 minutes until the glaze bubbles and turns a deep, dark caramel color with slight charring on the edges.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<div class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[60] w-full max-w-xs px-6">
+<button class="w-full py-5 rounded-full bg-primary-container text-black font-black text-lg tracking-tight shadow-[0_20px_50px_rgba(255,107,0,0.3)] flex items-center justify-center gap-3 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">play_arrow</span>
+            START COOKING
+        </button>
+</div>
+<!-- Bottom Navigation Shell -->
+<footer class="fixed bottom-0 left-0 w-full px-6 py-4 flex justify-between items-center bg-black/40 backdrop-blur-2xl border-t border-white/10 z-50 rounded-t-[32px] shadow-[0_-8px_30px_rgba(255,107,0,0.1)]">
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold mt-1">My Food</span>
+</div>
+<div class="flex flex-col items-center justify-center text-orange-500 scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings_voice</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold mt-1">Cook</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold mt-1">Plan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold mt-1">Shop</span>
+</div>
+</footer>
+</body></html>

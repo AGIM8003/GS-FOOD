@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Origin Trace | GS FOOD</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#353535",
+                        "on-primary-fixed": "#351000",
+                        "surface-dim": "#131313",
+                        "tertiary-fixed-dim": "#ffb4aa",
+                        "primary-fixed": "#ffdbcc",
+                        "inverse-surface": "#e2e2e2",
+                        "inverse-on-surface": "#303030",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#930005",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface-variant": "#e2bfb0",
+                        "on-secondary-fixed-variant": "#00531b",
+                        "secondary": "#ebffe6",
+                        "on-primary": "#561f00",
+                        "tertiary": "#ffb4aa",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1b1b1b",
+                        "surface-bright": "#393939",
+                        "primary-fixed-dim": "#ffb693",
+                        "inverse-primary": "#a04100",
+                        "surface-container-high": "#2a2a2a",
+                        "outline-variant": "#5a4136",
+                        "on-primary-container": "#572000",
+                        "surface": "#131313",
+                        "surface-container": "#1f1f1f",
+                        "secondary-fixed-dim": "#00e55b",
+                        "on-secondary": "#003911",
+                        "on-background": "#e2e2e2",
+                        "error-container": "#93000a",
+                        "background": "#131313",
+                        "primary": "#ffb693",
+                        "on-tertiary": "#690003",
+                        "tertiary-fixed": "#ffdad5",
+                        "on-secondary-fixed": "#002107",
+                        "secondary-container": "#00fe66",
+                        "primary-container": "#ff6b00",
+                        "surface-variant": "#353535",
+                        "on-surface": "#e2e2e2",
+                        "secondary-fixed": "#6bff83",
+                        "tertiary-container": "#ff6858",
+                        "on-tertiary-fixed": "#410001",
+                        "on-error-container": "#ffdad6",
+                        "surface-tint": "#ffb693",
+                        "outline": "#a98a7d",
+                        "on-secondary-container": "#007128",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "on-tertiary-container": "#6a0003"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .glow-orange {
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.15);
+            border: 1px solid rgba(255, 182, 147, 0.1);
+        }
+        .glow-green {
+            box-shadow: 0 0 15px rgba(0, 254, 102, 0.1);
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-black text-on-surface font-body selection:bg-primary-container selection:text-white">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl tonal-shift bg-neutral-900/50">
+<div class="flex justify-between items-center px-6 h-16 w-full max-screen-2xl mx-auto">
+<button class="text-orange-500 hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-['Inter'] tracking-tight font-bold text-2xl uppercase text-orange-500 drop-shadow-[0_0_8px_rgba(255,107,0,0.4)]">GS FOOD</h1>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30 active:scale-95 duration-200 transition-opacity hover:opacity-80">
+<img alt="Chef Profile" data-alt="Close-up professional portrait of an executive chef in a black uniform against a dark moody kitchen background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiMChaulwaZ-i7zxm0ayTSbc5FCk3UcgsY19_mUNdsPNFJsBj1EjQHGwLlxHP0hU19qDNFM7vX9xhwfB8p4jt9GIy23soR1Mji0zBZzF26PWiKd-Irun5UNVJFy7tCSu40PBLygeQE4NqQcCP8Y8QWLwyPA3Ob-S5iTixOsvZzKZ_tBrnm2aDvqAU24uNTWLDRCLcjDFXSz73yBDlpcyk14rEvxS_Njr1vU2bK4l9-FA1Sk_TnmLlaaI-hoq7-xEUt8O6VogFUSwE"/>
+</div>
+</div>
+</header>
+<main class="pt-16 pb-32 max-w-screen-xl mx-auto px-6">
+<!-- Hero Section: Map Visualization -->
+<section class="mt-8 relative h-[397px] rounded-xl overflow-hidden glow-orange">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
+<img class="w-full h-full object-cover grayscale opacity-60 contrast-125" data-alt="Dark stylized satellite map of Japan with neon orange glowing trace lines showing a supply route from Kagoshima to Tokyo" data-location="Kagoshima, Japan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpeHkdv365XRDWh189x95RlDGQDOHNjFwPPkhIEhIdTJgVwkjQQjRx2mGWAAFyV82Zfy9IPuqiGZV6JG41nLnkaQUMLSnKFOqDXK06BmVgvwu-h_nLfq6dkxSGTzA3rTOUvVXWQHwgABus8HZUDjwiEzFWnu6C5uuVOpeo1M3ZnSesg4P8DZhUkhOAe5Fu0kjOK7dh14FeslCMrRE9MKQWP_-LqZrcwpTpfBA5pPY8lumP1Lmg6SLyMhrR9UyHs2p_U-fTuU3B9sI"/>
+<!-- Map Overlay UI -->
+<div class="absolute top-6 left-6 z-20">
+<div class="flex items-center gap-3 glass-card px-4 py-2 rounded-full border border-secondary-container/20">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse shadow-[0_0_8px_#00fe66]"></span>
+<span class="text-[10px] font-bold tracking-widest uppercase text-secondary-container">Live Trace Active</span>
+</div>
+</div>
+<div class="absolute bottom-8 left-8 z-20">
+<h2 class="text-4xl md:text-6xl font-black tracking-tighter text-white uppercase leading-none">
+                    A5 Wagyu <br/>
+<span class="text-primary-container">Kagoshima</span>
+</h2>
+<div class="mt-4 flex items-center gap-4">
+<div class="flex items-center gap-2 bg-secondary-container text-on-secondary px-3 py-1 rounded-full text-[10px] font-black tracking-wider uppercase glow-green">
+<span class="material-symbols-outlined text-sm">verified</span>
+                        Blockchain Verified
+                    </div>
+<span class="text-neutral-400 text-xs font-medium">Batch ID: #WA-2094-KG</span>
+</div>
+</div>
+</section>
+<!-- Provenance Stats Grid -->
+<section class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Farm Location Card -->
+<div class="glass-card glow-orange p-8 rounded-lg flex flex-col justify-between h-48 border-l-4 border-l-primary-container">
+<div>
+<span class="text-[10px] font-bold tracking-widest text-primary uppercase opacity-60">Farm Location</span>
+<h3 class="text-2xl font-bold mt-2 text-on-surface">Kagoshima, JP</h3>
+</div>
+<div class="flex items-center gap-2 text-neutral-400">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-xs">Satsuma Peninsula Valley</span>
+</div>
+</div>
+<!-- Carbon Footprint Card -->
+<div class="glass-card glow-orange p-8 rounded-lg flex flex-col justify-between h-48 border-l-4 border-l-secondary-container">
+<div>
+<span class="text-[10px] font-bold tracking-widest text-secondary uppercase opacity-60">Carbon Footprint</span>
+<h3 class="text-2xl font-bold mt-2 text-on-surface">3.2kg <span class="text-sm font-normal text-neutral-500">CO2e</span></h3>
+</div>
+<div class="flex items-center gap-2 text-secondary-container">
+<span class="material-symbols-outlined text-sm">eco</span>
+<span class="text-xs">42% lower than industry avg</span>
+</div>
+</div>
+<!-- Ethical Purity Card -->
+<div class="glass-card glow-orange p-8 rounded-lg flex flex-col justify-between h-48 border-l-4 border-l-tertiary-container">
+<div>
+<span class="text-[10px] font-bold tracking-widest text-tertiary uppercase opacity-60">Ethical Purity</span>
+<h3 class="text-2xl font-bold mt-2 text-on-surface">100% <span class="text-sm font-normal text-neutral-500">Grass-Fed</span></h3>
+</div>
+<div class="flex items-center gap-2 text-tertiary-container">
+<span class="material-symbols-outlined text-sm">workspace_premium</span>
+<span class="text-xs">Certified Organic Rearing</span>
+</div>
+</div>
+</section>
+<!-- The Journey (Timeline/Chain) -->
+<section class="mt-20">
+<h4 class="text-sm font-bold tracking-widest uppercase text-neutral-500 mb-8 px-2">Supply Chain Nodes</h4>
+<div class="space-y-4">
+<!-- Node 1 -->
+<div class="group flex items-center gap-6 p-6 rounded-lg bg-surface-container-low border border-transparent hover:border-primary-container/20 transition-all duration-300">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">agriculture</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-center">
+<h5 class="text-lg font-bold text-on-surface">Harada Zen Farm</h5>
+<span class="text-[10px] font-bold text-neutral-500">OCT 12, 2023</span>
+</div>
+<p class="text-sm text-neutral-400 mt-1">Origin point. Primary rearing and nutrition phase completed.</p>
+</div>
+<span class="material-symbols-outlined text-secondary-container">check_circle</span>
+</div>
+<!-- Node 2 -->
+<div class="group flex items-center gap-6 p-6 rounded-lg bg-surface-container-low border border-transparent hover:border-primary-container/20 transition-all duration-300">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">conveyor_belt</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-center">
+<h5 class="text-lg font-bold text-on-surface">Kagoshima Processing Hub</h5>
+<span class="text-[10px] font-bold text-neutral-500">OCT 14, 2023</span>
+</div>
+<p class="text-sm text-neutral-400 mt-1">Certified A5 marbling assessment and ethical processing.</p>
+</div>
+<span class="material-symbols-outlined text-secondary-container">check_circle</span>
+</div>
+<!-- Node 3 -->
+<div class="group flex items-center gap-6 p-6 rounded-lg bg-surface-container-low border border-primary-container/40 glow-orange transition-all duration-300">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">flight_takeoff</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-center">
+<h5 class="text-lg font-bold text-on-surface">Cold-Chain Global Transit</h5>
+<span class="text-[10px] font-bold text-primary-container animate-pulse">IN TRANSIT</span>
+</div>
+<p class="text-sm text-neutral-400 mt-1">Real-time temperature monitoring active at -2°C.</p>
+</div>
+<div class="w-6 h-6 border-2 border-primary-container border-t-transparent rounded-full animate-spin"></div>
+</div>
+</div>
+</section>
+<!-- High-End Visual: The Product -->
+<section class="mt-20 relative rounded-lg overflow-hidden h-96 group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Hyper-realistic close-up of raw A5 Wagyu beef showing intricate white marbling patterns against rich red meat on a black slate slab" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoJvXzDOYaOtgF3xtTS89IQEjfeIF4ok8zoOjgHCFukRaDTF1WEIQt9OTgfv-R5g4fGA9Uz3JqoBgmGrZ_8_ke5fuUbKWGv8UIwpgMOk3R3uVl8p5CIfYzw1SuRS8VubW5N2QJzLaN0AlgNlL6nIVOD-Ynb7Lwyz93sx6_faR2u7Ot2td4cNJJixCEGCN3nTCNe1Q3jYrQIHC7T7iSqK35c0R1sZP6Rn8ut48r4g_SgQBoZp_PViY5ybzehkgPAwpkGCLrQqOB6Ks"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex flex-col justify-center p-12">
+<span class="text-[10px] font-bold tracking-widest text-primary-container uppercase mb-2">The Quality Standard</span>
+<h3 class="text-4xl font-black text-white uppercase italic tracking-tighter">Pure Marbling</h3>
+<p class="text-neutral-400 max-w-xs mt-4 text-sm leading-relaxed">Each cut is assigned a unique digital twin on the ledger, ensuring the steak on your plate is exactly what we traced.</p>
+<button class="mt-8 self-start px-8 py-3 bg-primary-container rounded-full text-on-primary-container font-black uppercase text-xs tracking-widest shadow-[0_10px_30px_rgba(255,107,0,0.3)] hover:scale-105 transition-transform active:scale-95">View Certificate</button>
+</div>
+</section>
+</main>
+<!-- NavigationDrawer (Mobile Interaction Visualized via Side Layout on Web) -->
+<aside class="hidden xl:flex fixed right-0 top-16 bottom-24 w-80 flex-col py-8 gap-4 bg-neutral-950 border-l border-white/5 rounded-l-[32px] shadow-[20px_0_60px_rgba(0,0,0,0.9)] tonal-shift bg-neutral-900">
+<div class="px-8 mb-4">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full border-2 border-emerald-400 p-0.5">
+<img alt="Executive Chef" class="w-full h-full rounded-full object-cover" data-alt="Portrait of a senior chef de cuisine with a focused expression in a dark professional kitchen setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs_FybEsltJdoqoI2ILQxnUnNaj1L7aZ82pLAnPC_U_2aiMYSIhpF4dzKdRHwrqRvG0DJ7au-QMdio9uFLZQD-XQlNSNo4TOb4bIaku98161DoU66HDnImUHSKLgGx2hNpj7UclLR9yNTeIc3SHL0_I9jKPjbIAMjRnhZqMSNku0u9Z_SGw8Xq-dX4vWgYbSdcY0i3c7PnbPeboZG0s_-6mUW5Dz1vmUg9wdjB1nUZnXw_yNKM0rHOObJckScPiOBWh4C6_h7xK5E"/>
+</div>
+<div>
+<h4 class="text-on-surface font-bold text-sm">Chef de Cuisine</h4>
+<p class="text-neutral-500 text-[10px] uppercase tracking-widest">Premium Member</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<!-- Active State: Origin Trace -->
+<a class="flex items-center gap-4 py-4 px-8 bg-emerald-500/10 text-emerald-400 rounded-full mx-2 font-['Inter'] font-medium text-lg transition-colors duration-200 active:translate-x-1" href="#">
+<span class="material-symbols-outlined">location_on</span>
+<span>Origin Trace</span>
+</a>
+<a class="flex items-center gap-4 py-4 px-8 text-neutral-500 hover:text-neutral-200 hover:bg-neutral-800 mx-2 font-['Inter'] font-medium text-lg rounded-full transition-colors duration-200 active:translate-x-1" href="#">
+<span class="material-symbols-outlined">eco</span>
+<span>Freshness Hub</span>
+</a>
+<a class="flex items-center gap-4 py-4 px-8 text-neutral-500 hover:text-neutral-200 hover:bg-neutral-800 mx-2 font-['Inter'] font-medium text-lg rounded-full transition-colors duration-200 active:translate-x-1" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Activity Log</span>
+</a>
+<a class="flex items-center gap-4 py-4 px-8 text-neutral-500 hover:text-neutral-200 hover:bg-neutral-800 mx-2 font-['Inter'] font-medium text-lg rounded-full transition-colors duration-200 active:translate-x-1" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-8">
+<div class="p-4 rounded-lg bg-surface-container-high border border-white/5">
+<span class="text-[10px] font-bold text-emerald-400 uppercase tracking-tighter">Origin Verified</span>
+<p class="text-[11px] text-neutral-400 mt-1">This screen contains 100% immutable data from the supply chain nodes.</p>
+</div>
+</div>
+</aside>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-end px-4 pb-8 h-24 bg-black/90 backdrop-blur-2xl rounded-t-[32px] no-border shadow-[0_-4px_24px_rgba(0,0,0,0.8)] shadow-[0_-10px_40px_rgba(255,107,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-orange-500 drop-shadow-[0_0_12px_rgba(255,182,147,0.6)] active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">My Food</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined">outdoor_grill</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Cook</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Plan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Shop</span>
+</a>
+</nav>
+</body></html>

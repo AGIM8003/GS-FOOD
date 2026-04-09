@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #000000;
+            color: #e2e2e2;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .ghost-border {
+            border: 1px solid rgba(90, 65, 54, 0.2);
+        }
+        .glow-orange {
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.15);
+        }
+        .glow-text-orange {
+            text-shadow: 0 0 8px rgba(255, 107, 0, 0.6);
+        }
+        .heat-map-bg {
+            background: radial-gradient(circle at center, rgba(255, 107, 0, 0.15) 0%, transparent 70%);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-dim": "#131313",
+                "surface-container-highest": "#353535",
+                "on-primary-fixed": "#351000",
+                "tertiary-fixed-dim": "#ffb4aa",
+                "primary-fixed": "#ffdbcc",
+                "inverse-surface": "#e2e2e2",
+                "inverse-on-surface": "#303030",
+                "on-tertiary-fixed-variant": "#930005",
+                "surface-container-lowest": "#0e0e0e",
+                "on-surface-variant": "#e2bfb0",
+                "on-secondary-fixed-variant": "#00531b",
+                "on-error": "#690005",
+                "surface-container-low": "#1b1b1b",
+                "surface-bright": "#393939",
+                "primary-fixed-dim": "#ffb693",
+                "secondary": "#ebffe6",
+                "on-primary": "#561f00",
+                "tertiary": "#ffb4aa",
+                "error": "#ffb4ab",
+                "inverse-primary": "#a04100",
+                "surface-container-high": "#2a2a2a",
+                "outline-variant": "#5a4136",
+                "on-primary-container": "#572000",
+                "surface": "#131313",
+                "secondary-fixed-dim": "#00e55b",
+                "surface-container": "#1f1f1f",
+                "background": "#131313",
+                "primary": "#ffb693",
+                "on-secondary": "#003911",
+                "on-background": "#e2e2e2",
+                "error-container": "#93000a",
+                "tertiary-fixed": "#ffdad5",
+                "on-secondary-fixed": "#002107",
+                "on-tertiary": "#690003",
+                "secondary-container": "#00fe66",
+                "primary-container": "#ff6b00",
+                "secondary-fixed": "#6bff83",
+                "surface-variant": "#353535",
+                "on-surface": "#e2e2e2",
+                "tertiary-container": "#ff6858",
+                "on-tertiary-fixed": "#410001",
+                "surface-tint": "#ffb693",
+                "outline": "#a98a7d",
+                "on-secondary-container": "#007128",
+                "on-primary-fixed-variant": "#7a3000",
+                "on-error-container": "#ffdad6",
+                "on-tertiary-container": "#6a0003"
+            },
+            "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Inter"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full shadow-[0_4px_30px_rgba(255,107,0,0.1)]">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform text-[#FF6B00]">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-['Inter'] font-black tracking-tighter uppercase text-2xl text-[#FF6B00]">GS FOOD</h1>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-['Inter'] font-black tracking-tighter uppercase text-sm text-[#FF6B00] hover:text-[#FF6B00] transition-colors duration-300" href="#">Feed</a>
+<a class="font-['Inter'] font-black tracking-tighter uppercase text-sm text-white/70 hover:text-[#FF6B00] transition-colors duration-300" href="#">Events</a>
+<a class="font-['Inter'] font-black tracking-tighter uppercase text-sm text-white/70 hover:text-[#FF6B00] transition-colors duration-300" href="#">Cellar</a>
+<a class="font-['Inter'] font-black tracking-tighter uppercase text-sm text-white/70 hover:text-[#FF6B00] transition-colors duration-300" href="#">Concierge</a>
+</nav>
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full border border-primary/20 overflow-hidden">
+<img alt="Chef Profile" class="h-full w-full object-cover" data-alt="professional portrait of a high-end executive chef in a dark modern kitchen, dramatic low-key lighting, culinary excellence" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnw034HzFvJr_6l3qKrTuca4uQf4j_NR3r04pSa9q9l0D5BEWH9ury4NHA0c8NO3lQRl-X7TbYuT1AgWVD_JaK-vNjjUHUz5zPM_t0U9hX6fDJdTptXA52B_HkGxD_xHGjX94a7-otygS5o_YOc7rcmUHD7ZQqZslePyBPvacFpwZXqMRSHWLGaBv4iJ3x2FSDzmS17V5E85_VQT5zrAiirI_HISH6_GFTgS4_V2-MzQvEUK3-zJSawkzYd0ODR4aNm3CX0N4nmZI"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="relative mb-20">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+<div class="md:col-span-7">
+<span class="text-secondary-fixed-dim font-bold tracking-widest text-xs uppercase mb-4 block">Editorial Selection</span>
+<h2 class="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] mb-8">RESCUED<br/><span class="text-[#FF6B00]">RECIPES</span></h2>
+<p class="text-on-surface-variant max-w-md leading-relaxed text-lg mb-8">
+                        The finest forgotten flavors, curated by the world's most innovative chefs. Exclusive to the community.
+                    </p>
+<div class="flex gap-4">
+<button class="px-8 py-4 bg-primary-container text-on-primary-fixed font-bold rounded-full glow-orange active:scale-95 transition-transform flex items-center gap-2">
+                            Explore Archive <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="md:col-span-5 relative">
+<!-- The Chef's Pulse component -->
+<div class="glass-card ghost-border rounded-lg p-6 relative overflow-hidden">
+<div class="flex justify-between items-center mb-6">
+<span class="text-xs font-bold tracking-widest uppercase opacity-50">Community Pulse</span>
+<div class="flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-secondary-container animate-pulse shadow-[0_0_8px_#00fe66]"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary-container">Live</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-sm">Curators Joined</span>
+<span class="text-xl font-black text-primary">1.2K</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm">Creations Made</span>
+<span class="text-xl font-black text-secondary-fixed-dim">45.8K</span>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-8xl" data-icon="restaurant">restaurant</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Feed -->
+<section class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6">
+<!-- Featured Large Card -->
+<div class="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-lg bg-surface-container-low transition-all duration-500">
+<img alt="Plated Dish" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="extreme close-up of a minimalist gourmet dish with edible flowers and vibrant orange sauce on a dark stoneware plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNvl5xnIw3Ke4bv3kkrcg778s66ouM443pm2QiqAKigv5jVEzF2hnAcPnMoebT0vnOBZocAmOvUiUBMfvQnzNMJB5u5_muZ3y0d0BIvtbeNQqam29F-utoTd-hr2qn1DGj5SUV6i7baylT5t0WXrE78IVZ22Q1GUhV4Ky8siy73gk6VvtT6HxMGOiBu1Eh5VRWwyjp82mafYZhyV5eqY8USEr8-7D4pOUl1qcBuGafwTJGxWA6gqeTgV7bvXw4pqJCDWUuu59KlKc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+<div class="absolute top-6 left-6">
+<div class="glass-card ghost-border px-4 py-1.5 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container text-sm" data-icon="inventory_2">inventory_2</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary-container">Matched with your Pantry</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-8">
+<span class="text-primary font-bold text-xs uppercase tracking-widest mb-2 block">Curated by Chef Marcello</span>
+<h3 class="text-4xl font-black tracking-tighter mb-4">THE MIDNIGHT RISOTTO</h3>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white/40 text-lg" data-icon="timer">timer</span>
+<span class="text-xs font-bold uppercase opacity-60">25 MIN</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white/40 text-lg" data-icon="bolt">bolt</span>
+<span class="text-xs font-bold uppercase opacity-60">Medium Difficulty</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Medium Card 1 -->
+<div class="md:col-span-2 group relative overflow-hidden rounded-lg bg-surface-container-low">
+<img alt="Grilled Vegetables" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="artistic composition of charred organic vegetables with a glowing oil drizzle on a deep black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRtJPVsE2wjXf3jeNpskNAjz-8A9CjAnA_3dWkMIsU4hA6UR7PlsMuaZkPa49HAyvkh_GDPg6gKiYLMvPY32Dw22wm2gIF-2gX8k066hqM3w5sIaTBlvvKIAh1dBGHVJ4eD6c_A2s7aWAubixy40IFK6px3PGKGu1yt-JV8rzQXPDQ8oEio7AVVDv1ZmxIvszCTRmDo-9oJDKOXHj4XShD_wcMPojJ_gMTZfxlLEyL7jvbNpW8na7bu811WsWN7MzTX-ANtHj50j4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full p-6">
+<div class="glass-card px-3 py-1 rounded-full w-max mb-3 ghost-border">
+<span class="text-[9px] font-black uppercase tracking-widest text-white/80">Summer Season</span>
+</div>
+<h4 class="text-2xl font-black tracking-tight">ASH-CRUSTED LEEKS</h4>
+<div class="mt-4 flex justify-between items-center">
+<div class="flex -space-x-2">
+<div class="h-6 w-6 rounded-full border border-black overflow-hidden"><img class="w-full h-full object-cover" data-alt="avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9F1CnWYgOO38ODi9uEwh2p0D9k_lePv0XzOkIitWx6JComqfgOjYI83pOQgNxC23SoINmaKLEWznI7hPv0Xrf_ezB7cVBqBugfzFqzVi8wHN8Fz2vWYIrS7Dxy2mHWbmQi-hms18LUUQn3YAfkr5tJuiZt9IPflOh8KhmftX1Ky2SWltKFN-53xe7nM3nJ5URGWfWJUBrrgZ9CGGuT9WeMcivjGKm-S35BLHq9kh5lX8cNAkR4kuBeX-6OTkNfkxCzj7v8RQ7GAk"/></div>
+<div class="h-6 w-6 rounded-full border border-black overflow-hidden"><img class="w-full h-full object-cover" data-alt="avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7gXxbmM4mgjCvLGYnUCXtZ1J5dH6k-S5b7O13A3Du8BFFjORH1hghZPuOCCmUzDnRExPuaqW96y6CCNskPL_mSIpQ3joFWjc3XIbvMhH7pcHP1hfdoCDc3m6cpcRGd39f9vJlEIZVZKM8_ed-z3-maU9PIgOnCfOrV_ZPNEnT4-h-aaBc-_4NYR-SW6czi_0m5Rw6oWTf0_8BHEPC-rJUjQr4ZYqDKfvaLRU_ZUP4NDzyiV9iKAPmgjGIZztWUpcPpNK2RjNOyos"/></div>
+<div class="h-6 w-6 rounded-full border border-black bg-surface-container flex items-center justify-center text-[8px] font-bold">+12</div>
+</div>
+<button class="h-10 w-10 bg-primary-container rounded-full flex items-center justify-center glow-orange active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-white" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Small Card 1 -->
+<div class="group relative overflow-hidden rounded-lg bg-surface-container-low h-64 md:h-auto">
+<img alt="Cocktail" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="close-up of a high-end orange cocktail with a clear ice cube and citrus zest, soft atmospheric lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDokCrukcUMzJcKAqCRXdk2EUmrXb41LM1fuiWsqMq4AofsWZO2YJZwynhNANNsHzuFRfDFZWPjxFP0IL0H0PxCJFMmW4qdblPZAIBT5G-AiOU2OM8b1LVQcsHnm4q08iFQJ8L4widmifiioe9D_jzb7gix2fZc4SEePvbJDwrMOrEaR1oiyMS1B9Cm71-H55jjfkCaHGWGLfDC37XWTddFdLwak3AH87l0eu9IhL1aoBGlrkPiPGJonXd2MJxjo8Z0j7nJdJyWKZM"/>
+<div class="absolute inset-0 bg-primary-container/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 w-full p-4 glass-card backdrop-blur-sm">
+<p class="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">Pairing</p>
+<h5 class="text-sm font-black tracking-tight">CITRUS NEGRONI</h5>
+</div>
+</div>
+<!-- Small Card 2 -->
+<div class="group relative overflow-hidden rounded-lg bg-surface-container-low h-64 md:h-auto">
+<div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center heat-map-bg">
+<span class="material-symbols-outlined text-4xl text-primary mb-4" data-icon="restaurant_menu">restaurant_menu</span>
+<h5 class="text-lg font-black tracking-tight mb-2">CHEF'S SELECTION</h5>
+<p class="text-[10px] uppercase tracking-tighter text-white/50">Weekly updated curated pantry list</p>
+<button class="mt-4 px-4 py-2 border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-white/5 transition-colors">View List</button>
+</div>
+</div>
+</section>
+<!-- Social Activity Section -->
+<section class="mt-24">
+<div class="flex items-end justify-between mb-12">
+<div>
+<h2 class="text-3xl font-black tracking-tighter uppercase mb-2">Curator <span class="text-secondary-container">Activity</span></h2>
+<p class="text-white/40 text-sm">Real-time creations from the social circle.</p>
+</div>
+<button class="text-xs font-bold uppercase tracking-widest text-[#FF6B00] border-b border-[#FF6B00]/30 pb-1">View Full Feed</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Activity Item -->
+<div class="flex gap-4 items-start">
+<div class="h-12 w-12 rounded-full overflow-hidden flex-shrink-0 ghost-border">
+<img alt="Curator" class="w-full h-full object-cover" data-alt="professional woman chef looking thoughtfully at the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTVTaxMuD09mYcntH_RseOm91mjV0R2z10UHpNV1JbhlqrfN_sgMPIrtvBjlrucYT4-8gqaoAfzCw0K2NKVNCtZi7-y9fx8PoRZR-Q38IT9NULFzCAPlSBL9DNBKLXpxL85QT5OOt65Jdz5hkkDI-tqCBegOaRz9ko1AxrOfrF3WZqgLGyQv99mVkRV7tVhRynW-20wdpiMbnbFAQPRVVKyuia72DMHT0J4Nu_gJcsBt2peX6s7_YIO-bEjy_oOuwvRtkF_gRv-wI"/>
+</div>
+<div>
+<p class="text-sm mb-2"><span class="font-bold">Saffron B.</span> recreated <span class="text-primary italic">Wild Mushroom Dashi</span></p>
+<div class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-white/30">
+<span>2m ago</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]" data-icon="favorite">favorite</span> 42</span>
+</div>
+</div>
+</div>
+<!-- Activity Item -->
+<div class="flex gap-4 items-start">
+<div class="h-12 w-12 rounded-full overflow-hidden flex-shrink-0 ghost-border">
+<img alt="Curator" class="w-full h-full object-cover" data-alt="young man chef plating a dish with precision tweezers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx03wURhj5KGaYf-ywbaoZ2RNYL5t5fr11Hnulknx5UyYOzVapP8HQcH1Zjhtd2wrj0ADUSdzB8Gn3lTD_Qa4Oq_RMONafpZhQ2lB6QZU4jtTjPbMxhxTmNj76BDcgeiLHlVV7BuKHxcfM3e24Mlg7PHw7HR5aSrCbtAo8QBnzDELHNRFwFCKYRZrEcEDrE3GBJof3CR9CpFVVgNFMyOVw-Y_yj1Vq4lpGVLHDCJ3FFb5AU3uHzVDkeY3R5k1TVdS1EtCTDZ7ojQ0"/>
+</div>
+<div>
+<p class="text-sm mb-2"><span class="font-bold">Chef Julian</span> uploaded <span class="text-primary italic">Winter Root Glaze</span></p>
+<div class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-white/30">
+<span>15m ago</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]" data-icon="favorite">favorite</span> 128</span>
+</div>
+</div>
+</div>
+<!-- Activity Item -->
+<div class="flex gap-4 items-start">
+<div class="h-12 w-12 rounded-full overflow-hidden flex-shrink-0 ghost-border">
+<img alt="Curator" class="w-full h-full object-cover" data-alt="person in a chef uniform smiling gently" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuZGuOjrltVZw9Tw7rTvkU6M-YoDKg7CgaYfLIAEGdZTyXP7C3W0DBo9lEycKa4ec91Cu1tOr7b48mfvGScXPAQvnFPW0mJOKnPlRnBiDYqy-NpDZDpPMUzt9_zPFRBCDuLpAweLU52SZsuK5SEkqwWYvREek5NlE---E4vLGUYjGaVBG_Jy7RqFj_g2LslueW13_dZ-8J6qeXi7wukjEjWZoROJffDfWPRmCjr3yIM_yJcrcVVXGgaPf3I9IfcRpmvNBuwd2y4rg"/>
+</div>
+<div>
+<p class="text-sm mb-2"><span class="font-bold">Elena R.</span> shared a tip on <span class="text-primary italic">Fermentation Temp</span></p>
+<div class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-white/30">
+<span>1h ago</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]" data-icon="forum">forum</span> 8</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-[#131313]/80 backdrop-blur-2xl rounded-t-[32px] shadow-[0_-8px_40px_rgba(0,0,0,0.5)] md:hidden">
+<a class="flex flex-col items-center justify-center text-[#FF6B00] drop-shadow-[0_0_8px_rgba(255,107,0,0.6)] active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest mt-1">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 hover:text-white active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="live_tv">live_tv</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest mt-1">Events</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 hover:text-white active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="wine_bar">wine_bar</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest mt-1">Cellar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 hover:text-white active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest mt-1">Concierge</span>
+</a>
+</nav>
+<!-- Contextual FAB -->
+<button class="fixed bottom-28 right-6 md:bottom-12 md:right-12 h-16 w-16 bg-primary-container rounded-full flex items-center justify-center text-white shadow-xl glow-orange z-40 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="add_a_photo" style="font-variation-settings: 'FILL' 1;">add_a_photo</span>
+</button>
+</body></html>

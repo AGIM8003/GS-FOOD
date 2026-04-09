@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flavor DNA Analyzer | GS FOOD</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 182, 147, 0.1);
+        }
+        .glow-orange {
+            box-shadow: 0 0 40px rgba(255, 107, 0, 0.15);
+        }
+        .glow-green {
+            box-shadow: 0 0 40px rgba(0, 254, 102, 0.1);
+        }
+        .nodal-line {
+            background: linear-gradient(90deg, rgba(255,107,0,0) 0%, rgba(255,107,0,1) 50%, rgba(255,107,0,0) 100%);
+        }
+        /* Custom shape for the flavor web */
+        .dna-radial-grid {
+            background-image: radial-gradient(circle, rgba(255,182,147,0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-highest": "#353535",
+                      "on-primary-fixed": "#351000",
+                      "surface-dim": "#131313",
+                      "tertiary-fixed-dim": "#ffb4aa",
+                      "primary-fixed": "#ffdbcc",
+                      "inverse-surface": "#e2e2e2",
+                      "inverse-on-surface": "#303030",
+                      "on-error": "#690005",
+                      "on-tertiary-fixed-variant": "#930005",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-surface-variant": "#e2bfb0",
+                      "on-secondary-fixed-variant": "#00531b",
+                      "secondary": "#ebffe6",
+                      "on-primary": "#561f00",
+                      "tertiary": "#ffb4aa",
+                      "error": "#ffb4ab",
+                      "surface-container-low": "#1b1b1b",
+                      "surface-bright": "#393939",
+                      "primary-fixed-dim": "#ffb693",
+                      "inverse-primary": "#a04100",
+                      "surface-container-high": "#2a2a2a",
+                      "outline-variant": "#5a4136",
+                      "on-primary-container": "#572000",
+                      "surface": "#131313",
+                      "surface-container": "#1f1f1f",
+                      "secondary-fixed-dim": "#00e55b",
+                      "on-secondary": "#003911",
+                      "on-background": "#e2e2e2",
+                      "error-container": "#93000a",
+                      "background": "#131313",
+                      "primary": "#ffb693",
+                      "on-tertiary": "#690003",
+                      "tertiary-fixed": "#ffdad5",
+                      "on-secondary-fixed": "#002107",
+                      "secondary-container": "#00fe66",
+                      "primary-container": "#ff6b00",
+                      "surface-variant": "#353535",
+                      "on-surface": "#e2e2e2",
+                      "secondary-fixed": "#6bff83",
+                      "tertiary-container": "#ff6858",
+                      "on-tertiary-fixed": "#410001",
+                      "on-error-container": "#ffdad6",
+                      "surface-tint": "#ffb693",
+                      "outline": "#a98a7d",
+                      "on-secondary-container": "#007128",
+                      "on-primary-fixed-variant": "#7a3000",
+                      "on-tertiary-container": "#6a0003"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Inter"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-black text-on-surface selection:bg-primary-container selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="bg-neutral-950/80 backdrop-blur-xl fixed top-0 w-full z-50 tonal-shift bg-neutral-900/50">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="text-orange-500 active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-2xl font-black tracking-tighter text-orange-500 drop-shadow-[0_0_8px_rgba(255,107,0,0.4)] uppercase font-['Inter']">GS FOOD</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden">
+<img alt="Chef Profile" class="w-full h-full object-cover" data-alt="Professional chef portrait in dark uniform with high contrast lighting, focused expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4us4-1Seq9wASjhopfo-X-jbimoPOc8fSNekxEIvvUUb0CAkBJY_n0dXw7XBVWkgntY-pEuMWKhFOp86aMzLUYT5m2omDOIOLPTETEEqSqgbMZo8yZLcPCCJjJDHJg0UwZPsLaCZ3Z58ta9RISWVw8Ly0cqqraGmV2h5LvuJqcn3fZtCh3D4b8rZ9Lk4H2bOzm92Myz6usBKNpi7rx1ko-ROz_L-bQ-4tJFI8oLlo4KrzfA30ekKMz-ehGWMu7L7BBceplK9RdC0"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-screen-xl mx-auto min-h-screen dna-radial-grid">
+<!-- Hero Section: Editorial Header -->
+<section class="mb-12">
+<span class="text-secondary font-label font-bold tracking-[0.2em] text-[10px] uppercase mb-2 block">Culinary Intelligence v2.1</span>
+<h2 class="text-5xl md:text-7xl font-black text-on-surface tracking-tighter leading-none mb-4">
+                Flavor <span class="text-primary">DNA</span> Analyzer
+            </h2>
+<p class="text-neutral-400 max-w-xl font-body leading-relaxed">
+                Mapping molecular harmonies between your current pantry assets. Unlocking the chemical blueprint of your next signature dish.
+            </p>
+</section>
+<!-- The Nodal Visualization Shell -->
+<div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Left Side: Harmonious Insights -->
+<div class="lg:col-span-4 flex flex-col gap-6 order-2 lg:order-1">
+<div class="glass-card p-8 rounded-lg glow-green">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">eco</span>
+<h3 class="text-xl font-bold text-on-surface">Harmonious Matches</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex justify-between items-end">
+<div>
+<p class="text-sm text-neutral-400 uppercase tracking-widest font-bold">Miso + Salmon</p>
+<p class="text-on-surface font-medium">Umami Synergy</p>
+</div>
+<span class="text-secondary font-black text-xl">98%</span>
+</li>
+<li class="flex justify-between items-end">
+<div>
+<p class="text-sm text-neutral-400 uppercase tracking-widest font-bold">Salmon + Ginger</p>
+<p class="text-on-surface font-medium">Fat Acidity Balance</p>
+</div>
+<span class="text-secondary font-black text-xl">92%</span>
+</li>
+</ul>
+</div>
+<div class="glass-card p-8 rounded-lg">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-tertiary-container">flash_on</span>
+<h3 class="text-xl font-bold text-on-surface">Contrast Pairs</h3>
+</div>
+<div class="flex items-center gap-4">
+<div class="px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant/30 text-sm font-bold">GINGER</div>
+<span class="text-neutral-600">vs</span>
+<div class="px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant/30 text-sm font-bold">MISO</div>
+</div>
+<p class="mt-4 text-sm text-neutral-400 leading-relaxed">
+                        High salt concentration in Miso requires precise ginger zest calibration to avoid palate fatigue.
+                    </p>
+</div>
+</div>
+<!-- Center: The Visualization Canvas -->
+<div class="lg:col-span-4 relative flex justify-center items-center py-12 order-1 lg:order-2">
+<!-- Glowing Aura Background -->
+<div class="absolute w-96 h-96 bg-primary-container/10 rounded-full blur-[120px]"></div>
+<!-- The Nodal Structure -->
+<div class="relative w-full aspect-square flex justify-center items-center">
+<!-- Connector Lines (SVG for precision) -->
+<svg class="absolute inset-0 w-full h-full" viewbox="0 0 400 400">
+<line stroke="url(#orange-gradient)" stroke-dasharray="8 4" stroke-width="2" x1="200" x2="320" y1="80" y2="280"></line>
+<line stroke="url(#green-gradient)" stroke-width="2" x1="320" x2="80" y1="280" y2="280"></line>
+<line stroke="url(#orange-gradient)" stroke-width="2" x1="80" x2="200" y1="280" y2="80"></line>
+<defs>
+<lineargradient id="orange-gradient" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#FF6B00;stop-opacity:0.2"></stop>
+<stop offset="50%" style="stop-color:#FFB693;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#FF6B00;stop-opacity:0.2"></stop>
+</lineargradient>
+<lineargradient id="green-gradient" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#00FE66;stop-opacity:0"></stop>
+<stop offset="50%" style="stop-color:#00FE66;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#00FE66;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- Node: Salmon -->
+<div class="absolute top-[20%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="w-24 h-24 rounded-full border-4 border-primary-container p-1 bg-black glow-orange z-10">
+<img alt="Salmon" class="w-full h-full object-cover rounded-full" data-alt="Ultra high definition close up of raw fresh king salmon fillet on dark stone background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3WDixOvO_YQHlg5BjU65P6sYNHSWmlJHNnOypUdmZpZ3CIbyuiHNG6wMOir7jFYXUevHWssfV2VLchWbLfZd2mYuDqnYxn1Y7y8AtC63SgKFl-N8NDbGViVtZ23cO8kjVEIrc9eIryX1mHB6bFBAZ83U8yAAqSEjd2A6A2avSqZlnK9q1Uei5lZL0xFxmN11obrObJ7U2IXslTUNx3nu01pYWAhgtjzt42othuFyJJN5Lq5ko1Hz91ke0D1G9k8Sf0M8Ra5hHxTo"/>
+</div>
+<span class="mt-3 font-black tracking-widest text-on-surface uppercase text-xs">Salmon</span>
+</div>
+<!-- Node: Miso -->
+<div class="absolute bottom-[25%] right-[10%] flex flex-col items-center">
+<div class="w-20 h-20 rounded-full border-2 border-secondary-container p-1 bg-black z-10">
+<img alt="Miso" class="w-full h-full object-cover rounded-full" data-alt="Miso paste in a wooden bowl with dramatic lighting highlighting its rich texture and color" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXhCWpnDCcOPKqcX7nCd4w2kJdboSizZC6brielOdaUbZKcbf4fA-5W9uh6UBxjdt0K97OzjVogzuFOtFQYPl3ceKadBWsMZAtM_dkHAXpg29ejH_lGilMvUqW0Pvu8IOClQ767IhjuFqfofIUCLhQLM8Rv3OfEmj7DhF7TySBP5084eAZ_6Rj6B3iaBv8919HGbJZao79S7DsirNYmSVZETIjbjByWjXnZGjHdAtS2JXGsj8nSpBvAuIwHrx7iAt_WkW_DFc0SPk"/>
+</div>
+<span class="mt-3 font-black tracking-widest text-on-surface uppercase text-xs">Miso</span>
+</div>
+<!-- Node: Ginger -->
+<div class="absolute bottom-[25%] left-[10%] flex flex-col items-center">
+<div class="w-20 h-20 rounded-full border-2 border-outline-variant p-1 bg-black z-10">
+<img alt="Ginger" class="w-full h-full object-cover rounded-full" data-alt="Detailed macro shot of organic ginger root with earthy textures and sharp details on black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcbcgNrHD0jxlhCIB3C8mBvIGVNRu-iAzg77BPQvmRLyq9UmEyVoy2S8NM_8rtLq2i_C5hvcIFwxFE97AbclHwQKpJVGDaonCCNCV4xcjxI1jkDWH8NmWvuLOZ2jyCc97GuGqZgHcnjvvqGf3898b4Uk7516jBLElOP1OofigzMZs5t_YFJqjdnsNlHaJ0xzmPHQQW8vIc5XFh8zsN3dhSL_dU073reipZsi9ghZh8B77Tt5pWXQkZua0lMh6IpV4ltbtD0ZnIlFs"/>
+</div>
+<span class="mt-3 font-black tracking-widest text-on-surface uppercase text-xs">Ginger</span>
+</div>
+</div>
+</div>
+<!-- Right Side: Culinary Intelligence -->
+<div class="lg:col-span-4 flex flex-col gap-6 order-3">
+<div class="glass-card p-8 rounded-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-primary-container/20 text-6xl rotate-12">restaurant_menu</span>
+</div>
+<h3 class="text-sm font-label font-bold text-primary mb-1 uppercase tracking-widest">Recommended Vessel</h3>
+<p class="text-2xl font-bold text-on-surface mb-4">Cast Iron Sear</p>
+<p class="text-neutral-400 text-sm leading-relaxed">
+                        To activate the glucose in the Miso glaze against the Salmon's protein structure, a 240°C heat surface is required.
+                    </p>
+<div class="mt-6 flex items-center gap-2 text-secondary text-sm font-bold">
+<span>VIEW RECIPE BLUEPRINT</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 rounded-lg">
+<h3 class="text-sm font-label font-bold text-neutral-500 mb-4 uppercase tracking-widest">Molecular Breakdown</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-[10px] font-bold mb-1 uppercase text-neutral-400">
+<span>L-Glutamate</span>
+<span class="text-primary">Very High</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[92%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] font-bold mb-1 uppercase text-neutral-400">
+<span>Zingerone Concentration</span>
+<span class="text-secondary">Optimal</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[65%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Asymmetric Bottom Section: "The Chef's Pulse" -->
+<section class="mt-16">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h3 class="text-2xl font-black text-on-surface uppercase tracking-tight">Active Pantry Nodes</h3>
+<p class="text-neutral-500 text-sm italic">Scanning available biological precursors...</p>
+</div>
+<button class="text-xs font-bold text-primary uppercase border-b-2 border-primary pb-1">Refine Scan</button>
+</div>
+<div class="flex gap-4 overflow-x-auto pb-8 no-scrollbar">
+<!-- Node Card 1 -->
+<div class="min-w-[200px] glass-card p-4 rounded-lg flex flex-col items-center text-center">
+<span class="text-[10px] font-bold text-secondary mb-3 uppercase tracking-tighter">Freshness: 94%</span>
+<div class="w-16 h-16 rounded-full bg-surface-container-highest mb-3 flex items-center justify-center overflow-hidden">
+<img alt="Green Onion" class="w-full h-full object-cover" data-alt="Fresh vibrant green spring onions on dark background with water droplets" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDPpmBGxagWlbXVBICbb6mDtxIS9UyyCSZhMwqADg98RsIn1Q96eKhCSaPY4EAONkIC3n8HEyA4Gs6-Lhe2BcHWVMYwig7w2jEWf1ZxoHpl5_to4IvhRvy6zlqh5a68HClErnXPnXQ_sF5nfcqX63YSgooZsz63k1RM_8EE2t-b3YFNecDFpaaQNzt4d-8N8BC_m8Qb0lEUpS4VuiyWpxkc6ikSzpH7phrLel9mVXocwS8QLkQWv6ZTFG2h2xICjqedWnZjEKM-0k"/>
+</div>
+<span class="text-sm font-bold">Green Onion</span>
+</div>
+<!-- Node Card 2 -->
+<div class="min-w-[200px] glass-card p-4 rounded-lg flex flex-col items-center text-center">
+<span class="text-[10px] font-bold text-primary mb-3 uppercase tracking-tighter">Freshness: 82%</span>
+<div class="w-16 h-16 rounded-full bg-surface-container-highest mb-3 flex items-center justify-center overflow-hidden">
+<img alt="Soy Sauce" class="w-full h-full object-cover" data-alt="Artisanal dark soy sauce in a small ceramic bowl with reflection" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjKIPFeUxGTZ7922crRRzVcsD2hffAA5Xg32H01N1ZIAxjK0grysrzd19mSljmUNJclbih0-U-n1tNrSh8WQnEiMPZCSybctzYkKdt5XlOpyMIfeSGk-wfdctPNmrAVVsVD7fpwp-TessqIanoIf_mhQIdGfOJQTULC95M3mCb1_A2u8Co3WVDzmiBqmiCuc511q1a4GKVb8emtQO_k6rD8D6-LJx55RXxixf1oeLqphmX4y7YU0GsF-QgPsw66Ixx0ddsXFoDKX8"/>
+</div>
+<span class="text-sm font-bold">Soy Sauce</span>
+</div>
+<!-- Node Card 3 -->
+<div class="min-w-[200px] glass-card p-4 rounded-lg flex flex-col items-center text-center">
+<span class="text-[10px] font-bold text-tertiary mb-3 uppercase tracking-tighter">Freshness: 45%</span>
+<div class="w-16 h-16 rounded-full bg-surface-container-highest mb-3 flex items-center justify-center overflow-hidden">
+<img alt="Lemon" class="w-full h-full object-cover" data-alt="Close up of fresh lemon skin texture with bright yellow color" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC63LQLLs3VxXCd-XHYsZAR3uLT5zLim0PoGAIbLMzu-Q1VHbgXxxeOYGbZPjddMSFkvW_UOrmRgY8_9J4DXf5OMBu-8uSTsSjMsSy02yt0COlNbITrTrvKDQGvzRUjBghTI1H0TYhY_RKs9CrSBen5LtSx54Y0Tw_y_lmdH_K_ISclvxGe8W0FnSx6dJFN4YqMLsr254XufLazmk9dHWr5RbXV-8LDYQwQvxF9E0hFsr8lp1QYjsMv02LLGl2SrNXNoC4chS8tjE"/>
+</div>
+<span class="text-sm font-bold">Lemon</span>
+</div>
+<!-- Node Card 4 -->
+<div class="min-w-[200px] glass-card p-4 rounded-lg flex flex-col items-center text-center opacity-50">
+<span class="text-[10px] font-bold text-neutral-500 mb-3 uppercase tracking-tighter">Add More +</span>
+<div class="w-16 h-16 rounded-full border-2 border-dashed border-neutral-700 mb-3 flex items-center justify-center">
+<span class="material-symbols-outlined text-neutral-500">add</span>
+</div>
+<span class="text-sm font-bold text-neutral-500">Scan Ingredient</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-black/90 backdrop-blur-2xl fixed bottom-0 w-full z-50 rounded-t-[32px] no-border shadow-[0_-4px_24px_rgba(0,0,0,0.8)]">
+<div class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-end px-4 pb-8 h-24">
+<a class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">My Food</span>
+</a>
+<a class="flex flex-col items-center justify-center text-orange-500 drop-shadow-[0_0_12px_rgba(255,182,147,0.6)] active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">outdoor_grill</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Cook</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Plan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Shop</span>
+</a>
+</div>
+</nav>
+<!-- FAB Suppression: Contextual Check - Analyzer doesn't need primary FAB to avoid cluttering the visualization -->
+</body></html>

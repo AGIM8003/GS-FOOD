@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+        }
+        .scan-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00FE66, transparent);
+            box-shadow: 0 0 20px #00FE66;
+        }
+        .glow-orange {
+            box-shadow: 0 0 30px rgba(255, 107, 0, 0.3);
+        }
+        .glow-green {
+            box-shadow: 0 0 15px rgba(0, 254, 102, 0.4);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-primary": "#561f00",
+                    "surface": "#131313",
+                    "surface-container": "#1f1f1f",
+                    "on-tertiary": "#690003",
+                    "background": "#131313",
+                    "tertiary-fixed": "#ffdad5",
+                    "inverse-on-surface": "#303030",
+                    "inverse-surface": "#e2e2e2",
+                    "tertiary-fixed-dim": "#ffb4aa",
+                    "on-tertiary-fixed-variant": "#930005",
+                    "on-surface": "#e2e2e2",
+                    "surface-tint": "#ffb693",
+                    "on-surface-variant": "#e2bfb0",
+                    "secondary-fixed": "#6bff83",
+                    "on-secondary-fixed-variant": "#00531b",
+                    "surface-container-highest": "#353535",
+                    "secondary-fixed-dim": "#00e55b",
+                    "outline": "#a98a7d",
+                    "outline-variant": "#5a4136",
+                    "error": "#ffb4ab",
+                    "on-tertiary-container": "#6a0003",
+                    "primary-fixed-dim": "#ffb693",
+                    "tertiary-container": "#ff6858",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-bright": "#393939",
+                    "on-secondary-fixed": "#002107",
+                    "on-primary-fixed": "#351000",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#572000",
+                    "on-tertiary-fixed": "#410001",
+                    "primary": "#ffb693",
+                    "surface-dim": "#131313",
+                    "on-error": "#690005",
+                    "on-background": "#e2e2e2",
+                    "on-secondary-container": "#007128",
+                    "error-container": "#93000a",
+                    "surface-variant": "#353535",
+                    "primary-container": "#ff6b00",
+                    "secondary-container": "#00fe66",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "on-secondary": "#003911",
+                    "tertiary": "#ffb4aa",
+                    "surface-container-low": "#1b1b1b",
+                    "secondary": "#ebffe6",
+                    "inverse-primary": "#a04100",
+                    "primary-fixed": "#ffdbcc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-black text-on-background font-body selection:bg-primary/30">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-[#131313]/80 backdrop-blur-xl shadow-[0_0_20px_rgba(255,107,0,0.1)] flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#FF6B00]" data-icon="restaurant_menu">restaurant_menu</span>
+<h1 class="font-['Inter'] tracking-tight font-bold text-lg uppercase text-white">THE NOCTURNAL CHEF</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest text-[#FF6B00] transition-colors" href="#">Scanner</a>
+<a class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest text-white/60 hover:text-[#FFB693] transition-colors" href="#">Inventory</a>
+<a class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest text-white/60 hover:text-[#FFB693] transition-colors" href="#">Recipes</a>
+</div>
+<span class="material-symbols-outlined text-white/60 hover:text-[#FFB693] transition-colors cursor-pointer" data-icon="settings_voice">settings_voice</span>
+</div>
+</header>
+<!-- Main Live Scanner Canvas -->
+<main class="relative h-screen w-full overflow-hidden flex flex-col justify-center items-center bg-black">
+<!-- Live Camera Feed Simulation -->
+<div class="absolute inset-0 z-0">
+<img alt="Pantry Camera Feed" class="w-full h-full object-cover blur-sm opacity-40" data-alt="Modern minimalist pantry interior with organized glass jars and organic food items, dimly lit with cool professional tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKm-78-fRPIeBzr2wy2IhtUnRvYc2w5tyzdzbL4O8IZc3zzOIzsXYdNSTSTTQcJAt04-WmioQnr9A6Z7AErAcQZZT_DPY7f6sFp-AnwvjmjgpBQkKIAlAok_XaHoMwZSlVUX0o3BoI5EPTSbtcqvDRsfnX1GJR2bn-TiQ7CxT019F5na6tN-6SKZ90ualWP0nvah2jHCVOWRZUYaXnm5it-E4xUxq1_Elq1lQZZO3hyY6AJlQm2cXRmr1Ikf3at_po-uHvrkpxcbQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60"></div>
+</div>
+<!-- Scanning Frame -->
+<div class="relative z-10 w-full max-w-2xl aspect-[4/3] flex items-center justify-center pointer-events-none">
+<!-- Corner Brackets -->
+<div class="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-secondary-container glow-green rounded-tl-xl"></div>
+<div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-secondary-container glow-green rounded-tr-xl"></div>
+<div class="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-secondary-container glow-green rounded-bl-xl"></div>
+<div class="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-secondary-container glow-green rounded-br-xl"></div>
+<!-- Scanning Line -->
+<div class="absolute top-1/4 left-0 w-full scan-line opacity-80"></div>
+<!-- Real-time Bounding Boxes (Visual Flavour) -->
+<div class="absolute top-20 left-40 w-32 h-48 border border-secondary-container/40 rounded-lg flex flex-col items-start p-2">
+<span class="bg-secondary-container text-on-secondary px-1.5 py-0.5 text-[8px] font-black rounded uppercase">Organic Milk</span>
+</div>
+</div>
+<!-- Floating UI Overlays -->
+<div class="absolute bottom-32 left-0 w-full px-6 flex flex-col md:flex-row gap-6 items-end justify-center z-20">
+<!-- Detected Items Glass Card -->
+<div class="glass-panel w-full max-w-md rounded-lg p-6 glow-orange border border-white/5">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline font-black text-xl tracking-tighter text-secondary-container flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+                        LIVE DETECTION
+                    </h2>
+<span class="text-[10px] font-bold text-white/40 uppercase tracking-widest">GS FOOD AI ENGINE</span>
+</div>
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl group hover:bg-white/10 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Glass bottle of cold milk on dark stone background with condensation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFZzsSkqoLK1dQCnOsfEbO8Bzwgbj1AvzpkelvsfQ9vHAeIzHcNU5xaU2KvpQz0nWcCoFULFv5yYq5gF53fBYQW07U3ugEDDuooc7idpAohuzcPEmgsHVbzLGcs-f9hbongh-rUr5mISHuYG5zAVqosOaItPU2840j8Xgdl2yMup1Hrwg48U6NvQKWtOyZptSDEsb1dgE_iqgdmxbSLOEub_Vwu2SjQwPnoByrEal6X-QoRSrs2Pqufoqhfp6xKuRLW9hA6DRlkyY"/>
+</div>
+<div>
+<p class="text-white font-bold text-sm">Organic Milk</p>
+<p class="text-secondary-container text-xs font-medium uppercase tracking-tighter">98.4% Confidence</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-white/40 group-hover:text-secondary-container" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl group hover:bg-white/10 transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Perfectly ripe dark green avocado cut in half on minimalist black surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHCghUnMJRTd2zXmPzjT_63MCYpes8Xb17O0TA9bsXCoAhTTPSMlk6gPx0eYujvBA48r3JjfRKH9oLXFuXxi4FbF4R94jOINPwiQDGa_75mDnmXiSjRWkhXczuhWw_J2Q3mHe9tXJi_arwqrxQmRLFLnwdAnVX-wvF3NfNx6kVByVTA2sUjF-YnVgXuMsJLjeaNz93RThWvas3-knhq1jx0zvC3qFPBLzO53gqwL7Z54aNbQrJk7sCZozxCH6_-zXkFLFI6CIgC2k"/>
+</div>
+<div>
+<p class="text-white font-bold text-sm">Hass Avocado</p>
+<p class="text-secondary-container text-xs font-medium uppercase tracking-tighter">94.1% Confidence</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-white/40 group-hover:text-secondary-container" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<button class="w-full mt-6 bg-primary-container text-on-primary font-black py-4 rounded-full flex items-center justify-center gap-3 active:scale-95 duration-200 glow-orange transition-all">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="uppercase tracking-widest text-xs">ADD TO PANTRY</span>
+</button>
+</div>
+<!-- Stats/Pulse Sidebar -->
+<div class="hidden lg:flex flex-col gap-4 w-64">
+<div class="glass-panel p-4 rounded-2xl border border-white/5">
+<p class="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">Health Index</p>
+<div class="flex items-center justify-between">
+<span class="text-2xl font-black text-white">82%</span>
+<div class="flex gap-1 h-4 items-end">
+<div class="w-1 bg-secondary-container rounded-full h-4"></div>
+<div class="w-1 bg-secondary-container rounded-full h-3"></div>
+<div class="w-1 bg-secondary-container/40 rounded-full h-2"></div>
+<div class="w-1 bg-secondary-container/40 rounded-full h-3.5"></div>
+</div>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-2xl border border-white/5">
+<p class="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1">Stock Level</p>
+<div class="flex items-center justify-between">
+<span class="text-2xl font-black text-white">CRITICAL</span>
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center pt-4 pb-8 px-6 bg-black/90 backdrop-blur-2xl rounded-t-[32px] shadow-[0_-10px_40px_rgba(255,107,0,0.15)] z-50">
+<a class="flex flex-col items-center justify-center text-[#FF6B00] drop-shadow-[0_0_8px_rgba(255,107,0,0.8)] active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Curate</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 hover:text-[#00FE66] transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="eco">eco</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Fresh</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 hover:text-[#00FE66] transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 hover:text-[#00FE66] transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+<!-- Background Decoration -->
+<div class="fixed top-1/4 -right-24 w-96 h-96 bg-primary-container/10 blur-[120px] rounded-full -z-10"></div>
+<div class="fixed -bottom-24 -left-24 w-96 h-96 bg-secondary-container/10 blur-[120px] rounded-full -z-10"></div>
+</body></html>

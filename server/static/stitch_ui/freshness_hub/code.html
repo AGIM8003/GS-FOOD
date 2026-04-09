@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#353535",
+                    "on-primary-fixed": "#351000",
+                    "surface-dim": "#131313",
+                    "tertiary-fixed-dim": "#ffb4aa",
+                    "primary-fixed": "#ffdbcc",
+                    "inverse-surface": "#e2e2e2",
+                    "inverse-on-surface": "#303030",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed-variant": "#930005",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-surface-variant": "#e2bfb0",
+                    "on-secondary-fixed-variant": "#00531b",
+                    "secondary": "#ebffe6",
+                    "on-primary": "#561f00",
+                    "tertiary": "#ffb4aa",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#1b1b1b",
+                    "surface-bright": "#393939",
+                    "primary-fixed-dim": "#ffb693",
+                    "inverse-primary": "#a04100",
+                    "surface-container-high": "#2a2a2a",
+                    "outline-variant": "#5a4136",
+                    "on-primary-container": "#572000",
+                    "surface": "#131313",
+                    "surface-container": "#1f1f1f",
+                    "secondary-fixed-dim": "#00e55b",
+                    "on-secondary": "#003911",
+                    "on-background": "#e2e2e2",
+                    "error-container": "#93000a",
+                    "background": "#131313",
+                    "primary": "#ffb693",
+                    "on-tertiary": "#690003",
+                    "tertiary-fixed": "#ffdad5",
+                    "on-secondary-fixed": "#002107",
+                    "secondary-container": "#00fe66",
+                    "primary-container": "#ff6b00",
+                    "surface-variant": "#353535",
+                    "on-surface": "#e2e2e2",
+                    "secondary-fixed": "#6bff83",
+                    "tertiary-container": "#ff6858",
+                    "on-tertiary-fixed": "#410001",
+                    "on-error-container": "#ffdad6",
+                    "surface-tint": "#ffb693",
+                    "outline": "#a98a7d",
+                    "on-secondary-container": "#007128",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "on-tertiary-container": "#6a0003"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #000000; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .ghost-border {
+            border: 1px solid rgba(90, 65, 54, 0.2);
+        }
+        .vitality-gradient-red {
+            background: conic-gradient(#ff6858 22%, transparent 0);
+        }
+        .vitality-gradient-green {
+            background: conic-gradient(#00fe66 84%, transparent 0);
+        }
+        .vitality-gradient-orange {
+            background: conic-gradient(#ff6b00 45%, transparent 0);
+        }
+        .glow-orange {
+            box-shadow: 0 0 40px rgba(255, 107, 0, 0.1);
+        }
+        .glow-red-intense {
+            box-shadow: 0 0 20px rgba(255, 104, 88, 0.4);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-orange-500 cursor-pointer">menu</span>
+<h1 class="font-['Inter'] tracking-tight font-bold text-2xl uppercase text-orange-500 drop-shadow-[0_0_8px_rgba(255,107,0,0.4)]">GS FOOD</h1>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden ghost-border">
+<img class="w-full h-full object-cover" data-alt="Professional executive chef headshot with black uniform in a moody kitchen setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK1JUkIqQFdAAJCehzq_xfUR7Z0IqwDQr7u6KCw2gxc24n6St0z79tlDCeDlozGDlvRH9NMNCEHS4d1hI-OcBynktNvZxxhyp8LVrUvZTczHyk3vTp8cjmJBo6g6eDECyPLvYcZgrrrdtINeOwOzSf3CMu4rI44pY1_xRNLS-LlWoiCi3rJ96tzUCGWEfpmehAMBP53H6k7QW0eT-4GFJxozK0sgH3QHAe4_QPOrVmGmoiM5IN_fc1GqlcPTy3DlZgx8rCeU6fjRc"/>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-screen-xl mx-auto space-y-12">
+<!-- Hero: AI Recommendation -->
+<section class="relative overflow-hidden rounded-lg p-1 bg-gradient-to-br from-primary-container/20 to-transparent">
+<div class="glass-card rounded-lg p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 ghost-border">
+<div class="flex-1 space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/10 text-secondary-fixed-dim text-xs font-bold tracking-widest uppercase">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                        AI Recommendation
+                    </div>
+<h2 class="text-4xl md:text-5xl font-headline font-bold leading-tight tracking-tight">
+                        Cook <span class="text-primary">Miso Glazed Salmon</span> tonight to save <span class="text-secondary-container">$24</span> in potential waste.
+                    </h2>
+<button class="bg-primary-container text-on-primary-fixed font-bold py-4 px-10 rounded-full glow-orange hover:scale-105 transition-transform active:scale-95">
+                        Start Cooking Now
+                    </button>
+</div>
+<div class="relative w-full md:w-1/3 aspect-square">
+<div class="absolute inset-0 bg-primary-container/20 blur-3xl rounded-full"></div>
+<img class="relative z-10 w-full h-full object-cover rounded-lg rotate-3 hover:rotate-0 transition-transform duration-500 shadow-2xl" data-alt="Glistening miso glazed salmon fillet on a dark textured plate with spring onions, dramatic spotlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVYR8HR36RGFyZ355m4IJ_sWJKBUYW5X3vQLCoyCYnGwUu5ou3JkgrELEEO9SCrkfUjqb-HKTPtX-lytNCBUQBz-N40TtCNeoeNktkznSKNkemd4DttSkhIYynA7mHdzSWNTY5qUy45ZsIux_ifMqqAzQb1VZpK4W_c6veNqDhvMbL8mcH2pnsvYyLq65kSNtR0HVe6aOYnNYLb5rokpLQ9Tal0ihgiI_FI4m1bYEztSp77bNqlvmydHfyTtB1SJcnaGe32_pEt5o"/>
+</div>
+</div>
+</section>
+<!-- Freshness Grid -->
+<section class="space-y-8">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="text-2xl font-headline font-bold tracking-tight">Real-Time Vitality</h3>
+<p class="text-on-surface-variant text-sm mt-1 uppercase tracking-widest font-medium">Pantry Monitoring System</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">tune</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Item: Atlantic Salmon (URGENT) -->
+<div class="glass-card p-6 rounded-lg ghost-border relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<div class="px-3 py-1 bg-tertiary-container text-on-tertiary-fixed text-[10px] font-black uppercase rounded-full glow-red-intense animate-pulse">
+                            Rescue Now
+                        </div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<div class="absolute inset-0 rounded-full vitality-gradient-red opacity-20"></div>
+<div class="absolute inset-1 rounded-full bg-surface-dim flex items-center justify-center">
+<span class="text-xl font-bold text-tertiary-container">22%</span>
+</div>
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-tertiary-container" cx="48" cy="48" fill="transparent" r="44" stroke="currentColor" stroke-dasharray="276" stroke-dashoffset="215" stroke-width="4"></circle>
+</svg>
+</div>
+<div class="space-y-1">
+<h4 class="text-xl font-bold">Atlantic Salmon</h4>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest">Protein • 450g</p>
+<div class="flex gap-1 mt-4">
+<div class="h-1 w-8 bg-tertiary-container rounded-full"></div>
+<div class="h-1 w-8 bg-surface-container-highest rounded-full"></div>
+<div class="h-1 w-8 bg-surface-container-highest rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Item: Organic Kale -->
+<div class="glass-card p-6 rounded-lg ghost-border relative overflow-hidden group">
+<div class="flex items-center gap-6">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<div class="absolute inset-0 rounded-full vitality-gradient-green opacity-20"></div>
+<div class="absolute inset-1 rounded-full bg-surface-dim flex items-center justify-center">
+<span class="text-xl font-bold text-secondary-container">84%</span>
+</div>
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-secondary-container" cx="48" cy="48" fill="transparent" r="44" stroke="currentColor" stroke-dasharray="276" stroke-dashoffset="44" stroke-width="4"></circle>
+</svg>
+</div>
+<div class="space-y-1">
+<h4 class="text-xl font-bold">Organic Kale</h4>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest">Greens • 2 Bunches</p>
+<p class="text-secondary-container text-[10px] font-bold mt-2 uppercase">Peak Vitality</p>
+</div>
+</div>
+</div>
+<!-- Item: Hass Avocados -->
+<div class="glass-card p-6 rounded-lg ghost-border relative overflow-hidden group">
+<div class="flex items-center gap-6">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<div class="absolute inset-0 rounded-full vitality-gradient-orange opacity-20"></div>
+<div class="absolute inset-1 rounded-full bg-surface-dim flex items-center justify-center">
+<span class="text-xl font-bold text-primary">45%</span>
+</div>
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-primary" cx="48" cy="48" fill="transparent" r="44" stroke="currentColor" stroke-dasharray="276" stroke-dashoffset="152" stroke-width="4"></circle>
+</svg>
+</div>
+<div class="space-y-1">
+<h4 class="text-xl font-bold">Hass Avocados</h4>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest">Produce • 3 Units</p>
+<p class="text-primary text-[10px] font-bold mt-2 uppercase">Expiring in 2 Days</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Decay & Detailed Stats -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Decay Graph Card -->
+<div class="glass-card p-8 rounded-lg ghost-border space-y-8">
+<div class="flex justify-between items-center">
+<h3 class="text-xl font-headline font-bold">Dynamic Decay Forecast</h3>
+<div class="flex gap-4">
+<span class="flex items-center gap-2 text-xs font-bold text-secondary-container uppercase">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span> Kale
+                        </span>
+<span class="flex items-center gap-2 text-xs font-bold text-tertiary-container uppercase">
+<span class="w-2 h-2 rounded-full bg-tertiary-container"></span> Salmon
+                        </span>
+</div>
+</div>
+<div class="h-64 relative flex items-end justify-between px-4">
+<!-- Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between py-2 border-b border-white/5">
+<div class="border-t border-white/5 w-full"></div>
+<div class="border-t border-white/5 w-full"></div>
+<div class="border-t border-white/5 w-full"></div>
+</div>
+<!-- Decorative Svg Graph Path -->
+<svg class="absolute inset-0 w-full h-full overflow-visible" preserveaspectratio="none">
+<!-- Salmon Decay -->
+<path d="M0,20 Q100,80 200,150 T400,240" fill="none" opacity="0.8" stroke="#ff6858" stroke-dasharray="6 4" stroke-width="3"></path>
+<!-- Kale Decay -->
+<path d="M0,40 Q150,50 300,70 T400,120" fill="none" opacity="0.8" stroke="#00fe66" stroke-width="3"></path>
+</svg>
+<div class="relative z-10 text-[10px] text-on-surface-variant font-bold uppercase tracking-widest mt-auto transform translate-y-8">Today</div>
+<div class="relative z-10 text-[10px] text-on-surface-variant font-bold uppercase tracking-widest mt-auto transform translate-y-8">Wed</div>
+<div class="relative z-10 text-[10px] text-on-surface-variant font-bold uppercase tracking-widest mt-auto transform translate-y-8">Fri</div>
+<div class="relative z-10 text-[10px] text-on-surface-variant font-bold uppercase tracking-widest mt-auto transform translate-y-8">Sun</div>
+</div>
+</div>
+<!-- Freshness Hub Stats -->
+<div class="grid grid-cols-2 gap-6">
+<div class="glass-card p-6 rounded-lg ghost-border flex flex-col justify-between">
+<span class="material-symbols-outlined text-secondary-container mb-4">eco</span>
+<div>
+<p class="text-4xl font-bold">92%</p>
+<p class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Waste Efficiency</p>
+</div>
+</div>
+<div class="glass-card p-6 rounded-lg ghost-border flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary mb-4">savings</span>
+<div>
+<p class="text-4xl font-bold">$142</p>
+<p class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Saved This Month</p>
+</div>
+</div>
+<div class="glass-card p-6 rounded-lg ghost-border col-span-2 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-container">analytics</span>
+</div>
+<div>
+<p class="font-bold">Next Batch Audit</p>
+<p class="text-xs text-on-surface-variant">Scanning perishables in 4h</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-end px-4 pb-8 h-24 bg-black/90 backdrop-blur-2xl rounded-t-[32px] shadow-[0_-10px_40px_rgba(255,107,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">My Food</span>
+</a>
+<a class="flex flex-col items-center justify-center text-orange-500 drop-shadow-[0_0_12px_rgba(255,182,147,0.6)] active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">outdoor_grill</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Cook</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Plan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-600 hover:text-orange-300 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Shop</span>
+</a>
+</nav>
+</body></html>

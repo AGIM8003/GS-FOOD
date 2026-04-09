@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#131313",
+                    "primary-container": "#ff6b00",
+                    "inverse-primary": "#a04100",
+                    "on-tertiary-fixed": "#410001",
+                    "tertiary-fixed": "#ffdad5",
+                    "surface-container": "#1f1f1f",
+                    "tertiary-fixed-dim": "#ffb4aa",
+                    "surface-bright": "#393939",
+                    "on-tertiary-container": "#6a0003",
+                    "on-secondary-fixed-variant": "#00531b",
+                    "primary": "#ffb693",
+                    "outline-variant": "#5a4136",
+                    "on-primary-fixed": "#351000",
+                    "background": "#131313",
+                    "secondary-fixed": "#6bff83",
+                    "inverse-surface": "#e2e2e2",
+                    "surface-dim": "#131313",
+                    "on-secondary-container": "#007128",
+                    "surface-variant": "#353535",
+                    "on-tertiary": "#690003",
+                    "tertiary": "#ffb4aa",
+                    "surface-container-low": "#1b1b1b",
+                    "on-primary": "#561f00",
+                    "on-surface-variant": "#e2bfb0",
+                    "on-secondary-fixed": "#002107",
+                    "on-tertiary-fixed-variant": "#930005",
+                    "surface-tint": "#ffb693",
+                    "on-secondary": "#003911",
+                    "error-container": "#93000a",
+                    "inverse-on-surface": "#303030",
+                    "secondary-container": "#00fe66",
+                    "secondary": "#ebffe6",
+                    "on-surface": "#e2e2e2",
+                    "surface-container-high": "#2a2a2a",
+                    "primary-fixed-dim": "#ffb693",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "on-error": "#690005",
+                    "secondary-fixed-dim": "#00e55b",
+                    "surface-container-highest": "#353535",
+                    "primary-fixed": "#ffdbcc",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#572000",
+                    "tertiary-container": "#ff6858",
+                    "on-background": "#e2e2e2",
+                    "outline": "#a98a7d",
+                    "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        body {
+            background-color: #000000;
+            color: #e2e2e2;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto top-0 z-50 sticky bg-black/40 backdrop-blur-md">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-orange-500" data-icon="menu">menu</span>
+<h1 class="font-['Inter'] text-2xl font-black tracking-tighter uppercase text-orange-500 drop-shadow-[0_0_10px_rgba(255,107,0,0.5)]">GS FOOD</h1>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-white/10">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="professional portrait of a male chef in a minimalist dark kitchen environment, soft dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNFzoZ7SyE1BSmbH1qf1mUdjtehHAkZN058PBphl4PnDPxVitpne8EzjSO6jgjbXDrKb0P5ywQ6CDEtgjMDHTzEqlDo_yhYOh71SUbAzpePvIZMsxEOuC7RL_6IstNSGOfwRYuMalUR4_ANx8KK7-knU5QYkLhxbLp58gh-7rwqmWqGRdWLytDz5ZsEnXSv3gp2EdXq9UNfYmqdY-w6_YQ9gqeTnQGzxllPZEPafSSE0OaTZ-pH9U7SmH7ExEIweKeclS-RF2i3C8"/>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 mt-4">
+<!-- Search and Filter Section -->
+<div class="mb-12">
+<div class="relative w-full max-w-2xl mx-auto">
+<span class="material-symbols-outlined absolute left-6 top-1/2 -translate-y-1/2 text-neutral-500">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-5 pl-16 pr-6 text-on-surface placeholder-neutral-500 focus:ring-1 focus:ring-primary-container transition-all text-lg" placeholder="Search your pantry..." type="text"/>
+</div>
+<div class="flex justify-center gap-3 mt-8 flex-wrap">
+<span class="px-6 py-2 rounded-full bg-secondary-container text-black text-sm font-bold tracking-wide">ALL ITEMS</span>
+<span class="px-6 py-2 rounded-full bg-surface-container-highest text-neutral-400 text-sm font-bold tracking-wide">FRIDGE</span>
+<span class="px-6 py-2 rounded-full bg-surface-container-highest text-neutral-400 text-sm font-bold tracking-wide">PANTRY</span>
+<span class="px-6 py-2 rounded-full bg-surface-container-highest text-neutral-400 text-sm font-bold tracking-wide">FREEZER</span>
+</div>
+</div>
+<!-- Section Title -->
+<div class="mb-8 flex items-end justify-between">
+<h2 class="text-3xl font-black tracking-tight uppercase">Inventory <span class="text-primary-container">Status</span></h2>
+<p class="text-neutral-500 text-sm font-medium">Sorted by: Expiry Urgency</p>
+</div>
+<!-- Inventory Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Item 1: Critical (Red) -->
+<div class="glass-card rounded-lg p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-tertiary-container" data-icon="kitchen" title="Fridge">kitchen</span>
+</div>
+<div class="flex gap-6 items-center">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="macro close-up of a perfectly ripe sliced avocado on a dark slate background, professional food photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCNPApeEx38Ntjad4FEhvUjD9Aq7Mxl8tx5viNNZo9IPGYnDJGJ_Oq4J7IqfuEQP6OJHO9ecLooYEzZG01zI3aTQiegiXa64tXiZFDpdiA0HMTDpeIAFsvAZ19Hv0qvm31Lj2rMGuLonKd5ozNHST4BnL8sA1Ze5jJCj_AyDVnFYONl1SqnZmecc-_Al1nlmoG9WN03Q5bfL0iGbg-VMgEVcFKFnF_yU-m_QFDVXQSLfXvkHnQupVqGm_gF35WguMFlYmJTdQ9WAM"/>
+</div>
+<div class="flex-1">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-tertiary-container">Critical</span>
+<h3 class="text-xl font-bold mt-1 tracking-tight">Avocado</h3>
+<p class="text-sm text-neutral-400 mt-1">2 Units Left</p>
+</div>
+</div>
+<div class="mt-8">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] font-bold uppercase tracking-wider text-neutral-500">Shelf Life</span>
+<span class="text-xs font-bold text-tertiary-container">1 DAY LEFT</span>
+</div>
+<div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary-container h-full w-[15%]"></div>
+</div>
+</div>
+</div>
+<!-- Item 2: Warning (Yellow) -->
+<div class="glass-card rounded-lg p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-primary-container" data-icon="kitchen" title="Fridge">kitchen</span>
+</div>
+<div class="flex gap-6 items-center">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="thick creamy greek yogurt in a ceramic bowl with dark blue berries, cinematic lighting, dark atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQhWor3AueNGAdp_n-Y8Ob_bbWVoNReGcBdouVziQA83YxybP9oII6qbaNEHdA0hzijmmKBVS2_OsqVt-qcYdgXd4sFpVOz70TJVuRHd_cqjCoKrvTJSMcy8mdC1YpfqLZXvrKiR995_0PXgsR3ycPLr-uMEy7eCUt5yX6aplnWtOmbt-HH5S4eVe6sZnetpdKcBB623RvXlp0tISMUmLymSyASWYt8T8yi2Ro21nNFSCd2H7xQhISFUJUfMzjPq8MKo3Doavdl2I"/>
+</div>
+<div class="flex-1">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary-container">Warning</span>
+<h3 class="text-xl font-bold mt-1 tracking-tight">Greek Yogurt</h3>
+<p class="text-sm text-neutral-400 mt-1">500g Tub</p>
+</div>
+</div>
+<div class="mt-8">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] font-bold uppercase tracking-wider text-neutral-500">Shelf Life</span>
+<span class="text-xs font-bold text-primary-container">3 DAYS LEFT</span>
+</div>
+<div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[45%]"></div>
+</div>
+</div>
+</div>
+<!-- Item 3: Safe (Green) -->
+<div class="glass-card rounded-lg p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-secondary-container" data-icon="inventory_2" title="Pantry">inventory_2</span>
+</div>
+<div class="flex gap-6 items-center">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="scattered fresh baby spinach leaves on a dark surface, crisp green textures, high-end food styling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDylKivUpvLIma1xijEl5NEW68H766IyZj2qn5THZ3KPll_qLOUtaVy_dE2CvlzZ654-FecOBsVQYkuVXJtR5HWduKu1ol2Q4FGc-0rJr4LcFX0Wc5Eg3cd6bYfdbYdFQd0CkL9oqyFirzsg1MgAnWPvtebHYoqP2FejAaH4I2aKLuGIQCGwrFqTZ5ZaF687WbUC4OQIfBltBHw30NlbeMQkEjnLd77V9u1yvhrJywtfOnL_ucUVXvfErHm45E4cT11XcZLH4rXiFw"/>
+</div>
+<div class="flex-1">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary-container">Fresh</span>
+<h3 class="text-xl font-bold mt-1 tracking-tight">Baby Spinach</h3>
+<p class="text-sm text-neutral-400 mt-1">1 Big Bag</p>
+</div>
+</div>
+<div class="mt-8">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] font-bold uppercase tracking-wider text-neutral-500">Shelf Life</span>
+<span class="text-xs font-bold text-secondary-container">8 DAYS LEFT</span>
+</div>
+<div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full w-[80%]"></div>
+</div>
+</div>
+</div>
+<!-- Item 4: Safe (Green) -->
+<div class="glass-card rounded-lg p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-secondary-container" data-icon="ac_unit" title="Freezer">ac_unit</span>
+</div>
+<div class="flex gap-6 items-center">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="frozen wild salmon fillet with ice crystals, dark moody studio lighting, premium seafood photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxJkuQlMlXnzN0QuwJakB6mrBxRWc20_Ss4c9H-0_cHUah25JHhqwVMtkUjEfceox6n-4Iom7n7tjda6NaRuse9035oGK4Xu20oo_gIWjVJwvOuxjdpggfZxQZO_6yPAxwR1DislaNXZXThzMgTEWNAxWx9x0oqCHBrADwmmygrPHMOZ4g1EaQa_cdGpnoHNX9XhEXRo96dSPnXuCoeeC_iwjDpcVhn306T9ScHnRYrVJb69w_kGlwqoAk974OROneUXbiFuKuKjg"/>
+</div>
+<div class="flex-1">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary-container">Stable</span>
+<h3 class="text-xl font-bold mt-1 tracking-tight">Atlantic Salmon</h3>
+<p class="text-sm text-neutral-400 mt-1">2 Fillets</p>
+</div>
+</div>
+<div class="mt-8">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] font-bold uppercase tracking-wider text-neutral-500">Shelf Life</span>
+<span class="text-xs font-bold text-secondary-container">2 MONTHS</span>
+</div>
+<div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full w-[95%]"></div>
+</div>
+</div>
+</div>
+<!-- Item 5: Warning (Yellow) -->
+<div class="glass-card rounded-lg p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-primary-container" data-icon="inventory_2" title="Pantry">inventory_2</span>
+</div>
+<div class="flex gap-6 items-center">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="fresh organic brown eggs in a minimal wire basket, soft morning light, dark rustic aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt8xOwy-NRwjFbxioOzjeuAqahDU3hWCIzS0av5Ggru4HT3htrKclNZDWQVyt7VPdM2xuM5eiYLyFQsAWSV4taAwnCViMOCN9FbeSJ7C1sXxNYyBHRDGzITsmTNJKgtyLf4knhOZo4_51_a7DaTbzAdOeCYm7bnPtWP3Bc-L9kVikmk--MrEu8xyelIssTvzTKJhFbmvstr4iU8Ymo0KHBf5NZYCSsN93XooS7p-Z3EmvdVQtM2wcqDZg0sm2NkHxHTOvQMUZhQvk"/>
+</div>
+<div class="flex-1">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary-container">Expiring</span>
+<h3 class="text-xl font-bold mt-1 tracking-tight">Organic Eggs</h3>
+<p class="text-sm text-neutral-400 mt-1">6/12 remaining</p>
+</div>
+</div>
+<div class="mt-8">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] font-bold uppercase tracking-wider text-neutral-500">Shelf Life</span>
+<span class="text-xs font-bold text-primary-container">4 DAYS LEFT</span>
+</div>
+<div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[35%]"></div>
+</div>
+</div>
+</div>
+<!-- Add New Item Card -->
+<div class="border-2 border-dashed border-white/10 rounded-lg p-6 flex flex-col items-center justify-center gap-4 group cursor-pointer hover:border-orange-500/50 transition-colors">
+<div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-orange-500/10 transition-colors">
+<span class="material-symbols-outlined text-3xl text-neutral-500 group-hover:text-orange-500" data-icon="add">add</span>
+</div>
+<span class="font-bold text-neutral-500 group-hover:text-orange-500 uppercase tracking-widest text-xs">Scan New Item</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full px-6 py-4 flex justify-between items-center bg-black/40 backdrop-blur-2xl border-t border-white/10 rounded-t-[32px] z-50">
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-orange-500 scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="restaurant">restaurant</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">My Food</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors cursor-pointer">
+<div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center -mt-10 shadow-[0_0_20px_rgba(255,107,0,0.4)]">
+<span class="material-symbols-outlined text-white" data-icon="settings_voice">settings_voice</span>
+</div>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold mt-1">Cook</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_today">calendar_today</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">Plan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">Shop</span>
+</div>
+</nav>
+</body></html>

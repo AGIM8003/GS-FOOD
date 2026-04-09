@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#ffb693",
+                    "outline-variant": "#5a4136",
+                    "secondary-fixed": "#6bff83",
+                    "secondary-fixed-dim": "#00e55b",
+                    "on-primary-fixed": "#351000",
+                    "surface-tint": "#ffb693",
+                    "on-background": "#e2e2e2",
+                    "error-container": "#93000a",
+                    "tertiary-container": "#ff6858",
+                    "primary-fixed-dim": "#ffb693",
+                    "primary-container": "#ff6b00",
+                    "outline": "#a98a7d",
+                    "background": "#131313",
+                    "tertiary-fixed": "#ffdad5",
+                    "on-surface": "#e2e2e2",
+                    "surface-dim": "#131313",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#393939",
+                    "tertiary": "#ffb4aa",
+                    "on-tertiary": "#690003",
+                    "on-secondary-container": "#007128",
+                    "surface-container": "#1f1f1f",
+                    "inverse-surface": "#e2e2e2",
+                    "secondary": "#ebffe6",
+                    "inverse-on-surface": "#303030",
+                    "on-primary-container": "#572000",
+                    "on-error": "#690005",
+                    "on-tertiary-container": "#6a0003",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "on-primary": "#561f00",
+                    "on-surface-variant": "#e2bfb0",
+                    "surface-variant": "#353535",
+                    "on-secondary": "#003911",
+                    "primary-fixed": "#ffdbcc",
+                    "on-secondary-fixed-variant": "#00531b",
+                    "inverse-primary": "#a04100",
+                    "tertiary-fixed-dim": "#ffb4aa",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-highest": "#353535",
+                    "on-tertiary-fixed": "#410001",
+                    "on-secondary-fixed": "#002107",
+                    "surface": "#131313",
+                    "surface-container-low": "#1b1b1b",
+                    "surface-container-high": "#2a2a2a",
+                    "secondary-container": "#00fe66",
+                    "on-tertiary-fixed-variant": "#930005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #131313; color: #e2e2e2; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .glow-sm { text-shadow: 0 0 10px rgba(0, 254, 102, 0.4); }
+        .glass-panel { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(24px); border: 1px solid rgba(255, 182, 147, 0.08); }
+        .clinical-glow-amber { box-shadow: 0 0 30px rgba(255, 107, 0, 0.15); }
+        .clinical-glow-emerald { box-shadow: 0 0 30px rgba(0, 254, 102, 0.15); }
+        .asymmetric-gradient { background: radial-gradient(circle at top right, rgba(255, 107, 0, 0.05), transparent 60%); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#131313]/80 backdrop-blur-xl shadow-[0_0_20px_rgba(255,107,0,0.1)] flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-orange-500" data-icon="clinical_notes">clinical_notes</span>
+<h1 class="text-xl font-black tracking-widest text-[#FFB693] font-['Inter'] uppercase">GS FOOD</h1>
+</div>
+<div class="flex items-center gap-6">
+<span class="hidden md:block font-['Inter'] tracking-tighter uppercase font-bold text-lg text-orange-500">KOSHER ACTIVE</span>
+<div class="w-10 h-10 rounded-full border-2 border-[#00FE66] p-0.5">
+<img alt="User Profile" class="w-full h-full rounded-full object-cover" data-alt="professional portrait of a high-end chef in a dark studio setting with dramatic warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrdOPPCU-bultM73Sj4O3GNtQSnAzaVcQACHrhmxDrSNtSLMNJRRWXHjIUNLlnmNayB1-yMlwFMKb0nbQNExrMxeyAvA4eKi_teTUKDjkTebN_Aw6D09RtGC87h6CR1Y09L1zDQtqP_mEYJ3sr2_0Xn8zBTwTapDCHQATfVRjFFcvfQ0oiM8_e-xV2CW0KrRPdKiSHBFDiM1JmNvazAShRbzxaG_LuWJUYZQLWPqnFNvQaNVjGZKkorBTB4tHoKUoYbEoTdcb-D_o"/>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-7xl mx-auto space-y-10">
+<!-- Hero Section: Medical Nutrition Title -->
+<section class="relative py-8">
+<div class="absolute -top-10 -left-10 w-64 h-64 bg-primary-container/10 blur-[100px] rounded-full"></div>
+<div class="relative z-10">
+<p class="text-secondary-fixed-dim font-bold tracking-[0.2em] text-[0.75rem] uppercase mb-2">Integrated Medical Health</p>
+<h2 class="text-5xl md:text-7xl font-black tracking-tighter text-on-surface mb-4">Medical Nutrition</h2>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-1.5 rounded-full bg-surface-container text-primary text-xs font-bold border border-outline-variant/30 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]" data-icon="emergency">emergency</span>
+                        DIABETES TYPE II
+                    </span>
+<span class="px-4 py-1.5 rounded-full bg-surface-container text-tertiary text-xs font-bold border border-outline-variant/30 flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]" data-icon="monitor_heart">monitor_heart</span>
+                        HYPERTENSION ACTIVE
+                    </span>
+</div>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- 1) Glycemic Forecast Card (Wide) -->
+<div class="md:col-span-8 glass-panel rounded-lg p-8 relative overflow-hidden flex flex-col justify-between clinical-glow-amber h-[420px]">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-2xl font-bold tracking-tight mb-1">Glycemic Forecast</h3>
+<p class="text-zinc-500 text-sm">Predicted Impact: Next 4 Hours</p>
+</div>
+<div class="flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-full border border-white/5">
+<div class="w-2 h-2 rounded-full bg-[#00FE66] animate-pulse"></div>
+<span class="text-[10px] font-bold uppercase tracking-widest">Live Bio-Feed</span>
+</div>
+</div>
+<div class="flex-grow flex items-end gap-1 relative h-48 mb-8">
+<!-- Visual Wave Chart Simulation -->
+<div class="absolute inset-0 flex items-end justify-between px-2">
+<div class="w-2 bg-zinc-800 rounded-t-full h-[30%]"></div>
+<div class="w-2 bg-zinc-800 rounded-t-full h-[35%]"></div>
+<div class="w-2 bg-zinc-800 rounded-t-full h-[45%]"></div>
+<div class="w-2 bg-[#FF6B00] rounded-t-full h-[70%] shadow-[0_0_15px_rgba(255,107,0,0.5)]"></div>
+<div class="w-2 bg-[#FF6B00] rounded-t-full h-[85%] shadow-[0_0_15px_rgba(255,107,0,0.5)]"></div>
+<div class="w-2 bg-[#FF6B00] rounded-t-full h-[75%] shadow-[0_0_15px_rgba(255,107,0,0.5)]"></div>
+<div class="w-2 bg-zinc-800 rounded-t-full h-[60%]"></div>
+<div class="w-2 bg-zinc-800 rounded-t-full h-[40%]"></div>
+<div class="w-2 bg-zinc-800 rounded-t-full h-[30%]"></div>
+<div class="w-2 bg-zinc-800 rounded-t-full h-[25%]"></div>
+<div class="w-2 bg-zinc-800 rounded-t-full h-[20%]"></div>
+<div class="w-2 bg-zinc-800 rounded-t-full h-[15%]"></div>
+</div>
+<div class="absolute top-0 right-0 p-4 text-right">
+<span class="text-4xl font-black text-[#FF6B00]">142</span>
+<p class="text-[10px] uppercase font-bold text-zinc-500 tracking-widest">Peak mg/dL</p>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 flex items-center justify-between border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<img alt="Planned Meal" class="w-12 h-12 rounded-lg object-cover" data-alt="vibrant mediterranean salad with dark leafy greens, olives, and fresh vegetables in a luxury bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB37gMPbgRRzOVhK3JJhaNdvpE6cnrBPgote8vfvMJnGbTDKvUktmcZOlytZBG2LYUtO2Qi2zYRRkQOEy5s_VRFBMZU5FeVgen_GJYPZaPVlt7gsItQ0nfnnd7tEoWen8UFP5z2FcaDUZZ-xYprLP9u2VffKVCVtpBFMji7tSloArp32TT7mCy5O6RcudxX0iI9QVqRVtjoUYcvOYJVZQyjNmLssWApGJPIh0kfu3pSRcwq5eqfsEXjXujVqbcptdwWGnU1nXUvGwA"/>
+<div>
+<p class="text-xs text-zinc-500 uppercase font-bold tracking-widest">Next Meal</p>
+<p class="font-bold text-on-surface">Quinoa &amp; Roasted Tofu Bowl</p>
+</div>
+</div>
+<button class="bg-primary-container text-on-primary-container h-10 px-6 rounded-full font-bold text-xs tracking-widest hover:scale-105 transition-transform">ADJUST PORTION</button>
+</div>
+</div>
+<!-- 2) Sodium/Potassium Balance (Small Square) -->
+<div class="md:col-span-4 glass-panel rounded-lg p-8 clinical-glow-emerald flex flex-col h-[420px]">
+<h3 class="text-xl font-bold tracking-tight mb-8">Clinical Balance</h3>
+<div class="flex-grow flex flex-col justify-center items-center gap-10">
+<div class="relative w-40 h-40">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-highest" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-[#00FE66]" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-dasharray="440" stroke-dashoffset="120" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-black">0.82</span>
+<span class="text-[10px] font-bold text-zinc-500 tracking-widest uppercase">Na/K Ratio</span>
+</div>
+</div>
+<div class="w-full space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Sodium (Na)</span>
+<span class="text-xs font-bold text-[#FF6B00]">1,200mg</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container w-[55%]"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Potassium (K)</span>
+<span class="text-xs font-bold text-[#00FE66]">3,400mg</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[80%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 3) Condition-Specific Shopping Alerts (Vertical List) -->
+<div class="md:col-span-6 bg-surface-container-low rounded-lg p-8 border border-outline-variant/10">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-2xl font-bold tracking-tight">Shopping Logic</h3>
+<span class="material-symbols-outlined text-secondary-fixed-dim" data-icon="verified">verified</span>
+</div>
+<div class="space-y-4">
+<div class="group flex items-center justify-between p-4 bg-surface-container rounded-xl transition-all hover:bg-surface-container-high border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-[#00FE66]/10 flex items-center justify-center text-[#00FE66]">
+<span class="material-symbols-outlined" data-icon="eco">eco</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Wild Hibiscus Tea</h4>
+<p class="text-[10px] text-zinc-500 uppercase tracking-widest font-bold">Hypertension Control</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-zinc-600" data-icon="add_circle">add_circle</span>
+</div>
+<div class="group flex items-center justify-between p-4 bg-surface-container rounded-xl transition-all hover:bg-surface-container-high border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-[#00FE66]/10 flex items-center justify-center text-[#00FE66]">
+<span class="material-symbols-outlined" data-icon="nutrition">nutrition</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Sprouted Flax Seeds</h4>
+<p class="text-[10px] text-zinc-500 uppercase tracking-widest font-bold">Omega-3 Bio-Support</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-zinc-600" data-icon="add_circle">add_circle</span>
+</div>
+<div class="group flex items-center justify-between p-4 bg-surface-container rounded-xl transition-all hover:bg-surface-container-high border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-[#00FE66]/10 flex items-center justify-center text-[#00FE66]">
+<span class="material-symbols-outlined" data-icon="medication_liquid">medication_liquid</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Liquid Magnesium Drop</h4>
+<p class="text-[10px] text-zinc-500 uppercase tracking-widest font-bold">Vascular Dilation</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-zinc-600" data-icon="add_circle">add_circle</span>
+</div>
+</div>
+</div>
+<!-- 4) Bio-Sync: Medical Grade (Status Card) -->
+<div class="md:col-span-6 glass-panel rounded-lg p-8 relative overflow-hidden flex flex-col justify-between">
+<div class="asymmetric-gradient absolute inset-0 opacity-40"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-[#00FE66] glow-sm font-black text-xs tracking-widest uppercase">Bio-Sync Active</span>
+<div class="h-px flex-grow bg-white/5"></div>
+</div>
+<h3 class="text-3xl font-black tracking-tighter mb-4">Dexcom G7 Sync</h3>
+<div class="grid grid-cols-2 gap-4 mt-6">
+<div class="bg-black/20 p-4 rounded-xl border border-white/5">
+<p class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1">Time in Range</p>
+<p class="text-2xl font-black text-[#00FE66]">94%</p>
+</div>
+<div class="bg-black/20 p-4 rounded-xl border border-white/5">
+<p class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1">Estimated A1C</p>
+<p class="text-2xl font-black text-primary">5.8</p>
+</div>
+</div>
+</div>
+<div class="relative z-10 pt-8 flex items-end justify-between">
+<div class="space-y-1">
+<p class="text-xs text-zinc-400">Last Sync: 2 min ago</p>
+<p class="text-[10px] font-bold uppercase tracking-widest text-[#FF6B00]">Sensor Expires: 3 Days</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-white/20" data-icon="analytics">analytics</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#000000]/90 backdrop-blur-2xl rounded-t-[32px] shadow-[0_-10px_40px_rgba(255,182,147,0.05)]">
+<a class="flex flex-col items-center justify-center text-[#00FE66] bg-[#00FE66]/10 rounded-full py-2 px-4 shadow-[0_0_15px_rgba(0,254,102,0.2)] scale-110 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-600 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">My Food</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-600 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="outdoor_grill">outdoor_grill</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Cook</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-600 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Plan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-600 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Shop</span>
+</a>
+</nav>
+<!-- Navigation Drawer (Hidden on Desktop for this specific view, but present in logic) -->
+<div class="fixed top-0 left-0 h-full w-[280px] bg-[#131313] rounded-r-[24px] shadow-[20px_0_60px_rgba(0,0,0,0.8)] z-[60] transform -translate-x-full transition-transform duration-500 hover:translate-x-0 hidden md:flex flex-col p-6 space-y-4">
+<div class="flex items-center gap-4 p-4 border-b border-white/5 mb-6">
+<div class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+</div>
+<div>
+<p class="font-bold text-primary">Elite Member</p>
+<p class="text-[10px] text-zinc-500 tracking-widest uppercase">ID: 882-GS</p>
+</div>
+</div>
+<a class="flex items-center gap-4 p-3 text-zinc-400 hover:bg-zinc-800/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="sync_saved_locally">sync_saved_locally</span>
+<span class="text-sm font-medium">Medical Records Sync</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-zinc-400 hover:bg-zinc-800/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="text-sm font-medium">Ritual Compliance</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-[#00FE66] bg-[#1b1b1b] font-bold border-r-4 border-[#00FE66] rounded-l-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-sm font-medium">Bio-Feedback</span>
+</a>
+</div>
+</body></html>

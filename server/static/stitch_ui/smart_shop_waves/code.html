@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#131313",
+                    "primary-container": "#ff6b00",
+                    "inverse-primary": "#a04100",
+                    "on-tertiary-fixed": "#410001",
+                    "tertiary-fixed": "#ffdad5",
+                    "surface-container": "#1f1f1f",
+                    "tertiary-fixed-dim": "#ffb4aa",
+                    "surface-bright": "#393939",
+                    "on-tertiary-container": "#6a0003",
+                    "on-secondary-fixed-variant": "#00531b",
+                    "primary": "#ffb693",
+                    "outline-variant": "#5a4136",
+                    "on-primary-fixed": "#351000",
+                    "background": "#131313",
+                    "secondary-fixed": "#6bff83",
+                    "inverse-surface": "#e2e2e2",
+                    "surface-dim": "#131313",
+                    "on-secondary-container": "#007128",
+                    "surface-variant": "#353535",
+                    "on-tertiary": "#690003",
+                    "tertiary": "#ffb4aa",
+                    "surface-container-low": "#1b1b1b",
+                    "on-primary": "#561f00",
+                    "on-surface-variant": "#e2bfb0",
+                    "on-secondary-fixed": "#002107",
+                    "on-tertiary-fixed-variant": "#930005",
+                    "surface-tint": "#ffb693",
+                    "on-secondary": "#003911",
+                    "error-container": "#93000a",
+                    "inverse-on-surface": "#303030",
+                    "secondary-container": "#00fe66",
+                    "secondary": "#ebffe6",
+                    "on-surface": "#e2e2e2",
+                    "surface-container-high": "#2a2a2a",
+                    "primary-fixed-dim": "#ffb693",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "on-error": "#690005",
+                    "secondary-fixed-dim": "#00e55b",
+                    "surface-container-highest": "#353535",
+                    "primary-fixed": "#ffdbcc",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#572000",
+                    "tertiary-container": "#ff6858",
+                    "on-background": "#e2e2e2",
+                    "outline": "#a98a7d",
+                    "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-black text-on-surface font-body min-h-screen selection:bg-primary-container/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-2xl">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-orange-500">menu</span>
+<h1 class="text-orange-500 font-black tracking-tighter uppercase text-2xl drop-shadow-[0_0_10px_rgba(255,107,0,0.5)]">GS FOOD</h1>
+</div>
+<div class="w-10 h-10 rounded-full border border-white/10 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of a chef in a dark modern kitchen environment with soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqBeHnEZFvCaR0rSg_Ru3_nvnfQdzh7WRt4tiIEblmOIhqDfwz4gGHhWLlNKAyubfZq5Z326f5M5NG3o6zr2DMgKjL2XRbUUwzuCpYc5cuI-4jZHzc8z7z1fd6Yl7SMfoKydvs2poWj3EjH_9xILAjNxZSRSZMCkRBh0xY23-ySxo7fa_Xro19RdKm8tZ6ugvVLlcGFVHB689slcJ8cZk00DahCXbEOtl9kAVoh8oOQ375dou7vQETWQsNA-3tzbJgxn2EuDJxY9w"/>
+</div>
+</div>
+</header>
+<main class="pt-28 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Header Section -->
+<section class="mb-12">
+<h2 class="text-5xl md:text-6xl font-black tracking-tight mb-2 text-white">Smart <span class="text-primary-container">Shop</span></h2>
+<p class="text-on-surface-variant max-w-lg">Your pantry’s pulse. Predicted by usage, curated for the kitchen.</p>
+</section>
+<!-- Urgency Waves: BUY NOW (Red) -->
+<section class="mb-16">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-3 h-3 rounded-full bg-tertiary-container animate-pulse"></div>
+<h3 class="text-xl font-bold tracking-tight uppercase text-tertiary-container">Buy Now</h3>
+<span class="text-xs font-bold px-2 py-1 bg-tertiary-container/10 border border-tertiary-container/20 rounded-full text-tertiary-container">CRITICAL</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Item Card 1 -->
+<div class="group relative bg-surface-container-low rounded-lg p-6 border border-tertiary-container/20 hover:border-tertiary-container transition-all duration-300 shadow-[0_0_20px_rgba(255,104,88,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<div class="w-16 h-16 rounded-xl overflow-hidden glass-card">
+<img class="w-full h-full object-cover" data-alt="Close-up of premium Himalayan pink salt crystals scattered on a dark slate surface with dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7v0SuohaX4lzOrJi5MTVRftLPtR2palc3W4yZEXz53cIXGXAwK4YAry2GQMkWPvfwjeXok34yaaYcR48r9-x5RZBgozFQu0mnQ5AspikK0olNE4TecXjDjB2I62ZACVqhmqcdeiAkYONu7BB15kf48lDMuC7-g7ca5nrmYtzZO8s2OvrgWCZgx9qT8vYJCIt8nWa9sDckNPD6ktuE36DdJlN63DJ8g1hkDAQoJxDrmAENR2l5SU_13c1uv7QfQ8icg1P8ZgJEfnM"/>
+</div>
+<span class="material-symbols-outlined text-tertiary-container">shopping_basket</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-1">Maldon Sea Salt</h4>
+<p class="text-sm text-on-surface-variant mb-4">Quantity: 250g</p>
+<div class="p-3 bg-tertiary-container/5 rounded-lg border-l-2 border-tertiary-container">
+<p class="text-xs font-medium text-tertiary-container leading-relaxed">
+<span class="font-bold">Why this?</span> Predicted empty in 2 days based on your weekend Roast prep.
+                        </p>
+</div>
+</div>
+<!-- Item Card 2 -->
+<div class="group relative bg-surface-container-low rounded-lg p-6 border border-tertiary-container/20 hover:border-tertiary-container transition-all duration-300 shadow-[0_0_20px_rgba(255,104,88,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<div class="w-16 h-16 rounded-xl overflow-hidden glass-card">
+<img class="w-full h-full object-cover" data-alt="Professional studio shot of fresh organic whole milk being poured into a glass with splashing droplets" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhpypLl-rbLp8xjmRi1VfGMuYRVNB9vyJiTvHYMKgyu-XRzPZ91mMINZJBIPj7v2xsYCJZPFx2X_m4p_QMCcJgSOXeB446LeHnZFUhy3DxybkeKJKRIQtBZP-v4-Lg4D1SgUAGyZDONm3OHGqwQpeNBdVmgmrqeSPlvDQAiFUdrO__S5st1Iz2cJjtNrZWiLR7t4Bd0_9XchIgEvSfKymgtUVy1_7dpt1Cxpg3sDtH_OIZXy64ajqYRG6wKmTgt_NZW39lBRootZE"/>
+</div>
+<span class="material-symbols-outlined text-tertiary-container">shopping_basket</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-1">Whole Milk</h4>
+<p class="text-sm text-on-surface-variant mb-4">Quantity: 2L</p>
+<div class="p-3 bg-tertiary-container/5 rounded-lg border-l-2 border-tertiary-container">
+<p class="text-xs font-medium text-tertiary-container leading-relaxed">
+<span class="font-bold">Why this?</span> Reached expiration limit today. Smart fridge sensor detected low weight.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Urgency Waves: MID-MONTH (Orange) -->
+<section class="mb-16">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<h3 class="text-xl font-bold tracking-tight uppercase text-primary-container">Mid-Month Restock</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="group relative bg-surface-container-low rounded-lg p-6 border border-primary-container/10 hover:border-primary-container/40 transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="w-16 h-16 rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="Rich dark espresso beans in a ceramic bowl with soft warm overhead light and steam" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1TsDTJ_mnCB28WwfQRTQ6CjkLJwTiZFEF1__SbrIZp_FwRXUdUXzUSRFRcBwGQtxkw7inq-QMeBphxMomdXwzdj70y5B_N2Lt0EJOZaXg9gi43YfSa015cVrhpKmhuECULb3pwg_I6f9H8vUThk10IgAZjtG1yX1Buj8LkHMyPOdFSF-DLLmfNimaJYpYFb_l69t_06cmEJwpz351VImTvOg2vKTTiI8_vELiQIyCiNSoD_z-moqnFvOobYkdENOMvCney_ya8G8"/>
+</div>
+<span class="material-symbols-outlined text-primary-container">schedule</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-1">Single Origin Coffee</h4>
+<p class="text-sm text-on-surface-variant mb-4">Quantity: 500g</p>
+<div class="p-3 bg-primary-container/5 rounded-lg border-l-2 border-primary-container/30">
+<p class="text-xs font-medium text-on-surface-variant leading-relaxed">
+<span class="font-bold text-primary">Why this?</span> Average consumption indicates 40% stock remaining. Buy before next Monday.
+                        </p>
+</div>
+</div>
+<div class="group relative bg-surface-container-low rounded-lg p-6 border border-primary-container/10 hover:border-primary-container/40 transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="w-16 h-16 rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="Bottle of extra virgin olive oil next to green olives on a wooden board in a Mediterranean setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc8RIt5Muw4nM5ifXYuA4uEXuv0hHdN7MuGaXwr0gV9M3XJLlR31ikxHIDCg4xZ0gcA2qwyWQo0fD70QfMNocErVZzcDzo1PdqrVzy_fXkzhIeW-MKTwVGIyvtH__xWcGU1746bBWoZ2MfFgasmI4L5uoPNhBl8PsyAVvt7QvyC5OUWcplWAJWHwLaME93TQ8OP11xstdQzvYXmQAfhgHqyN8JIvo4XAzC7cqyxC4-Pqjw9a0kx8fOi2C6hSw_XRffprDH3UP_ZgU"/>
+</div>
+<span class="material-symbols-outlined text-primary-container">schedule</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-1">Extra Virgin Olive Oil</h4>
+<p class="text-sm text-on-surface-variant mb-4">Quantity: 750ml</p>
+<div class="p-3 bg-primary-container/5 rounded-lg border-l-2 border-primary-container/30">
+<p class="text-xs font-medium text-on-surface-variant leading-relaxed">
+<span class="font-bold text-primary">Why this?</span> Essential for "Plan" recipes scheduled for weeks 3 &amp; 4.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Urgency Waves: BULK RESTOCK (Grey/Glass) -->
+<section class="mb-16">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-3 h-3 rounded-full bg-white/20"></div>
+<h3 class="text-xl font-bold tracking-tight uppercase text-white/60">Bulk Restock</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Compact Glass Card -->
+<div class="glass-card rounded-lg p-5 border border-white/5 hover:bg-white/10 transition-colors">
+<div class="flex items-center gap-4 mb-3">
+<div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white/40">inventory_2</span>
+</div>
+<div>
+<h4 class="font-bold text-white">Basmati Rice</h4>
+<p class="text-[10px] uppercase tracking-widest text-white/40">5kg Pack</p>
+</div>
+</div>
+<p class="text-[11px] text-white/50 leading-tight italic">
+                        "Low usage but quarterly restock cycle due next week."
+                    </p>
+</div>
+<div class="glass-card rounded-lg p-5 border border-white/5 hover:bg-white/10 transition-colors">
+<div class="flex items-center gap-4 mb-3">
+<div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white/40">inventory_2</span>
+</div>
+<div>
+<h4 class="font-bold text-white">San Marzano</h4>
+<p class="text-[10px] uppercase tracking-widest text-white/40">Case of 12</p>
+</div>
+</div>
+<p class="text-[11px] text-white/50 leading-tight italic">
+                        "Base pantry stock low. Recommended for your pasta rotation."
+                    </p>
+</div>
+<div class="glass-card rounded-lg p-5 border border-white/5 hover:bg-white/10 transition-colors">
+<div class="flex items-center gap-4 mb-3">
+<div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white/40">inventory_2</span>
+</div>
+<div>
+<h4 class="font-bold text-white">Dishwasher Pods</h4>
+<p class="text-[10px] uppercase tracking-widest text-white/40">90 count</p>
+</div>
+</div>
+<p class="text-[11px] text-white/50 leading-tight italic">
+                        "Only 5 left. Purchasing in bulk now saves 12% vs single packs."
+                    </p>
+</div>
+<div class="glass-card rounded-lg p-5 border border-white/5 hover:bg-white/10 transition-colors">
+<div class="flex items-center gap-4 mb-3">
+<div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white/40">inventory_2</span>
+</div>
+<div>
+<h4 class="font-bold text-white">Mineral Water</h4>
+<p class="text-[10px] uppercase tracking-widest text-white/40">Case of 24</p>
+</div>
+</div>
+<p class="text-[11px] text-white/50 leading-tight italic">
+                        "Bulk order frequency detected. Maintaining hydration baseline."
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button (FAB) - Highly Contextual -->
+<button class="fixed right-6 bottom-32 w-16 h-16 bg-primary-container rounded-full shadow-[0_0_30px_rgba(255,107,0,0.4)] flex items-center justify-center text-on-primary-container z-[60] hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">add_shopping_cart</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full px-6 py-4 flex justify-between items-center bg-black/40 backdrop-blur-2xl border-t border-white/10 z-50 rounded-t-[32px] shadow-[0_-8px_30px_rgba(255,107,0,0.1)]">
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">My Food</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors">
+<span class="material-symbols-outlined">settings_voice</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">Cook</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">Plan</span>
+</div>
+<!-- Active Tab: Shop -->
+<div class="flex flex-col items-center justify-center text-orange-500 scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">Shop</span>
+</div>
+</nav>
+</body></html>

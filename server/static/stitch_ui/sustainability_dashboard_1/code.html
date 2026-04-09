@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-primary": "#561f00",
+                    "surface": "#131313",
+                    "surface-container": "#1f1f1f",
+                    "on-tertiary": "#690003",
+                    "background": "#131313",
+                    "tertiary-fixed": "#ffdad5",
+                    "inverse-on-surface": "#303030",
+                    "inverse-surface": "#e2e2e2",
+                    "tertiary-fixed-dim": "#ffb4aa",
+                    "on-tertiary-fixed-variant": "#930005",
+                    "on-surface": "#e2e2e2",
+                    "surface-tint": "#ffb693",
+                    "on-surface-variant": "#e2bfb0",
+                    "secondary-fixed": "#6bff83",
+                    "on-secondary-fixed-variant": "#00531b",
+                    "surface-container-highest": "#353535",
+                    "secondary-fixed-dim": "#00e55b",
+                    "outline": "#a98a7d",
+                    "outline-variant": "#5a4136",
+                    "error": "#ffb4ab",
+                    "on-tertiary-container": "#6a0003",
+                    "primary-fixed-dim": "#ffb693",
+                    "tertiary-container": "#ff6858",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-bright": "#393939",
+                    "on-secondary-fixed": "#002107",
+                    "on-primary-fixed": "#351000",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#572000",
+                    "on-tertiary-fixed": "#410001",
+                    "primary": "#ffb693",
+                    "surface-dim": "#131313",
+                    "on-error": "#690005",
+                    "on-background": "#e2e2e2",
+                    "on-secondary-container": "#007128",
+                    "error-container": "#93000a",
+                    "surface-variant": "#353535",
+                    "primary-container": "#ff6b00",
+                    "secondary-container": "#00fe66",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "on-secondary": "#003911",
+                    "tertiary": "#ffb4aa",
+                    "surface-container-low": "#1b1b1b",
+                    "secondary": "#ebffe6",
+                    "inverse-primary": "#a04100",
+                    "primary-fixed": "#ffdbcc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body { background-color: #000000; color: #e2e2e2; font-family: 'Inter', sans-serif; }
+      .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05); }
+      .glow-primary { box-shadow: 0 0 20px rgba(255, 107, 0, 0.15); }
+      .glow-secondary { box-shadow: 0 0 20px rgba(0, 254, 102, 0.15); }
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-black pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-[#131313]/80 backdrop-blur-xl shadow-[0_0_20px_rgba(255,107,0,0.1)] flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#FF6B00]" data-icon="restaurant_menu">restaurant_menu</span>
+<h1 class="text-xl font-black tracking-tighter text-[#FF6B00]">THE NOCTURNAL CHEF</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-['Inter'] tracking-tight font-bold text-lg uppercase text-[#FFB693]">Your Impact</span>
+<span class="material-symbols-outlined text-white/60 hover:text-[#FFB693] transition-colors" data-icon="settings_voice">settings_voice</span>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-7xl mx-auto space-y-12">
+<!-- Hero Section: Circular Gauges -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Food Saved Gauge -->
+<div class="glass p-10 rounded-lg flex flex-col items-center text-center relative overflow-hidden group">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-[#00FE66]/5 rounded-full blur-3xl"></div>
+<div class="relative w-56 h-56 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-white/5" cx="112" cy="112" fill="transparent" r="100" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-secondary-container drop-shadow-[0_0_12px_rgba(0,254,102,0.6)]" cx="112" cy="112" fill="transparent" r="100" stroke="currentColor" stroke-dasharray="628" stroke-dashoffset="113" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="text-5xl font-black tracking-tighter text-secondary-container">82%</span>
+<span class="text-xs uppercase tracking-widest font-bold text-white/40">Food Saved</span>
+</div>
+</div>
+<div class="mt-8 space-y-2">
+<h3 class="text-3xl font-bold tracking-tight">124.5 kg</h3>
+<p class="text-on-surface-variant/70 text-sm max-w-[200px] leading-relaxed">Artisan ingredients redirected from waste to your table this month.</p>
+</div>
+</div>
+<!-- CO2 Offset Gauge -->
+<div class="glass p-10 rounded-lg flex flex-col items-center text-center relative overflow-hidden group">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-[#FF6B00]/5 rounded-full blur-3xl"></div>
+<div class="relative w-56 h-56 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-white/5" cx="112" cy="112" fill="transparent" r="100" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary-container drop-shadow-[0_0_12px_rgba(255,107,0,0.6)]" cx="112" cy="112" fill="transparent" r="100" stroke="currentColor" stroke-dasharray="628" stroke-dashoffset="226" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="text-5xl font-black tracking-tighter text-primary-container">64%</span>
+<span class="text-xs uppercase tracking-widest font-bold text-white/40">CO2 Offset</span>
+</div>
+</div>
+<div class="mt-8 space-y-2">
+<h3 class="text-3xl font-bold tracking-tight text-white">312 CO2e</h3>
+<p class="text-on-surface-variant/70 text-sm max-w-[200px] leading-relaxed">Your carbon footprint reduction through local nocturnal sourcing.</p>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Chart & Leaderboard -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Monthly Savings Bar Chart -->
+<div class="lg:col-span-2 glass p-8 rounded-lg space-y-8">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-xs uppercase tracking-[0.2em] font-black text-[#FF6B00] mb-2">Efficiency Analysis</h2>
+<h3 class="text-2xl font-bold italic tracking-tight">Monthly Savings</h3>
+</div>
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary-container"></div>
+<span class="text-[10px] uppercase font-bold text-white/40">Kg Saved</span>
+</div>
+</div>
+<div class="flex items-end justify-between h-48 gap-4 px-2">
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-white/5 rounded-t-full h-[40%] group-hover:bg-secondary-container/20 transition-all duration-500"></div>
+<span class="text-[10px] mt-4 font-bold text-white/20">JAN</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-white/5 rounded-t-full h-[65%] group-hover:bg-secondary-container/20 transition-all duration-500"></div>
+<span class="text-[10px] mt-4 font-bold text-white/20">FEB</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-secondary-container rounded-t-full h-[85%] shadow-[0_0_15px_rgba(0,254,102,0.3)] transition-all duration-500"></div>
+<span class="text-[10px] mt-4 font-bold text-white/60">MAR</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-white/5 rounded-t-full h-[30%] group-hover:bg-secondary-container/20 transition-all duration-500"></div>
+<span class="text-[10px] mt-4 font-bold text-white/20">APR</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-white/5 rounded-t-full h-[55%] group-hover:bg-secondary-container/20 transition-all duration-500"></div>
+<span class="text-[10px] mt-4 font-bold text-white/20">MAY</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-white/5 rounded-t-full h-[70%] group-hover:bg-secondary-container/20 transition-all duration-500"></div>
+<span class="text-[10px] mt-4 font-bold text-white/20">JUN</span>
+</div>
+</div>
+</div>
+<!-- Waste Prevention Leaderboard -->
+<div class="glass rounded-lg overflow-hidden flex flex-col">
+<div class="p-8 pb-4">
+<h2 class="text-xs uppercase tracking-[0.2em] font-black text-[#00FE66] mb-2">Global Impact</h2>
+<h3 class="text-2xl font-bold italic tracking-tight">Leaderboard</h3>
+</div>
+<div class="flex-1 px-4 pb-8 space-y-1">
+<!-- Leaderboard Item: Active User -->
+<div class="flex items-center gap-4 p-4 rounded-xl bg-secondary-container text-black font-bold">
+<span class="text-lg w-6">14</span>
+<div class="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center border-2 border-black/20">
+<span class="material-symbols-outlined text-black" data-icon="person">person</span>
+</div>
+<div class="flex-1">
+<p class="text-sm">You (Executive)</p>
+<p class="text-[10px] uppercase opacity-70">Top 3% Globally</p>
+</div>
+<span class="text-xs">312 pts</span>
+</div>
+<!-- Other items -->
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors group">
+<span class="text-lg w-6 text-white/20">13</span>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white/40" data-icon="person">person</span>
+</div>
+<div class="flex-1">
+<p class="text-sm text-white/80">Chef Julian V.</p>
+</div>
+<span class="text-xs text-white/40">315 pts</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors group">
+<span class="text-lg w-6 text-white/20">15</span>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white/40" data-icon="person">person</span>
+</div>
+<div class="flex-1">
+<p class="text-sm text-white/80">S. Takahashi</p>
+</div>
+<span class="text-xs text-white/40">308 pts</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Sustainable Tip: Editorial Section -->
+<section class="relative h-[400px] rounded-xl overflow-hidden group">
+<img alt="Chef's Tip" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Gourmet salad with microgreens and edible flowers on a dark textured ceramic plate, moody high-end editorial lighting, deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKSSj5ZANdaHjf0K6fV1zzyaOi3fLwJrZkJNqmQgkCwNHS4uf1pYEbzMC2PbcsOGN1cDSXI76X3UfSOPo9QPz3OwBAREHWNTIiecslJppHYx75ohmGF_Cg2_DEn6mdp6Z2VXMmqsuVnaNsZZYXd6LIvjMsP6_PVrJFfUU1IDojMdUMw3ichUBdneO-nD0yVRW2SJaEqUFDybdJbIUn5HvwTvIkdDRpFc2HPlBa25keQ23HF0GD7aVf5i6yVe4axMy8HtE0oceOF-8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-12 space-y-4 max-w-2xl">
+<span class="inline-block px-4 py-1 rounded-full bg-[#FF6B00] text-black text-[10px] font-black uppercase tracking-widest">Sustainable Tip</span>
+<h2 class="text-4xl md:text-5xl font-black italic tracking-tighter leading-none">The Art of Root-to-Stem Dining</h2>
+<p class="text-white/70 text-lg leading-relaxed">Our Executive Chefs use 100% of the produce. Learn how broccoli stalks and carrot tops create the base for our signature Umami broths.</p>
+<button class="mt-4 flex items-center gap-3 text-[#FFB693] font-bold uppercase text-xs tracking-widest hover:gap-5 transition-all">
+                    Read the Curator's Guide <span class="material-symbols-outlined" data-icon="arrow_right_alt">arrow_right_alt</span>
+</button>
+</div>
+</section>
+<!-- Recent Impact Actions -->
+<section class="space-y-6">
+<h3 class="text-xl font-bold tracking-tight flex items-center gap-3">
+<span class="w-8 h-[2px] bg-[#00FE66]"></span> Recent Impact
+            </h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="surface-container-low p-6 rounded-lg flex items-start gap-4">
+<div class="bg-secondary-container/10 p-3 rounded-xl">
+<span class="material-symbols-outlined text-secondary-container" data-icon="eco">eco</span>
+</div>
+<div>
+<p class="font-bold text-white/90">Compost Contribution</p>
+<p class="text-xs text-white/40">2.4 kg organic waste processed</p>
+</div>
+</div>
+<div class="surface-container-low p-6 rounded-lg flex items-start gap-4">
+<div class="bg-primary-container/10 p-3 rounded-xl">
+<span class="material-symbols-outlined text-primary-container" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<p class="font-bold text-white/90">Mystery Box Saved</p>
+<p class="text-xs text-white/40">Premium surplus items rescued</p>
+</div>
+</div>
+<div class="surface-container-low p-6 rounded-lg flex items-start gap-4">
+<div class="bg-white/5 p-3 rounded-xl">
+<span class="material-symbols-outlined text-white/60" data-icon="receipt_long">receipt_long</span>
+</div>
+<div>
+<p class="font-bold text-white/90">Paperless Kitchen</p>
+<p class="text-xs text-white/40">Digital receipts only this month</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-black/90 backdrop-blur-2xl shadow-[0_-10px_40px_rgba(255,107,0,0.15)] rounded-t-[32px] flex justify-around items-center pt-4 pb-8 px-6">
+<a class="flex flex-col items-center justify-center text-white/40 hover:text-[#00FE66] transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Curate</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#FF6B00] drop-shadow-[0_0_8px_rgba(255,107,0,0.8)] active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="eco" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Fresh</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 hover:text-[#00FE66] transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 hover:text-[#00FE66] transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#131313",
+            "primary-container": "#ff6b00",
+            "inverse-primary": "#a04100",
+            "on-tertiary-fixed": "#410001",
+            "tertiary-fixed": "#ffdad5",
+            "surface-container": "#1f1f1f",
+            "tertiary-fixed-dim": "#ffb4aa",
+            "surface-bright": "#393939",
+            "on-tertiary-container": "#6a0003",
+            "on-secondary-fixed-variant": "#00531b",
+            "primary": "#ffb693",
+            "outline-variant": "#5a4136",
+            "on-primary-fixed": "#351000",
+            "background": "#131313",
+            "secondary-fixed": "#6bff83",
+            "inverse-surface": "#e2e2e2",
+            "surface-dim": "#131313",
+            "on-secondary-container": "#007128",
+            "surface-variant": "#353535",
+            "on-tertiary": "#690003",
+            "tertiary": "#ffb4aa",
+            "surface-container-low": "#1b1b1b",
+            "on-primary": "#561f00",
+            "on-surface-variant": "#e2bfb0",
+            "on-secondary-fixed": "#002107",
+            "on-tertiary-fixed-variant": "#930005",
+            "surface-tint": "#ffb693",
+            "on-secondary": "#003911",
+            "error-container": "#93000a",
+            "inverse-on-surface": "#303030",
+            "secondary-container": "#00fe66",
+            "secondary": "#ebffe6",
+            "on-surface": "#e2e2e2",
+            "surface-container-high": "#2a2a2a",
+            "primary-fixed-dim": "#ffb693",
+            "on-primary-fixed-variant": "#7a3000",
+            "on-error": "#690005",
+            "secondary-fixed-dim": "#00e55b",
+            "surface-container-highest": "#353535",
+            "primary-fixed": "#ffdbcc",
+            "surface-container-lowest": "#0e0e0e",
+            "on-error-container": "#ffdad6",
+            "on-primary-container": "#572000",
+            "tertiary-container": "#ff6858",
+            "on-background": "#e2e2e2",
+            "outline": "#a98a7d",
+            "error": "#ffb4ab"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+    .chat-bubble-ai {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .chat-bubble-user {
+      background: rgba(255, 107, 0, 0.15);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+    }
+    .glow-bg {
+      background: radial-gradient(circle at 50% 50%, rgba(255, 107, 0, 0.15) 0%, transparent 70%);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body overflow-hidden">
+<!-- Main Background Content (The Kitchen Canvas) -->
+<main class="relative h-screen w-full overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60" data-alt="Moody dark modern kitchen with warm ambient lighting on a marble island and high-end culinary tools in soft focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWQ2e0RGqzriafjeTMqWJFWVV14jAQRaX3L-M7FSyHIYoxX1TQKIcxRbszrxEYuTa77OfErt-nVm_AW2fnKESsnGh-BmxHYRr2oaJQT7y3V5h4sDW2W-2agvTJLY0DcF2AwdN2SMCA-9c7VvYoQtRIam0YwAAf8cewQWA4iGfN-5_yrCO48ccjQ52QKtI5NzaT_go4Y6YYG_gwzWVJRdFCYovo0i3Vm1t95HqKUVt5uQLdkHpA0H28eaytuCSVEactFHjMDDulySw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40"></div>
+<!-- Header Section (Ghosted while overlay is active) -->
+<header class="relative z-10 flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
+<div class="text-orange-500 font-black tracking-tighter text-2xl uppercase drop-shadow-[0_0_10px_rgba(255,107,0,0.5)]">
+        GS FOOD
+      </div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-white/20">
+<img class="w-full h-full object-cover" data-alt="Portrait of a professional chef in a dark kitchen environment with soft side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMzAW2DZ-HoD67KiML2rUxpb0lkmLAsaLrKq5HB7RP1j51V2W1_v4fPUBtOrsQw-KV734CUaOSlikO_FZnxHQCeO5mX_IPZrpmJtF4-devg7QR8MBhR1x9aJBbhwsEboKZmcarHZanC_3bxIungZS0LPycnBEJrouOBjAZAuvMRdakMBk4w-FCT4NWKzGdYCqW8kSoxMZe-3D6Vv7IXg88AYdeMAtoHCuvlky6H30vFFfuJnj0wDztjnq5U0xq6_tct1G2izOdYy0"/>
+</div>
+</div>
+</header>
+<!-- Content Behind (Blurred Bento Grid) -->
+<div class="relative z-10 px-8 py-12 grid grid-cols-4 gap-6 max-w-7xl mx-auto blur-md scale-[0.98] transition-all duration-700">
+<div class="col-span-2 row-span-2 glass-panel p-8 rounded-lg">
+<div class="w-full h-64 bg-surface-container-highest rounded-lg mb-6 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Gourmet steak with rosemary and roasted garlic on a black slate platter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvFtgkFEc67s4VACNJtum6R3PuieXs2yvMsyWwhK7S08rapFpkDU6Sx4oUleaCZ8vQvnMvGbPcga0hq0HVlJ6BUcpbjwXS98oAikg1_56ycsZ6kW-oaekCS6xKrM5MvHazdkfzpDzwO6-3husJHUv3bFCcRY8RWR4Ih5_3XxBWYCDWVZpkUArU7nptrhqC1irh9AkF9WCP0xz0RvK-6iES_-JYrGYn7YoRfNU6jrc8FXgAhltbygfInUvSjX5Qf-zl_C2aiOtd6Qg"/>
+</div>
+<h2 class="text-3xl font-black mb-2 uppercase italic tracking-tighter">Signature Ribeye</h2>
+<p class="text-on-surface-variant">Dry-aged for 45 days, finished with bone marrow butter.</p>
+</div>
+<div class="col-span-2 glass-panel p-6 rounded-lg flex items-center gap-6">
+<div class="w-24 h-24 rounded-full bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary-container text-4xl">eco</span>
+</div>
+<div>
+<h3 class="text-xl font-bold">Organic Harvest</h3>
+<p class="text-sm opacity-60">12 items arriving today from local farms.</p>
+</div>
+</div>
+<div class="col-span-1 glass-panel p-6 rounded-lg">
+<span class="text-primary-container font-bold text-sm tracking-widest uppercase mb-4 block">Timer</span>
+<div class="text-4xl font-black">12:45</div>
+</div>
+<div class="col-span-1 glass-panel p-6 rounded-lg">
+<span class="text-secondary-container font-bold text-sm tracking-widest uppercase mb-4 block">Guests</span>
+<div class="text-4xl font-black">04</div>
+</div>
+</div>
+</main>
+<!-- THE FOOD CHAT OVERLAY -->
+<div class="fixed inset-0 z-50 flex flex-col justify-end">
+<!-- Scrim -->
+<div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+<!-- Full-screen Bottom Sheet -->
+<div class="relative w-full h-[813px] glass-panel rounded-t-xl overflow-hidden flex flex-col border-t border-white/10 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+<!-- Drag Handle -->
+<div class="w-full flex justify-center py-4">
+<div class="w-12 h-1.5 bg-white/20 rounded-full"></div>
+</div>
+<!-- Header -->
+<div class="px-8 flex justify-between items-center mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center shadow-[0_0_15px_rgba(255,107,0,0.4)]">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span>
+</div>
+<div>
+<h1 class="text-xl font-black uppercase tracking-tighter text-white">Culinary AI</h1>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="text-[10px] font-bold text-secondary-container uppercase tracking-widest">In the kitchen</span>
+</div>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-white">close</span>
+</button>
+</div>
+<!-- Chat Canvas -->
+<div class="flex-1 overflow-y-auto px-8 space-y-8 pb-32">
+<!-- AI Bubble -->
+<div class="flex gap-4 max-w-[85%]">
+<div class="flex-shrink-0 w-8 h-8 rounded-full glass-panel flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-xs text-primary-container" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="chat-bubble-ai p-5 rounded-lg rounded-tl-none">
+<p class="text-on-surface leading-relaxed">Good evening, Chef. I see you have wild mushrooms, shallots, and fresh thyme in your pantry. Shall we prepare a <span class="text-primary-container font-bold">Porcini Risotto</span> tonight?</p>
+</div>
+</div>
+<!-- User Bubble -->
+<div class="flex justify-end">
+<div class="chat-bubble-user p-5 rounded-lg rounded-tr-none max-w-[85%]">
+<p class="text-white leading-relaxed">That sounds perfect. How long will the prep take? I have guests arriving in an hour.</p>
+</div>
+</div>
+<!-- AI Bubble with Rich Content -->
+<div class="flex gap-4 max-w-[85%]">
+<div class="flex-shrink-0 w-8 h-8 rounded-full glass-panel flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-xs text-primary-container" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="chat-bubble-ai p-5 rounded-lg rounded-tl-none space-y-4">
+<p class="text-on-surface leading-relaxed">Excellent. Prep is minimal—about 15 minutes. The total time to table is 45 minutes, giving you a 15-minute buffer before your guests arrive.</p>
+<!-- Bento-style recipe snippet inside chat -->
+<div class="grid grid-cols-2 gap-3 mt-4">
+<div class="bg-white/5 p-3 rounded-lg border border-white/5">
+<span class="text-[10px] uppercase font-bold text-white/40 block mb-1">Calories</span>
+<span class="text-lg font-black text-white">420 KCAL</span>
+</div>
+<div class="bg-white/5 p-3 rounded-lg border border-white/5">
+<span class="text-[10px] uppercase font-bold text-white/40 block mb-1">Complexity</span>
+<span class="text-lg font-black text-white">MEDIUM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- User Bubble -->
+<div class="flex justify-end">
+<div class="chat-bubble-user p-5 rounded-lg rounded-tr-none max-w-[85%]">
+<p class="text-white leading-relaxed">Add eggs to list while you're at it, I noticed we're low.</p>
+</div>
+</div>
+<!-- AI Confirmation -->
+<div class="flex gap-4 max-w-[85%]">
+<div class="flex-shrink-0 w-8 h-8 rounded-full glass-panel flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-xs text-primary-container" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="chat-bubble-ai p-5 rounded-lg rounded-tl-none border-l-4 border-l-secondary-container">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-container">check_circle</span>
+<p class="text-on-surface font-bold">Added "Dozen organic eggs" to Shop.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Input Area -->
+<div class="absolute bottom-0 left-0 w-full p-8 bg-black/40 backdrop-blur-3xl border-t border-white/10">
+<!-- Quick Action Chips -->
+<div class="flex gap-3 mb-6 overflow-x-auto pb-2 no-scrollbar">
+<button class="flex-shrink-0 px-6 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-xs font-bold uppercase tracking-widest text-on-surface">
+            What's for dinner?
+          </button>
+<button class="flex-shrink-0 px-6 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-xs font-bold uppercase tracking-widest text-on-surface">
+            Add eggs to list
+          </button>
+<button class="flex-shrink-0 px-6 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-xs font-bold uppercase tracking-widest text-on-surface">
+            Wine pairing
+          </button>
+<button class="flex-shrink-0 px-6 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-xs font-bold uppercase tracking-widest text-on-surface">
+            Timer 10m
+          </button>
+</div>
+<!-- Input Bar -->
+<div class="flex items-center gap-4">
+<button class="w-14 h-14 rounded-full glass-panel flex items-center justify-center border border-white/10 hover:bg-white/20 transition-all">
+<span class="material-symbols-outlined text-white">photo_camera</span>
+</button>
+<div class="flex-1 relative">
+<input class="w-full h-14 bg-white/5 border-none focus:ring-1 focus:ring-primary-container/50 rounded-full px-8 text-on-surface placeholder:text-white/20" placeholder="Tell me what you're craving..." type="text"/>
+<button class="absolute right-3 top-2 w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+</div>
+<button class="w-14 h-14 rounded-full bg-primary-container/10 flex items-center justify-center border border-primary-container/20 hover:bg-primary-container/20 transition-all">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Shared Navigation (BottomNavBar) -->
+<nav class="fixed bottom-0 left-0 w-full px-6 py-4 flex justify-between items-center bg-black/40 backdrop-blur-2xl border-t border-white/10 z-[60]">
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">My Food</span>
+</div>
+<div class="flex flex-col items-center justify-center text-orange-500 scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings_voice</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">Cook</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">Plan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold">Shop</span>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#1b1b1b",
+                        "on-tertiary-fixed": "#410001",
+                        "on-secondary-fixed-variant": "#00531b",
+                        "secondary-fixed": "#6bff83",
+                        "secondary-fixed-dim": "#00e55b",
+                        "tertiary": "#ffb4aa",
+                        "inverse-primary": "#a04100",
+                        "on-surface": "#e2e2e2",
+                        "on-primary": "#561f00",
+                        "tertiary-fixed-dim": "#ffb4aa",
+                        "secondary-container": "#00fe66",
+                        "on-background": "#e2e2e2",
+                        "tertiary-fixed": "#ffdad5",
+                        "on-secondary": "#003911",
+                        "primary-fixed-dim": "#ffb693",
+                        "outline-variant": "#5a4136",
+                        "inverse-on-surface": "#303030",
+                        "tertiary-container": "#ff6858",
+                        "surface-container": "#1f1f1f",
+                        "surface": "#131313",
+                        "on-tertiary-container": "#6a0003",
+                        "surface-tint": "#ffb693",
+                        "on-tertiary-fixed-variant": "#930005",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#002107",
+                        "surface-bright": "#393939",
+                        "primary": "#ffb693",
+                        "secondary": "#ebffe6",
+                        "primary-container": "#ff6b00",
+                        "on-primary-fixed": "#351000",
+                        "surface-variant": "#353535",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "on-error-container": "#ffdad6",
+                        "outline": "#a98a7d",
+                        "on-secondary-container": "#007128",
+                        "on-primary-container": "#572000",
+                        "inverse-surface": "#e2e2e2",
+                        "primary-fixed": "#ffdbcc",
+                        "on-surface-variant": "#e2bfb0",
+                        "surface-container-highest": "#353535",
+                        "surface-dim": "#131313",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error": "#690005",
+                        "background": "#131313",
+                        "on-tertiary": "#690003",
+                        "surface-container-lowest": "#0e0e0e",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .chef-pulse {
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(0, 254, 102, 0.1); }
+            50% { box-shadow: 0 0 25px rgba(0, 254, 102, 0.3); }
+        }
+        .mask-gradient {
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#000000] text-on-surface font-body selection:bg-primary-container selection:text-white overflow-x-hidden">
+<!-- TopAppBar suppressed per "Transactional/Onboarding" suppression logic -->
+<main class="relative min-h-screen pb-32">
+<!-- Hero Section with Asymmetric Layout -->
+<section class="relative h-[530px] md:h-[618px] w-full overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Chef equipment" class="w-full h-full object-cover grayscale brightness-50 scale-105" data-alt="Professional kitchen scene with high-end stainless steel knives, copper pans, and cast iron on a dark slate surface, dramatic moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4Tv1q46g-npL8TiQFG8wLmaHljFdMjCHZpCvZNzzPCgrl1qIZz_dkI0aI9CCcoYSk3tS7HfmOgXkwsqM6WnJITk2DbYALKbb2J0iIrLjRnST-vQemlPxi_V-b7-J48rrddjIgd_DFAk1xrZMHywDOw3x9UUadWjRKcFxgiEuZ6BNd5PTX_G-DAItnhJyplmBiWe_P1lWpIj2CT38-4_8ACDNNkH0yzB5_gKskpa_ze-wVVp7MYD_GZE_WJDCby4GpFcFk2FGIRMw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/40 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-[#000000] via-transparent to-transparent opacity-80"></div>
+</div>
+<div class="relative z-10 h-full flex flex-col justify-end px-6 md:px-16 pb-12 max-w-7xl mx-auto">
+<div class="space-y-4 max-w-3xl">
+<span class="inline-block bg-primary-container/20 border border-primary/20 text-primary-fixed-dim px-4 py-1 rounded-full text-xs font-bold tracking-[0.2em] uppercase">
+                        Onboarding 01
+                    </span>
+<h1 class="text-5xl md:text-7xl font-black text-on-background leading-[0.9] tracking-tighter uppercase italic">
+                        Define Your <br/>
+<span class="text-primary">Culinary Edge</span>
+</h1>
+<p class="text-on-surface-variant text-lg md:text-xl max-w-xl leading-relaxed font-light">
+                        The Nocturnal Chef tailors every harvest and cellar selection to your professional profile. Choose your foundation.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Persona Selection: Bento Grid Style -->
+<section class="px-6 md:px-16 max-w-7xl mx-auto -mt-12 relative z-20">
+<div class="mb-8">
+<h2 class="text-xs font-bold uppercase tracking-[0.3em] text-white/40 mb-2">Section One</h2>
+<div class="h-[1px] w-12 bg-primary"></div>
+<h3 class="text-2xl font-bold mt-4">Chef Persona</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Pro Chef (Selected) -->
+<div class="glass-card group relative p-8 rounded-lg border-2 border-primary-container shadow-[0_0_30px_rgba(255,107,0,0.2)] transition-all duration-300">
+<div class="absolute -top-4 -right-4 bg-primary-container text-on-primary-container p-2 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6 block" style="font-variation-settings: 'FILL' 0;">restaurant_menu</span>
+<h4 class="text-xl font-bold mb-2">Pro Chef</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                        Access rare seasonal harvests, wholesale grade cuts, and molecular gastronomy essentials.
+                    </p>
+<div class="mt-6 flex gap-2">
+<span class="text-[10px] uppercase tracking-widest bg-white/10 px-2 py-1 rounded">Cellar Access</span>
+<span class="text-[10px] uppercase tracking-widest bg-white/10 px-2 py-1 rounded">Priority Delivery</span>
+</div>
+</div>
+<!-- Home Cook -->
+<div class="glass-card group relative p-8 rounded-lg border border-white/5 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
+<span class="material-symbols-outlined text-white/40 text-4xl mb-6 block group-hover:text-primary/60 transition-colors">skillet</span>
+<h4 class="text-xl font-bold mb-2">Home Cook</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                        Curated kits and premium grocery staples designed for the elevated daily meal.
+                    </p>
+<div class="mt-6 flex gap-2 opacity-40">
+<span class="text-[10px] uppercase tracking-widest bg-white/10 px-2 py-1 rounded">Daily Harvest</span>
+</div>
+</div>
+<!-- Fitness Fanatic -->
+<div class="glass-card group relative p-8 rounded-lg border border-white/5 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
+<span class="material-symbols-outlined text-white/40 text-4xl mb-6 block group-hover:text-primary/60 transition-colors">fitness_center</span>
+<h4 class="text-xl font-bold mb-2">Fitness Fanatic</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                        Macros-focused curation with high-protein organic poultry and metabolic grains.
+                    </p>
+<div class="mt-6 flex gap-2 opacity-40">
+<span class="text-[10px] uppercase tracking-widest bg-white/10 px-2 py-1 rounded">Macro Tracked</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Health Goals: Tonal Shifts layout -->
+<section class="mt-24 px-6 md:px-16 max-w-7xl mx-auto">
+<div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="text-xs font-bold uppercase tracking-[0.3em] text-white/40 mb-2">Section Two</h2>
+<div class="h-[1px] w-12 bg-secondary-container"></div>
+<h3 class="text-2xl font-bold mt-4">Health &amp; Performance Goals</h3>
+</div>
+<p class="text-on-surface-variant max-w-md text-sm italic">
+                    "Artistry requires precision. Align your ingredients with your physical demands."
+                </p>
+</div>
+<div class="flex flex-wrap gap-4">
+<!-- Goal Chips -->
+<button class="px-8 py-4 rounded-full bg-secondary-container text-on-secondary-fixed font-bold text-sm tracking-wide transition-all shadow-[0_0_20px_rgba(0,254,102,0.3)]">
+                    KETO-FOCUSED
+                </button>
+<button class="px-8 py-4 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm tracking-wide hover:bg-white/10 transition-all border border-white/5">
+                    MUSCLE HYPERTROPHY
+                </button>
+<button class="px-8 py-4 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm tracking-wide hover:bg-white/10 transition-all border border-white/5">
+                    SUSTAINABLE VEGAN
+                </button>
+<button class="px-8 py-4 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm tracking-wide hover:bg-white/10 transition-all border border-white/5">
+                    INFLAMMATION REDUCTION
+                </button>
+<button class="px-8 py-4 rounded-full bg-secondary-container text-on-secondary-fixed font-bold text-sm tracking-wide transition-all shadow-[0_0_20px_rgba(0,254,102,0.3)]">
+                    PALEO SIGNATURE
+                </button>
+<button class="px-8 py-4 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm tracking-wide hover:bg-white/10 transition-all border border-white/5">
+                    ENDURANCE FUEL
+                </button>
+</div>
+</section>
+<!-- Signature "Chef's Pulse" Component -->
+<section class="mt-24 px-6 md:px-16 max-w-7xl mx-auto overflow-hidden">
+<div class="glass-card p-1 rounded-full chef-pulse overflow-hidden">
+<div class="flex items-center gap-4 px-6 py-3 whitespace-nowrap overflow-hidden">
+<span class="flex-shrink-0 w-2 h-2 rounded-full bg-secondary-container shadow-[0_0_8px_#00fe66]"></span>
+<span class="text-[10px] font-bold tracking-[0.4em] uppercase text-secondary-container">Live Kitchen Feed: Winter Truffle Harvest arriving in 48h</span>
+<span class="text-white/20 px-4">|</span>
+<span class="text-[10px] font-bold tracking-[0.4em] uppercase text-on-surface-variant">Chef Andre joined the Collective</span>
+<span class="text-white/20 px-4">|</span>
+<span class="text-[10px] font-bold tracking-[0.4em] uppercase text-on-surface-variant">A5 Wagyu Stock: Low</span>
+</div>
+</div>
+</section>
+<!-- CTA Action Area -->
+<section class="fixed bottom-0 left-0 w-full p-8 z-50 pointer-events-none">
+<div class="max-w-7xl mx-auto flex justify-end pointer-events-auto">
+<button class="group flex items-center gap-4 bg-primary-container text-on-primary-container px-10 py-5 rounded-full font-black uppercase tracking-widest text-sm shadow-[0_10px_40px_rgba(255,107,0,0.3)] hover:scale-105 active:scale-95 transition-all">
+                    Initiate Curation
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Navigation suppressed per relevance check for Onboarding flow -->
+</body></html>

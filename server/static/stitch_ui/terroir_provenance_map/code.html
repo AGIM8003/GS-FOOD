@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Terroir &amp; Provenance | GS FOOD</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#393939",
+                    "on-tertiary-container": "#6a0003",
+                    "tertiary-fixed-dim": "#ffb4aa",
+                    "surface": "#131313",
+                    "primary-container": "#ff6b00",
+                    "tertiary-fixed": "#ffdad5",
+                    "surface-container": "#1f1f1f",
+                    "on-tertiary-fixed": "#410001",
+                    "inverse-primary": "#a04100",
+                    "surface-dim": "#131313",
+                    "on-secondary-container": "#007128",
+                    "inverse-surface": "#e2e2e2",
+                    "secondary-fixed": "#6bff83",
+                    "background": "#131313",
+                    "surface-variant": "#353535",
+                    "on-tertiary": "#690003",
+                    "primary": "#ffb693",
+                    "on-secondary-fixed-variant": "#00531b",
+                    "on-primary-fixed": "#351000",
+                    "outline-variant": "#5a4136",
+                    "secondary-container": "#00fe66",
+                    "inverse-on-surface": "#303030",
+                    "error-container": "#93000a",
+                    "on-secondary": "#003911",
+                    "on-error": "#690005",
+                    "primary-fixed-dim": "#ffb693",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "surface-container-high": "#2a2a2a",
+                    "secondary": "#ebffe6",
+                    "on-surface": "#e2e2e2",
+                    "on-primary": "#561f00",
+                    "surface-container-low": "#1b1b1b",
+                    "tertiary": "#ffb4aa",
+                    "surface-tint": "#ffb693",
+                    "on-tertiary-fixed-variant": "#930005",
+                    "on-surface-variant": "#e2bfb0",
+                    "on-secondary-fixed": "#002107",
+                    "surface-container-lowest": "#0e0e0e",
+                    "outline": "#a98a7d",
+                    "error": "#ffb4ab",
+                    "on-background": "#e2e2e2",
+                    "tertiary-container": "#ff6858",
+                    "on-primary-container": "#572000",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-highest": "#353535",
+                    "primary-fixed": "#ffdbcc",
+                    "secondary-fixed-dim": "#00e55b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-mesh {
+            background: radial-gradient(circle at 20% 30%, rgba(255, 107, 0, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(0, 254, 102, 0.1) 0%, transparent 40%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#000000]/80 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#FFB693] cursor-pointer hover:bg-white/5 p-2 rounded-full transition-colors active:scale-95" data-icon="menu">menu</span>
+</div>
+<h1 class="text-[#FFB693] drop-shadow-[0_0_10px_rgba(255,107,0,0.4)] font-['Inter'] tracking-tight font-black uppercase text-2xl">GS FOOD</h1>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#FFB693] cursor-pointer hover:bg-white/5 p-2 rounded-full transition-colors active:scale-95" data-icon="sensors">sensors</span>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 min-h-screen bg-mesh">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Hero Editorial Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end mb-16">
+<div class="md:col-span-7">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/10 border border-secondary-container/30 text-secondary-container mb-6">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold tracking-widest uppercase font-label">Blockchain Verified Origin</span>
+</div>
+<h2 class="text-white text-5xl md:text-7xl font-headline font-black tracking-tighter mb-4 leading-none">
+                        A5 WAGYU<br/><span class="text-primary">KAGOSHIMA</span>
+</h2>
+<p class="text-on-surface-variant text-lg max-w-xl leading-relaxed">
+                        Trace the hyper-local provenance of Serial #KAG-8821. From the volcanic soils of Kyushu to your table, monitored through every thermal fluctuation.
+                    </p>
+</div>
+<div class="md:col-span-5 relative">
+<div class="relative rounded-lg overflow-hidden aspect-[4/5] shadow-2xl group">
+<img alt="Luxury Wagyu Steak" class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-700" data-alt="Close-up of raw A5 Wagyu beef with intricate white marbling on a dark slate background, dramatic soft side lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR-I_386ORfEOVrKUuexTZ3ZbniVMggqrLPimpo5nxXQih368shUnlAt8rf87VAyMZZecjCPMM6Nf18QnSwujLrvZAJcF5jU0eGwl7sEKTX3LFXedOD75d7bFzbEgFpA8mP9qTbryzmF-dFVO_zKp_3yLNMEsQtEykPqIZhXD32qkgnboVqmrytrLo8D60EV-s8vq4Kn3zl0qIWR1b6brozdBsgQX0Y3yD6z80lrmVlVV04Lj0Dk3yF5fv85JZi23in4axV0cnL9g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<span class="text-white font-black text-2xl tracking-tighter italic">"THE GOLDEN MARBLE"</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3D Map & Environmental Data Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+<!-- Map Container -->
+<div class="md:col-span-2 relative h-[500px] rounded-lg bg-surface-container-low overflow-hidden group">
+<div class="absolute inset-0 z-0 opacity-60">
+<img class="w-full h-full object-cover mix-blend-luminosity" data-alt="Aerial topographic view of lush green Japanese countryside with volcanic mountains and geometric farm plots in misty morning light." data-location="Kagoshima, Japan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFcDgfLUvw_SVqtgwaujMaknADT6JNqk_4LfaTW8l1M9FGCH7sTWrxJfx05pKS8bWmTk0x-Fn6s3VRw_nVhIIR0yoeuAUUlXTMfTiE5xFptQCiKQOxFPSGdi9Bq5Lor_rE1Px0jbK7BV1866O0JJ1RyLuGSeB5G_vyWYRAmeADCm8iCDDMgNGg2k4EuIWaoCknxSo0uqS1jXXHXVvWu5BKbblmTdhxa89W7yoZFH0BwJ63qi8s8LViwe63bDKT3QCSBHSlf9fKYjU"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-tr from-surface-container-lowest via-transparent to-primary/10"></div>
+<!-- Map Overlays -->
+<div class="absolute top-8 left-8 p-6 backdrop-blur-xl bg-black/40 rounded-lg border border-white/5">
+<h3 class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-2">Source Location</h3>
+<p class="font-headline text-2xl font-bold">IZUMI FARM</p>
+<p class="text-on-surface-variant text-sm">32.0881° N, 130.3479° E</p>
+</div>
+<!-- Interactive Hotspots (Static for UI) -->
+<div class="absolute top-1/2 left-1/3 flex flex-col items-center">
+<div class="w-4 h-4 bg-primary rounded-full animate-pulse shadow-[0_0_20px_#ff6b00]"></div>
+<div class="mt-2 px-3 py-1 bg-black/80 backdrop-blur-md rounded text-[10px] font-bold uppercase tracking-widest border border-primary/30">Cattle Shelter B</div>
+</div>
+<div class="absolute bottom-8 right-8 flex gap-4">
+<div class="px-4 py-3 bg-black/60 backdrop-blur-xl rounded-lg border border-white/5">
+<span class="block text-[10px] uppercase text-white/40 mb-1">Elevation</span>
+<span class="text-white font-bold tracking-tight">412m</span>
+</div>
+<div class="px-4 py-3 bg-black/60 backdrop-blur-xl rounded-lg border border-white/5">
+<span class="block text-[10px] uppercase text-white/40 mb-1">Status</span>
+<span class="text-secondary-container font-bold tracking-tight flex items-center gap-2">
+<span class="w-2 h-2 bg-secondary-container rounded-full"></span>
+                                OPTIMAL
+                            </span>
+</div>
+</div>
+</div>
+<!-- Right Column Data Stats -->
+<div class="flex flex-col gap-6">
+<!-- Soil Card -->
+<div class="p-8 rounded-lg bg-surface-container flex flex-col justify-between h-full relative overflow-hidden">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="science">science</span>
+<h4 class="font-label text-xs uppercase tracking-[0.2em] text-white/40 mb-1">Soil Composition</h4>
+<div class="text-4xl font-black text-white tracking-tighter">6.8 pH</div>
+<p class="text-on-surface-variant text-sm mt-2">Volcanic Ash Rich / High Mineral Retention</p>
+</div>
+<div class="absolute -right-8 -bottom-8 opacity-5">
+<span class="material-symbols-outlined text-[120px]" data-icon="grass">grass</span>
+</div>
+</div>
+<!-- Rainfall Card -->
+<div class="p-8 rounded-lg bg-surface-container flex flex-col justify-between h-full relative overflow-hidden">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-secondary-container mb-4" data-icon="water_drop">water_drop</span>
+<h4 class="font-label text-xs uppercase tracking-[0.2em] text-white/40 mb-1">Monthly Rainfall</h4>
+<div class="text-4xl font-black text-white tracking-tighter">182 mm</div>
+<div class="flex gap-1 mt-4 items-end h-8">
+<div class="w-full bg-white/5 rounded-t h-[40%]"></div>
+<div class="w-full bg-white/5 rounded-t h-[60%]"></div>
+<div class="w-full bg-secondary-container/40 rounded-t h-[100%]"></div>
+<div class="w-full bg-white/5 rounded-t h-[70%]"></div>
+<div class="w-full bg-white/5 rounded-t h-[50%]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Transit & Cold Chain Log -->
+<section class="bg-surface-container-low rounded-lg p-8 md:p-12 mb-16 relative overflow-hidden border border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
+<div>
+<h3 class="text-3xl font-headline font-black tracking-tighter text-white mb-2 uppercase">COLD-CHAIN INTEGRITY</h3>
+<p class="text-on-surface-variant">Real-time transit temperature telemetry</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<span class="block text-[10px] uppercase text-white/40 tracking-widest">Global Status</span>
+<span class="text-secondary-container font-bold text-xl tracking-tighter italic">STABLE</span>
+</div>
+<div class="w-px h-10 bg-white/10"></div>
+<div class="text-right">
+<span class="block text-[10px] uppercase text-white/40 tracking-widest">Variance</span>
+<span class="text-white font-bold text-xl tracking-tighter">±0.2°C</span>
+</div>
+</div>
+</div>
+<div class="relative pt-8 pb-12">
+<!-- Progress Line -->
+<div class="absolute top-1/2 left-0 w-full h-[1px] bg-white/10 -translate-y-1/2"></div>
+<div class="grid grid-cols-4 relative z-10">
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 bg-secondary-container rounded-full ring-8 ring-secondary-container/10 mb-4"></div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-white/40">Dispatch</span>
+<span class="text-lg font-black text-white">-2.1°C</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 bg-secondary-container rounded-full mb-4"></div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-white/40">Air Transit</span>
+<span class="text-lg font-black text-white">-1.9°C</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 bg-secondary-container rounded-full mb-4"></div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-white/40">Hub</span>
+<span class="text-lg font-black text-white">-2.0°C</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-4 h-4 bg-secondary-container rounded-full ring-[12px] ring-secondary-container/20 mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-black font-bold" data-icon="check">check</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary-container">Delivery</span>
+<span class="text-lg font-black text-white">-2.0°C</span>
+</div>
+</div>
+</div>
+<!-- Glow Background for Section -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-secondary-container/5 rounded-full blur-[100px]"></div>
+</section>
+<!-- Bottom CTA / Verification Seal -->
+<div class="flex flex-col items-center justify-center gap-8 py-12">
+<div class="p-12 rounded-full border border-secondary-container/20 bg-secondary-container/5 flex flex-col items-center justify-center relative">
+<span class="material-symbols-outlined text-[80px] text-secondary-container animate-pulse mb-4" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div class="text-center">
+<p class="font-label text-[10px] tracking-[0.4em] uppercase text-white/60 mb-2">Blockchain Seal Locked</p>
+<p class="text-white font-black text-xl tracking-tighter">KAG-1992-ALPHA-Z</p>
+</div>
+<!-- Orbiting Orbs Decor -->
+<div class="absolute inset-0 border border-white/5 rounded-full animate-[spin_20s_linear_infinite]"></div>
+</div>
+<button class="bg-primary-container text-on-primary-container px-12 py-5 rounded-full font-black text-sm uppercase tracking-widest shadow-[0_20px_40px_rgba(255,107,0,0.3)] hover:scale-105 active:scale-95 transition-all">
+                    Order From This Batch
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-[#131313]/90 backdrop-blur-3xl rounded-t-[32px] shadow-[0_-10px_40px_rgba(255,182,147,0.05)]">
+<div class="flex flex-col items-center justify-center text-white/40 px-5 py-2 hover:text-white transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="biometry">health_metrics</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Bio-Sync</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#00FE66]/10 text-[#00FE66] rounded-full px-5 py-2 ring-1 ring-[#00FE66]/30 animate-pulse-subtle active:scale-90">
+<span class="material-symbols-outlined" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Trace</span>
+</div>
+<div class="flex flex-col items-center justify-center text-white/40 px-5 py-2 hover:text-white transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Lab</span>
+</div>
+<div class="flex flex-col items-center justify-center text-white/40 px-5 py-2 hover:text-white transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-['Inter'] text-[10px] font-bold tracking-widest uppercase mt-1">Shop</span>
+</div>
+</nav>
+</body></html>

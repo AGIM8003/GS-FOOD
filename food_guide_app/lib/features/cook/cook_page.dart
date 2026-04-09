@@ -8,6 +8,7 @@ import '../../engine/models/user_preferences.dart';
 import '../../ui/golden_gourmet_scaffold.dart';
 import '../../ui/sanctity_header.dart';
 import '../premium/molecular_flavor_lab_page.dart';
+import 'recipe_detail_sheet.dart';
 
 /// Production Cook Page.
 ///
@@ -192,7 +193,7 @@ class _CookPageState extends State<CookPage> {
 
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
-      height: 280, // Taller for Editorial Discovery look
+      height: 340, // OLED Editorial High Impact
       decoration: BoxDecoration(
          borderRadius: BorderRadius.circular(24),
          border: Border.all(color: accent.withOpacity(0.3), width: 1.5),
@@ -302,39 +303,20 @@ class _CookPageState extends State<CookPage> {
       final result = await AppServices.generativeRecipeEngine.synthesizeExactMatch(expiring, persona.style);
       
       if (mounted) {
-        showDialog(context: context, builder: (_) => AlertDialog(
-          backgroundColor: const Color(0xFF111111),
-          title: Text(result['title'], style: const TextStyle(color: Color(0xFF00FF66), fontWeight: FontWeight.bold)),
-          content: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Ingredients: ${result['ingredientList'].join(', ')}', style: const TextStyle(color: Colors.white70)),
-                const SizedBox(height: 16),
-                ...List.generate(result['instructions'].length, (i) {
-                  final inst = result['instructions'][i];
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 8.0),
-                    child: Text('${inst['step']}. ${inst['text']}', style: const TextStyle(color: Colors.white)),
-                  );
-                })
-              ],
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                AppServices.hardware.sendInstruction('ov_1', targetTemp: 400);
-                Navigator.pop(context);
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text('Sent preheating command to Smart Convection Oven (400°F).', style: TextStyle(color: Colors.black)),
-                  backgroundColor: Color(0xFF00FF66),
-                ));
-              },
-              child: const Text('Send to Appliances', style: TextStyle(color: Color(0xFF00FF66)))
-            )
-          ],
-        ));
+        showDialog(
+          context: context, 
+          builder: (_) => RecipeDetailSheet(
+            result: result,
+            onSendToAppliance: () {
+              AppServices.hardware.sendInstruction('ov_1', targetTemp: 400);
+              Navigator.pop(context);
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                content: Text('Syncing Molecular Profile to Oven (400°F).', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                backgroundColor: Color(0xFFFF8C00),
+              ));
+            },
+          )
+        );
       }
     } finally {
       if (mounted) setState(() => _isSynthesizing = false);
