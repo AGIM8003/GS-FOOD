@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../app/services.dart';
 import '../../engine/ai/ai_orchestrator.dart';
+import '../../engine/export/recipe_export_service.dart';
 import '../../engine/models/shopping_item.dart';
 
 class ChatMessage {
@@ -317,6 +318,26 @@ class _GlobalFoodChatState extends State<GlobalFoodChat> {
                                 Icon(isSafe ? Icons.gpp_good : Icons.warning_amber, size: 16, color: isSafe ? const Color(0xFF00FF66) : const Color(0xFFFF3333)),
                                 const SizedBox(width: 6),
                                 Expanded(child: Text(isSafe ? 'BIO-COMPLIANT' : complianceTitle, style: TextStyle(color: isSafe ? const Color(0xFF00FF66) : const Color(0xFFFF3333), fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 1))),
+                                // LEVEL A: Native Copy & Share Interfaces
+                                InkWell(
+                                  onTap: () async {
+                                    final success = await RecipeExportService.copyToClipboard(card);
+                                    if (mounted && success) {
+                                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                                        content: Text('Recipe copied to clipboard!', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                                        backgroundColor: Color(0xFF00FF66),
+                                      ));
+                                    }
+                                  },
+                                  child: const Icon(Icons.copy, size: 16, color: Colors.white54),
+                                ),
+                                const SizedBox(width: 12),
+                                InkWell(
+                                  onTap: () async {
+                                    await RecipeExportService.shareToSocial(card);
+                                  },
+                                  child: const Icon(Icons.share, size: 16, color: Colors.white54),
+                                ),
                               ],
                             ),
                           ),
