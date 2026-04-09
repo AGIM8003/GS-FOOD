@@ -46,6 +46,7 @@ class _ShopPageState extends State<ShopPage> {
         inventory: inventory,
         positiveAffinities: prefs.positiveAffinities,
         activeShoppingList: activeList,
+        calculatedHouseholdServings: prefs.calculatedHouseholdServings,
       );
 
       for (final item in generatedPredictives) {

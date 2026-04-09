@@ -22,6 +22,10 @@ class AIGenerativeRecipeEngine {
       ritualOverride = "[RITUAL PROTOCOL ACTIVE] You must strictly adhere to the dietary rules of: ${prefs.activeRitualProtocol.toUpperCase()}. Violations are forbidden.";
     }
 
+    final householdConstraints = prefs.householdMembers.isEmpty
+        ? "Servings: ${prefs.servings}"
+        : "Servings: Scale the output volume specifically for ${prefs.calculatedHouseholdServings} standard adult servings to feed this exact household composition: [${prefs.householdMembers.map((m) => m.role.name).join(', ')}].";
+
     final prompt = '''
     [SYSTEM-V6: EXACT SYNTHESIS MODE]
     You are to procedurally generate a completely new recipe perfectly calibrated to consume exactly the following ingredients to achieve zero food waste:
@@ -29,6 +33,7 @@ class AIGenerativeRecipeEngine {
 
     Constraints:
     - Persona Focus: $contextPrefix
+    - $householdConstraints
     - High Protein: ${prefs.highProtein}
     - Family Safe / Allergens avoided: ${prefs.allergens.join(',')}
     

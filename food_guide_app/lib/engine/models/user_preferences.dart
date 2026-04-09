@@ -1,3 +1,57 @@
+import 'dart:convert';
+
+/// Replaces generic servings with actual household member profiling.
+enum HouseholdRole {
+  adult,
+  youngster,
+  child,
+  elder;
+
+  double get portionMultiplier {
+    switch (this) {
+      case HouseholdRole.adult: return 1.0;
+      case HouseholdRole.youngster: return 1.2; // Teens typically eat more
+      case HouseholdRole.child: return 0.6;
+      case HouseholdRole.elder: return 0.8;
+    }
+  }
+
+  static HouseholdRole fromString(String val) {
+    if (val == 'youngster') return HouseholdRole.youngster;
+    if (val == 'child') return HouseholdRole.child;
+    if (val == 'elder') return HouseholdRole.elder;
+    return HouseholdRole.adult;
+  }
+}
+
+class HouseholdMember {
+  HouseholdMember({
+    required this.id,
+    required this.name,
+    this.role = HouseholdRole.adult,
+    this.isIncludedInSharedMeals = true,
+  });
+
+  final String id;
+  final String name;
+  final HouseholdRole role;
+  final bool isIncludedInSharedMeals;
+
+  Map<String, dynamic> toMap() => {
+    'id': id,
+    'name': name,
+    'role': role.name,
+    'included': isIncludedInSharedMeals ? 1 : 0,
+  };
+
+  factory HouseholdMember.fromMap(Map<String, dynamic> m) => HouseholdMember(
+    id: m['id'] as String,
+    name: m['name'] as String,
+    role: HouseholdRole.fromString(m['role'] as String? ?? 'adult'),
+    isIncludedInSharedMeals: (m['included'] as int?) != 0,
+  );
+}
+
 /// Production user preferences model — persisted and connected to outputs.
 class UserPreferences {
   UserPreferences({
@@ -15,6 +69,7 @@ class UserPreferences {
     this.activeMedicalConditions = const [],
     this.positiveAffinities = const [],
     this.negativeAffinities = const [],
+    this.householdMembers = const [],
   });
 
   final String chefPersonaId;
@@ -33,6 +88,20 @@ class UserPreferences {
   // Behavioral Learning Memory
   final List<String> positiveAffinities;
   final List<String> negativeAffinities;
+
+  // Household Model
+  final List<HouseholdMember> householdMembers;
+
+  /// CORE QUANTITY ENGINE: Calculate exact serving sizes based on member inclusion.
+  double get calculatedHouseholdServings {
+    if (householdMembers.isEmpty) return servings.toDouble(); // Fallback to raw generic servings
+
+    double total = 0.0;
+    for (final member in householdMembers.where((m) => m.isIncludedInSharedMeals)) {
+      total += member.role.portionMultiplier;
+    }
+    return total > 0 ? total : 1.0;
+  }
 
   bool isAllergen(String ingredient) {
     final lower = ingredient.toLowerCase();
@@ -54,6 +123,7 @@ class UserPreferences {
     'active_medical_conditions': activeMedicalConditions.join(','),
     'positive_affinities': positiveAffinities.join(','),
     'negative_affinities': negativeAffinities.join(','),
+    'household_members': jsonEncode(householdMembers.map((e) => e.toMap()).toList()),
   };
 
   factory UserPreferences.fromMap(Map<String, dynamic> m) => UserPreferences(
@@ -71,7 +141,18 @@ class UserPreferences {
     activeMedicalConditions: _splitList(m['active_medical_conditions']),
     positiveAffinities: _splitList(m['positive_affinities']),
     negativeAffinities: _splitList(m['negative_affinities']),
+    householdMembers: _parseHousehold(m['household_members']),
   );
+
+  static List<HouseholdMember> _parseHousehold(dynamic v) {
+    if (v == null) return [];
+    try {
+      final List decoded = jsonDecode(v as String);
+      return decoded.map((e) => HouseholdMember.fromMap(Map<String, dynamic>.from(e))).toList();
+    } catch (_) {
+      return [];
+    }
+  }
 
   static List<String> _splitList(dynamic v) {
     if (v == null) return [];
@@ -95,6 +176,7 @@ class UserPreferences {
     List<String>? activeMedicalConditions,
     List<String>? positiveAffinities,
     List<String>? negativeAffinities,
+    List<HouseholdMember>? householdMembers,
   }) => UserPreferences(
     chefPersonaId: chefPersonaId ?? this.chefPersonaId,
     allergens: allergens ?? this.allergens,
@@ -110,5 +192,6 @@ class UserPreferences {
     activeMedicalConditions: activeMedicalConditions ?? this.activeMedicalConditions,
     positiveAffinities: positiveAffinities ?? this.positiveAffinities,
     negativeAffinities: negativeAffinities ?? this.negativeAffinities,
+    householdMembers: householdMembers ?? this.householdMembers,
   );
 }

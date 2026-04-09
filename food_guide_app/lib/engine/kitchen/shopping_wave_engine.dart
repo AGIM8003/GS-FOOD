@@ -19,6 +19,7 @@ class ShoppingWaveEngine {
     required MealPlan plan,
     required List<InventoryItem> inventory,
     required List<String> requiredIngredients, // All ingredients needed for planned meals
+    double calculatedHouseholdServings = 1.0,
   }) {
     final inventoryNames = inventory.map((i) => i.name.toLowerCase()).toSet();
     final now = DateTime.now();
@@ -39,6 +40,7 @@ class ShoppingWaveEngine {
       items.add(ShoppingItem(
         id: 'computed_${now.millisecondsSinceEpoch}_${counter++}',
         name: ingredient,
+        quantity: 1.0 * calculatedHouseholdServings,
         wave: wave,
         source: ShoppingSource.deficit, // Explicit hard deficit
         reason: reason,
@@ -68,6 +70,7 @@ class ShoppingWaveEngine {
     required List<InventoryItem> inventory,
     required List<String> positiveAffinities,
     required List<ShoppingItem> activeShoppingList,
+    double calculatedHouseholdServings = 1.0,
   }) {
     final now = DateTime.now();
     final items = <ShoppingItem>[];
@@ -88,6 +91,7 @@ class ShoppingWaveEngine {
           id: 'predictive_${now.millisecondsSinceEpoch}_${counter++}',
           name: item.name,
           category: item.category,
+          quantity: 1.0 * calculatedHouseholdServings,
           wave: _classifyWave(item.name),
           source: ShoppingSource.rescueLinked,
           predictiveScore: item.daysRemaining != null ? (1.0 / (item.daysRemaining! + 1)) : 0.5,
@@ -107,6 +111,7 @@ class ShoppingWaveEngine {
         items.add(ShoppingItem(
           id: 'predictive_${now.millisecondsSinceEpoch}_${counter++}',
           name: predictedStaple,
+          quantity: 1.0 * calculatedHouseholdServings,
           wave: _classifyWave(predictedStaple),
           source: ShoppingSource.predictive,
           predictiveScore: 0.8,

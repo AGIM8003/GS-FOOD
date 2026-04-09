@@ -116,6 +116,48 @@ class _ProfilePageState extends State<ProfilePage> {
             _buildActionTile('Active Cooking Mode', Icons.timer, 'Test large stove-side UI.', iconColor: const Color(0xFF00FF66), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ActiveCookingPage(recipeTitle: 'Test Recipe View')))),
           ]),
 
+          _buildSettingsSection('Household Structure', [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              child: Text(
+                'Calculated Servings multiplier: ${_prefs?.calculatedHouseholdServings.toStringAsFixed(1)}x',
+                style: const TextStyle(color: Color(0xFF00BFFF), fontWeight: FontWeight.bold, fontSize: 12),
+              ),
+            ),
+            ...(_prefs?.householdMembers ?? []).map((m) => ListTile(
+              leading: Icon(
+                m.role == HouseholdRole.child ? Icons.child_care :
+                m.role == HouseholdRole.elder ? Icons.elderly :
+                m.role == HouseholdRole.youngster ? Icons.boy : Icons.person,
+                color: m.isIncludedInSharedMeals ? const Color(0xFF00FF66) : Colors.white38,
+              ),
+              title: Text(m.name, style: TextStyle(color: m.isIncludedInSharedMeals ? Colors.white : Colors.white54, fontWeight: FontWeight.bold)),
+              subtitle: Text('${m.role.name.toUpperCase()} (x${m.role.portionMultiplier} Serving)', style: const TextStyle(color: Colors.white54, fontSize: 10)),
+              trailing: Switch(
+                value: m.isIncludedInSharedMeals,
+                activeColor: const Color(0xFF00FF66),
+                onChanged: (v) {
+                  final list = List<HouseholdMember>.from(_prefs?.householdMembers ?? []);
+                  final index = list.indexWhere((e) => e.id == m.id);
+                  if (index >= 0) {
+                    list[index] = HouseholdMember(id: m.id, name: m.name, role: m.role, isIncludedInSharedMeals: v);
+                    _updatePref((p) => p.copyWith(householdMembers: list));
+                  }
+                },
+              ),
+              onLongPress: () {
+                 final list = List<HouseholdMember>.from(_prefs?.householdMembers ?? []);
+                 list.removeWhere((e) => e.id == m.id);
+                 _updatePref((p) => p.copyWith(householdMembers: list));
+              },
+            )),
+            ListTile(
+              leading: const Icon(Icons.add_circle, color: Color(0xFF00BFFF)),
+              title: const Text('Add Family Member', style: TextStyle(color: Color(0xFF00BFFF), fontWeight: FontWeight.bold)),
+              onTap: () => _showAddMemberSheet(),
+            ),
+          ]),
+
           _buildSettingsSection('Hard Safety & Dietary Rules', [
             _buildActionTile(
               'Manage Allergens', 
@@ -427,6 +469,82 @@ class _ProfilePageState extends State<ProfilePage> {
         );
       }
     );
+  }
+
+  void _showAddMemberSheet() {
+    String tempName = '';
+    HouseholdRole tempRole = HouseholdRole.adult;
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: const Color(0xFF151515),
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(24))),
+      builder: (ctx) {
+        return StatefulBuilder(
+          builder: (stCtx, setModalState) {
+            return Padding(
+              padding: EdgeInsets.only(bottom: MediaQuery.of(ctx).viewInsets.bottom, left: 16, right: 16, top: 16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text('New Household Member', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 16),
+                  TextField(
+                    style: const TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      hintText: 'Name (e.g. "Sophia")',
+                      hintStyle: const TextStyle(color: Colors.white24),
+                      filled: true,
+                      fillColor: const Color(0xFF080808),
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+                    ),
+                    onChanged: (v) => tempName = v,
+                  ),
+                  const SizedBox(height: 16),
+                  const Text('Appetite & Size Profile', style: TextStyle(color: Colors.white54, fontSize: 12)),
+                  Wrap(
+                    spacing: 8,
+                    children: HouseholdRole.values.map((r) {
+                      final selected = r == tempRole;
+                      return ChoiceChip(
+                        label: Text(r.name.toUpperCase()),
+                        selected: selected,
+                        selectedColor: const Color(0xFF00BFFF),
+                        backgroundColor: Colors.white12,
+                        onSelected: (v) {
+                          if (v) setModalState(() => tempRole = r);
+                        },
+                      );
+                    }).toList(),
+                  ),
+                  const SizedBox(height: 24),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF00FF66), padding: const EdgeInsets.symmetric(vertical: 16)),
+                      onPressed: () {
+                        if (tempName.trim().isEmpty) return;
+                        final newMem = HouseholdMember(id: DateTime.now().millisecondsSinceEpoch.toString(), name: tempName, role: tempRole, isIncludedInSharedMeals: true);
+                        final list = List<HouseholdMember>.from(_prefs?.householdMembers ?? []);
+                        list.add(newMem);
+                        _updatePref((p) => p.copyWith(householdMembers: list));
+                        Navigator.pop(ctx);
+                      },
+                      child: const Text('Confirm', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                ],
+              ),
+            );
+          }
+        );
+      }
+    );
+  }
+
   void _showLanguageSelector() {
     showModalBottomSheet(
       context: context,

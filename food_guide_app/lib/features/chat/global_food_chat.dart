@@ -5,6 +5,8 @@ import '../../app/services.dart';
 import '../../engine/ai/ai_orchestrator.dart';
 import '../../engine/export/recipe_export_service.dart';
 import '../../engine/models/shopping_item.dart';
+import 'package:speech_to_text/speech_to_text.dart' as stt;
+import 'package:flutter_tts/flutter_tts.dart';
 
 class ChatMessage {
   ChatMessage({required this.text, required this.isUser, this.source, this.isThinking = false, this.structuredCards = const []});
@@ -41,10 +43,79 @@ class _GlobalFoodChatState extends State<GlobalFoodChat> {
   final List<ChatMessage> _messages = [];
   bool _isProcessing = false;
 
+  // Voice Engine State
+  final stt.SpeechToText _speech = stt.SpeechToText();
+  final FlutterTts _tts = FlutterTts();
+  bool _isListening = false;
+  bool _speechEnabled = false;
+  bool _isSpeaking = false;
+
   @override
   void initState() {
     super.initState();
+    _initVoiceEngine();
     _loadGreeting();
+  }
+
+  Future<void> _initVoiceEngine() async {
+    _speechEnabled = await _speech.initialize(
+      onError: (e) => debugPrint("Speech Error: ${e.errorMsg}"),
+    );
+    await _tts.setLanguage("en-US");
+    await _tts.setSpeechRate(0.5);
+    await _tts.setVolume(1.0);
+    _tts.setCompletionHandler(() {
+      if (mounted) setState(() => _isSpeaking = false);
+    });
+  }
+
+  Future<void> _toggleListen() async {
+    if (!_speechEnabled) return;
+    
+    // Stop TTS if talking
+    if (_isSpeaking) {
+      await _tts.stop();
+      setState(() => _isSpeaking = false);
+    }
+
+    if (_isListening) {
+      await _speech.stop();
+      setState(() => _isListening = false);
+      if (_textController.text.isNotEmpty) {
+         _sendMessage(_textController.text);
+      }
+    } else {
+      _textController.clear();
+      setState(() => _isListening = true);
+      await _speech.listen(
+        onResult: (result) {
+          if (mounted) {
+            setState(() {
+              _textController.text = result.recognizedWords;
+            });
+            // If the user stopped speaking natively, send it
+            if (result.finalResult) {
+              _isListening = false;
+              _sendMessage(result.recognizedWords);
+            }
+          }
+        },
+      );
+    }
+  }
+
+  Future<void> _speakText(String text) async {
+    setState(() => _isSpeaking = true);
+    await _tts.speak(text);
+  }
+
+  @override
+  void dispose() {
+    _speech.stop();
+    _tts.stop();
+    _scrollController.dispose();
+    _textController.dispose();
+    super.dispose();
   }
 
   Future<void> _loadGreeting() async {
@@ -95,6 +166,8 @@ class _GlobalFoodChatState extends State<GlobalFoodChat> {
           _isProcessing = false;
         });
         _scrollToBottom();
+        // Trigger OS Voice playback of the AI response
+        await _speakText(response.text);
       }
     } catch (e) {
       if (mounted) {
@@ -196,6 +269,12 @@ class _GlobalFoodChatState extends State<GlobalFoodChat> {
                         onSubmitted: (text) => _sendMessage(text),
                         textInputAction: TextInputAction.send,
                       ),
+                    ),
+                    IconButton(
+                      icon: _isListening 
+                          ? const Icon(Icons.mic, color: Color(0xFFFF3333)) // Active Recording Red
+                          : const Icon(Icons.mic_none, color: Colors.white54),
+                      onPressed: _toggleListen,
                     ),
                     IconButton(
                       icon: _isProcessing 
