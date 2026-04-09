@@ -9,6 +9,7 @@ import '../data/repositories/shopping_repository.dart';
 import '../data/repositories/meal_plan_repository.dart';
 import '../data/repositories/preferences_repository.dart';
 import '../data/repositories/premium_repositories.dart';
+import '../data/repositories/hardware_repository.dart';
 
 import '../engine/entity_normalizer.dart';
 import '../engine/rule_engine.dart';
@@ -17,6 +18,7 @@ import '../engine/kitchen/match_engine.dart';
 import '../engine/kitchen/shopping_wave_engine.dart';
 import '../engine/kitchen/generative_recipe_engine.dart';
 import '../engine/kitchen/forecasting_engine.dart';
+import '../engine/integration/hardware_sync_engine.dart';
 import '../engine/i18n/online_translator.dart';
 import '../engine/i18n/language_engine.dart';
 import '../engine/safety/safety_guard.dart';
@@ -45,6 +47,7 @@ class AppServices {
   static late final WineRepository wine;
   static late final SustainabilityRepository sustainability;
   static late final CommunityRepository community;
+  static late final HardwareRepository hardware;
   
 
   static late final FoodClassifierTflite foodClassifier;
@@ -61,6 +64,7 @@ class AppServices {
   static late final PersonaEngine personaEngine;
   static late final AIGenerativeRecipeEngine generativeRecipeEngine;
   static late final ForecastingEngine forecastingEngine;
+  static late final HardwareSyncEngine hardwareSyncEngine;
   static late final OnlineTranslator onlineTranslator;
   static late final LanguageEngine languageEngine;
 
@@ -90,6 +94,7 @@ class AppServices {
     wine = WineRepository();
     sustainability = SustainabilityRepository();
     community = CommunityRepository();
+    hardware = HardwareRepository();
 
 
 
@@ -106,6 +111,7 @@ class AppServices {
     personaEngine = PersonaEngine();
     generativeRecipeEngine = AIGenerativeRecipeEngine();
     forecastingEngine = ForecastingEngine();
+    hardwareSyncEngine = HardwareSyncEngine();
     onlineTranslator = OnlineTranslator();
     languageEngine = LanguageEngine();
 

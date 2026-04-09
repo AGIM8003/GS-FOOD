@@ -63,6 +63,11 @@ class _ShopPageState extends State<ShopPage> {
     // Refresh final grouped states after the engine potentially wrote predictive items
     final grouped = await AppServices.shopping.getGroupedByWave();
 
+    // LEVEL B + I: Premium Watch Sync Layer / Ambient OS Broadcast
+    // Decouples the primary Shopping store from the endpoint matrices,
+    // pushing the live list out to any connected Wearables immediately.
+    AppServices.hardwareSyncEngine.broadcastShoppingWavesToWatch(grouped);
+
     if (mounted) {
       setState(() {
         _groupedItems = grouped;
