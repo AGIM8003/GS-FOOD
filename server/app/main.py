@@ -9,7 +9,7 @@ from __future__ import annotations
 from typing import Any, Optional
 from datetime import datetime
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
@@ -109,6 +109,8 @@ class CookSuggestResponse(BaseModel):
 # NOOR AI SWARM ORCHESTRATOR LOGIC
 # ==========================================
 
+from app.auth import get_current_user
+
 @app.post("/v1/cook/suggest", response_model=CookSuggestResponse)
 async def cook_suggest(body: CookSuggestRequest, current_user: dict = Depends(get_current_user)) -> CookSuggestResponse:
     """Generates structured recipes using the cybernetic FREE AI engine."""
@@ -137,6 +139,7 @@ async def cook_suggest(body: CookSuggestRequest, current_user: dict = Depends(ge
         available_ingredients=body.ingredients,
         chef_persona=body.chef_persona,
         health_modifiers=modifiers,
+        current_user=current_user,
         positive_affinities=body.positive_affinities,
         negative_affinities=body.negative_affinities
     )
