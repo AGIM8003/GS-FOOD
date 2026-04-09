@@ -8,6 +8,7 @@ import '../safety/explainability.dart';
 import '../models/inventory_item.dart';
 import '../models/recipe.dart';
 import '../models/user_preferences.dart';
+import '../../data/remote/cook_api_client.dart';
 
 /// Production AI orchestrator — handles intent routing, skill selection,
 /// context assembly, persona injection, and fallback chains.
@@ -43,6 +44,24 @@ class AIOrchestrator {
   }) async {
     // Step 1: Intent classification (deterministic first)
     final intent = _classifyIntent(userMessage);
+
+    if (intent == UserIntent.cookSuggestion) {
+      try {
+        final client = CookApiClient();
+        final response = await client.suggestMeals(
+          inventory: inventory.map((e) => e.name).toList(),
+          chefPersona: preferences.chefPersonaId,
+        );
+        return OrchestratedResponse(
+          text: "Here are some precise, zero-waste recommendations based on your kitchen:",
+          source: ResponseSource.aiGenerated,
+          confidence: 0.95,
+          structuredCards: response['cards'] ?? [],
+        );
+      } catch (e) {
+        // Fallthrough if API isn't up
+      }
+    }
 
     // Step 2: Check if deterministic logic can answer
     final deterministicAnswer = _tryDeterministic(intent, userMessage, inventory, preferences);
@@ -222,6 +241,7 @@ class OrchestratedResponse {
     this.explanation,
     this.providerUsed,
     this.actions = const [],
+    this.structuredCards = const [],
   });
 
   final String text;
@@ -230,6 +250,7 @@ class OrchestratedResponse {
   final String? explanation;
   final String? providerUsed;
   final List<String> actions;
+  final List<dynamic> structuredCards;
 
   bool get isFallback => source == ResponseSource.deterministicFallback;
   bool get isLowConfidence => confidence < 0.7;

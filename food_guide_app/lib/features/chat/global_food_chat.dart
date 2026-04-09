@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 
 import '../../app/services.dart';
 import '../../engine/ai/ai_orchestrator.dart';
+import '../../engine/models/shopping_item.dart';
 
 class ChatMessage {
-  ChatMessage({required this.text, required this.isUser, this.source, this.isThinking = false});
+  ChatMessage({required this.text, required this.isUser, this.source, this.isThinking = false, this.structuredCards = const []});
   final String text;
   final bool isUser;
   final ResponseSource? source;
   final bool isThinking;
+  final List<dynamic> structuredCards;
 }
 
 /// Production AI Chat Interface.
@@ -87,6 +89,7 @@ class _GlobalFoodChatState extends State<GlobalFoodChat> {
             text: response.text, 
             isUser: false,
             source: response.source,
+            structuredCards: response.structuredCards,
           ));
           _isProcessing = false;
         });
@@ -234,35 +237,155 @@ class _GlobalFoodChatState extends State<GlobalFoodChat> {
       alignment: msg.isUser ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: bgColor,
-          borderRadius: BorderRadius.circular(20).copyWith(
-            bottomRight: msg.isUser ? const Radius.circular(0) : const Radius.circular(20),
-            bottomLeft: msg.isUser ? const Radius.circular(20) : const Radius.circular(0),
-          ),
-          border: Border.all(color: borderColor),
-        ),
+        width: MediaQuery.of(context).size.width * 0.85,
         child: Column(
           crossAxisAlignment: msg.isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
           children: [
-            Text(msg.text, style: const TextStyle(color: Colors.white, fontSize: 14, height: 1.4)),
-            if (!msg.isUser && msg.source != null) ...[
-              const SizedBox(height: 6),
-              Row(
-                mainAxisSize: MainAxisSize.min,
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: bgColor,
+                borderRadius: BorderRadius.circular(20).copyWith(
+                  bottomRight: msg.isUser ? const Radius.circular(0) : const Radius.circular(20),
+                  bottomLeft: msg.isUser ? const Radius.circular(20) : const Radius.circular(0),
+                ),
+                border: Border.all(color: borderColor),
+              ),
+              child: Column(
+                crossAxisAlignment: msg.isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
                 children: [
-                  Icon(
-                    msg.source == ResponseSource.aiGenerated ? Icons.auto_awesome : Icons.rule, 
-                    color: Colors.white38, 
-                    size: 10
-                  ),
-                  const SizedBox(width: 4),
-                  Text(
-                    msg.source == ResponseSource.aiGenerated ? 'AI Generated' : 'Kitchen Rules', 
-                    style: const TextStyle(color: Colors.white38, fontSize: 9)
-                  ),
+                  Text(msg.text, style: const TextStyle(color: Colors.white, fontSize: 14, height: 1.4)),
+                  if (!msg.isUser && msg.source != null) ...[
+                    const SizedBox(height: 6),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          msg.source == ResponseSource.aiGenerated ? Icons.auto_awesome : Icons.rule, 
+                          color: Colors.white38, 
+                          size: 10
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          msg.source == ResponseSource.aiGenerated ? 'AI Generated' : 'Kitchen Rules', 
+                          style: const TextStyle(color: Colors.white38, fontSize: 9)
+                        ),
+                      ],
+                    )
+                  ]
                 ],
+              ),
+            ),
+            
+            if (msg.structuredCards.isNotEmpty) ...[
+              const SizedBox(height: 12),
+              SizedBox(
+                height: 290,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: msg.structuredCards.length,
+                  itemBuilder: (context, index) {
+                    final card = msg.structuredCards[index] as Map<String, dynamic>;
+                    final compliance = card['compliance'] as Map<String, dynamic>? ?? {};
+                    final traces = List<String>.from(card['ai_explanation_trace'] ?? []);
+                    final deficits = List<dynamic>.from(card['missing_shopping_deficits'] ?? []);
+                    
+                    final isSafe = compliance['is_compliant'] == true;
+                    final complianceTitle = compliance['warning_level']?.toString().toUpperCase() ?? 'UNKNOWN';
+
+                    return Container(
+                      width: 260,
+                      margin: const EdgeInsets.only(right: 12, bottom: 8),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF151515),
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: isSafe ? const Color(0xFF00FF66).withOpacity(0.3) : const Color(0xFFFF3333).withOpacity(0.5)),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: isSafe ? const Color(0xFF00FF66).withOpacity(0.05) : const Color(0xFFFF3333).withOpacity(0.1),
+                              borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+                              border: Border(bottom: BorderSide(color: Colors.white.withOpacity(0.05)))
+                            ),
+                            child: Row(
+                              children: [
+                                Icon(isSafe ? Icons.gpp_good : Icons.warning_amber, size: 16, color: isSafe ? const Color(0xFF00FF66) : const Color(0xFFFF3333)),
+                                const SizedBox(width: 6),
+                                Expanded(child: Text(isSafe ? 'BIO-COMPLIANT' : complianceTitle, style: TextStyle(color: isSafe ? const Color(0xFF00FF66) : const Color(0xFFFF3333), fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 1))),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(card['title'] ?? 'Recipe', style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold), maxLines: 2, overflow: TextOverflow.ellipsis),
+                                const SizedBox(height: 12),
+                                if (traces.isNotEmpty) ...[
+                                  const Text('WHY THIS?', style: TextStyle(color: Colors.white54, fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 1)),
+                                  const SizedBox(height: 4),
+                                  Text(traces.first, style: const TextStyle(color: Colors.white, fontSize: 12, height: 1.3), maxLines: 3, overflow: TextOverflow.ellipsis),
+                                ],
+                                const SizedBox(height: 12),
+                                if (deficits.isNotEmpty) ...[
+                                  InkWell(
+                                    onTap: () async {
+                                      // Real Fulfillment Bridge
+                                      for (final d in deficits) {
+                                        final ingredient = d as Map<String, dynamic>;
+                                        await AppServices.shopping.addItem(ShoppingItem(
+                                          id: '',
+                                          name: ingredient['name'] ?? 'Unknown Item',
+                                          quantity: (ingredient['quantity'] ?? 1.0).toDouble(),
+                                          unit: ingredient['unit'] ?? 'item',
+                                          category: ingredient['category'] ?? 'staple',
+                                          wave: ShoppingWave.buyNow,
+                                          reason: 'AI Meal Deficit (${card['title']})',
+                                          linkedMealTitle: card['title']?.toString(),
+                                        ));
+                                      }
+                                      if (mounted) {
+                                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                                          content: Text('Deficits automatically synced to Shopping Wave.', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                                          backgroundColor: Color(0xFF00FF66),
+                                        ));
+                                      }
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.all(8),
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFFFF8C00).withOpacity(0.1),
+                                        borderRadius: BorderRadius.circular(8),
+                                        border: Border.all(color: const Color(0xFFFF8C00).withOpacity(0.3)),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          const Icon(Icons.add_shopping_cart, color: Color(0xFFFF8C00), size: 14),
+                                          const SizedBox(width: 6),
+                                          Expanded(child: Text('${deficits.length} Missing (1-Click Buy Now)', style: const TextStyle(color: Color(0xFFFF8C00), fontSize: 11, fontWeight: FontWeight.bold))),
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ],
+                                if (!isSafe && compliance['explanation'] != null) ...[
+                                  const SizedBox(height: 8),
+                                  Text(compliance['explanation'].toString(), style: const TextStyle(color: Color(0xFFFF3333), fontSize: 10, fontStyle: FontStyle.italic), maxLines: 2, overflow: TextOverflow.ellipsis),
+                                ]
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                ),
               )
             ]
           ],
