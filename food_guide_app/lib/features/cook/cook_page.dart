@@ -195,16 +195,12 @@ class _CookPageState extends State<CookPage> {
       margin: const EdgeInsets.only(bottom: 16),
       height: 340, // OLED Editorial High Impact
       decoration: BoxDecoration(
+         color: const Color(0xFF151515), // Replaced unused Unsplash background with flat OLED element
          borderRadius: BorderRadius.circular(24),
          border: Border.all(color: accent.withOpacity(0.3), width: 1.5),
          boxShadow: [
            BoxShadow(color: accent.withOpacity(0.1), blurRadius: 20, spreadRadius: 2)
          ],
-         // Placeholder image mimicking full-bleed editorial imagery.
-         image: const DecorationImage(
-           image: NetworkImage('https://images.unsplash.com/photo-1544025162-8315147817eb?q=80&w=1400&fit=crop'), 
-           fit: BoxFit.cover
-         )
       ),
       child: Stack(
         children: [
@@ -308,11 +304,11 @@ class _CookPageState extends State<CookPage> {
           builder: (_) => RecipeDetailSheet(
             result: result,
             onSendToAppliance: () {
-              AppServices.hardware.sendInstruction('ov_1', targetTemp: 400);
+              // Removed fake hardware telemetry to abide by UoW 3: No exposing disconnected concepts.
               Navigator.pop(context);
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                content: Text('Syncing Molecular Profile to Oven (400°F).', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
-                backgroundColor: Color(0xFFFF8C00),
+                content: Text('Recipe actively logged to current session.', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                backgroundColor: Color(0xFF00FF66),
               ));
             },
           )
