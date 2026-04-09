@@ -46,17 +46,10 @@ class _ShopPageState extends State<ShopPage> {
       if (hasDinnerPlans) {
          final buyNowList = grouped[ShoppingWave.buyNow] ?? [];
          
-         // Depletion Forecasting check against plan demand
-         final hasOliveOil = inventory.any((i) => i.name.toLowerCase().contains("olive oil"));
-         if (!hasOliveOil && !buyNowList.any((i) => i.name.toLowerCase().contains("olive oil"))) {
-             buyNowList.insert(0, ShoppingItem(
-               id: 'auto_deficit_1',
-               name: 'Olive Oil (Meal Plan Deficit)',
-               checked: false,
-               categoryId: 'staple', // Mock category
-             ));
-         }
-         grouped[ShoppingWave.buyNow] = buyNowList;
+         // V4 IMPLEMENTATION NOTE: 
+         // Structured ingredient lists are not yet served by AIOrchestrator for meal plans.
+         // Real deficit bridging is deferred until AppServices.matchEngine emits structured ingredient arrays.
+         // (Removed hardcoded "Olive Oil" simulation to abide by strict proof standards).
       }
     } catch (e) {
       debugPrint("Fulfillment Loop sync delayed: $e");

@@ -27,24 +27,25 @@ class _OmniCaptureSheetState extends State<OmniCaptureSheet> {
   bool _scanComplete = false;
   String _scanResult = "";
   bool _isSafe = true;
+  final TextEditingController _inputController = TextEditingController();
 
   void _triggerScan() async {
+    final input = _inputController.text.trim();
+    if (input.isEmpty) return;
+
     HapticFeedback.lightImpact();
     setState(() {
       _isScanning = true;
       _scanComplete = false;
     });
 
-    // Simulate AI auto-classification of camera frame
-    await Future.delayed(const Duration(seconds: 2));
+    // Simulated Sanctity check (Pending backend rules engine integration)
+    final isCompliant = true; 
 
-    // Simulate Sanctity matrix check
-    final isCompliant = true; // Hardcoded true for now; would derive from AppServices.preferences
-    
     setState(() {
       _isScanning = false;
       _scanComplete = true;
-      _scanResult = "Organic Spinach (Produce)";
+      _scanResult = input;
       _isSafe = isCompliant;
     });
 
@@ -107,9 +108,26 @@ class _OmniCaptureSheetState extends State<OmniCaptureSheet> {
           alignment: Alignment.center,
           child: _isScanning 
               ? const CircularProgressIndicator(color: Color(0xFF00FF66))
-              : const Icon(Icons.center_focus_weak, size: 64, color: Colors.white38),
+              : const Icon(Icons.videocam_off, size: 64, color: Colors.white12),
         ),
-        const SizedBox(height: 32),
+        const SizedBox(height: 16),
+        const Text("Vision Offline. Enter manually:", style: TextStyle(color: Colors.white54, fontSize: 12)),
+        const SizedBox(height: 8),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 32.0),
+          child: TextField(
+            controller: _inputController,
+            style: const TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              hintText: 'e.g. Organic Spinach',
+              hintStyle: const TextStyle(color: Colors.white38),
+              filled: true,
+              fillColor: const Color(0xFF111111),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
         ElevatedButton.icon(
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF00FF66),
@@ -142,7 +160,11 @@ class _OmniCaptureSheetState extends State<OmniCaptureSheet> {
         const SizedBox(height: 48),
         TextButton(
           onPressed: () {
-            setState(() { _scanComplete = false; _scanResult = ""; });
+            setState(() { 
+              _scanComplete = false; 
+              _scanResult = ""; 
+              _inputController.clear();
+            });
           },
           child: const Text('SCAN ANOTHER', style: TextStyle(color: Colors.white)),
         )
