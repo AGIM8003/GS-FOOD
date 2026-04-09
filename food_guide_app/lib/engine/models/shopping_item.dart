@@ -1,4 +1,20 @@
-/// Production shopping item model with wave assignment and meal dependency.
+/// Production shopping item model with wave assignment, meal dependency, and source tracing.
+enum ShoppingSource {
+  manual,
+  deficit,
+  predictive,
+  rescueLinked;
+
+  String get displayName {
+    switch (this) {
+      case ShoppingSource.manual: return 'Manual Entry';
+      case ShoppingSource.deficit: return 'Meal Deficit';
+      case ShoppingSource.predictive: return 'Smart Prediction';
+      case ShoppingSource.rescueLinked: return 'Rescue Restock';
+    }
+  }
+}
+
 enum ShoppingWave {
   buyNow,     // Needed within 1–3 days
   midWeek,    // Needed in 4–7 days, or perishable timing
@@ -44,10 +60,8 @@ class ShoppingItem {
     this.unit = '',
     this.category = '',
     this.wave = ShoppingWave.midWeek,
-    this.checked = false,
-    this.reason = '',
-    this.linkedMealId,
-    this.linkedMealTitle,
+    this.source = ShoppingSource.manual,
+    this.predictiveScore,
     required this.addedAt,
   });
 
@@ -57,6 +71,8 @@ class ShoppingItem {
   final String unit;
   final String category;
   final ShoppingWave wave;
+  final ShoppingSource source; // Tracks the intelligence origin
+  final double? predictiveScore; // Used for Smart Cart sorting / thresholding
   final bool checked;
   final String reason; // "Why this?" explainability
   final String? linkedMealId;
@@ -76,6 +92,8 @@ class ShoppingItem {
     'unit': unit,
     'category': category,
     'wave': wave.name,
+    'source': source.name,
+    'predictive_score': predictiveScore,
     'checked': checked ? 1 : 0,
     'reason': reason,
     'linked_meal_id': linkedMealId,
@@ -90,6 +108,8 @@ class ShoppingItem {
     unit: (m['unit'] as String?) ?? '',
     category: (m['category'] as String?) ?? '',
     wave: ShoppingWave.fromString((m['wave'] as String?) ?? 'midWeek'),
+    source: ShoppingSource.values.firstWhere((e) => e.name == (m['source'] as String?), orElse: () => ShoppingSource.manual),
+    predictiveScore: (m['predictive_score'] as num?)?.toDouble(),
     checked: (m['checked'] as int?) == 1,
     reason: (m['reason'] as String?) ?? '',
     linkedMealId: m['linked_meal_id'] as String?,
@@ -103,6 +123,8 @@ class ShoppingItem {
     String? unit,
     String? category,
     ShoppingWave? wave,
+    ShoppingSource? source,
+    double? predictiveScore,
     bool? checked,
     String? reason,
   }) => ShoppingItem(
@@ -112,6 +134,8 @@ class ShoppingItem {
     unit: unit ?? this.unit,
     category: category ?? this.category,
     wave: wave ?? this.wave,
+    source: source ?? this.source,
+    predictiveScore: predictiveScore ?? this.predictiveScore,
     checked: checked ?? this.checked,
     reason: reason ?? this.reason,
     linkedMealId: linkedMealId,

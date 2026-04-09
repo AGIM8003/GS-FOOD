@@ -20,6 +20,8 @@ class ShoppingRepository {
       unit: item.unit,
       category: item.category,
       wave: item.wave,
+      source: item.source,
+      predictiveScore: item.predictiveScore,
       checked: item.checked,
       reason: item.reason,
       linkedMealId: item.linkedMealId,

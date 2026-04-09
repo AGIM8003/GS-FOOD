@@ -20,7 +20,8 @@ class AppDatabase {
   }
 
   /// Bump on schema changes; keep [onUpgrade] in sync.
-  static const _version = 9;
+  /// Bump on schema changes; keep [onUpgrade] in sync.
+  static const _version = 10;
 
   Future<void> open() async {
     if (kIsWeb) {
@@ -42,6 +43,7 @@ class AppDatabase {
         await _createV7(db);
         await _createV8(db);
         await _createV9(db);
+        await _createV10(db);
       },
       onUpgrade: (db, oldVersion, newVersion) async {
         if (oldVersion < 2) {
@@ -67,6 +69,9 @@ class AppDatabase {
         }
         if (oldVersion < 9) {
           await _createV9(db);
+        }
+        if (oldVersion < 10) {
+          await _createV10(db);
         }
       },
     );
@@ -270,6 +275,13 @@ class AppDatabase {
         posted_at INTEGER NOT NULL
       )
     ''');
+  }
+
+  /// Premium Smart Cart predictive engine columns (V6 production upgrade).
+  static Future<void> _createV10(Database db) async {
+    // We add the 'source' string and 'predictive_score' double to shopping_items.
+    await db.execute('ALTER TABLE shopping_items ADD COLUMN source TEXT NOT NULL DEFAULT \'manual\'');
+    await db.execute('ALTER TABLE shopping_items ADD COLUMN predictive_score REAL');
   }
 
   Future<void> close() async {

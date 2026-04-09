@@ -33,27 +33,35 @@ class _ShopPageState extends State<ShopPage> {
 
   Future<void> _loadData() async {
     setState(() => _isLoading = true);
-    final grouped = await AppServices.shopping.getGroupedByWave();
     final prefs = await AppServices.preferences.load();
 
-    // V4 REQUIREMENT: The Fulfillment Loop (Auto-Deficit Bridging)
-    // Synchronous evaluation of Meal Plan against current Inventory.
+    // V4 REQUIREMENT: The Fulfillment Loop & SMART CART Initialization
     try {
       final plan = await AppServices.mealPlans.getOrCreateCurrentWeekPlan();
       final inventory = await AppServices.inventory.getAll();
+      final activeList = await AppServices.shopping.getAll();
       
+      // RUN SMART CART (Predictive Wave Engine)
+      final generatedPredictives = AppServices.shoppingWaveEngine.generatePredictiveWave(
+        inventory: inventory,
+        positiveAffinities: prefs.positiveAffinities,
+        activeShoppingList: activeList,
+      );
+
+      for (final item in generatedPredictives) {
+         await AppServices.shopping.addItem(item);
+      }
+
       final hasDinnerPlans = plan.days.any((d) => d.slots.any((s) => s.recipeTitle.isNotEmpty));
       if (hasDinnerPlans) {
-         final buyNowList = grouped[ShoppingWave.buyNow] ?? [];
-         
-         // V4 IMPLEMENTATION NOTE: 
-         // Structured ingredient lists are not yet served by AIOrchestrator for meal plans.
-         // Real deficit bridging is deferred until AppServices.matchEngine emits structured ingredient arrays.
-         // (Removed hardcoded "Olive Oil" simulation to abide by strict proof standards).
+         // Future: Structured recipe ingredients parser triggers here for hard deficits.
       }
     } catch (e) {
       debugPrint("Fulfillment Loop sync delayed: $e");
     }
+
+    // Refresh final grouped states after the engine potentially wrote predictive items
+    final grouped = await AppServices.shopping.getGroupedByWave();
 
     if (mounted) {
       setState(() {
@@ -214,6 +222,28 @@ class _ShopPageState extends State<ShopPage> {
                               decoration: item.checked ? TextDecoration.lineThrough : null
                             )
                           ),
+                          // LEVEL A: Real Smart Cart Explainability
+                          if (item.source != ShoppingSource.manual && !item.checked)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 4.0),
+                              child: Wrap(
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                    decoration: BoxDecoration(color: const Color(0xFF00BFFF).withOpacity(0.2), borderRadius: BorderRadius.circular(4)),
+                                    child: Text(
+                                      item.source.displayName.toUpperCase(), 
+                                      style: const TextStyle(color: Color(0xFF00BFFF), fontSize: 9, fontWeight: FontWeight.bold)
+                                    ),
+                                  ),
+                                  if (item.reason.isNotEmpty) ...[
+                                    const SizedBox(width: 6),
+                                    Text('AI: ${item.reason}', style: const TextStyle(color: Colors.white54, fontSize: 10, fontStyle: FontStyle.italic)),
+                                  ]
+                                ],
+                              ),
+                            ),
                           if (_activeMedicalConditions.isNotEmpty && !item.checked)
                             Padding(
                               padding: const EdgeInsets.only(top: 4.0),

@@ -37,9 +37,10 @@ class ShoppingWaveEngine {
       final reason = _generateReason(ingredient, wave);
 
       items.add(ShoppingItem(
-        id: 'computed_${counter++}',
+        id: 'computed_${now.millisecondsSinceEpoch}_${counter++}',
         name: ingredient,
         wave: wave,
+        source: ShoppingSource.deficit, // Explicit hard deficit
         reason: reason,
         addedAt: now,
       ));
@@ -57,6 +58,82 @@ class ShoppingWaveEngine {
       final lower = ingredient.toLowerCase();
       return !inventoryNames.any((inv) => inv.contains(lower) || lower.contains(inv));
     }).toList();
+  }
+
+  /// LEVEL A + B: SMART CART INITIALIZATION (Predictive Shopping Wave)
+  /// Looks across Rescue Engine signals (urgent inventory) and Learning Memory (positive affinities)
+  /// to predict future needs before absolute depletion. 
+  /// Support Layer implemented: Deduplication and stable item source tagging.
+  List<ShoppingItem> generatePredictiveWave({
+    required List<InventoryItem> inventory,
+    required List<String> positiveAffinities,
+    required List<ShoppingItem> activeShoppingList,
+  }) {
+    final now = DateTime.now();
+    final items = <ShoppingItem>[];
+    int counter = 0;
+
+    // Support Layer deduplication: what is ALREADY in the cart?
+    final activeNames = activeShoppingList.map((s) => s.name.toLowerCase()).toSet();
+    final healthyInventoryNames = inventory
+        .where((i) => !i.isUrgent && i.quantity > 0.2) // Only items that are safely stocked
+        .map((i) => i.name.toLowerCase())
+        .toSet();
+
+    // SIGNAL 1: Rescue-Linked Restock (Items about to hit zero / going bad)
+    for (final item in inventory.where((i) => i.isUrgent)) {
+      final lower = item.name.toLowerCase();
+      if (!activeNames.contains(lower)) {
+        items.add(ShoppingItem(
+          id: 'predictive_${now.millisecondsSinceEpoch}_${counter++}',
+          name: item.name,
+          category: item.category,
+          wave: _classifyWave(item.name),
+          source: ShoppingSource.rescueLinked,
+          predictiveScore: item.daysRemaining != null ? (1.0 / (item.daysRemaining! + 1)) : 0.5,
+          reason: 'Predicted Restock: Current supply is rapidly expiring and marked for Rescue.',
+          addedAt: now,
+        ));
+        activeNames.add(lower);
+      }
+    }
+
+    // SIGNAL 2: Memory-Driven Soft Predictive Signals
+    // Core staples associated with highly favored affinities
+    final memoryMappables = _mapAffinitiesToStaples(positiveAffinities);
+    for (final predictedStaple in memoryMappables) {
+      final lower = predictedStaple.toLowerCase();
+      if (!activeNames.contains(lower) && !healthyInventoryNames.contains(lower)) {
+        items.add(ShoppingItem(
+          id: 'predictive_${now.millisecondsSinceEpoch}_${counter++}',
+          name: predictedStaple,
+          wave: _classifyWave(predictedStaple),
+          source: ShoppingSource.predictive,
+          predictiveScore: 0.8,
+          reason: 'Predicted Restock: Matches your repeated cooking patterns and favored taste affinities.',
+          addedAt: now,
+        ));
+        activeNames.add(lower);
+      }
+    }
+
+    // Sort by wave urgency
+    items.sort((a, b) => a.wave.sortOrder.compareTo(b.wave.sortOrder));
+    return items;
+  }
+
+  /// Maps abstract learning affinities to concrete prediction candidates
+  List<String> _mapAffinitiesToStaples(List<String> affinities) {
+    if (affinities.isEmpty) return [];
+    final staples = <String>{};
+    for (final affinity in affinities) {
+      final a = affinity.toLowerCase();
+      if (a.contains('mexican')) staples.addAll(['tortillas', 'cilantro', 'limes']);
+      if (a.contains('italian')) staples.addAll(['olive oil', 'garlic', 'tomatoes', 'pasta']);
+      if (a.contains('asian') || a.contains('japanese') || a.contains('chinese')) staples.addAll(['soy sauce', 'ginger', 'green onions']);
+      if (a.contains('indian')) staples.addAll(['coconut milk', 'curry powder', 'onions']);
+    }
+    return staples.toList();
   }
 
   ShoppingWave _classifyWave(String ingredient) {
