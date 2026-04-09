@@ -21,6 +21,7 @@ class _HomeDashboardState extends State<HomeDashboard> {
   List<InventoryItem> _urgentItems = [];
   List<RecipeMatch> _cookToday = [];
   bool _isLoading = true;
+  String _chefName = 'Chef';
 
   @override
   void initState() {
@@ -38,11 +39,14 @@ class _HomeDashboardState extends State<HomeDashboard> {
     final allItems = await AppServices.inventory.getAll();
     final emergency = AppServices.matchEngine.getEmergencyRecipes();
     final matches = AppServices.matchEngine.rankRecipes(emergency, allItems);
+    
+    final prefs = await AppServices.preferences.load();
 
     if (mounted) {
       setState(() {
         _urgentItems = AppServices.expiryEngine.sortByUrgency(urgent);
         _cookToday = matches;
+        _chefName = prefs.chefPersonaId.isNotEmpty ? prefs.chefPersonaId : 'Chef';
         _isLoading = false;
       });
     }
@@ -128,7 +132,7 @@ class _HomeDashboardState extends State<HomeDashboard> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Good Morning, Chef', 
+                'Good Morning, ${_chefName[0].toUpperCase()}${_chefName.substring(1)}', 
                 style: TextStyle(color: Colors.black.withOpacity(0.7), fontSize: 14, fontWeight: FontWeight.w600),
               ),
               const CircleAvatar(
@@ -139,9 +143,9 @@ class _HomeDashboardState extends State<HomeDashboard> {
             ],
           ),
           const SizedBox(height: 4),
-          const Text(
-            'TUESDAY MORNING', 
-            style: TextStyle(color: Colors.black, fontSize: 28, fontWeight: FontWeight.w900, letterSpacing: -1.0),
+          Text(
+            _getDynamicDayGreeting(), 
+            style: const TextStyle(color: Colors.black, fontSize: 28, fontWeight: FontWeight.w900, letterSpacing: -1.0),
           ),
           const SizedBox(height: 16),
           // Short summary
@@ -158,6 +162,21 @@ class _HomeDashboardState extends State<HomeDashboard> {
         ],
       ),
     );
+  }
+
+  String _getDynamicDayGreeting() {
+    final now = DateTime.now();
+    const days = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
+    final dayStr = days[now.weekday - 1];
+    
+    final hour = now.hour;
+    String timeStr;
+    if (hour < 12) timeStr = 'MORNING';
+    else if (hour < 17) timeStr = 'AFTERNOON';
+    else if (hour < 21) timeStr = 'EVENING';
+    else timeStr = 'NIGHT';
+    
+    return '$dayStr $timeStr';
   }
 
   Widget _buildAlertCard(InventoryItem item) {

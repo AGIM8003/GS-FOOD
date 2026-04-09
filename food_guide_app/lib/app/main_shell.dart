@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'network_banner.dart';
 import '../../core/i18n.dart';
 import '../features/home/home_dashboard.dart';
-import '../features/pantry/my_food_page.dart';
+import '../features/pantry/pantry_page.dart';
 import '../features/cook/cook_page.dart';
 import '../features/plan/plan_page.dart';
 import '../features/shop/shop_page.dart';
@@ -22,7 +22,7 @@ class _MainShellState extends State<MainShell> {
 
   static final _pages = <Widget Function()>[
     () => const HomeDashboard(),
-    () => const MyFoodPage(),
+    () => const PantryPage(),
     () => const CookPage(),
     () => const PlanPage(),
     () => const ShopPage(),
