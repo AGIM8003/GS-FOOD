@@ -20,7 +20,7 @@ class AppDatabase {
   }
 
   /// Bump on schema changes; keep [onUpgrade] in sync.
-  static const _version = 6;
+  static const _version = 8;
 
   Future<void> open() async {
     if (kIsWeb) {
@@ -39,6 +39,8 @@ class AppDatabase {
         await _createV4(db);
         await _createV5(db);
         await _createV6(db);
+        await _createV7(db);
+        await _createV8(db);
       },
       onUpgrade: (db, oldVersion, newVersion) async {
         if (oldVersion < 2) {
@@ -55,6 +57,12 @@ class AppDatabase {
         }
         if (oldVersion < 6) {
           await _createV6(db);
+        }
+        if (oldVersion < 7) {
+          await _createV7(db);
+        }
+        if (oldVersion < 8) {
+          await _createV8(db);
         }
       },
     );
@@ -145,6 +153,80 @@ class AppDatabase {
         url TEXT,
         fetched_at INTEGER NOT NULL,
         raw_json TEXT NOT NULL
+      )
+    ''');
+  }
+
+  /// Real inventory items (V4 production upgrade).
+  static Future<void> _createV7(Database db) async {
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS inventory_items (
+        id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        category TEXT NOT NULL DEFAULT '',
+        storage_location TEXT NOT NULL DEFAULT 'fridge',
+        quantity REAL NOT NULL DEFAULT 1.0,
+        unit TEXT NOT NULL DEFAULT 'item',
+        added_at INTEGER NOT NULL,
+        expiry_date INTEGER,
+        opened INTEGER NOT NULL DEFAULT 0,
+        opened_at INTEGER,
+        confidence REAL NOT NULL DEFAULT 1.0,
+        barcode TEXT,
+        notes TEXT NOT NULL DEFAULT '',
+        icon_code_point INTEGER
+      )
+    ''');
+    await db.execute('CREATE INDEX IF NOT EXISTS idx_inventory_expiry ON inventory_items(expiry_date)');
+    await db.execute('CREATE INDEX IF NOT EXISTS idx_inventory_location ON inventory_items(storage_location)');
+  }
+
+  /// Meal plans, shopping, and preferences (V4 production upgrade).
+  static Future<void> _createV8(Database db) async {
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS meal_plans (
+        id TEXT PRIMARY KEY,
+        week_start INTEGER NOT NULL
+      )
+    ''');
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS day_plans (
+        id TEXT PRIMARY KEY,
+        plan_id TEXT NOT NULL,
+        date INTEGER NOT NULL,
+        FOREIGN KEY (plan_id) REFERENCES meal_plans(id) ON DELETE CASCADE
+      )
+    ''');
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS meal_slots (
+        id TEXT PRIMARY KEY,
+        day_plan_id TEXT NOT NULL,
+        slot_type TEXT NOT NULL DEFAULT 'dinner',
+        recipe_id TEXT,
+        recipe_title TEXT NOT NULL DEFAULT '',
+        notes TEXT NOT NULL DEFAULT '',
+        FOREIGN KEY (day_plan_id) REFERENCES day_plans(id) ON DELETE CASCADE
+      )
+    ''');
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS shopping_items (
+        id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        quantity TEXT NOT NULL DEFAULT '',
+        unit TEXT NOT NULL DEFAULT '',
+        category TEXT NOT NULL DEFAULT '',
+        wave TEXT NOT NULL DEFAULT 'midWeek',
+        checked INTEGER NOT NULL DEFAULT 0,
+        reason TEXT NOT NULL DEFAULT '',
+        linked_meal_id TEXT,
+        linked_meal_title TEXT,
+        added_at INTEGER NOT NULL
+      )
+    ''');
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS user_preferences (
+        key TEXT PRIMARY KEY,
+        value TEXT NOT NULL
       )
     ''');
   }

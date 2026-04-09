@@ -4,8 +4,20 @@ import '../data/repositories/recall_repository.dart';
 import '../data/repositories/product_repository.dart';
 import '../data/repositories/saved_repository.dart';
 import '../data/repositories/use_first_repository.dart';
+import '../data/repositories/inventory_repository.dart';
+import '../data/repositories/shopping_repository.dart';
+import '../data/repositories/meal_plan_repository.dart';
+import '../data/repositories/preferences_repository.dart';
 import '../engine/entity_normalizer.dart';
 import '../engine/rule_engine.dart';
+import '../engine/kitchen/expiry_engine.dart';
+import '../engine/kitchen/match_engine.dart';
+import '../engine/kitchen/shopping_wave_engine.dart';
+import '../engine/safety/safety_guard.dart';
+import '../engine/safety/explainability.dart';
+import '../engine/persona/persona_engine.dart';
+import '../engine/ai/provider_registry.dart';
+import '../engine/ai/ai_orchestrator.dart';
 import '../perception/food_classifier_tflite.dart';
 import '../perception/roi_detector.dart';
 
@@ -16,23 +28,72 @@ class AppServices {
   static late final SavedRepository saved;
   static late final UseFirstRepository useFirst;
   static late final ProductRepository products;
+  
+  // Production Repositories
+  static late final InventoryRepository inventory;
+  static late final ShoppingRepository shopping;
+  static late final MealPlanRepository mealPlans;
+  static late final PreferencesRepository preferences;
+
   static late final FoodClassifierTflite foodClassifier;
   static late final RoiDetector roiDetector;
+  
+  // Deterministic Engines
   static late final RuleEngine ruleEngine;
   static late final EntityNormalizer normalizer;
+  static late final ExpiryEngine expiryEngine;
+  static late final MatchEngine matchEngine;
+  static late final ShoppingWaveEngine shoppingWaveEngine;
+  static late final SafetyGuard safetyGuard;
+  static late final Explainability explainability;
+  static late final PersonaEngine personaEngine;
+
+  // AI Orchestration
+  static late final ProviderRegistry providerRegistry;
+  static late final AIOrchestrator aiOrchestrator;
+
   static late final DecisionLogRepository decisionLog;
   static late final RecallRepository recalls;
 
   static void register() {
-    saved = SavedRepository(AppDatabase.instance);
-    useFirst = UseFirstRepository(AppDatabase.instance);
-    products = ProductRepository(AppDatabase.instance);
+    final db = AppDatabase.instance;
+    
+    saved = SavedRepository(db);
+    useFirst = UseFirstRepository(db);
+    products = ProductRepository(db);
+    decisionLog = DecisionLogRepository(db);
+    recalls = RecallRepository(db);
+    
+    // Core Repositories
+    inventory = InventoryRepository(db);
+    shopping = ShoppingRepository(db);
+    mealPlans = MealPlanRepository(db);
+    preferences = PreferencesRepository(db);
+
+    // AI & Deterministic Engines
     foodClassifier = FoodClassifierTflite();
     roiDetector = PassthroughRoiDetector();
     ruleEngine = RuleEngine();
     normalizer = EntityNormalizer();
-    decisionLog = DecisionLogRepository(AppDatabase.instance);
-    recalls = RecallRepository(AppDatabase.instance);
+    expiryEngine = ExpiryEngine();
+    matchEngine = MatchEngine();
+    shoppingWaveEngine = ShoppingWaveEngine();
+    safetyGuard = SafetyGuard();
+    explainability = Explainability();
+    personaEngine = PersonaEngine();
+
+    // Orchestrator Setup
+    providerRegistry = ProviderRegistry();
+    // In a real app we load env vars here, for now it initializes empty config keys
+    providerRegistry.registerFromConfig(const {}); 
+
+    aiOrchestrator = AIOrchestrator(
+      providers: providerRegistry,
+      matchEngine: matchEngine,
+      safetyGuard: safetyGuard,
+      explainability: explainability,
+      personaEngine: personaEngine,
+    );
   }
 
   /// Best-effort load of optional TFLite asset (no throw).
