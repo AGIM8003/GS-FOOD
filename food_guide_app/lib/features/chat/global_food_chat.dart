@@ -374,6 +374,63 @@ class _GlobalFoodChatState extends State<GlobalFoodChat> {
                                     ),
                                   )
                                 ],
+                                const SizedBox(height: 12),
+                                // LEVEL A + B: Behavioral Learning Interactions
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: InkWell(
+                                        onTap: () async {
+                                          final cuisine = card['cuisine'] ?? '';
+                                          if (cuisine.toString().isNotEmpty) {
+                                            await AppServices.preferences.recordAffinity(cuisine.toString(), true);
+                                          }
+                                          if (mounted) {
+                                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                              content: Text('Memory Updated: The Chef will prioritize $cuisine profiles.', style: const TextStyle(fontWeight: FontWeight.bold)),
+                                              backgroundColor: const Color(0xFF00FF66),
+                                            ));
+                                          }
+                                        },
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          padding: const EdgeInsets.symmetric(vertical: 8),
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xFF00FF66).withOpacity(0.15),
+                                            borderRadius: BorderRadius.circular(8),
+                                          ),
+                                          child: const Text('Cook & Learn', style: TextStyle(color: Color(0xFF00FF66), fontSize: 11, fontWeight: FontWeight.bold)),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Expanded(
+                                      child: InkWell(
+                                        onTap: () async {
+                                          final cuisine = card['cuisine'] ?? '';
+                                          if (cuisine.toString().isNotEmpty) {
+                                            await AppServices.preferences.recordAffinity(cuisine.toString(), false);
+                                          }
+                                          if (mounted) {
+                                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                              content: Text('Memory Updated: The Chef will avoid $cuisine profiles.', style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+                                              backgroundColor: const Color(0xFFFF3333),
+                                            ));
+                                          }
+                                        },
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          padding: const EdgeInsets.symmetric(vertical: 8),
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xFFFF3333).withOpacity(0.15),
+                                            borderRadius: BorderRadius.circular(8),
+                                          ),
+                                          child: const Text('Skip / Unlikely', style: TextStyle(color: Color(0xFFFF3333), fontSize: 11, fontWeight: FontWeight.bold)),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                                 if (!isSafe && compliance['explanation'] != null) ...[
                                   const SizedBox(height: 8),
                                   Text(compliance['explanation'].toString(), style: const TextStyle(color: Color(0xFFFF3333), fontSize: 10, fontStyle: FontStyle.italic), maxLines: 2, overflow: TextOverflow.ellipsis),

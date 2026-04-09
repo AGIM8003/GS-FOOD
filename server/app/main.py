@@ -65,6 +65,10 @@ class CookSuggestRequest(BaseModel):
     meal_slot: Optional[str] = None
     locale: Optional[str] = None
     chef_persona: Optional[str] = "Professional Chef"
+    
+    # LEVEL A: Behavioral Learning Memory
+    positive_affinities: list[str] = Field(default_factory=list, description="Top-K liked cuisines, saved ingredients")
+    negative_affinities: list[str] = Field(default_factory=list, description="Top-K rejected/abandoned elements")
 
 # ==========================================
 # RESPONSE CONTRACTS (V4 MACHINE PARSABLE)
@@ -132,7 +136,9 @@ async def cook_suggest(body: CookSuggestRequest) -> CookSuggestResponse:
     payload = await agent.process_cooking_intent(
         available_ingredients=body.ingredients,
         chef_persona=body.chef_persona,
-        health_modifiers=modifiers
+        health_modifiers=modifiers,
+        positive_affinities=body.positive_affinities,
+        negative_affinities=body.negative_affinities
     )
 
     return CookSuggestResponse(

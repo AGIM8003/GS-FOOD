@@ -51,9 +51,11 @@ class AIOrchestrator {
         final response = await client.suggestMeals(
           inventory: inventory.map((e) => e.name).toList(),
           chefPersona: preferences.chefPersonaId,
+          positiveAffinities: preferences.positiveAffinities,
+          negativeAffinities: preferences.negativeAffinities,
         );
         return OrchestratedResponse(
-          text: "Here are some precise, zero-waste recommendations based on your kitchen:",
+          text: "Here are some precise, zero-waste recommendations based on your kitchen and learned preferences:",
           source: ResponseSource.aiGenerated,
           confidence: 0.95,
           structuredCards: response['cards'] ?? [],

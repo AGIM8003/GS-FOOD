@@ -10,6 +10,8 @@ class CookApiClient {
     required List<String> inventory,
     String? chefPersona,
     List<String> healthModifiers = const [],
+    List<String> positiveAffinities = const [],
+    List<String> negativeAffinities = const [],
   }) async {
     try {
       final uri = Uri.parse('$baseUrl/v1/cook/suggest');
@@ -18,6 +20,8 @@ class CookApiClient {
       final payload = {
         'ingredients': inventory,
         'chef_persona': chefPersona ?? 'Professional Chef',
+        'positive_affinities': positiveAffinities,
+        'negative_affinities': negativeAffinities,
         'health_envelope': {
            'mode': 'H1', // Enforcing non-clinical fallback
            'snapshot': null // To be replaced with actual watch/health data when available

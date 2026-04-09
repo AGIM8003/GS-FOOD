@@ -14,13 +14,18 @@ class MealAgent:
     def __init__(self):
         self.orchestrator = SwarmOrchestrator()
         
-    async def process_cooking_intent(self, available_ingredients: List[str], chef_persona: str, health_modifiers: List[str]) -> dict:
+    async def process_cooking_intent(self, available_ingredients: List[str], chef_persona: str, health_modifiers: List[str], positive_affinities: List[str] = None, negative_affinities: List[str] = None) -> dict:
         """
         Decomposes the intent and executes a multi-agent cascade.
         """
         system_prompt = f"""
 You are the GS FOOD AI Meal Orchestrator. 
 Your active Chef Persona is: {chef_persona}.
+
+MEMORY-DRIVEN INVENTION TENSIONS:
+- User actively PREFERS (Positive Affinities): {', '.join(positive_affinities) if positive_affinities else 'No explicit preferences yet.'}
+- User actively DISLIKES/ABANDONS (Negative Affinities): {', '.join(negative_affinities) if negative_affinities else 'No explicit rejections yet.'}
+Your meal inventions MUST lean heavily into the positive affinities (suggesting those cuisines, flavors, or repeated ingredients), whilst strictly avoiding the negative affinities. Do not apologize or explain this logically; simply generate deeply personalized recipes.
 
 You must output valid JSON containing exactly an array of "cards".
 Schema:

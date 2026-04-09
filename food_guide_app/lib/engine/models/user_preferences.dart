@@ -13,6 +13,8 @@ class UserPreferences {
     this.language = 'en',
     this.activeRitualProtocol = 'none',
     this.activeMedicalConditions = const [],
+    this.positiveAffinities = const [],
+    this.negativeAffinities = const [],
   });
 
   final String chefPersonaId;
@@ -27,6 +29,10 @@ class UserPreferences {
   final String language;
   final String activeRitualProtocol;
   final List<String> activeMedicalConditions;
+  
+  // Behavioral Learning Memory
+  final List<String> positiveAffinities;
+  final List<String> negativeAffinities;
 
   bool isAllergen(String ingredient) {
     final lower = ingredient.toLowerCase();
@@ -46,6 +52,8 @@ class UserPreferences {
     'language': language,
     'active_ritual_protocol': activeRitualProtocol,
     'active_medical_conditions': activeMedicalConditions.join(','),
+    'positive_affinities': positiveAffinities.join(','),
+    'negative_affinities': negativeAffinities.join(','),
   };
 
   factory UserPreferences.fromMap(Map<String, dynamic> m) => UserPreferences(
@@ -61,6 +69,8 @@ class UserPreferences {
     language: (m['language'] as String?) ?? 'en',
     activeRitualProtocol: (m['active_ritual_protocol'] as String?) ?? 'none',
     activeMedicalConditions: _splitList(m['active_medical_conditions']),
+    positiveAffinities: _splitList(m['positive_affinities']),
+    negativeAffinities: _splitList(m['negative_affinities']),
   );
 
   static List<String> _splitList(dynamic v) {
@@ -83,6 +93,8 @@ class UserPreferences {
     String? language,
     String? activeRitualProtocol,
     List<String>? activeMedicalConditions,
+    List<String>? positiveAffinities,
+    List<String>? negativeAffinities,
   }) => UserPreferences(
     chefPersonaId: chefPersonaId ?? this.chefPersonaId,
     allergens: allergens ?? this.allergens,
@@ -96,5 +108,7 @@ class UserPreferences {
     language: language ?? this.language,
     activeRitualProtocol: activeRitualProtocol ?? this.activeRitualProtocol,
     activeMedicalConditions: activeMedicalConditions ?? this.activeMedicalConditions,
+    positiveAffinities: positiveAffinities ?? this.positiveAffinities,
+    negativeAffinities: negativeAffinities ?? this.negativeAffinities,
   );
 }

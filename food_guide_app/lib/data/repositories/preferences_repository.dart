@@ -118,4 +118,34 @@ class PreferencesRepository {
     if (rows.isEmpty) return 0;
     return int.tryParse(rows.first['value'] as String) ?? 0;
   }
+
+  /// LEVEL B: SUPPORT LAYER - Bounded, decaying behavioral memory ingestion
+  /// Tracks maximum 20 concepts safely. Old habits drop off automatically.
+  Future<void> recordAffinity(String term, bool positive) async {
+    final prefs = await load();
+    term = term.trim().toLowerCase();
+    if (term.isEmpty) return;
+
+    List<String> list = positive
+        ? List<String>.from(prefs.positiveAffinities)
+        : List<String>.from(prefs.negativeAffinities);
+
+    // LRU: If it already exists, remove it so it can jump to the front
+    list.removeWhere((item) => item.toLowerCase() == term);
+    
+    // Front-insert (Freshest memory first)
+    list.insert(0, term);
+    
+    // Bounded hard cap to 20 concepts (Support Layer: prevents bloat, enforces decay)
+    if (list.length > 20) {
+      list = list.sublist(0, 20);
+    }
+
+    final key = positive ? 'positive_affinities' : 'negative_affinities';
+    await _d.insert(
+      _table,
+      {'key': key, 'value': list.join(',')},
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
 }
