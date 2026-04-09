@@ -25,6 +25,16 @@ class _PantryPageState extends State<PantryPage> {
   Future<void> _loadData() async {
     setState(() => _isLoading = true);
     final items = await AppServices.inventory.getAll();
+    
+    // V4 Vitality Sort: Urgency first, then raw remaining days
+    items.sort((a, b) {
+      if (a.isUrgent && !b.isUrgent) return -1;
+      if (!a.isUrgent && b.isUrgent) return 1;
+      final remainingA = a.expectedShelfLifeDays - DateTime.now().difference(a.purchaseDate).inDays;
+      final remainingB = b.expectedShelfLifeDays - DateTime.now().difference(b.purchaseDate).inDays;
+      return remainingA.compareTo(remainingB);
+    });
+
     if (mounted) {
       setState(() {
         _items = items;
@@ -89,13 +99,7 @@ class _PantryPageState extends State<PantryPage> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xFF00FF66),
-        child: const Icon(Icons.qr_code_scanner, color: Colors.black),
-        onPressed: () {
-          // Open Scan Context
-        },
-      ),
+      // Navigation Shell handles the global FAB now.
     );
   }
 

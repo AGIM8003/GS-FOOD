@@ -6,7 +6,7 @@ import '../../core/i18n.dart';
 import '../features/home/home_dashboard.dart';
 import '../features/pantry/pantry_page.dart';
 import '../features/cook/cook_page.dart';
-import '../features/chat/global_food_chat.dart';
+import '../features/capture/omni_capture_sheet.dart';
 import '../features/shop/fulfillment_shell.dart';
 
 class MainShell extends StatefulWidget {
@@ -51,7 +51,7 @@ class _MainShellState extends State<MainShell> {
                child: const Icon(Icons.center_focus_weak, color: Colors.black, size: 32),
                onPressed: () {
                  HapticFeedback.heavyImpact();
-                 GlobalFoodChat.show(context);
+                 OmniCaptureSheet.show(context);
                },
             ),
           ),
