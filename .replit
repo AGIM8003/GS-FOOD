@@ -4,6 +4,9 @@ compile = "cd food_guide_app && flutter pub get"
 [nix]
 channel = "stable-24_05"
 
+[env]
+DART_VM_OPTIONS = "--no-verify-tls-certificates"
+
 [deployment]
 run = ["sh", "-c", "cd food_guide_app && flutter build web && python3 -m http.server 3000 -d build/web"]
 deploymentTarget = "cloudrun"
