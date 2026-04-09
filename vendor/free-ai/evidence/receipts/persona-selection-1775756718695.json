@@ -1,0 +1,67 @@
+{
+  "final_persona_id": "default",
+  "persona_version": "v1",
+  "blend_weights": null,
+  "confidence": 1,
+  "source": "override",
+  "rationale_codes": [
+    "override"
+  ],
+  "persona": {
+    "id": "default",
+    "version": "v1",
+    "name": "Default",
+    "system_prompt": "You are a helpful assistant. Be concise and explicit when falling back to local KB.",
+    "description": "Default persona for general use",
+    "_manifest_validation": [
+      {
+        "message": "missing-required-category",
+        "field": "category"
+      },
+      {
+        "message": "missing-required-tags",
+        "field": "tags"
+      },
+      {
+        "message": "missing-required-domain_strengths",
+        "field": "domain_strengths"
+      },
+      {
+        "message": "missing-required-interaction_style",
+        "field": "interaction_style"
+      },
+      {
+        "message": "missing-required-risk_profile",
+        "field": "risk_profile"
+      },
+      {
+        "message": "missing-required-triggers",
+        "field": "triggers"
+      },
+      {
+        "message": "missing-required-prompt_fragments",
+        "field": "prompt_fragments"
+      },
+      {
+        "message": "missing-required-source_type",
+        "field": "source_type"
+      },
+      {
+        "message": "missing-required-source_reference",
+        "field": "source_reference"
+      },
+      {
+        "message": "missing-required-source_license",
+        "field": "source_license"
+      },
+      {
+        "message": "missing-required-imported_at",
+        "field": "imported_at"
+      },
+      {
+        "message": "missing-required-schema_version",
+        "field": "schema_version"
+      }
+    ]
+  }
+}

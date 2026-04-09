@@ -1,0 +1,6 @@
+{
+  "id": "sample",
+  "version": "v1",
+  "description": "A sample skill that helps format short answers.",
+  "content": "If the user asks for a summary, produce a 3-sentence concise summary."
+}

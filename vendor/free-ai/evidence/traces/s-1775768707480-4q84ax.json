@@ -1,0 +1,15 @@
+{
+  "id": "s-1775768707480-4q84ax",
+  "name": "providers.callProviders",
+  "start": 1775768707480,
+  "meta": {
+    "prompt_snippet": "-- Prompt Runtime --\nPrompt Family: research\nPrompt Variant: variant_b_structured\nTrace ID: t-1775768706982-pc3zod\nReasoning Strategy: synthesize\nOutput Contract: receipt_augmented_answer\nReturn only "
+  },
+  "events": [],
+  "end": 1775768707480,
+  "duration_ms": 0,
+  "outcome": {
+    "status": "fail",
+    "failureCount": 0
+  }
+}

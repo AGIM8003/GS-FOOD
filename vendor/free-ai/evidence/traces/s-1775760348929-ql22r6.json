@@ -1,0 +1,25 @@
+{
+  "id": "s-1775760348929-ql22r6",
+  "name": "orchestrator.orchestrateSkills",
+  "start": 1775760348929,
+  "meta": {
+    "intent_family": "research",
+    "persona": "blend:analyst+undefined"
+  },
+  "events": [
+    {
+      "ts": 1775760348932,
+      "event": "orchestrator.result",
+      "data": {
+        "mounted": 5,
+        "token_budget": 2850
+      }
+    }
+  ],
+  "end": 1775760348932,
+  "duration_ms": 3,
+  "outcome": {
+    "status": "ok",
+    "mounted": 5
+  }
+}

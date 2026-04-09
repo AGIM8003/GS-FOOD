@@ -1,0 +1,30 @@
+{
+  "ladderDecision": {
+    "chosen_provider": null,
+    "chosen_tag": null,
+    "capability": "structured_output",
+    "timestamp": "2026-04-09T20:27:17.479Z",
+    "counts": {
+      "primary_free": 0,
+      "burst_free": 0,
+      "local_only": 0
+    },
+    "ranked": {
+      "primary_free": [],
+      "burst_free": [],
+      "starter_credit": [],
+      "low_cost_fallback": [],
+      "local_only": []
+    },
+    "governance": {}
+  },
+  "persona": "generated_general_app_persona",
+  "intent": "chat",
+  "skills": [
+    "summarization_01",
+    "gen_068",
+    "persona_control_01",
+    "generated_general_create_chat_workflow",
+    "summarization_gen_118"
+  ]
+}

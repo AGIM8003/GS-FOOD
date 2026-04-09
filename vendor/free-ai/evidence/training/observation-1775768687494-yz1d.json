@@ -1,0 +1,30 @@
+{
+  "observation_id": "obs-1775768687492-dzh9",
+  "created_at": "2026-04-09T21:04:47.492Z",
+  "trace_id": "t-1775768686613-yssh74",
+  "prompt_excerpt": "pricing fallback please",
+  "intent_family": "chat",
+  "task_type": "chat",
+  "domain": "general",
+  "topics": [
+    "fallback",
+    "please",
+    "pricing"
+  ],
+  "persona_id": "blend:generated_general_create_persona+generated_general_app_persona",
+  "skill_ids": [
+    "generated_general_fallback_chat_workflow",
+    "gen_050",
+    "persona_control_01",
+    "fallback_01",
+    "generated_general_create_chat_workflow"
+  ],
+  "provider_id": "none",
+  "preview_only": false,
+  "fallback_used": true,
+  "validation_valid": true,
+  "acquisition_used": true,
+  "generated_capability_used": false,
+  "environment": "general",
+  "reasoning_mode": "heuristic.v1"
+}

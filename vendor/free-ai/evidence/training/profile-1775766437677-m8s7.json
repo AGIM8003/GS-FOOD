@@ -1,0 +1,19 @@
+{
+  "updated_at": "2026-04-09T20:27:17.677Z",
+  "patch": {
+    "environment": "doctor-office",
+    "environment_tags": [
+      "medical",
+      "doctor-office"
+    ],
+    "compliance_profile": {
+      "regulatory_mode": "clinical",
+      "sensitive_domains": [
+        "medical",
+        "legal",
+        "finance"
+      ]
+    }
+  },
+  "environment": "doctor-office"
+}

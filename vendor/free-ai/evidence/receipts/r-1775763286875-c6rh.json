@@ -1,0 +1,72 @@
+{
+  "receipt_id": "r-1775763286875-c6rh",
+  "trace_id": "t-1775763286858-xqm97n",
+  "span_id": null,
+  "provider_id": "none",
+  "model_id": null,
+  "http_status": 503,
+  "fallback_used": true,
+  "kb_short_circuit": false,
+  "persona": {
+    "id": "reflective",
+    "version": "v1"
+  },
+  "intent_family": "chat",
+  "skills_loaded": [
+    {
+      "id": "summarization_01",
+      "version": "v1"
+    },
+    {
+      "id": "persona_control_01",
+      "version": "v1"
+    },
+    {
+      "id": "persona-control_gen_120",
+      "version": "v1"
+    },
+    {
+      "id": "debugging_01",
+      "version": "v1"
+    },
+    {
+      "id": "misc_02",
+      "version": "v1"
+    }
+  ],
+  "latency_ms": 16,
+  "timestamp": "2026-04-09T19:34:46.875Z",
+  "schema_version": "requestReceipt.v1",
+  "selected_prompt_variant": "variant_b_structured",
+  "selected_output_contract": "receipt_augmented_answer",
+  "route_decision": {
+    "chosen_provider": null,
+    "chosen_tag": null,
+    "capability": "structured_output",
+    "timestamp": "2026-04-09T19:34:46.873Z",
+    "counts": {
+      "primary_free": 0,
+      "burst_free": 0,
+      "local_only": 0
+    },
+    "ranked": {
+      "primary_free": [],
+      "burst_free": [],
+      "starter_credit": [],
+      "low_cost_fallback": [],
+      "local_only": []
+    }
+  },
+  "local_survival_used": true,
+  "quota_snapshot": {
+    "requests_per_day": 0,
+    "tokens_per_day": 0,
+    "recent_429_count": 0,
+    "recent_timeout_count": 0,
+    "success_count": 0,
+    "failure_count": 0,
+    "success_rate": 1,
+    "average_latency": 0,
+    "free_reliability_score": 1
+  }
+}

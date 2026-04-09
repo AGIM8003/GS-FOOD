@@ -1,0 +1,108 @@
+{
+  "receipt_id": "r-1775763664782-m5yo",
+  "trace_id": "t-1775763664755-y20m03",
+  "span_id": null,
+  "provider_id": "none",
+  "model_id": null,
+  "http_status": 503,
+  "fallback_used": true,
+  "kb_short_circuit": false,
+  "persona": {
+    "id": "blend:analyst+undefined",
+    "version": "v1+v1"
+  },
+  "intent_family": "research",
+  "skills_loaded": [
+    {
+      "id": "research_01",
+      "version": "v1"
+    },
+    {
+      "id": "gen_066",
+      "version": "v1"
+    },
+    {
+      "id": "research_gen_116",
+      "version": "v1"
+    },
+    {
+      "id": "summarization_01",
+      "version": "v1"
+    },
+    {
+      "id": "coding_02",
+      "version": "v1"
+    }
+  ],
+  "latency_ms": 26,
+  "timestamp": "2026-04-09T19:41:04.782Z",
+  "schema_version": "requestReceipt.v1",
+  "selected_prompt_variant": "variant_b_structured",
+  "selected_output_contract": "receipt_augmented_answer",
+  "route_decision": {
+    "chosen_provider": "gemini",
+    "chosen_tag": "primary_free",
+    "capability": "structured_output",
+    "timestamp": "2026-04-09T19:41:04.778Z",
+    "counts": {
+      "primary_free": 2,
+      "burst_free": 1,
+      "local_only": 0
+    },
+    "ranked": {
+      "primary_free": [
+        {
+          "id": "gemini",
+          "score": 109.6
+        },
+        {
+          "id": "huggingface",
+          "score": 91.5999875
+        }
+      ],
+      "burst_free": [
+        {
+          "id": "openrouter",
+          "score": 102.9299875
+        }
+      ],
+      "starter_credit": [
+        {
+          "id": "groq",
+          "score": 94.6
+        },
+        {
+          "id": "openai",
+          "score": 79.6
+        },
+        {
+          "id": "anthropic",
+          "score": 69.6
+        },
+        {
+          "id": "fireworks",
+          "score": 69.6
+        }
+      ],
+      "low_cost_fallback": [
+        {
+          "id": "ollama",
+          "score": 90.19946250000001
+        }
+      ],
+      "local_only": []
+    }
+  },
+  "local_survival_used": true,
+  "quota_snapshot": {
+    "requests_per_day": 1,
+    "tokens_per_day": 0,
+    "recent_429_count": 0,
+    "recent_timeout_count": 0,
+    "success_count": 0,
+    "failure_count": 1,
+    "success_rate": 0,
+    "average_latency": 43,
+    "free_reliability_score": 0
+  }
+}

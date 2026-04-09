@@ -1,0 +1,28 @@
+{
+  "raw": "pricing fallback please",
+  "normalized_text": "pricing fallback please",
+  "language": "en",
+  "intent_family": "chat",
+  "task_type": "chat",
+  "entities": [],
+  "constraints": {},
+  "output_preferences": {},
+  "topics": [
+    "fallback",
+    "please",
+    "pricing"
+  ],
+  "domain_signals": [],
+  "continuity": 0.5,
+  "risk_flags": [],
+  "ambiguity_flags": 0.9613705638880109,
+  "memory_need": false,
+  "persona_need": [],
+  "skill_need": [],
+  "model_preference_hint": null,
+  "acquisition_hint": null,
+  "tone": "polite",
+  "urgency": 0.1,
+  "confidence": 0.6077258872223978,
+  "schema_version": "translator.v1"
+}

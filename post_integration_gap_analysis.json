@@ -1,0 +1,9 @@
+{
+  "gap_analysis": {
+    "status": "FREE AI is vendored and validated locally in vendor/free-ai, but GS FOOD Python server (in server/app) doesn't use it yet.",
+    "current_python": "Contains main.py, orchestrator.py, meal_agent.py, planner_agent.py, but they appear to be legacy/standalone agent implementations instead of proxying intelligence to the much stronger vendored Node.js FREE AI engine.",
+    "missing": "A Python unified client (e.g. FreeAIClient) to safely bridge requests via localhost:3000 to the Node.js FREE AI engine.",
+    "endpoint_sync_gap": "The new gs_food_pantry_lookup skill inside FREE AI points to http://localhost:8000/api/internal/pantry/inventory, which doesn't exist or isn't well-defined in main.py.",
+    "ui_gap": "UI expects unified endpoints from Fastapi/Flask that serve AI responses and recipes."
+  }
+}

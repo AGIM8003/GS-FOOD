@@ -1,0 +1,22 @@
+{
+  "raw": "Create a short plan for testing decision graphs.",
+  "normalized_text": "Create a short plan for testing decision graphs.",
+  "language": "en",
+  "intent_family": "chat",
+  "task_type": "chat",
+  "entities": [],
+  "constraints": {},
+  "output_preferences": {},
+  "continuity": 0.5,
+  "risk_flags": [],
+  "ambiguity_flags": 0.880277542266378,
+  "memory_need": false,
+  "persona_need": null,
+  "skill_need": null,
+  "model_preference_hint": null,
+  "acquisition_hint": null,
+  "tone": "neutral",
+  "urgency": 0,
+  "confidence": 0.6239444915467244,
+  "schema_version": "translator.v1"
+}

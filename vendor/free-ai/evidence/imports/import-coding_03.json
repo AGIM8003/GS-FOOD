@@ -1,0 +1,56 @@
+{
+  "skill": {
+    "id": "coding_03",
+    "name": "Code: Bug Fix Suggestion",
+    "version": "v1",
+    "purpose": "Suggest probable fixes for given bug description",
+    "tags": [
+      "coding",
+      "debugging"
+    ],
+    "triggers": [
+      "bug",
+      "error",
+      "stack"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 700,
+    "risk_class": "high",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "root_cause",
+        "fix_suggestion"
+      ]
+    },
+    "prompt_fragments": [
+      "Analyze the error and propose a minimal safe fix."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "debugger",
+        "software_engineer"
+      ],
+      "runtime_modes": [
+        "hybrid"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "coding_03",
+    "checked_at": "2026-04-09T18:01:29.099Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

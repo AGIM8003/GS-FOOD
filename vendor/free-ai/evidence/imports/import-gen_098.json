@@ -1,0 +1,57 @@
+{
+  "skill": {
+    "id": "gen_098",
+    "name": "Generated retrieval skill 98",
+    "version": "v1",
+    "purpose": "Auto-generated retrieval helper 98",
+    "tags": [
+      "retrieval"
+    ],
+    "triggers": [
+      "retrieval",
+      "retrieval_98"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "high",
+    "token_budget_hint": 600,
+    "risk_class": "high",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "result"
+      ]
+    },
+    "prompt_fragments": [
+      "Auto-generated prompt fragment for Generated retrieval skill 98"
+    ],
+    "validation_rules": {},
+    "source_type": "generated",
+    "source_reference": "local-generator",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T17:25:25.881Z",
+    "enabled": true,
+    "deprecated": true,
+    "compatibility": {
+      "personas": [
+        "general_assistant"
+      ],
+      "runtime_modes": [
+        "hybrid"
+      ]
+    },
+    "schema_version": "skillManifest.v1",
+    "deprecated_reason": "duplicate_of:gen_067"
+  },
+  "receipt": {
+    "skill_id": "gen_098",
+    "checked_at": "2026-04-09T18:01:29.120Z",
+    "reasons": [
+      "similar_prompt_or_name",
+      "source_generated"
+    ],
+    "action": "duplicate",
+    "duplicate_of": "gen_067",
+    "quarantined": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "enabled": true,
+  "observe_requests": true,
+  "auto_run_on_request": true,
+  "auto_run_interval_ms": 300000,
+  "max_observations_retained": 500,
+  "max_observations_per_cycle": 80,
+  "min_observations_to_learn": 3,
+  "environment": "general",
+  "environment_tags": [
+    "general"
+  ],
+  "compliance_profile": {
+    "regulatory_mode": "baseline",
+    "sensitive_domains": [
+      "legal",
+      "medical",
+      "finance"
+    ],
+    "blocked_domains": [],
+    "require_guarded_mode_for_sensitive_domains": true,
+    "web_research_allowed": true,
+    "overlay_write_mode": "overlay_only",
+    "auto_apply_safe_overlays": true,
+    "auto_promote_persona_files": false,
+    "auto_promote_skill_files": false,
+    "require_human_review_for_promotions": true
+  },
+  "curriculum": {
+    "focus_on_most_used": true,
+    "max_domains": 3,
+    "max_topics": 8,
+    "max_personas": 5,
+    "max_skills": 8
+  }
+}

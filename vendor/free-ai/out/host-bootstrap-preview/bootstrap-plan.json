@@ -1,0 +1,132 @@
+{
+  "generated_at": "2026-04-09T21:12:50.012Z",
+  "dry_run": true,
+  "target_dir": "D:\\GITHUB RESPIRATORY\\GS FOOD\\vendor\\free-ai\\out\\host-bootstrap-preview\\vendor\\free-ai",
+  "copied": [
+    {
+      "type": "directory",
+      "src": "src",
+      "dest": "vendor/free-ai/src"
+    },
+    {
+      "type": "directory",
+      "src": "skills",
+      "dest": "vendor/free-ai/skills"
+    },
+    {
+      "type": "directory",
+      "src": "personas",
+      "dest": "vendor/free-ai/personas"
+    },
+    {
+      "type": "directory",
+      "src": "data",
+      "dest": "vendor/free-ai/data"
+    },
+    {
+      "type": "directory",
+      "src": "memory",
+      "dest": "vendor/free-ai/memory"
+    },
+    {
+      "type": "directory",
+      "src": "evidence",
+      "dest": "vendor/free-ai/evidence"
+    },
+    {
+      "type": "directory",
+      "src": "acquisition",
+      "dest": "vendor/free-ai/acquisition"
+    },
+    {
+      "type": "directory",
+      "src": "tests",
+      "dest": "vendor/free-ai/tests"
+    },
+    {
+      "type": "directory",
+      "src": "scripts",
+      "dest": "vendor/free-ai/scripts"
+    },
+    {
+      "type": "directory",
+      "src": "web",
+      "dest": "vendor/free-ai/web"
+    },
+    {
+      "type": "file",
+      "src": "AGENTS.md",
+      "dest": "vendor/free-ai/AGENTS.md"
+    },
+    {
+      "type": "file",
+      "src": "README.md",
+      "dest": "vendor/free-ai/README.md"
+    },
+    {
+      "type": "file",
+      "src": "FREEAI.md",
+      "dest": "vendor/free-ai/FREEAI.md"
+    },
+    {
+      "type": "file",
+      "src": ".env.example",
+      "dest": "vendor/free-ai/.env.example"
+    },
+    {
+      "type": "file",
+      "src": "providers.json",
+      "dest": "vendor/free-ai/providers.json"
+    },
+    {
+      "type": "file",
+      "src": "src/server.js",
+      "dest": "vendor/free-ai/src/server.js"
+    },
+    {
+      "type": "file",
+      "src": "src/server/router.js",
+      "dest": "vendor/free-ai/src/server/router.js"
+    },
+    {
+      "type": "file",
+      "src": "src/retrieval/evalMetrics.js",
+      "dest": "vendor/free-ai/src/retrieval/evalMetrics.js"
+    },
+    {
+      "type": "file",
+      "src": "src/retrieval/qualityGate.js",
+      "dest": "vendor/free-ai/src/retrieval/qualityGate.js"
+    },
+    {
+      "type": "file",
+      "src": "src/prompt/runtime.js",
+      "dest": "vendor/free-ai/src/prompt/runtime.js"
+    },
+    {
+      "type": "file",
+      "src": "src/prompt/contracts.js",
+      "dest": "vendor/free-ai/src/prompt/contracts.js"
+    },
+    {
+      "type": "file",
+      "src": "skills/active_catalog.json",
+      "dest": "vendor/free-ai/skills/active_catalog.json"
+    },
+    {
+      "type": "file",
+      "src": "src/training/engine.js",
+      "dest": "vendor/free-ai/src/training/engine.js"
+    },
+    {
+      "type": "file",
+      "src": "src/training/runtime.js",
+      "dest": "vendor/free-ai/src/training/runtime.js"
+    },
+    {
+      "type": "file",
+      "src": "src/training/store.js",
+      "dest": "vendor/free-ai/src/training/store.js"
+    }
+  ]
+}

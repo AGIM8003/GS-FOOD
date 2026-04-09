@@ -1,0 +1,53 @@
+{
+  "id": "s-1775763664755-zi7ezz",
+  "name": "router.handleRequest",
+  "start": 1775763664755,
+  "meta": {
+    "trace_id": "t-1775763664755-y20m03",
+    "prompt": "Research: summarize recent best practices for prompt engineering"
+  },
+  "events": [
+    {
+      "ts": 1775763664765,
+      "event": "translator.complete",
+      "data": {
+        "intent_family": "research"
+      }
+    },
+    {
+      "ts": 1775763664767,
+      "event": "reasoning.complete",
+      "data": {
+        "strategy": "heuristic.v1"
+      }
+    },
+    {
+      "ts": 1775763664774,
+      "event": "persona.selected",
+      "data": {
+        "persona": "blend:analyst+undefined",
+        "confidence": 0.1
+      }
+    },
+    {
+      "ts": 1775763664776,
+      "event": "skills.mounted",
+      "data": {
+        "count": 5,
+        "skills": [
+          "research_01",
+          "gen_066",
+          "research_gen_116",
+          "summarization_01",
+          "coding_02"
+        ]
+      }
+    }
+  ],
+  "end": 1775763664782,
+  "duration_ms": 27,
+  "outcome": {
+    "status": "fallback",
+    "reason": "providers_exhausted"
+  }
+}

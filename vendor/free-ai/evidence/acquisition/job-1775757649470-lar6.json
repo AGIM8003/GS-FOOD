@@ -1,0 +1,11 @@
+{
+  "job_id": "job-1775757649470-lar6",
+  "type": "model",
+  "target_id": "google-gemma-compact-v1",
+  "reason": "model_install_requested",
+  "state": "queued_for_acquisition",
+  "requested_by": "test",
+  "created_at": "2026-04-09T18:00:49.470Z",
+  "updated_at": "2026-04-09T18:00:49.470Z",
+  "schema_version": "AcquisitionJob.v1"
+}

@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-04-09T19:35:37.013Z",
+  "order": [
+    "provider probes",
+    "decision graph",
+    "eval gates",
+    "memory graph",
+    "admin inspection"
+  ],
+  "risks": [
+    "provider API drift",
+    "schema mismatch in structured outputs",
+    "overly permissive fallback masking failures"
+  ]
+}

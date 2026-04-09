@@ -1,0 +1,25 @@
+{
+  "id": "s-1775765055977-ikdep4",
+  "name": "orchestrator.orchestrateSkills",
+  "start": 1775765055977,
+  "meta": {
+    "intent_family": "research",
+    "persona": "blend:technical+software_engineer"
+  },
+  "events": [
+    {
+      "ts": 1775765055980,
+      "event": "orchestrator.result",
+      "data": {
+        "mounted": 5,
+        "token_budget": 2500
+      }
+    }
+  ],
+  "end": 1775765055981,
+  "duration_ms": 4,
+  "outcome": {
+    "status": "ok",
+    "mounted": 5
+  }
+}

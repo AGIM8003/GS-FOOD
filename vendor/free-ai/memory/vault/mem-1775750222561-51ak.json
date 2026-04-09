@@ -1,0 +1,12 @@
+{
+  "memory_id": "mem-1775750222561-51ak",
+  "category": "test",
+  "subject": "unittest",
+  "summary": "a test",
+  "structured_payload": {},
+  "source_trace_id": "t-1",
+  "confidence": 0.9,
+  "importance": 0.5,
+  "created_at": "2026-04-09T15:57:02.561Z",
+  "updated_at": "2026-04-09T15:57:02.562Z"
+}

@@ -1,0 +1,22 @@
+{
+  "context_id": "c-1775768447205-82aa",
+  "intent_family": "chat",
+  "domain": "general",
+  "task_type": "chat",
+  "tone": "polite",
+  "urgency": 0.1,
+  "risk_flags": [],
+  "ambiguity_score": 0.9613705638880109,
+  "continuity_score": 0.5,
+  "missing_info_flags": [],
+  "conversation_phase": "interaction",
+  "requested_output_form": "text",
+  "memory_retrieval_needed": false,
+  "persona_hints": [],
+  "skill_hints": [],
+  "provider_hints": [],
+  "model_hints": [],
+  "acquisition_hints": [],
+  "confidence": 0.6077258872223978,
+  "schema_version": "contextSnapshot.v1"
+}

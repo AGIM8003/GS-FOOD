@@ -1,0 +1,99 @@
+{
+  "schema_version": "promptRegistry.v1",
+  "families": {
+    "general": {
+      "active_variant": "variant_a_default",
+      "candidates": {},
+      "rollback_history": [
+        {
+          "type": "prompt_rollback",
+          "family_id": "general",
+          "from_variant": "variant_b_structured",
+          "to_variant": "variant_a_default",
+          "reason": "test_rollback",
+          "rolled_back_at": "2026-04-09T19:52:27.152Z"
+        },
+        {
+          "type": "prompt_rollback",
+          "family_id": "general",
+          "from_variant": "variant_b_structured",
+          "to_variant": "variant_a_default",
+          "reason": "test_rollback",
+          "rolled_back_at": "2026-04-09T20:04:17.858Z"
+        },
+        {
+          "type": "prompt_rollback",
+          "family_id": "general",
+          "from_variant": "variant_b_structured",
+          "to_variant": "variant_a_default",
+          "reason": "test_rollback",
+          "rolled_back_at": "2026-04-09T20:19:25.837Z"
+        },
+        {
+          "type": "prompt_rollback",
+          "family_id": "general",
+          "from_variant": "variant_b_structured",
+          "to_variant": "variant_a_default",
+          "reason": "test_rollback",
+          "rolled_back_at": "2026-04-09T20:23:35.542Z"
+        },
+        {
+          "type": "prompt_rollback",
+          "family_id": "general",
+          "from_variant": "variant_b_structured",
+          "to_variant": "variant_a_default",
+          "reason": "test_rollback",
+          "rolled_back_at": "2026-04-09T20:27:16.569Z"
+        },
+        {
+          "type": "prompt_rollback",
+          "family_id": "general",
+          "from_variant": "variant_b_structured",
+          "to_variant": "variant_a_default",
+          "reason": "test_rollback",
+          "rolled_back_at": "2026-04-09T20:34:55.125Z"
+        },
+        {
+          "type": "prompt_rollback",
+          "family_id": "general",
+          "from_variant": "variant_b_structured",
+          "to_variant": "variant_a_default",
+          "reason": "test_rollback",
+          "rolled_back_at": "2026-04-09T21:00:58.719Z"
+        },
+        {
+          "type": "prompt_rollback",
+          "family_id": "general",
+          "from_variant": "variant_b_structured",
+          "to_variant": "variant_a_default",
+          "reason": "test_rollback",
+          "rolled_back_at": "2026-04-09T21:04:45.814Z"
+        },
+        {
+          "type": "prompt_rollback",
+          "family_id": "general",
+          "from_variant": "variant_b_structured",
+          "to_variant": "variant_a_default",
+          "reason": "test_rollback",
+          "rolled_back_at": "2026-04-09T21:05:08.936Z"
+        },
+        {
+          "type": "prompt_rollback",
+          "family_id": "general",
+          "from_variant": "variant_b_structured",
+          "to_variant": "variant_a_default",
+          "reason": "test_rollback",
+          "rolled_back_at": "2026-04-09T21:12:46.212Z"
+        },
+        {
+          "type": "prompt_rollback",
+          "family_id": "general",
+          "from_variant": "variant_b_structured",
+          "to_variant": "variant_a_default",
+          "reason": "test_rollback",
+          "rolled_back_at": "2026-04-09T21:12:52.805Z"
+        }
+      ]
+    }
+  }
+}

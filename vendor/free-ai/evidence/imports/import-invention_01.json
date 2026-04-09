@@ -1,0 +1,56 @@
+{
+  "skill": {
+    "id": "invention_01",
+    "name": "Invention: Idea Suggester",
+    "version": "v1",
+    "purpose": "Propose new ideas or features",
+    "tags": [
+      "invention",
+      "ideation"
+    ],
+    "triggers": [
+      "idea",
+      "innovate"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 400,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "ideas",
+        "rationale"
+      ]
+    },
+    "prompt_fragments": [
+      "Generate novel ideas and pragmatic next steps."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "synthesis_assistant",
+        "strategist"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "cloud_only"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "invention_01",
+    "checked_at": "2026-04-09T18:01:29.101Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

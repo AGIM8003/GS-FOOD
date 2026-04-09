@@ -1,0 +1,59 @@
+{
+  "id": "generated_general_fallback_chat_workflow",
+  "name": "General Fallback Workflow",
+  "version": "v1",
+  "purpose": "Handle general chat requests when bundled skills are weak or absent.",
+  "tags": [
+    "general",
+    "chat",
+    "generated",
+    "fallback",
+    "please",
+    "pricing"
+  ],
+  "triggers": [
+    "fallback",
+    "please",
+    "pricing"
+  ],
+  "exclusions": [],
+  "dependencies": [],
+  "latency_hint": "medium",
+  "token_budget_hint": 600,
+  "risk_class": "low",
+  "output_contract": {
+    "type": "object",
+    "fields": [
+      "answer",
+      "why"
+    ]
+  },
+  "prompt_fragments": [
+    "Adapt the response to general context and emphasize fallback.",
+    "Use the strongest available persona, preferably blend:generated_general_create_persona+generated_general_app_persona, and maintain continuity with the active conversation.",
+    "If the domain remains uncertain, expose assumptions and proceed with the closest practical answer instead of blocking."
+  ],
+  "validation_rules": {},
+  "source_type": "generated",
+  "source_reference": "heuristic+web+github",
+  "source_license": "generated",
+  "imported_at": "2026-04-09T21:12:54.137Z",
+  "enabled": true,
+  "deprecated": false,
+  "compatibility": {
+    "personas": [
+      "blend:generated_general_create_persona+generated_general_app_persona",
+      "technical",
+      "researcher",
+      "default"
+    ],
+    "runtime_modes": [
+      "hybrid",
+      "cloud_only",
+      "offline_optional"
+    ]
+  },
+  "schema_version": "skillManifest.v1",
+  "quality_state": "provisional_active",
+  "generated_from_prompt": "pricing fallback please"
+}

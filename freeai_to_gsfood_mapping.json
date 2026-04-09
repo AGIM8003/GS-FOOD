@@ -1,0 +1,12 @@
+{
+  "mapping": {
+    "source": "FREE AI (Full Repo)",
+    "destination": "GS FOOD/vendor/free-ai",
+    "strategy": "Mode A: Local Copied HTTP Engine. GS FOOD (Python) will interact with FREE AI (Node.js) via local HTTP API.",
+    "adaptations": {
+      "personas": "Convert generic personas to culinary, chef, nutritionist, and pantry manager personas.",
+      "skills": "Add food inventory, recipe parsing, nutritional analysis, and shopping list skills.",
+      "memory": "Adapt categories for recipe preferences, pantry stock, allergies, and dietary restrictions."
+    }
+  }
+}

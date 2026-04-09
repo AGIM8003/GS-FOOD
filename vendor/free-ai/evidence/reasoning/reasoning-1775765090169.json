@@ -1,0 +1,33 @@
+{
+  "reasoning_mode": "heuristic.v1",
+  "strategy_type": "synthesize",
+  "decomposition_level": 1,
+  "confidence": 0.7378074351579232,
+  "uncertainty_score": 0.8109628242103835,
+  "rationale_codes": [],
+  "quality_gate_needed": false,
+  "escalation_needed": false,
+  "persona_recommendation": "researcher",
+  "skill_recommendation": [
+    "research_01"
+  ],
+  "provider_routing_recommendation": [],
+  "model_selection_recommendation": [],
+  "memory_write_candidate": null,
+  "acquisition_recommendation": {
+    "need_persona": true,
+    "need_skills": false,
+    "suggested_topics": [
+      "biomedical",
+      "escalation",
+      "evidence-backed",
+      "handling",
+      "policy",
+      "recommendations"
+    ],
+    "rationale": [
+      "capability_review_hint"
+    ]
+  },
+  "schema_version": "reasoning.v1"
+}

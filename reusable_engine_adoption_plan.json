@@ -1,0 +1,7 @@
+{
+  "adoption_plan": {
+    "boundary": "Vendorized. FREE AI lives inside vendor/free-ai. It is fully isolated from the Python backend but resides in the same repository.",
+    "orchestration": "GS FOOD uses PM2 or a unified startup script to run both the Python backend and the free-ai Node.js server.",
+    "future_updates": "Any updates to the engine structure must respect the boundary and not leak into the GS FOOD UI or Python core directly."
+  }
+}

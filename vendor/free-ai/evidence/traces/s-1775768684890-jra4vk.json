@@ -1,0 +1,25 @@
+{
+  "id": "s-1775768684890-jra4vk",
+  "name": "orchestrator.orchestrateSkills",
+  "start": 1775768684890,
+  "meta": {
+    "intent_family": "chat",
+    "persona": "generated_general_create_persona"
+  },
+  "events": [
+    {
+      "ts": 1775768684894,
+      "event": "orchestrator.result",
+      "data": {
+        "mounted": 5,
+        "token_budget": 2750
+      }
+    }
+  ],
+  "end": 1775768684894,
+  "duration_ms": 4,
+  "outcome": {
+    "status": "ok",
+    "mounted": 5
+  }
+}

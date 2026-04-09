@@ -1,0 +1,29 @@
+{
+  "reasoning_mode": "heuristic.v1",
+  "strategy_type": "compose",
+  "decomposition_level": 1,
+  "confidence": 0.7215888308335967,
+  "uncertainty_score": 0.8920558458320165,
+  "rationale_codes": [],
+  "quality_gate_needed": false,
+  "escalation_needed": false,
+  "persona_recommendation": "general",
+  "skill_recommendation": [],
+  "provider_routing_recommendation": [],
+  "model_selection_recommendation": [],
+  "memory_write_candidate": null,
+  "acquisition_recommendation": {
+    "need_persona": true,
+    "need_skills": false,
+    "suggested_topics": [
+      "app",
+      "design",
+      "small",
+      "summarize"
+    ],
+    "rationale": [
+      "capability_review_hint"
+    ]
+  },
+  "schema_version": "reasoning.v1"
+}

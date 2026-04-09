@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-04-09T20:23:34.365Z",
+  "node_count": 27,
+  "edge_count": 31,
+  "node_types": [
+    "academy",
+    "memory",
+    "persona-learning",
+    "skill-learning",
+    "subject"
+  ]
+}

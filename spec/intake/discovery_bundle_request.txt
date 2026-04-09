@@ -1,0 +1,8 @@
+COMPACT DISCOVERY BUNDLE REQUEST:
+1. repo root tree
+2. in-repo controlling authority file
+3. repo-root replit.md
+4. .replit and runtime/deployment config files
+5. auth/session/internal API/db/health/admin file paths
+6. current run/test command sources
+7. GS FOOD artifact verification matrix

@@ -1,0 +1,11 @@
+INSPECTION ONLY DOMAINS:
+- commands and workflows
+- port/public binding
+- secrets names and scope
+- persistence/storage
+- startup ordering
+- health/readiness
+- sidecar supervision
+- auth/session propagation
+- internal callback security
+- operator/admin visibility

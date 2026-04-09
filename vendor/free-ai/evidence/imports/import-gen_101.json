@@ -1,0 +1,57 @@
+{
+  "skill": {
+    "id": "gen_101",
+    "name": "Generated persona_control skill 101",
+    "version": "v1",
+    "purpose": "Auto-generated persona_control helper 101",
+    "tags": [
+      "persona_control"
+    ],
+    "triggers": [
+      "persona_control",
+      "persona_control_101"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "high",
+    "token_budget_hint": 250,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "result"
+      ]
+    },
+    "prompt_fragments": [
+      "Auto-generated prompt fragment for Generated persona_control skill 101"
+    ],
+    "validation_rules": {},
+    "source_type": "generated",
+    "source_reference": "local-generator",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T17:25:25.881Z",
+    "enabled": true,
+    "deprecated": true,
+    "compatibility": {
+      "personas": [
+        "general_assistant"
+      ],
+      "runtime_modes": [
+        "hybrid"
+      ]
+    },
+    "schema_version": "skillManifest.v1",
+    "deprecated_reason": "duplicate_of:gen_070"
+  },
+  "receipt": {
+    "skill_id": "gen_101",
+    "checked_at": "2026-04-09T18:01:29.121Z",
+    "reasons": [
+      "similar_prompt_or_name",
+      "source_generated"
+    ],
+    "action": "duplicate",
+    "duplicate_of": "gen_070",
+    "quarantined": true
+  }
+}

@@ -1,0 +1,5 @@
+NEXT ARTIFACTS TO PRODUCE POST-INTAKE:
+1. authority extraction table
+2. repo discovery map
+3. productionization spec skeleton
+4. blocker/risk register

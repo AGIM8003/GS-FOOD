@@ -1,0 +1,37 @@
+{
+  "context_id": "c-1775769170980-noue",
+  "intent_family": "research",
+  "domain": "ai_systems",
+  "task_type": "research",
+  "tone": "neutral",
+  "urgency": 0,
+  "risk_flags": [],
+  "ambiguity_score": 0.880277542266378,
+  "continuity_score": 0.5,
+  "missing_info_flags": [],
+  "conversation_phase": "interaction",
+  "requested_output_form": "text",
+  "memory_retrieval_needed": false,
+  "persona_hints": [
+    "researcher",
+    "technical"
+  ],
+  "skill_hints": [
+    "research",
+    "persona-control"
+  ],
+  "provider_hints": [
+    "ai_systems",
+    "research"
+  ],
+  "model_hints": [
+    "ai_systems",
+    "research"
+  ],
+  "acquisition_hints": [
+    "dynamic_capability_review",
+    "topic_dense_request"
+  ],
+  "confidence": 0.6239444915467244,
+  "schema_version": "contextSnapshot.v1"
+}

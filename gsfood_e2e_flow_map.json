@@ -1,0 +1,6 @@
+{
+  "map": {
+    "pantry_cooking_flow": "User (UI) -> main.py (/api/cooking/suggest) -> FreeAIClient (gs_food_culinary_guide persona) -> FREE AI (/v1/infer) -> (Skill exec back to) main.py (/api/internal/pantry/inventory) -> returns stock -> FREE AI computes recipe -> returns to Python -> User (UI)",
+    "general_chat": "User (UI) -> main.py (/api/chat) -> FreeAIClient (gs_food_general_assistant) -> FREE AI -> results."
+  }
+}

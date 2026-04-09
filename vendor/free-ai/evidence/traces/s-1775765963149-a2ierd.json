@@ -1,0 +1,25 @@
+{
+  "id": "s-1775765963149-a2ierd",
+  "name": "orchestrator.orchestrateSkills",
+  "start": 1775765963149,
+  "meta": {
+    "intent_family": "chat",
+    "persona": "blend:generated_general_create_persona+generated_general_app_persona"
+  },
+  "events": [
+    {
+      "ts": 1775765963151,
+      "event": "orchestrator.result",
+      "data": {
+        "mounted": 5,
+        "token_budget": 2750
+      }
+    }
+  ],
+  "end": 1775765963151,
+  "duration_ms": 2,
+  "outcome": {
+    "status": "ok",
+    "mounted": 5
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "skill": {
+    "id": "knowledge_02",
+    "name": "KG: Tag Extractor",
+    "version": "v1",
+    "purpose": "Extract tags and metadata from text",
+    "tags": [
+      "knowledge graph",
+      "metadata"
+    ],
+    "triggers": [
+      "tags",
+      "metadata"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 200,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "tags"
+      ]
+    },
+    "prompt_fragments": [
+      "Extract concise tags and suggested categories."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "reflective_assistant",
+        "analyst"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "offline_optional"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "knowledge_02",
+    "checked_at": "2026-04-09T18:01:29.104Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

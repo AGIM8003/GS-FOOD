@@ -1,0 +1,24 @@
+{
+  "receipt_id": "r-1775769166523-mfjy",
+  "trace_id": "t-chain-2",
+  "span_id": null,
+  "provider_id": "test-provider",
+  "model_id": "test-model",
+  "http_status": 200,
+  "fallback_used": false,
+  "kb_short_circuit": false,
+  "persona": {
+    "id": "default",
+    "version": "v1"
+  },
+  "intent_family": "question",
+  "skills_loaded": [],
+  "latency_ms": 1,
+  "timestamp": "2026-04-09T21:12:46.523Z",
+  "schema_version": "requestReceipt.v1",
+  "receipt_chain": {
+    "ledger_seq": 1,
+    "prev_hash": "1c459184f50957361c6d67801832d483034eb23051ac6f558a09b3201dc32cd8",
+    "this_hash": "7c6d1e4d1c91d837e8ea2d8b57aa7df258775a0f1628ab8dfcaadc76b3c9f024"
+  }
+}

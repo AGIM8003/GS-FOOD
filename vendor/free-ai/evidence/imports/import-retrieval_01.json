@@ -1,0 +1,55 @@
+{
+  "skill": {
+    "id": "retrieval_01",
+    "name": "Retrieval: KB Search",
+    "version": "v1",
+    "purpose": "Search local KB for relevant passages",
+    "tags": [
+      "retrieval",
+      "kb"
+    ],
+    "triggers": [
+      "search",
+      "lookup"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 400,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "results"
+      ]
+    },
+    "prompt_fragments": [
+      "Return top relevant passages and sources."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "retrieval-focused-assistant",
+        "general_assistant"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "offline_optional"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "retrieval_01",
+    "checked_at": "2026-04-09T18:01:29.099Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

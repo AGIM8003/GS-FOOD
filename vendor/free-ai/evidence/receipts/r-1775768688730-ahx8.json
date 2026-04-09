@@ -1,0 +1,78 @@
+{
+  "receipt_id": "r-1775768688730-ahx8",
+  "trace_id": "t-1775768687792-njcrws",
+  "span_id": null,
+  "provider_id": "none",
+  "model_id": null,
+  "http_status": 503,
+  "fallback_used": true,
+  "kb_short_circuit": false,
+  "persona": {
+    "id": "generated_general_app_persona",
+    "version": "v1"
+  },
+  "intent_family": "chat",
+  "skills_loaded": [
+    {
+      "id": "summarization_01",
+      "version": "v1"
+    },
+    {
+      "id": "gen_068",
+      "version": "v1"
+    },
+    {
+      "id": "persona_control_01",
+      "version": "v1"
+    },
+    {
+      "id": "generated_general_create_chat_workflow",
+      "version": "v1"
+    },
+    {
+      "id": "generated_general_fallback_chat_workflow",
+      "version": "v1"
+    }
+  ],
+  "latency_ms": 938,
+  "timestamp": "2026-04-09T21:04:48.730Z",
+  "schema_version": "requestReceipt.v1",
+  "selected_prompt_variant": "variant_b_structured",
+  "selected_output_contract": "receipt_augmented_answer",
+  "route_decision": {
+    "chosen_provider": null,
+    "chosen_tag": null,
+    "capability": "structured_output",
+    "timestamp": "2026-04-09T21:04:48.726Z",
+    "counts": {
+      "primary_free": 0,
+      "burst_free": 0,
+      "local_only": 0
+    },
+    "ranked": {
+      "primary_free": [],
+      "burst_free": [],
+      "starter_credit": [],
+      "low_cost_fallback": [],
+      "local_only": []
+    },
+    "governance": {}
+  },
+  "local_survival_used": true,
+  "quota_snapshot": {
+    "requests_per_day": 2,
+    "tokens_per_day": 0,
+    "recent_429_count": 0,
+    "recent_timeout_count": 0,
+    "success_count": 0,
+    "failure_count": 2,
+    "success_rate": 0,
+    "average_latency": 41,
+    "free_reliability_score": 0
+  },
+  "receipt_chain": {
+    "ledger_seq": 3,
+    "prev_hash": "27ce143eb25b520c92765b9be9c8068b00b3551cea334a3a2bc5ec05a4b1e4cc",
+    "this_hash": "45cfe47d548a43375205283b00e1cfd6da2785871fcf54d3173da8bc80961d6a"
+  }
+}

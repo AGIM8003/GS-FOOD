@@ -1,0 +1,62 @@
+{
+  "id": "s-1775768709826-fzse7e",
+  "name": "router.handleRequest",
+  "start": 1775768709827,
+  "meta": {
+    "trace_id": "t-1775768709826-0b4vic",
+    "prompt": "pricing fallback please"
+  },
+  "events": [
+    {
+      "ts": 1775768709833,
+      "event": "translator.complete",
+      "data": {
+        "intent_family": "chat"
+      }
+    },
+    {
+      "ts": 1775768709838,
+      "event": "reasoning.complete",
+      "data": {
+        "strategy": "heuristic.v1"
+      }
+    },
+    {
+      "ts": 1775768709848,
+      "event": "persona.selected",
+      "data": {
+        "persona": "blend:generated_general_create_persona+generated_general_app_persona",
+        "confidence": 0.82
+      }
+    },
+    {
+      "ts": 1775768709853,
+      "event": "skills.mounted",
+      "data": {
+        "count": 5,
+        "skills": [
+          "gen_050",
+          "generated_general_fallback_chat_workflow",
+          "persona_control_01",
+          "fallback_01",
+          "generated_general_create_chat_workflow"
+        ]
+      }
+    },
+    {
+      "ts": 1775768710327,
+      "event": "capabilities.resolved",
+      "data": {
+        "persona": "blend:generated_general_create_persona+generated_general_app_persona",
+        "skill_count": 5,
+        "adaptive_activated": true
+      }
+    }
+  ],
+  "end": 1775768710342,
+  "duration_ms": 515,
+  "outcome": {
+    "status": "fallback",
+    "reason": "providers_exhausted"
+  }
+}

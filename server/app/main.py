@@ -110,8 +110,8 @@ class CookSuggestResponse(BaseModel):
 # ==========================================
 
 @app.post("/v1/cook/suggest", response_model=CookSuggestResponse)
-async def cook_suggest(body: CookSuggestRequest) -> CookSuggestResponse:
-    """Generates structured recipes using the NOOR-style Free-Tier Cascade Swarm Agent."""
+async def cook_suggest(body: CookSuggestRequest, current_user: dict = Depends(get_current_user)) -> CookSuggestResponse:
+    """Generates structured recipes using the cybernetic FREE AI engine."""
     
     # MEDICAL CLAIM GUARD: Fail closed if client requests clinical/treatment behavior
     if body.health_envelope and body.health_envelope.mode not in ["H0", "H1"]:
@@ -147,3 +147,59 @@ async def cook_suggest(body: CookSuggestRequest) -> CookSuggestResponse:
         cards=payload.get("cards", []),
         source="cybernetic_swarm_orchestrator"
     )
+
+# ==========================================
+from app.database import db
+from app.auth import get_current_user, require_internal_service
+from fastapi import Depends
+
+@app.get("/api/internal/pantry/inventory")
+async def get_internal_pantry_inventory(target_user_id: str, service_context: dict = Depends(require_internal_service)):
+    """
+    Internal endpoint called by the `gs_food_pantry_lookup` skill 
+    running inside the vendored FREE AI engine locally.
+    Uses SQLite implementation from database.py.
+    Requires internal service scopes via Bearer token to prevent public access.
+    """
+    inventory_items = db.get_inventory(target_user_id)
+    return {
+        "status": "success",
+        "data": {
+            "inventory": inventory_items
+        }
+    }
+
+# ==========================================
+# GS FOOD OPERATOR / ADMIN INTEGRATION
+# ==========================================
+
+from app.free_ai_client import FreeAIClient
+
+@app.get("/api/admin/ai_health")
+async def get_ai_health():
+    """
+    Reports the health of the GS FOOD backend alongside the vendored FREE AI.
+    """
+    client = FreeAIClient()
+    try:
+        ai_health_result = await client.health()
+    finally:
+        await client.close()
+
+    return {
+        "python_backend": "ok",
+        "vendored_free_ai": ai_health_result
+    }
+
+@app.get("/api/admin/traces")
+async def get_ai_traces(limit: int = 10):
+    """
+    Proxies FreeAI decision traces to the GS FOOD operator dashboard.
+    """
+    client = FreeAIClient()
+    try:
+        traces = await client.get_traces(limit)
+    finally:
+        await client.close()
+
+    return traces

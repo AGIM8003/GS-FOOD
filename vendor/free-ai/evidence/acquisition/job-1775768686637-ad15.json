@@ -1,0 +1,11 @@
+{
+  "job_id": "job-1775768686637-ad15",
+  "type": "skill",
+  "target_id": "general",
+  "reason": "weak_skill_fit",
+  "state": "queued_for_acquisition",
+  "requested_by": "adaptive_runtime",
+  "created_at": "2026-04-09T21:04:46.637Z",
+  "updated_at": "2026-04-09T21:04:46.637Z",
+  "schema_version": "AcquisitionJob.v1"
+}

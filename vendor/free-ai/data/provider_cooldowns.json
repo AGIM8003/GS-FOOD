@@ -1,0 +1,12 @@
+{
+  "gemini": {
+    "until": 1775769292875,
+    "reason": "rate_limited",
+    "updated_at": "2026-04-09T21:12:52.875Z"
+  },
+  "openrouter": {
+    "until": 1775770974170,
+    "reason": "auth_error",
+    "updated_at": "2026-04-09T21:12:54.171Z"
+  }
+}

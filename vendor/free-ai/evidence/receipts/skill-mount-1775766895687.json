@@ -1,0 +1,43 @@
+{
+  "mounted_skills": [
+    {
+      "id": "summarization_01",
+      "version": "v1",
+      "purpose": "Create summaries for multi-paragraph text",
+      "token_budget_hint": 350,
+      "score": 0.61
+    },
+    {
+      "id": "gen_068",
+      "version": "v1",
+      "purpose": "Auto-generated summarization helper 68",
+      "token_budget_hint": 600,
+      "score": 0.369
+    },
+    {
+      "id": "persona_control_01",
+      "version": "v1",
+      "purpose": "Adjust persona tone across output",
+      "token_budget_hint": 200,
+      "score": 0.31299999999999994
+    },
+    {
+      "id": "generated_general_create_chat_workflow",
+      "version": "v1",
+      "purpose": "Handle general chat requests when bundled skills are weak or absent.",
+      "token_budget_hint": 600,
+      "score": 0.2882232930674873
+    },
+    {
+      "id": "summarization_gen_118",
+      "version": "v1",
+      "purpose": "Auto-generated helper skill for summarization",
+      "token_budget_hint": 300,
+      "score": 0.19999999999999998
+    }
+  ],
+  "conflicts": [],
+  "dependencies": [],
+  "token_budget": 2050,
+  "schema_version": "skillMountResult.v1"
+}

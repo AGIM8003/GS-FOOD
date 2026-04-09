@@ -1,0 +1,32 @@
+{
+  "$id": "https://free-ai.local/schemas/skillManifest.v1.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SkillManifest v1",
+  "type": "object",
+  "required": ["id","name","version","purpose","tags","triggers","latency_hint","token_budget_hint","risk_class","output_contract","prompt_fragments","source_type","source_reference","source_license","imported_at","schema_version"],
+  "properties": {
+    "id": {"type":"string"},
+    "name": {"type":"string"},
+    "version": {"type":"string"},
+    "purpose": {"type":"string"},
+    "tags": {"type":"array"},
+    "triggers": {"type":"array"},
+    "exclusions": {"type":"array"},
+    "dependencies": {"type":"array"},
+    "latency_hint": {"type":"string"},
+    "token_budget_hint": {"type":"number"},
+    "risk_class": {"type":"string"},
+    "output_contract": {"type":"object"},
+    "prompt_fragments": {"type":"array"},
+    "validation_rules": {"type":"object"},
+    "source_type": {"type":"string"},
+    "source_reference": {"type":"string"},
+    "source_license": {"type":"string"},
+    "imported_at": {"type":"string"},
+    "enabled": {"type":"boolean"},
+    "deprecated": {"type":"boolean"},
+    "compatibility": {"type":"object"},
+    "schema_version": {"type":"string"}
+  },
+  "additionalProperties": true
+}

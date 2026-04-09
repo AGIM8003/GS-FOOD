@@ -1,0 +1,19 @@
+{
+  "schema_version": "skillManifest.v1",
+  "id": "gs_food_pantry_lookup",
+  "name": "Pantry Inventory Lookup",
+  "description": "Retrieves the user's current verified pantry inventory from the GS FOOD backend.",
+  "endpoint": "http://localhost:8000/api/internal/pantry/inventory",
+  "method": "GET",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": "string",
+        "description": "The ID of the user."
+      }
+    },
+    "required": ["user_id"]
+  },
+  "auth_required": false
+}

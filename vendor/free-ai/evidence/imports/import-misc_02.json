@@ -1,0 +1,54 @@
+{
+  "skill": {
+    "id": "misc_02",
+    "name": "Misc: Expand Bullet Points",
+    "version": "v1",
+    "purpose": "Expand bullets into prose",
+    "tags": [
+      "writing"
+    ],
+    "triggers": [
+      "expand",
+      "bullets"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 250,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "expanded"
+      ]
+    },
+    "prompt_fragments": [
+      "Turn bullets into a clear paragraph."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "technical_writer",
+        "teacher"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "offline_optional"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "misc_02",
+    "checked_at": "2026-04-09T18:01:29.105Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "observation_id": "obs-1775766891335-6f2v",
+  "created_at": "2026-04-09T20:34:51.335Z",
+  "trace_id": "t-1775766890313-pft9yc",
+  "prompt_excerpt": "Create a short plan for testing decision graphs.",
+  "intent_family": "chat",
+  "task_type": "chat",
+  "domain": "general",
+  "topics": [
+    "create",
+    "decision",
+    "graphs",
+    "plan",
+    "short",
+    "testing"
+  ],
+  "persona_id": "generated_general_create_persona",
+  "skill_ids": [
+    "generated_general_create_chat_workflow",
+    "gen_053",
+    "planning_01",
+    "testing_01",
+    "testing_02"
+  ],
+  "provider_id": "none",
+  "preview_only": false,
+  "fallback_used": true,
+  "validation_valid": true,
+  "acquisition_used": true,
+  "generated_capability_used": false,
+  "environment": "general",
+  "reasoning_mode": "heuristic.v1"
+}

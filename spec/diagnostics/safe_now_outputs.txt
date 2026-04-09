@@ -1,0 +1,8 @@
+- repo-audit checklist
+- file-discovery checklist
+- gap-to-risk map
+- prioritized inspection order
+- discovery-bundle request
+- authority extraction shell
+- evidence/index placeholders
+- blocker/risk register

@@ -1,0 +1,21 @@
+{
+  "$id": "https://free-ai.local/schemas/contextSnapshot.v1.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ContextSnapshot v1",
+  "type": "object",
+  "required": ["intent_family","continuity","risk_flags","confidence","schema_version"],
+  "properties": {
+    "intent_family": {"type":"string"},
+    "entities": {"type":"object"},
+    "continuity": {"type":"string"},
+    "risk_flags": {"type":"array"},
+    "confidence": {"type":"number"},
+    "session_signals": {"type":"object"},
+    "memory_signals": {"type":"object"},
+    "persona_hints": {"type":"array"},
+    "skill_hints": {"type":"array"},
+    "provider_hints": {"type":"array"},
+    "schema_version": {"type":"string"}
+  },
+  "additionalProperties": true
+}

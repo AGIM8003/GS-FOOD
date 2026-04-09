@@ -1,0 +1,18 @@
+{
+  "contract_id": "receipt_augmented_answer",
+  "valid": false,
+  "repaired": false,
+  "raw_text": "{\"why\":{\"route_reason\":\"test\"}}",
+  "parsed": {
+    "why": {
+      "route_reason": "test"
+    }
+  },
+  "errors": [
+    {
+      "path": "$.answer",
+      "message": "missing required property"
+    }
+  ],
+  "validated_at": "2026-04-09T21:12:51.858Z"
+}

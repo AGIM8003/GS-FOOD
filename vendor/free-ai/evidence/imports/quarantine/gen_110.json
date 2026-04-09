@@ -1,0 +1,44 @@
+{
+  "id": "gen_110",
+  "name": "Generated documentation skill 110",
+  "version": "v1",
+  "purpose": "Auto-generated documentation helper 110",
+  "tags": [
+    "documentation"
+  ],
+  "triggers": [
+    "documentation",
+    "documentation_110"
+  ],
+  "exclusions": [],
+  "dependencies": [],
+  "latency_hint": "high",
+  "token_budget_hint": 200,
+  "risk_class": "medium",
+  "output_contract": {
+    "type": "object",
+    "fields": [
+      "result"
+    ]
+  },
+  "prompt_fragments": [
+    "Auto-generated prompt fragment for Generated documentation skill 110"
+  ],
+  "validation_rules": {},
+  "source_type": "generated",
+  "source_reference": "local-generator",
+  "source_license": "bundled",
+  "imported_at": "2026-04-09T17:25:25.881Z",
+  "enabled": true,
+  "deprecated": true,
+  "compatibility": {
+    "personas": [
+      "general_assistant"
+    ],
+    "runtime_modes": [
+      "hybrid"
+    ]
+  },
+  "schema_version": "skillManifest.v1",
+  "deprecated_reason": "duplicate_of:gen_048"
+}

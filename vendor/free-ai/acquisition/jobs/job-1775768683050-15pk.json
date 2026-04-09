@@ -1,0 +1,11 @@
+{
+  "job_id": "job-1775768683050-15pk",
+  "type": "persona",
+  "target_id": "ai_systems",
+  "reason": "weak_persona_fit",
+  "state": "queued_for_acquisition",
+  "requested_by": "adaptive_runtime",
+  "created_at": "2026-04-09T21:04:43.050Z",
+  "updated_at": "2026-04-09T21:04:43.051Z",
+  "schema_version": "AcquisitionJob.v1"
+}

@@ -1,0 +1,18 @@
+{
+  "memory_id": "mem-1775765964604-trfk",
+  "category": "test",
+  "subject": "graph subject",
+  "summary": "graph summary",
+  "structured_payload": null,
+  "source_trace_id": null,
+  "source_receipt_id": null,
+  "confidence": 0.8,
+  "importance": 0.7,
+  "retention_class": "medium",
+  "version": "v1",
+  "memory_origin": "system",
+  "sensitivity_class": "normal",
+  "provenance": null,
+  "created_at": "2026-04-09T20:19:24.604Z",
+  "updated_at": "2026-04-09T20:19:24.605Z"
+}

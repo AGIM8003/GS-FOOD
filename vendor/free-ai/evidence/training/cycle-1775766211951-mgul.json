@@ -1,0 +1,152 @@
+{
+  "cycle_id": "cycle-1775766211563-a1kh",
+  "generated_at": "2026-04-09T20:23:31.950Z",
+  "status": "completed",
+  "reason": "test_lifecycle",
+  "observation_count": 4,
+  "summary": {
+    "top_domains": [
+      {
+        "value": "general",
+        "count": 4
+      }
+    ],
+    "top_personas": [
+      {
+        "value": "technical",
+        "count": 4
+      }
+    ],
+    "top_skills": [
+      {
+        "value": "skill_summarize",
+        "count": 4
+      }
+    ]
+  },
+  "academies": [
+    {
+      "id": "general",
+      "domain": "general",
+      "status": "active",
+      "observation_count": 4,
+      "success_rate": 1,
+      "dominant_personas": [
+        "technical"
+      ],
+      "dominant_skills": [
+        "skill_summarize"
+      ],
+      "topics": [
+        "analysis"
+      ],
+      "curriculum": [
+        "Focus practice on: analysis.",
+        "Keep evidence, rationale, and compliance notes explicit in the final answer."
+      ],
+      "compliance_notes": [],
+      "research_sources": [],
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T20:23:31.945Z",
+      "schema_version": "trainingAcademy.v1",
+      "learned_domains": [],
+      "learned_topics": [],
+      "response_style_hints": [],
+      "execution_hints": [],
+      "compatible_personas": [],
+      "created_at": "2026-04-09T20:23:31.945Z"
+    }
+  ],
+  "persona_overlays": [
+    {
+      "id": "technical",
+      "status": "active",
+      "usage_count": 4,
+      "success_rate": 1,
+      "updated_at": "2026-04-09T20:23:31.950Z",
+      "created_at": "2026-03-30T20:23:31.561Z",
+      "retired_at": "2026-04-09T20:23:31.564Z",
+      "retirement_reason": "stale",
+      "learned_domains": [
+        "general"
+      ],
+      "learned_topics": [
+        "analysis"
+      ],
+      "response_style_hints": [
+        "Lead with concise synthesis, then provide evidence and rationale.",
+        "Lean into learned topics: analysis."
+      ],
+      "compliance_notes": [],
+      "selection_boost": 0.15,
+      "environment_tags": [
+        "general"
+      ],
+      "schema_version": "trainingPersonaOverlay.v1",
+      "execution_hints": [],
+      "compatible_personas": []
+    }
+  ],
+  "skill_overlays": [
+    {
+      "id": "skill_summarize",
+      "status": "active",
+      "usage_count": 4,
+      "success_rate": 1,
+      "learned_domains": [
+        "general"
+      ],
+      "learned_topics": [
+        "analysis"
+      ],
+      "compatible_personas": [
+        "technical"
+      ],
+      "execution_hints": [
+        "Optimize skill_summarize for: analysis."
+      ],
+      "compliance_notes": [],
+      "routing_boost": 0.122,
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T20:23:31.950Z",
+      "schema_version": "trainingSkillOverlay.v1",
+      "response_style_hints": [],
+      "created_at": "2026-04-09T20:23:31.950Z"
+    }
+  ],
+  "acquisition_signals": [],
+  "retired_overlays": [
+    {
+      "bucket": "persona",
+      "id": "technical",
+      "prior_status": "active",
+      "reason": "stale",
+      "age_days": 10
+    }
+  ],
+  "review_candidates": [
+    {
+      "review_id": "review-1775766211950-8mz3",
+      "overlay_type": "persona",
+      "target_id": "technical",
+      "domain": "general"
+    },
+    {
+      "review_id": "review-1775766211950-kizk",
+      "overlay_type": "skill",
+      "target_id": "skill_summarize",
+      "domain": "general"
+    },
+    {
+      "review_id": "review-1775766211950-gpxk",
+      "overlay_type": "academy",
+      "target_id": "general",
+      "domain": "general"
+    }
+  ],
+  "schema_version": "trainingInsights.v1"
+}

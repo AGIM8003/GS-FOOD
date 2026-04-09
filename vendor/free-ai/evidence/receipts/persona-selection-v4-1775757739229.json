@@ -1,0 +1,18 @@
+{
+  "final_persona_id": "blend:analyst+undefined",
+  "persona_version": "v1+v1",
+  "blend_weights": {
+    "analyst": 0.6,
+    "undefined": 0.4
+  },
+  "confidence": 0.1,
+  "source": "v4-blend",
+  "rationale_codes": [
+    "v4:blend"
+  ],
+  "persona": {
+    "id": "blend:analyst+undefined",
+    "version": "v1+v1",
+    "system_prompt": "\n"
+  }
+}

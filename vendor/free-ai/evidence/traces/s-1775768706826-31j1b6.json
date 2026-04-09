@@ -1,0 +1,15 @@
+{
+  "id": "s-1775768706826-31j1b6",
+  "name": "providers.callProviders",
+  "start": 1775768706826,
+  "meta": {
+    "prompt_snippet": "-- Prompt Runtime --\nPrompt Family: chat\nPrompt Variant: variant_b_structured\nTrace ID: t-1775768706308-1ysv2t\nReasoning Strategy: compose\nOutput Contract: receipt_augmented_answer\nReturn only valid J"
+  },
+  "events": [],
+  "end": 1775768706826,
+  "duration_ms": 0,
+  "outcome": {
+    "status": "fail",
+    "failureCount": 0
+  }
+}

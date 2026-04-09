@@ -1,0 +1,26 @@
+{
+  "context_id": "c-1775756922202-ec3w",
+  "intent_family": "debug",
+  "domain": "general",
+  "task_type": "debug",
+  "tone": "neutral",
+  "urgency": 0,
+  "risk_flags": [],
+  "ambiguity_score": 0.8435050642538463,
+  "continuity_score": 0.5,
+  "missing_info_flags": [],
+  "conversation_phase": "interaction",
+  "requested_output_form": "text",
+  "memory_retrieval_needed": false,
+  "persona_hints": [
+    "debugger"
+  ],
+  "skill_hints": [
+    "debugging"
+  ],
+  "provider_hints": [],
+  "model_hints": [],
+  "acquisition_hints": [],
+  "confidence": 0.6312989871492307,
+  "schema_version": "contextSnapshot.v1"
+}

@@ -1,0 +1,225 @@
+{
+  "schema_version": "freeaiEngineManifest.v1",
+  "engine_id": "free-ai",
+  "engine_name": "FREE AI",
+  "engine_type": "copy-only-runtime-module",
+  "generated_at": "2026-04-09T00:00:00Z",
+  "purpose": "Portable AI runtime engine intended to be copied fully into other projects and run from the copied local implementation.",
+  "integration_policy": {
+    "full_local_copy_required": true,
+    "forbid_wrapper_usage": true,
+    "forbid_live_reference_usage": true,
+    "forbid_shared_runtime_from_source_repo": true,
+    "owner_rule": "FREE AI must be copied fully into the destination project; using this repository as a wrapper or reference is forbidden."
+  },
+  "authoritative_files": [
+    "AGENTS.md",
+    "README.md",
+    "FREEAI.md",
+    ".env.example",
+    "providers.json",
+    "src/server.js",
+    "src/server/router.js",
+    "src/retrieval/evalMetrics.js",
+    "src/retrieval/qualityGate.js",
+    "src/prompt/runtime.js",
+    "src/prompt/contracts.js",
+    "skills/active_catalog.json",
+    "src/training/engine.js",
+    "src/training/runtime.js",
+    "src/training/store.js"
+  ],
+  "required_directories": [
+    "src",
+    "skills",
+    "personas",
+    "data",
+    "memory",
+    "evidence",
+    "acquisition",
+    "tests",
+    "scripts",
+    "web"
+  ],
+  "optional_directories": [
+    "out"
+  ],
+  "entrypoints": {
+    "server": "src/server.js",
+    "config": "src/config.js",
+    "router": "src/server/router.js"
+  },
+  "http_surface": {
+    "infer": "/v1/infer",
+    "stream": "/v1/stream",
+    "health": "/health",
+    "health_probes": [
+      "/health/live",
+      "/health/ready",
+      "/health/startup"
+    ],
+    "admin": [
+      "/admin/imports",
+      "/admin/quarantine",
+      "/admin/evidence",
+      "/admin/prompts",
+      "/admin/validation",
+      "/admin/traces",
+      "/admin/provider-ladder",
+      "/admin/provider-health",
+      "/admin/quota-snapshots",
+      "/admin/cooldowns",
+      "/admin/provider-governance",
+      "/admin/decision-graphs",
+      "/admin/prompt-promotions",
+      "/admin/receipt-chain",
+      "/admin/memory-graph",
+      "/admin/acquisition",
+      "/admin/training",
+      "/admin/training/insights",
+      "/admin/training/overlays",
+      "/admin/training/review-queue",
+      "/admin/training/run",
+      "/admin/training/control",
+      "/admin/training/profile",
+      "/admin/training/review",
+      "/admin/prompt-preview"
+    ]
+  },
+  "pipeline": [
+    "translator",
+    "context_engine",
+    "memory_retrieval",
+    "reasoning",
+    "metacognition",
+    "persona_selection",
+    "skill_orchestration",
+    "prompt_runtime",
+    "provider_routing",
+    "response_validation",
+    "receipt_generation",
+    "evidence_logging",
+    "training_observation",
+    "training_overlay_application"
+  ],
+  "runtime_modes": [
+    "cloud_only",
+    "hybrid",
+    "offline_optional",
+    "local_only"
+  ],
+  "providers_supported": [
+    "gemini",
+    "openrouter",
+    "groq",
+    "huggingface",
+    "fireworks",
+    "openai",
+    "anthropic",
+    "ollama"
+  ],
+  "state_files": [
+    "data/provider_ladder.json",
+    "data/provider_quota.json",
+    "data/provider_health_matrix.json",
+    "data/provider_cooldowns.json",
+    "data/provider_governance.json",
+    "data/prompt_registry.json",
+    "data/training/config.json",
+    "data/training/observations.json",
+    "data/training/overlays.json",
+    "data/training/review-queue.json",
+    "data/training/insights.json",
+    "data/training/state.json",
+    "acquisition/jobs"
+  ],
+  "evidence_paths": [
+    "evidence/imports",
+    "evidence/decision-graphs",
+    "evidence/providers",
+    "evidence/eval",
+    "evidence/promotions",
+    "evidence/prompts",
+    "evidence/validation",
+    "evidence/traces",
+    "evidence/receipts",
+    "evidence/reports",
+    "evidence/training",
+    "evidence/capabilities",
+    "evidence/acquisition"
+  ],
+  "env_keys": [
+    "OPENROUTER_API_KEY",
+    "OPENAI_API_KEY",
+    "ANTHROPIC_API_KEY",
+    "GEMINI_API_KEY",
+    "GROQ_API_KEY",
+    "HF_TOKEN",
+    "FIREWORKS_API_KEY",
+    "OLLAMA_ENDPOINT",
+    "PORT",
+    "FREEAI_MODE"
+  ],
+  "integration_modes": [
+    "local_copied_http_engine",
+    "local_copied_embedded_node_module",
+    "vendorized_engine_folder"
+  ],
+  "host_project_requirements": [
+    "Copy the full engine into the host project before use",
+    "Preserve folder-relative runtime file access",
+    "Provide writable data, memory, and evidence directories",
+    "Provide writable acquisition job directories",
+    "Provide the tests, scripts, and web folders in the copied engine",
+    "Keep providers.json local to the host project copy",
+    "Keep active skill catalog authoritative inside the copied engine",
+    "Run tests after merge",
+    "Do not depend on the original repository at runtime",
+    "Do not use the source repository as a shared wrapper or reference"
+  ],
+  "merge_checklist": [
+    "Copy full engine to dedicated local host folder",
+    "Do not omit tests, scripts, web, acquisition, data, memory, or evidence folders",
+    "Configure environment keys",
+    "Preserve prompt runtime and contracts",
+    "Preserve retrieval evaluation and corrective gating modules",
+    "Preserve receipts and evidence output",
+    "Preserve acquisition queue and training state directories",
+    "Verify admin inspection endpoints or equivalent host access",
+    "Verify structured output validation still runs",
+    "Verify provider failover still works"
+  ],
+  "copy_destinations": [
+    "vendor/free-ai",
+    "engines/free-ai",
+    "src/freeai"
+  ],
+  "verification_commands": [
+    "node scripts/quality_gate.js --fast",
+    "node scripts/run_all_tests.js",
+    "node scripts/run_provider_probes.js",
+    "node scripts/run_training_cycle.js",
+    "node scripts/training_status_report.js"
+  ],
+  "host_execution_examples": {
+    "vendorized": {
+      "start": "node vendor/free-ai/src/server.js",
+      "quality_gate": "node vendor/free-ai/scripts/quality_gate.js --fast",
+      "test": "node vendor/free-ai/scripts/run_all_tests.js",
+      "training_report": "node vendor/free-ai/scripts/training_status_report.js"
+    }
+  },
+  "integration_kit": {
+    "generator_script": "scripts/build_integration_kit.js",
+    "output_directory": "out/integration-kit",
+    "artifacts": [
+      "out/integration-kit/integration-manifest.json",
+      "out/integration-kit/integration-file-index.json",
+      "out/integration-kit/HOST_MERGE_GUIDE.md",
+      "out/integration-kit/HOST_MERGE_PLAYBOOK.json",
+      "out/integration-kit/AGENT_TRANSFER_PROMPT.md",
+      "out/integration-kit/host-env.example",
+      "out/integration-kit/host-package-snippet.json"
+    ]
+  }
+}

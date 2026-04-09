@@ -1,0 +1,14 @@
+{
+  "contract_id": "receipt_augmented_answer",
+  "valid": true,
+  "repaired": false,
+  "raw_text": "{\"answer\":\"ok\",\"why\":{\"route_reason\":\"test\"}}",
+  "parsed": {
+    "answer": "ok",
+    "why": {
+      "route_reason": "test"
+    }
+  },
+  "errors": [],
+  "validated_at": "2026-04-09T19:34:46.053Z"
+}

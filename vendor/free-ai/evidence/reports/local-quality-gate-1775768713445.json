@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-04-09T21:05:13.444Z",
+  "phase": "freeai_local_quality_gate",
+  "stages": {
+    "required_files": {
+      "status": "PASS",
+      "checked": 8,
+      "missing": []
+    },
+    "manifest_consistency": {
+      "status": "PASS",
+      "missing_authoritative": [],
+      "missing_directories": []
+    },
+    "receipt_chain": {
+      "status": "PASS",
+      "ledger": {
+        "valid": true,
+        "entries": 4,
+        "head_hash": "45cfe47d548a43375205283b00e1cfd6da2785871fcf54d3173da8bc80961d6a"
+      }
+    },
+    "integration_kit": {
+      "label": "integration_kit",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout_tail": [
+        "integration_kit test OK"
+      ],
+      "stderr_tail": [
+        ""
+      ]
+    },
+    "tests": {
+      "label": "full_tests",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout_tail": [
+        "    \"test\": \"training_lifecycle.test.js\",",
+        "    \"ok\": true,",
+        "    \"status\": 0",
+        "  },",
+        "  {",
+        "    \"test\": \"translator.test.js\",",
+        "    \"ok\": true,",
+        "    \"status\": 0",
+        "  }",
+        "]"
+      ],
+      "stderr_tail": [
+        ""
+      ]
+    },
+    "smoke": {
+      "label": "smoke",
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout_tail": [
+        "smoke test OK"
+      ],
+      "stderr_tail": [
+        ""
+      ]
+    }
+  },
+  "summary": {
+    "pass": 6,
+    "fail": 0,
+    "skip": 0,
+    "total": 6
+  },
+  "verdict": "PASS"
+}

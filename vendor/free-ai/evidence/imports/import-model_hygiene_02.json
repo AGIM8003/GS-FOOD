@@ -1,0 +1,56 @@
+{
+  "skill": {
+    "id": "model_hygiene_02",
+    "name": "Model: Token Cost Estimator",
+    "version": "v1",
+    "purpose": "Estimate token cost for prompt+response",
+    "tags": [
+      "model-hygiene",
+      "cost"
+    ],
+    "triggers": [
+      "tokens",
+      "estimate"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 200,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "estimated_tokens",
+        "cost_estimate"
+      ]
+    },
+    "prompt_fragments": [
+      "Estimate token usage for the compiled prompt and expected output length."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "product_manager",
+        "technical_architect"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "cloud_only"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "model_hygiene_02",
+    "checked_at": "2026-04-09T18:01:29.103Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

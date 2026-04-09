@@ -1,0 +1,43 @@
+{
+  "mounted_skills": [
+    {
+      "id": "persona_control_01",
+      "version": "v1",
+      "purpose": "Adjust persona tone across output",
+      "token_budget_hint": 200,
+      "score": 0.28700000000000003
+    },
+    {
+      "id": "summarization_01",
+      "version": "v1",
+      "purpose": "Create summaries for multi-paragraph text",
+      "token_budget_hint": 350,
+      "score": 0.27
+    },
+    {
+      "id": "generated_general_fallback_chat_workflow",
+      "version": "v1",
+      "purpose": "Handle general chat requests when bundled skills are weak or absent.",
+      "token_budget_hint": 600,
+      "score": 0.1592168332809066
+    },
+    {
+      "id": "persona-control_gen_120",
+      "version": "v1",
+      "purpose": "Auto-generated helper skill for persona-control",
+      "token_budget_hint": 300,
+      "score": 0.13999999999999999
+    },
+    {
+      "id": "gen_053",
+      "version": "v1",
+      "purpose": "Auto-generated testing helper 53",
+      "token_budget_hint": 350,
+      "score": 0.135
+    }
+  ],
+  "conflicts": [],
+  "dependencies": [],
+  "token_budget": 1800,
+  "schema_version": "skillMountResult.v1"
+}

@@ -1,0 +1,55 @@
+{
+  "skill": {
+    "id": "testing_02",
+    "name": "Testing: Integration Test Plan",
+    "version": "v1",
+    "purpose": "Draft an integration test plan",
+    "tags": [
+      "testing",
+      "integration"
+    ],
+    "triggers": [
+      "integration test",
+      "plan"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "medium",
+    "token_budget_hint": 800,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "test_plan"
+      ]
+    },
+    "prompt_fragments": [
+      "Create an integration test plan covering key flows."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "evaluation_assistant",
+        "systems_operator"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "cloud_only"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "testing_02",
+    "checked_at": "2026-04-09T18:01:29.104Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

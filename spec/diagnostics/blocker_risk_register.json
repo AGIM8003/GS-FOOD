@@ -1,0 +1,43 @@
+{
+  "Operational artifacts": {
+    "severity": "P1",
+    "missing": [
+      "approved donor repos"
+    ],
+    "risk": "cannot optimize observability"
+  },
+  "Authority and governance": {
+    "severity": "P0",
+    "missing": [
+      "SCA file",
+      "stop templates",
+      "hashing rules"
+    ],
+    "risk": "violations of repo governance"
+  },
+  "Data and persistence": {
+    "severity": "P1",
+    "missing": [
+      "DB env vars",
+      "durability model"
+    ],
+    "risk": "invalid storage persistence on Replit"
+  },
+  "Runtime and deployment": {
+    "severity": "P0",
+    "missing": [
+      "replit.md",
+      ".replit",
+      "deploy config"
+    ],
+    "risk": "inventing run/build/test commands"
+  },
+  "Security": {
+    "severity": "P0",
+    "missing": [
+      "auth boundaries",
+      "session propagation"
+    ],
+    "risk": "unsafe session guidance leakage"
+  }
+}

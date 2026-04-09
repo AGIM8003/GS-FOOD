@@ -1,0 +1,56 @@
+{
+  "skill": {
+    "id": "architecture_01",
+    "name": "Arch: API Design",
+    "version": "v1",
+    "purpose": "Suggest API contract and examples",
+    "tags": [
+      "architecture",
+      "api"
+    ],
+    "triggers": [
+      "api",
+      "endpoint",
+      "contract"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "medium",
+    "token_budget_hint": 900,
+    "risk_class": "medium",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "openapi_spec",
+        "examples"
+      ]
+    },
+    "prompt_fragments": [
+      "Design a REST/GraphQL API with example requests and responses."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "technical_architect",
+        "software_engineer"
+      ],
+      "runtime_modes": [
+        "hybrid"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "architecture_01",
+    "checked_at": "2026-04-09T18:01:29.099Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

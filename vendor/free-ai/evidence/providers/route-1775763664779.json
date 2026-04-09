@@ -1,0 +1,65 @@
+{
+  "ladderDecision": {
+    "chosen_provider": "gemini",
+    "chosen_tag": "primary_free",
+    "capability": "structured_output",
+    "timestamp": "2026-04-09T19:41:04.778Z",
+    "counts": {
+      "primary_free": 2,
+      "burst_free": 1,
+      "local_only": 0
+    },
+    "ranked": {
+      "primary_free": [
+        {
+          "id": "gemini",
+          "score": 109.6
+        },
+        {
+          "id": "huggingface",
+          "score": 91.5999875
+        }
+      ],
+      "burst_free": [
+        {
+          "id": "openrouter",
+          "score": 102.9299875
+        }
+      ],
+      "starter_credit": [
+        {
+          "id": "groq",
+          "score": 94.6
+        },
+        {
+          "id": "openai",
+          "score": 79.6
+        },
+        {
+          "id": "anthropic",
+          "score": 69.6
+        },
+        {
+          "id": "fireworks",
+          "score": 69.6
+        }
+      ],
+      "low_cost_fallback": [
+        {
+          "id": "ollama",
+          "score": 90.19946250000001
+        }
+      ],
+      "local_only": []
+    }
+  },
+  "persona": "blend:analyst+undefined",
+  "intent": "research",
+  "skills": [
+    "research_01",
+    "gen_066",
+    "research_gen_116",
+    "summarization_01",
+    "coding_02"
+  ]
+}

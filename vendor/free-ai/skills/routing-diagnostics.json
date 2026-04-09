@@ -1,0 +1,19 @@
+{
+  "id": "routing-diagnostics",
+  "name": "Routing Diagnostics",
+  "version": "v1",
+  "purpose": "Provide routing insights and diagnostics for provider selection",
+  "tags": ["routing","diagnostics"],
+  "triggers": ["route","routing","diagnostic"],
+  "exclusions": [],
+  "dependencies": [],
+  "latency_hint": "low",
+  "token_budget_hint": 300,
+  "risk_class": "low",
+  "output_contract": {"type":"object","fields":["route_reason","selected_provider"]},
+  "prompt_fragments": ["When routing, include reason and provider metrics."],
+  "prompt_fragments": ["diagnose routing preferences and fallback history."],
+  "prompt_fragments": ["include confidence score and recommended next steps."],
+  "prompt_fragments": [],
+  "validation_rules": {}
+}

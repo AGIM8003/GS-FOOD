@@ -1,0 +1,8 @@
+{
+  "improvement_plan": {
+    "phase_1": "Full Copy Transfer of FREE AI to GS FOOD/vendor/free-ai.",
+    "phase_2": "Verify the standalone integrity of the copied FREE AI locally using its built-in quality gates.",
+    "phase_3": "Adapt personas and skills inside vendor/free-ai to support GS FOOD domain logic natively.",
+    "phase_4": "Integrate GS FOOD Python server side to call vendor/free-ai for 'food intelligence' endpoints."
+  }
+}

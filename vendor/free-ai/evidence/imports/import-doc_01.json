@@ -1,0 +1,56 @@
+{
+  "skill": {
+    "id": "doc_01",
+    "name": "Docs: API Quickstart",
+    "version": "v1",
+    "purpose": "Generate API quickstart docs",
+    "tags": [
+      "documentation",
+      "docs"
+    ],
+    "triggers": [
+      "quickstart",
+      "docs"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 500,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "docs",
+        "examples"
+      ]
+    },
+    "prompt_fragments": [
+      "Produce a short quickstart guide with code snippets."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "technical_writer",
+        "product_manager"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "cloud_only"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "doc_01",
+    "checked_at": "2026-04-09T18:01:29.101Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

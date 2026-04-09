@@ -1,0 +1,22 @@
+{
+  "raw": "Research: summarize recent best practices for prompt engineering",
+  "normalized_text": "Research: summarize recent best practices for prompt engineering",
+  "language": "en",
+  "intent_family": "research",
+  "task_type": "research",
+  "entities": [],
+  "constraints": {},
+  "output_preferences": {},
+  "continuity": 0.5,
+  "risk_flags": [],
+  "ambiguity_flags": 0.880277542266378,
+  "memory_need": false,
+  "persona_need": null,
+  "skill_need": null,
+  "model_preference_hint": null,
+  "acquisition_hint": null,
+  "tone": "neutral",
+  "urgency": 0,
+  "confidence": 0.6239444915467244,
+  "schema_version": "translator.v1"
+}

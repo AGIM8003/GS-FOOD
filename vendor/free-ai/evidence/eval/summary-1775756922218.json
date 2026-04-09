@@ -1,0 +1,20 @@
+{
+  "ts": "2026-04-09T17:48:42.218Z",
+  "results": [
+    {
+      "i": 0,
+      "ok": true,
+      "path": "D:\\GITHUB RESPIRATORY\\FREE AI\\evidence\\eval\\eval-1775756922198-0.json"
+    },
+    {
+      "i": 1,
+      "ok": true,
+      "path": "D:\\GITHUB RESPIRATORY\\FREE AI\\evidence\\eval\\eval-1775756922209-1.json"
+    },
+    {
+      "i": 2,
+      "ok": true,
+      "path": "D:\\GITHUB RESPIRATORY\\FREE AI\\evidence\\eval\\eval-1775756922218-2.json"
+    }
+  ]
+}

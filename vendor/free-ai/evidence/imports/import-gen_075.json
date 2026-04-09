@@ -1,0 +1,53 @@
+{
+  "skill": {
+    "id": "gen_075",
+    "name": "Generated safety skill 75",
+    "version": "v1",
+    "purpose": "Auto-generated safety helper 75",
+    "tags": [
+      "safety"
+    ],
+    "triggers": [
+      "safety",
+      "safety_75"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 450,
+    "risk_class": "medium",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "result"
+      ]
+    },
+    "prompt_fragments": [
+      "Auto-generated prompt fragment for Generated safety skill 75"
+    ],
+    "validation_rules": {},
+    "source_type": "generated",
+    "source_reference": "local-generator",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T17:25:25.881Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "general_assistant"
+      ],
+      "runtime_modes": [
+        "hybrid"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "gen_075",
+    "action": "auto_promoted",
+    "checked_at": "2026-04-09T18:01:29.131Z",
+    "reasons": [
+      "auto_promote_to_reach_100"
+    ]
+  }
+}

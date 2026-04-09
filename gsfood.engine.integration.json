@@ -1,0 +1,17 @@
+{
+  "integration_name": "GS FOOD Intelligence Core",
+  "engine_source": "FREE AI",
+  "integration_mode": "vendorized",
+  "local_path": "vendor/free-ai",
+  "status": "active",
+  "adapted_components": [
+    "personas/gs_food_general_assistant.json",
+    "personas/gs_food_culinary_guide.json",
+    "skills/gs_food_pantry_lookup.json",
+    "skills/gs_food_recipe_generator.json"
+  ],
+  "host_responsibilities": [
+    "Python backend (app/) to use FREE AI endpoint for structured semantic insight generation.",
+    "Data pipeline (Stitch UI) -> Python (app/) -> FREE AI (vendor/free-ai) -> output -> Python -> User"
+  ]
+}

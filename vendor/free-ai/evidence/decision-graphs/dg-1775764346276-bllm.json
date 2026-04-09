@@ -1,0 +1,72 @@
+{
+  "schema_version": "DecisionGraphRecord.v1",
+  "graph_id": "dg-1775764346276-bllm",
+  "generated_at": "2026-04-09T19:52:26.276Z",
+  "trace_id": "t-1775764346260-7p81k5",
+  "prompt_variant": "variant_b_structured",
+  "prompt_family_id": "chat",
+  "output_contract": "receipt_augmented_answer",
+  "provider_id": null,
+  "model_id": null,
+  "fallback_used": true,
+  "translator": {
+    "intent_family": "chat",
+    "task_type": "chat"
+  },
+  "context": {
+    "domain": "general",
+    "continuity_score": 0.5
+  },
+  "reasoning": {
+    "mode": "heuristic.v1",
+    "strategy_type": "compose",
+    "confidence": 0.7239444915467244
+  },
+  "persona": {
+    "id": "reflective",
+    "confidence": 0.5
+  },
+  "skills": [
+    {
+      "id": "gen_053",
+      "version": "v1"
+    },
+    {
+      "id": "planning_01",
+      "version": "v1"
+    },
+    {
+      "id": "testing_01",
+      "version": "v1"
+    },
+    {
+      "id": "testing_02",
+      "version": "v1"
+    },
+    {
+      "id": "misc_01",
+      "version": "v1"
+    }
+  ],
+  "memory_hits": [],
+  "route_decision": {
+    "chosen_provider": null,
+    "chosen_tag": null,
+    "capability": "structured_output",
+    "timestamp": "2026-04-09T19:52:26.272Z",
+    "counts": {
+      "primary_free": 0,
+      "burst_free": 0,
+      "local_only": 0
+    },
+    "ranked": {
+      "primary_free": [],
+      "burst_free": [],
+      "starter_credit": [],
+      "low_cost_fallback": [],
+      "local_only": []
+    },
+    "governance": {}
+  },
+  "validation": null
+}

@@ -1,0 +1,19 @@
+{
+  "ladderDecision": {
+    "chosen_provider": "openrouter",
+    "chosen_tag": "primary_free",
+    "timestamp": "2026-04-09T18:00:08.688Z",
+    "counts": {
+      "primary_free": 0
+    }
+  },
+  "persona": "blend:analyst+undefined",
+  "intent": "research",
+  "skills": [
+    "research_01",
+    "gen_066",
+    "summarization_01",
+    "coding_02",
+    "retrieval_01"
+  ]
+}

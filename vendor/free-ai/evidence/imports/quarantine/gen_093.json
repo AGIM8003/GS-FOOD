@@ -1,0 +1,44 @@
+{
+  "id": "gen_093",
+  "name": "Generated planning skill 93",
+  "version": "v1",
+  "purpose": "Auto-generated planning helper 93",
+  "tags": [
+    "planning"
+  ],
+  "triggers": [
+    "planning",
+    "planning_93"
+  ],
+  "exclusions": [],
+  "dependencies": [],
+  "latency_hint": "low",
+  "token_budget_hint": 350,
+  "risk_class": "low",
+  "output_contract": {
+    "type": "object",
+    "fields": [
+      "result"
+    ]
+  },
+  "prompt_fragments": [
+    "Auto-generated prompt fragment for Generated planning skill 93"
+  ],
+  "validation_rules": {},
+  "source_type": "generated",
+  "source_reference": "local-generator",
+  "source_license": "bundled",
+  "imported_at": "2026-04-09T17:25:25.881Z",
+  "enabled": true,
+  "deprecated": true,
+  "compatibility": {
+    "personas": [
+      "general_assistant"
+    ],
+    "runtime_modes": [
+      "hybrid"
+    ]
+  },
+  "schema_version": "skillManifest.v1",
+  "deprecated_reason": "duplicate_of:gen_062"
+}

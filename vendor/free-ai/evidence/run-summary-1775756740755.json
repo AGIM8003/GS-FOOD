@@ -1,0 +1,1060 @@
+{
+  "ts": "2026-04-09T17:45:40.754Z",
+  "importSummaryFile": "summary-1775756200497.json",
+  "importSummary": {
+    "total": 110,
+    "accepted": 75,
+    "duplicates": 35,
+    "quarantined": 66,
+    "updated": 110,
+    "details": [
+      {
+        "skill_id": "planning_01",
+        "checked_at": "2026-04-09T17:36:40.452Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "planning_02",
+        "checked_at": "2026-04-09T17:36:40.453Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "planning_03",
+        "checked_at": "2026-04-09T17:36:40.454Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "coding_01",
+        "checked_at": "2026-04-09T17:36:40.454Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "coding_02",
+        "checked_at": "2026-04-09T17:36:40.454Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "coding_03",
+        "checked_at": "2026-04-09T17:36:40.455Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "debugging_01",
+        "checked_at": "2026-04-09T17:36:40.455Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "debugging_02",
+        "checked_at": "2026-04-09T17:36:40.455Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "architecture_01",
+        "checked_at": "2026-04-09T17:36:40.455Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "research_01",
+        "checked_at": "2026-04-09T17:36:40.455Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "retrieval_01",
+        "checked_at": "2026-04-09T17:36:40.456Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "summarization_01",
+        "checked_at": "2026-04-09T17:36:40.456Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "memory_01",
+        "checked_at": "2026-04-09T17:36:40.456Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "persona_control_01",
+        "checked_at": "2026-04-09T17:36:40.456Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "metacognition_01",
+        "checked_at": "2026-04-09T17:36:40.456Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "evaluation_01",
+        "checked_at": "2026-04-09T17:36:40.457Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "routing_01",
+        "checked_at": "2026-04-09T17:36:40.457Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "safety_01",
+        "checked_at": "2026-04-09T17:36:40.457Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "reflection_01",
+        "checked_at": "2026-04-09T17:36:40.457Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "invention_01",
+        "checked_at": "2026-04-09T17:36:40.458Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "evidence_01",
+        "checked_at": "2026-04-09T17:36:40.458Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "doc_01",
+        "checked_at": "2026-04-09T17:36:40.458Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "prompt_01",
+        "checked_at": "2026-04-09T17:36:40.458Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "fallback_01",
+        "checked_at": "2026-04-09T17:36:40.458Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "hygiene_01",
+        "checked_at": "2026-04-09T17:36:40.458Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "observability_01",
+        "checked_at": "2026-04-09T17:36:40.459Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "testing_01",
+        "checked_at": "2026-04-09T17:36:40.459Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "kg_01",
+        "checked_at": "2026-04-09T17:36:40.459Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "obsidian_01",
+        "checked_at": "2026-04-09T17:36:40.459Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "workflow_01",
+        "checked_at": "2026-04-09T17:36:40.459Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "quality_01",
+        "checked_at": "2026-04-09T17:36:40.459Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "evidence_02",
+        "checked_at": "2026-04-09T17:36:40.460Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "model_hygiene_02",
+        "checked_at": "2026-04-09T17:36:40.460Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "safety_02",
+        "checked_at": "2026-04-09T17:36:40.460Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "retrieval_02",
+        "checked_at": "2026-04-09T17:36:40.460Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "reflection_02",
+        "checked_at": "2026-04-09T17:36:40.461Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "doc_02",
+        "checked_at": "2026-04-09T17:36:40.461Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "testing_02",
+        "checked_at": "2026-04-09T17:36:40.461Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "knowledge_02",
+        "checked_at": "2026-04-09T17:36:40.461Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "misc_01",
+        "checked_at": "2026-04-09T17:36:40.461Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "misc_02",
+        "checked_at": "2026-04-09T17:36:40.461Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "misc_03",
+        "checked_at": "2026-04-09T17:36:40.461Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "misc_04",
+        "checked_at": "2026-04-09T17:36:40.462Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "misc_05",
+        "checked_at": "2026-04-09T17:36:40.462Z",
+        "reasons": [],
+        "action": "accepted",
+        "quarantined": false
+      },
+      {
+        "skill_id": "gen_045",
+        "checked_at": "2026-04-09T17:36:40.462Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_046",
+        "checked_at": "2026-04-09T17:36:40.462Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_047",
+        "checked_at": "2026-04-09T17:36:40.463Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_048",
+        "checked_at": "2026-04-09T17:36:40.464Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_049",
+        "checked_at": "2026-04-09T17:36:40.465Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_050",
+        "checked_at": "2026-04-09T17:36:40.466Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_051",
+        "checked_at": "2026-04-09T17:36:40.467Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_052",
+        "checked_at": "2026-04-09T17:36:40.467Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_053",
+        "checked_at": "2026-04-09T17:36:40.468Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_054",
+        "checked_at": "2026-04-09T17:36:40.468Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_055",
+        "checked_at": "2026-04-09T17:36:40.468Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_056",
+        "checked_at": "2026-04-09T17:36:40.469Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_057",
+        "checked_at": "2026-04-09T17:36:40.469Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_058",
+        "checked_at": "2026-04-09T17:36:40.470Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_059",
+        "checked_at": "2026-04-09T17:36:40.471Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_060",
+        "checked_at": "2026-04-09T17:36:40.471Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_061",
+        "checked_at": "2026-04-09T17:36:40.471Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_062",
+        "checked_at": "2026-04-09T17:36:40.472Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_063",
+        "checked_at": "2026-04-09T17:36:40.472Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_064",
+        "checked_at": "2026-04-09T17:36:40.472Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_065",
+        "checked_at": "2026-04-09T17:36:40.473Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_066",
+        "checked_at": "2026-04-09T17:36:40.473Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_067",
+        "checked_at": "2026-04-09T17:36:40.474Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_068",
+        "checked_at": "2026-04-09T17:36:40.474Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_069",
+        "checked_at": "2026-04-09T17:36:40.475Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_070",
+        "checked_at": "2026-04-09T17:36:40.475Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_071",
+        "checked_at": "2026-04-09T17:36:40.476Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_072",
+        "checked_at": "2026-04-09T17:36:40.476Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_073",
+        "checked_at": "2026-04-09T17:36:40.477Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_074",
+        "checked_at": "2026-04-09T17:36:40.478Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_075",
+        "checked_at": "2026-04-09T17:36:40.478Z",
+        "reasons": [
+          "source_generated"
+        ],
+        "action": "quarantine_generated",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_076",
+        "checked_at": "2026-04-09T17:36:40.478Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_045",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_077",
+        "checked_at": "2026-04-09T17:36:40.479Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_046",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_078",
+        "checked_at": "2026-04-09T17:36:40.480Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_047",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_079",
+        "checked_at": "2026-04-09T17:36:40.480Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_048",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_080",
+        "checked_at": "2026-04-09T17:36:40.480Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_049",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_081",
+        "checked_at": "2026-04-09T17:36:40.481Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_050",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_082",
+        "checked_at": "2026-04-09T17:36:40.481Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_051",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_083",
+        "checked_at": "2026-04-09T17:36:40.482Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_052",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_084",
+        "checked_at": "2026-04-09T17:36:40.482Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_053",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_085",
+        "checked_at": "2026-04-09T17:36:40.482Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_054",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_086",
+        "checked_at": "2026-04-09T17:36:40.483Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_055",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_087",
+        "checked_at": "2026-04-09T17:36:40.483Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_056",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_088",
+        "checked_at": "2026-04-09T17:36:40.484Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_057",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_089",
+        "checked_at": "2026-04-09T17:36:40.485Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_058",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_090",
+        "checked_at": "2026-04-09T17:36:40.485Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_059",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_091",
+        "checked_at": "2026-04-09T17:36:40.485Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_060",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_092",
+        "checked_at": "2026-04-09T17:36:40.486Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_061",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_093",
+        "checked_at": "2026-04-09T17:36:40.486Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_062",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_094",
+        "checked_at": "2026-04-09T17:36:40.486Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_063",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_095",
+        "checked_at": "2026-04-09T17:36:40.487Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_064",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_096",
+        "checked_at": "2026-04-09T17:36:40.487Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_065",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_097",
+        "checked_at": "2026-04-09T17:36:40.488Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_066",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_098",
+        "checked_at": "2026-04-09T17:36:40.488Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_067",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_099",
+        "checked_at": "2026-04-09T17:36:40.489Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_068",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_100",
+        "checked_at": "2026-04-09T17:36:40.489Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_069",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_101",
+        "checked_at": "2026-04-09T17:36:40.490Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_070",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_102",
+        "checked_at": "2026-04-09T17:36:40.491Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_071",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_103",
+        "checked_at": "2026-04-09T17:36:40.492Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_072",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_104",
+        "checked_at": "2026-04-09T17:36:40.492Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_073",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_105",
+        "checked_at": "2026-04-09T17:36:40.493Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_074",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_106",
+        "checked_at": "2026-04-09T17:36:40.493Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_075",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_107",
+        "checked_at": "2026-04-09T17:36:40.494Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_045",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_108",
+        "checked_at": "2026-04-09T17:36:40.494Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_046",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_109",
+        "checked_at": "2026-04-09T17:36:40.495Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_047",
+        "quarantined": true
+      },
+      {
+        "skill_id": "gen_110",
+        "checked_at": "2026-04-09T17:36:40.495Z",
+        "reasons": [
+          "similar_prompt_or_name",
+          "source_generated"
+        ],
+        "action": "duplicate",
+        "duplicate_of": "gen_048",
+        "quarantined": true
+      }
+    ]
+  },
+  "tests": [
+    {
+      "test": "context.test.js",
+      "ok": true,
+      "stdout": "context.keys= [\n  'context_id',\n  'intent_family',\n  'domain',\n  'task_type',\n  'tone',\n  'urgency',\n  'risk_flags',\n  'ambiguity_score',\n  'continuity_score',\n  'missing_info_flags',\n  'conversation_phase',\n  'requested_output_form',\n  'memory_retrieval_needed',\n  'persona_hints',\n  'skill_hints',\n  'provider_hints',\n  'model_hints',\n  'acquisition_hints',\n  'confidence',\n  'schema_version',\n  'validation_errors'\n]\nintent_family= command domain= general continuity= 0.5\ncontext.test OK\n",
+      "stderr": ""
+    },
+    {
+      "test": "fusion.test.js",
+      "ok": true,
+      "stdout": "fusion test response status= 200\nskills_loaded count= 5\n",
+      "stderr": ""
+    },
+    {
+      "test": "metacog.test.js",
+      "ok": true,
+      "stdout": "metacog test OK synthesize 0.8\n",
+      "stderr": ""
+    },
+    {
+      "test": "model_catalog.test.js",
+      "ok": true,
+      "stdout": "model catalog count= 3\ninstall job queued= job-1775756740216-msud\nmodel_catalog.test OK\n",
+      "stderr": ""
+    },
+    {
+      "test": "persona_catalog.test.js",
+      "ok": true,
+      "stdout": "persona files count= 26\noverride_missing result acquisition_state= queued_for_acquisition\npersona_catalog.test OK\n",
+      "stderr": ""
+    },
+    {
+      "test": "persona_skill_memory.test.js",
+      "ok": true,
+      "stdout": "persona selection test OK blend:operator+technical 0.5\nskill orchestration returned [\n  'summarization_01',\n  'persona_control_01',\n  'debugging_01',\n  'misc_02',\n  'misc_03'\n]\nmemory write and query OK\n",
+      "stderr": ""
+    },
+    {
+      "test": "persona_switch.test.js",
+      "ok": true,
+      "stdout": "persona selection result: blend:operator+technical conf= 0.5\npersona selection override result: default conf= 1\npersona_switch.test OK\n",
+      "stderr": ""
+    },
+    {
+      "test": "provider_normalization.test.js",
+      "ok": true,
+      "stdout": "provider_normalization.test: openai auth missing => OK\n",
+      "stderr": ""
+    },
+    {
+      "test": "reasoning.test.js",
+      "ok": true,
+      "stdout": "reasoning.keys= [\n  'reasoning_mode',\n  'strategy_type',\n  'decomposition_level',\n  'confidence',\n  'uncertainty_score',\n  'rationale_codes',\n  'quality_gate_needed',\n  'escalation_needed',\n  'persona_recommendation',\n  'skill_recommendation',\n  'provider_routing_recommendation',\n  'model_selection_recommendation',\n  'memory_write_candidate',\n  'acquisition_recommendation',\n  'schema_version'\n]\nstrategy= synthesize persona_recommendation= researcher\nreasoning.test OK\n",
+      "stderr": ""
+    },
+    {
+      "test": "schema.test.js",
+      "ok": true,
+      "stdout": "requestReceipt good valid= true\nrequestReceipt missing receipt_id valid= false errors= [ { message: 'missing-required-receipt_id', field: 'receipt_id' } ]\nSchemas available: [\n  'contextSnapshot.v1.json',\n  'evaluationResult.v1.json',\n  'intentEnvelope.v1.json',\n  'memoryRecord.v1.json',\n  'metacognitionResult.v1.json',\n  'modelManifest.v1.json',\n  'personaManifest.v1.json',\n  'personaSelectionResult.v1.json',\n  'providerAttemptReceipt.v1.json',\n  'requestReceipt.v1.json',\n  'skillManifest.v1.json',\n  'skillMountResult.v1.json'\n]\nschema.test.js OK\n",
+      "stderr": ""
+    },
+    {
+      "test": "smoke.test.js",
+      "ok": true,
+      "stdout": "Run `node src/server.js` manually to smoke test.\n",
+      "stderr": "smoke test could not contact server; start server first with `node src/server.js`.\n"
+    },
+    {
+      "test": "translator.test.js",
+      "ok": true,
+      "stdout": "translator.output.keys= [\n  'raw',                   'normalized_text',\n  'language',              'intent_family',\n  'task_type',             'entities',\n  'constraints',           'output_preferences',\n  'continuity',            'risk_flags',\n  'ambiguity_flags',       'memory_need',\n  'persona_need',          'skill_need',\n  'model_preference_hint', 'acquisition_hint',\n  'tone',                  'urgency',\n  'confidence',            'schema_version'\n]\nintent_family= research tone= polite urgency= 0.5\ntranslator.test OK\n",
+      "stderr": ""
+    }
+  ],
+  "overall_ok": true
+}

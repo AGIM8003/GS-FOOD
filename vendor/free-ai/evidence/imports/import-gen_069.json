@@ -1,0 +1,53 @@
+{
+  "skill": {
+    "id": "gen_069",
+    "name": "Generated memory skill 69",
+    "version": "v1",
+    "purpose": "Auto-generated memory helper 69",
+    "tags": [
+      "memory"
+    ],
+    "triggers": [
+      "memory",
+      "memory_69"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 650,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "result"
+      ]
+    },
+    "prompt_fragments": [
+      "Auto-generated prompt fragment for Generated memory skill 69"
+    ],
+    "validation_rules": {},
+    "source_type": "generated",
+    "source_reference": "local-generator",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T17:25:25.881Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "general_assistant"
+      ],
+      "runtime_modes": [
+        "hybrid"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "gen_069",
+    "action": "auto_promoted",
+    "checked_at": "2026-04-09T18:01:29.131Z",
+    "reasons": [
+      "auto_promote_to_reach_100"
+    ]
+  }
+}

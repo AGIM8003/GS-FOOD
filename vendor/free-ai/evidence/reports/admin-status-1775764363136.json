@@ -1,0 +1,621 @@
+{
+  "generated_at": "2026-04-09T19:52:43.132Z",
+  "provider_ladder": {
+    "decision": {
+      "chosen_provider": null,
+      "chosen_tag": null,
+      "capability": "structured_output",
+      "timestamp": "2026-04-09T19:52:27.626Z",
+      "counts": {
+        "primary_free": 0,
+        "burst_free": 0,
+        "local_only": 0
+      },
+      "ranked": {
+        "primary_free": [],
+        "burst_free": [],
+        "starter_credit": [],
+        "low_cost_fallback": [],
+        "local_only": []
+      },
+      "governance": {}
+    },
+    "ladder": {
+      "primary_free": [],
+      "burst_free": [],
+      "starter_credit": [],
+      "low_cost_fallback": [],
+      "local_only": []
+    },
+    "providers": []
+  },
+  "provider_health": {
+    "openrouter": {
+      "plain_chat": {
+        "attempts": 2,
+        "successes": 0,
+        "failures": 2,
+        "avg_latency_ms": 1,
+        "last_failure_class": "auth_error",
+        "last_checked": "2026-04-09T19:52:33.808Z",
+        "healthy": false
+      },
+      "structured_output": {
+        "attempts": 10,
+        "successes": 4,
+        "failures": 6,
+        "avg_latency_ms": 1,
+        "last_failure_class": "auth_error",
+        "last_checked": "2026-04-09T19:52:33.809Z",
+        "healthy": false
+      },
+      "tool_use": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "streaming": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "long_context": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "multimodal": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      }
+    },
+    "gemini": {
+      "plain_chat": {
+        "attempts": 2,
+        "successes": 0,
+        "failures": 2,
+        "avg_latency_ms": 0,
+        "last_failure_class": "auth_error",
+        "last_checked": "2026-04-09T19:52:33.811Z",
+        "healthy": false
+      },
+      "structured_output": {
+        "attempts": 7,
+        "successes": 0,
+        "failures": 7,
+        "avg_latency_ms": 0,
+        "last_failure_class": "auth_error",
+        "last_checked": "2026-04-09T19:52:33.812Z",
+        "healthy": false
+      },
+      "tool_use": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "streaming": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "long_context": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "multimodal": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      }
+    },
+    "openai": {
+      "plain_chat": {
+        "attempts": 2,
+        "successes": 0,
+        "failures": 2,
+        "avg_latency_ms": 0,
+        "last_failure_class": "auth_error",
+        "last_checked": "2026-04-09T19:52:33.809Z",
+        "healthy": false
+      },
+      "structured_output": {
+        "attempts": 2,
+        "successes": 0,
+        "failures": 2,
+        "avg_latency_ms": 0,
+        "last_failure_class": "auth_error",
+        "last_checked": "2026-04-09T19:52:33.810Z",
+        "healthy": false
+      },
+      "tool_use": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "streaming": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "long_context": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "multimodal": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      }
+    },
+    "anthropic": {
+      "plain_chat": {
+        "attempts": 2,
+        "successes": 0,
+        "failures": 2,
+        "avg_latency_ms": 0,
+        "last_failure_class": "auth_error",
+        "last_checked": "2026-04-09T19:52:33.810Z",
+        "healthy": false
+      },
+      "structured_output": {
+        "attempts": 2,
+        "successes": 0,
+        "failures": 2,
+        "avg_latency_ms": 0,
+        "last_failure_class": "auth_error",
+        "last_checked": "2026-04-09T19:52:33.810Z",
+        "healthy": false
+      },
+      "tool_use": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "streaming": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "long_context": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "multimodal": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      }
+    },
+    "groq": {
+      "plain_chat": {
+        "attempts": 2,
+        "successes": 0,
+        "failures": 2,
+        "avg_latency_ms": 0,
+        "last_failure_class": "auth_error",
+        "last_checked": "2026-04-09T19:52:33.812Z",
+        "healthy": false
+      },
+      "structured_output": {
+        "attempts": 2,
+        "successes": 0,
+        "failures": 2,
+        "avg_latency_ms": 0,
+        "last_failure_class": "auth_error",
+        "last_checked": "2026-04-09T19:52:33.812Z",
+        "healthy": false
+      },
+      "tool_use": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "streaming": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "long_context": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "multimodal": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      }
+    },
+    "huggingface": {
+      "plain_chat": {
+        "attempts": 2,
+        "successes": 0,
+        "failures": 2,
+        "avg_latency_ms": 1,
+        "last_failure_class": "auth_error",
+        "last_checked": "2026-04-09T19:52:33.813Z",
+        "healthy": false
+      },
+      "structured_output": {
+        "attempts": 2,
+        "successes": 0,
+        "failures": 2,
+        "avg_latency_ms": 1,
+        "last_failure_class": "auth_error",
+        "last_checked": "2026-04-09T19:52:33.813Z",
+        "healthy": false
+      },
+      "tool_use": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "streaming": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "long_context": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "multimodal": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      }
+    },
+    "fireworks": {
+      "plain_chat": {
+        "attempts": 2,
+        "successes": 0,
+        "failures": 2,
+        "avg_latency_ms": 1,
+        "last_failure_class": "auth_error",
+        "last_checked": "2026-04-09T19:52:33.814Z",
+        "healthy": false
+      },
+      "structured_output": {
+        "attempts": 2,
+        "successes": 0,
+        "failures": 2,
+        "avg_latency_ms": 1,
+        "last_failure_class": "auth_error",
+        "last_checked": "2026-04-09T19:52:33.814Z",
+        "healthy": false
+      },
+      "tool_use": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "streaming": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "long_context": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "multimodal": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      }
+    },
+    "ollama": {
+      "plain_chat": {
+        "attempts": 2,
+        "successes": 0,
+        "failures": 2,
+        "avg_latency_ms": 41,
+        "last_failure_class": "unknown_error",
+        "last_checked": "2026-04-09T19:52:33.852Z",
+        "healthy": true
+      },
+      "structured_output": {
+        "attempts": 2,
+        "successes": 0,
+        "failures": 2,
+        "avg_latency_ms": 41,
+        "last_failure_class": "unknown_error",
+        "last_checked": "2026-04-09T19:52:33.852Z",
+        "healthy": true
+      },
+      "tool_use": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "streaming": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "long_context": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      },
+      "multimodal": {
+        "attempts": 0,
+        "successes": 0,
+        "failures": 0,
+        "avg_latency_ms": 0,
+        "last_failure_class": null,
+        "last_checked": null,
+        "healthy": true
+      }
+    }
+  },
+  "quota_snapshots": {
+    "openrouter": {
+      "requests_per_day": 10,
+      "tokens_per_day": 40,
+      "recent_429_count": 0,
+      "recent_timeout_count": 0,
+      "success_count": 4,
+      "failure_count": 6,
+      "success_rate": 0.4,
+      "average_latency": 1,
+      "free_reliability_score": 0.4
+    },
+    "gemini": {
+      "requests_per_day": 7,
+      "tokens_per_day": 0,
+      "recent_429_count": 5,
+      "recent_timeout_count": 0,
+      "success_count": 0,
+      "failure_count": 7,
+      "success_rate": 0,
+      "average_latency": 0,
+      "free_reliability_score": 0
+    },
+    "openai": {
+      "requests_per_day": 2,
+      "tokens_per_day": 0,
+      "recent_429_count": 0,
+      "recent_timeout_count": 0,
+      "success_count": 0,
+      "failure_count": 2,
+      "success_rate": 0,
+      "average_latency": 0,
+      "free_reliability_score": 0
+    },
+    "anthropic": {
+      "requests_per_day": 2,
+      "tokens_per_day": 0,
+      "recent_429_count": 0,
+      "recent_timeout_count": 0,
+      "success_count": 0,
+      "failure_count": 2,
+      "success_rate": 0,
+      "average_latency": 0,
+      "free_reliability_score": 0
+    },
+    "groq": {
+      "requests_per_day": 2,
+      "tokens_per_day": 0,
+      "recent_429_count": 0,
+      "recent_timeout_count": 0,
+      "success_count": 0,
+      "failure_count": 2,
+      "success_rate": 0,
+      "average_latency": 0,
+      "free_reliability_score": 0
+    },
+    "huggingface": {
+      "requests_per_day": 2,
+      "tokens_per_day": 0,
+      "recent_429_count": 0,
+      "recent_timeout_count": 0,
+      "success_count": 0,
+      "failure_count": 2,
+      "success_rate": 0,
+      "average_latency": 1,
+      "free_reliability_score": 0
+    },
+    "fireworks": {
+      "requests_per_day": 2,
+      "tokens_per_day": 0,
+      "recent_429_count": 0,
+      "recent_timeout_count": 0,
+      "success_count": 0,
+      "failure_count": 2,
+      "success_rate": 0,
+      "average_latency": 1,
+      "free_reliability_score": 0
+    },
+    "ollama": {
+      "requests_per_day": 2,
+      "tokens_per_day": 0,
+      "recent_429_count": 0,
+      "recent_timeout_count": 0,
+      "success_count": 0,
+      "failure_count": 2,
+      "success_rate": 0,
+      "average_latency": 41,
+      "free_reliability_score": 0
+    }
+  },
+  "cooldowns": {
+    "gemini": {
+      "until": 1775764467233,
+      "reason": "rate_limited",
+      "updated_at": "2026-04-09T19:52:27.233Z"
+    }
+  },
+  "decision_graphs": [
+    {
+      "graph_id": "dg-1775764347628-hypz",
+      "trace_id": "t-1775764347614-nw6yc7",
+      "prompt_variant": "variant_b_structured",
+      "provider_id": null,
+      "output_contract": "receipt_augmented_answer",
+      "fallback_used": true,
+      "generated_at": "2026-04-09T19:52:27.628Z"
+    },
+    {
+      "graph_id": "dg-1775764346426-k96z",
+      "trace_id": "t-1775764346408-1dhqdr",
+      "prompt_variant": "variant_b_structured",
+      "provider_id": null,
+      "output_contract": "receipt_augmented_answer",
+      "fallback_used": true,
+      "generated_at": "2026-04-09T19:52:26.426Z"
+    },
+    {
+      "graph_id": "dg-1775764346276-bllm",
+      "trace_id": "t-1775764346260-7p81k5",
+      "prompt_variant": "variant_b_structured",
+      "provider_id": null,
+      "output_contract": "receipt_augmented_answer",
+      "fallback_used": true,
+      "generated_at": "2026-04-09T19:52:26.276Z"
+    }
+  ],
+  "prompt_promotions": [
+    "rollback-1775764347152-idwm.json",
+    "promotion-1775764347152-2wt8.json"
+  ],
+  "memory_graph": {
+    "generated_at": "2026-04-09T19:52:43.135Z",
+    "node_count": 4,
+    "edge_count": 2,
+    "node_types": [
+      "memory",
+      "subject"
+    ]
+  }
+}

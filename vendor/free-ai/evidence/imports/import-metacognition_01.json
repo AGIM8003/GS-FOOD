@@ -1,0 +1,56 @@
+{
+  "skill": {
+    "id": "metacognition_01",
+    "name": "Metacog: Risk Detector",
+    "version": "v1",
+    "purpose": "Detect risk-sensitive content and advise M1 critic",
+    "tags": [
+      "metacognition",
+      "safety"
+    ],
+    "triggers": [
+      "risk",
+      "safety"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 300,
+    "risk_class": "high",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "risk_flags",
+        "recommendation"
+      ]
+    },
+    "prompt_fragments": [
+      "Assess risk and indicate whether M1 critic is required."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "safety_assistant",
+        "critic"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "cloud_only"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "metacognition_01",
+    "checked_at": "2026-04-09T18:01:29.100Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

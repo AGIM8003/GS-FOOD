@@ -1,0 +1,26 @@
+{
+  "$id": "https://free-ai.local/schemas/memoryRecord.v1.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MemoryRecord v1",
+  "type": "object",
+  "required": ["memory_id","category","subject","summary","created_at","schema_version"],
+  "properties": {
+    "memory_id": {"type":"string"},
+    "category": {"type":"string"},
+    "subject": {"type":"string"},
+    "summary": {"type":"string"},
+    "structured_payload": {"type":"object"},
+    "source_trace_id": {"type":"string"},
+    "source_receipt_id": {"type":"string"},
+    "confidence": {"type":"number"},
+    "importance": {"type":"number"},
+    "created_at": {"type":"string"},
+    "updated_at": {"type":"string"},
+    "retention_class": {"type":"string"},
+    "version": {"type":"string"},
+    "memory_origin": {"type":"string"},
+    "sensitivity_class": {"type":"string"},
+    "schema_version": {"type":"string"}
+  },
+  "additionalProperties": true
+}

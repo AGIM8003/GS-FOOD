@@ -1,0 +1,35 @@
+{
+  "prompt": "Research: summarize recent best practices for prompt engineering",
+  "intent_family": "research",
+  "context_domain": "ai_systems",
+  "report": {
+    "weak_persona": true,
+    "weak_skills": false,
+    "acquisition_jobs": [
+      {
+        "job_id": "job-1775766213757-yutq",
+        "type": "persona",
+        "target_id": "ai_systems",
+        "reason": "weak_persona_fit"
+      }
+    ],
+    "generated_persona_id": "generated_ai_systems_engineering_persona",
+    "generated_skill_ids": [],
+    "research_summary": {
+      "research_id": "research-1775766214198-persona",
+      "keywords": [
+        "engineering",
+        "practices",
+        "prompt",
+        "recent",
+        "research",
+        "summarize"
+      ],
+      "github_sources": [],
+      "web_sources": []
+    },
+    "activated_now": true,
+    "queue_depth": 63
+  },
+  "generated_at": "2026-04-09T20:23:34.210Z"
+}

@@ -1,0 +1,108 @@
+{
+  "receipt_id": "r-1775763285870-h0w7",
+  "trace_id": "t-1775763285844-9mnp8h",
+  "span_id": null,
+  "provider_id": "none",
+  "model_id": null,
+  "http_status": 503,
+  "fallback_used": true,
+  "kb_short_circuit": false,
+  "persona": {
+    "id": "blend:analyst+undefined",
+    "version": "v1+v1"
+  },
+  "intent_family": "research",
+  "skills_loaded": [
+    {
+      "id": "research_01",
+      "version": "v1"
+    },
+    {
+      "id": "gen_066",
+      "version": "v1"
+    },
+    {
+      "id": "research_gen_116",
+      "version": "v1"
+    },
+    {
+      "id": "summarization_01",
+      "version": "v1"
+    },
+    {
+      "id": "coding_02",
+      "version": "v1"
+    }
+  ],
+  "latency_ms": 26,
+  "timestamp": "2026-04-09T19:34:45.870Z",
+  "schema_version": "requestReceipt.v1",
+  "selected_prompt_variant": "variant_b_structured",
+  "selected_output_contract": "receipt_augmented_answer",
+  "route_decision": {
+    "chosen_provider": "gemini",
+    "chosen_tag": "primary_free",
+    "capability": "structured_output",
+    "timestamp": "2026-04-09T19:34:45.867Z",
+    "counts": {
+      "primary_free": 2,
+      "burst_free": 1,
+      "local_only": 0
+    },
+    "ranked": {
+      "primary_free": [
+        {
+          "id": "gemini",
+          "score": 120.2
+        },
+        {
+          "id": "huggingface",
+          "score": 102.2
+        }
+      ],
+      "burst_free": [
+        {
+          "id": "openrouter",
+          "score": 110.2
+        }
+      ],
+      "starter_credit": [
+        {
+          "id": "groq",
+          "score": 105.2
+        },
+        {
+          "id": "openai",
+          "score": 90.2
+        },
+        {
+          "id": "anthropic",
+          "score": 80.2
+        },
+        {
+          "id": "fireworks",
+          "score": 80.2
+        }
+      ],
+      "low_cost_fallback": [
+        {
+          "id": "ollama",
+          "score": 100.2
+        }
+      ],
+      "local_only": []
+    }
+  },
+  "local_survival_used": true,
+  "quota_snapshot": {
+    "requests_per_day": 0,
+    "tokens_per_day": 0,
+    "recent_429_count": 0,
+    "recent_timeout_count": 0,
+    "success_count": 0,
+    "failure_count": 0,
+    "success_rate": 1,
+    "average_latency": 0,
+    "free_reliability_score": 1
+  }
+}

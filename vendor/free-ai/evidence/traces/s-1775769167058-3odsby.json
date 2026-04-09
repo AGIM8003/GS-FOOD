@@ -1,0 +1,25 @@
+{
+  "id": "s-1775769167058-3odsby",
+  "name": "orchestrator.orchestrateSkills",
+  "start": 1775769167058,
+  "meta": {
+    "intent_family": "chat",
+    "persona": "blend:generated_general_create_persona+generated_general_app_persona"
+  },
+  "events": [
+    {
+      "ts": 1775769167061,
+      "event": "orchestrator.result",
+      "data": {
+        "mounted": 5,
+        "token_budget": 1800
+      }
+    }
+  ],
+  "end": 1775769167061,
+  "duration_ms": 3,
+  "outcome": {
+    "status": "ok",
+    "mounted": 5
+  }
+}

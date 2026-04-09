@@ -1,0 +1,57 @@
+{
+  "skill": {
+    "id": "coding_02",
+    "name": "Code: Review PR",
+    "version": "v1",
+    "purpose": "Give PR review suggestions",
+    "tags": [
+      "coding",
+      "review"
+    ],
+    "triggers": [
+      "review",
+      "pr",
+      "pull request"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 500,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "comments",
+        "severity"
+      ]
+    },
+    "prompt_fragments": [
+      "Provide code review comments and suggest improvements."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "software_engineer",
+        "debugger"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "cloud_only"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "coding_02",
+    "checked_at": "2026-04-09T18:01:29.099Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$id": "https://free-ai.local/IntentEnvelope.json",
+  "type": "object",
+  "properties": {
+    "raw": { "type": "string" },
+    "intent_family": { "type": "string", "enum": ["question","compose","chat","command","other"] },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+  },
+  "required": ["raw","intent_family"]
+}

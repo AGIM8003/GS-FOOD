@@ -1,0 +1,8 @@
+{
+  "plan": {
+    "phase_1": "Build FreeAIClient in Python and place in server/app/free_ai_client.py.",
+    "phase_2": "Update server/app/main.py to expose the internal pantry endpoint (/api/internal/pantry/inventory) and proxy AI generation requests to FreeAIClient.",
+    "phase_3": "Create server/app/health_unified.py for combined health checks (Python + Node.js AI Engine).",
+    "phase_4": "Update orchestrator.py to default to the FreeAIClient for intelligent interactions."
+  }
+}

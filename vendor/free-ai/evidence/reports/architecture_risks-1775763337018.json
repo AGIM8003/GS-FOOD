@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-04-09T19:35:37.013Z",
+  "risks": [
+    {
+      "category": "reliability",
+      "risk": "Free-tier providers can throttle or deprecate models without warning"
+    },
+    {
+      "category": "observability",
+      "risk": "Receipts are strong but decision graph correlation is still partial"
+    },
+    {
+      "category": "evaluation",
+      "risk": "Prompt/runtime changes can regress without promotion gates"
+    }
+  ]
+}

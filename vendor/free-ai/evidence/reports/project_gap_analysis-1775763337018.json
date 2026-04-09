@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-04-09T19:35:37.013Z",
+  "gaps": [
+    {
+      "id": "gap_provider_probes",
+      "category": "reliability",
+      "severity": "high",
+      "description": "No scheduled reliability probe runner yet"
+    },
+    {
+      "id": "gap_decision_graph",
+      "category": "integration",
+      "severity": "high",
+      "description": "Decision graph records are incomplete"
+    },
+    {
+      "id": "gap_marketplace_governance",
+      "category": "supply-chain",
+      "severity": "medium",
+      "description": "Marketplace approval/rollback flow is incomplete"
+    },
+    {
+      "id": "gap_memory_graph",
+      "category": "design-only",
+      "severity": "medium",
+      "description": "Memory graph queries and entity linking need deeper implementation"
+    }
+  ]
+}

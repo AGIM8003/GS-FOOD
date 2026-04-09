@@ -1,0 +1,6 @@
+{
+  "id": "help",
+  "version": "v1",
+  "description": "Provide concise help and how-to answers.",
+  "content": "If user asks for help, produce step-by-step instructions up to 5 steps."
+}

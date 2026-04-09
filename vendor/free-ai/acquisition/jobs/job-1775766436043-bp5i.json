@@ -1,0 +1,11 @@
+{
+  "job_id": "job-1775766436043-bp5i",
+  "type": "skill",
+  "target_id": "general",
+  "reason": "weak_skill_fit",
+  "state": "queued_for_acquisition",
+  "requested_by": "adaptive_runtime",
+  "created_at": "2026-04-09T20:27:16.043Z",
+  "updated_at": "2026-04-09T20:27:16.043Z",
+  "schema_version": "AcquisitionJob.v1"
+}

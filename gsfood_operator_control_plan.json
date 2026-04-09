@@ -1,0 +1,16 @@
+{
+  "operator_control": {
+    "endpoints": [
+      {
+        "method": "GET",
+        "route": "/api/admin/ai_health",
+        "action": "Calls FreeAI engine /health, /health/live, and /health/ready to ensure AI sidecar is alive."
+      },
+      {
+        "method": "GET",
+        "route": "/api/admin/traces",
+        "action": "Proxies FreeAI /admin/traces for GS FOOD operators to debug decisions."
+      }
+    ]
+  }
+}

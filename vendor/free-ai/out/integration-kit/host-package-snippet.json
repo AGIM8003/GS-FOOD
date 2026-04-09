@@ -1,0 +1,15 @@
+{
+  "name": "host-project-free-ai-snippet",
+  "scripts": {
+    "freeai:start": "node vendor/free-ai/src/server.js",
+    "freeai:test": "node vendor/free-ai/scripts/run_all_tests.js",
+    "freeai:probes": "node vendor/free-ai/scripts/run_provider_probes.js",
+    "freeai:eval": "node vendor/free-ai/scripts/evaluate_project.js",
+    "freeai:training": "node vendor/free-ai/scripts/run_training_cycle.js",
+    "freeai:training-report": "node vendor/free-ai/scripts/training_status_report.js",
+    "freeai:training-review": "node vendor/free-ai/scripts/training_review_report.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

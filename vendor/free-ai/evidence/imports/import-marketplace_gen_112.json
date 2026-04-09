@@ -1,0 +1,42 @@
+{
+  "skill": {
+    "id": "marketplace_gen_112",
+    "name": "marketplace helper 112",
+    "version": "v1",
+    "purpose": "Auto-generated helper skill for marketplace",
+    "tags": [
+      "marketplace"
+    ],
+    "triggers": [
+      "marketplace",
+      "marketplace_helper"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 300,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "text"
+    },
+    "prompt_fragments": [
+      "marketplace helper: produce concise results for marketplace"
+    ],
+    "validation_rules": {},
+    "source_type": "generated",
+    "source_reference": "local-generator",
+    "source_license": "generated",
+    "imported_at": "2026-04-09T18:00:40.363Z",
+    "enabled": true,
+    "deprecated": false,
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "marketplace_gen_112",
+    "action": "auto_promoted",
+    "checked_at": "2026-04-09T18:01:29.131Z",
+    "reasons": [
+      "auto_promote_to_reach_100"
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "skill": {
+    "id": "evaluation_01",
+    "name": "Eval: Simple QA Test",
+    "version": "v1",
+    "purpose": "Create QA checks for output correctness",
+    "tags": [
+      "evaluation",
+      "testing"
+    ],
+    "triggers": [
+      "evaluate",
+      "qa"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 400,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "score",
+        "feedback"
+      ]
+    },
+    "prompt_fragments": [
+      "Produce pass/fail checks and scoring for the provided output."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "evaluation_assistant",
+        "critic"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "cloud_only"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "evaluation_01",
+    "checked_at": "2026-04-09T18:01:29.100Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

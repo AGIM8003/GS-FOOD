@@ -1,0 +1,43 @@
+{
+  "id": "gen_068",
+  "name": "Generated summarization skill 68",
+  "version": "v1",
+  "purpose": "Auto-generated summarization helper 68",
+  "tags": [
+    "summarization"
+  ],
+  "triggers": [
+    "summarization",
+    "summarization_68"
+  ],
+  "exclusions": [],
+  "dependencies": [],
+  "latency_hint": "high",
+  "token_budget_hint": 600,
+  "risk_class": "low",
+  "output_contract": {
+    "type": "object",
+    "fields": [
+      "result"
+    ]
+  },
+  "prompt_fragments": [
+    "Auto-generated prompt fragment for Generated summarization skill 68"
+  ],
+  "validation_rules": {},
+  "source_type": "generated",
+  "source_reference": "local-generator",
+  "source_license": "bundled",
+  "imported_at": "2026-04-09T17:25:25.881Z",
+  "enabled": true,
+  "deprecated": false,
+  "compatibility": {
+    "personas": [
+      "general_assistant"
+    ],
+    "runtime_modes": [
+      "hybrid"
+    ]
+  },
+  "schema_version": "skillManifest.v1"
+}

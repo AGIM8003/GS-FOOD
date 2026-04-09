@@ -1,0 +1,55 @@
+{
+  "skill": {
+    "id": "kg_01",
+    "name": "KG: Entity Linker",
+    "version": "v1",
+    "purpose": "Link entities and suggest backlinks for vault",
+    "tags": [
+      "knowledge graph",
+      "linking"
+    ],
+    "triggers": [
+      "link",
+      "backlink"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "medium",
+    "token_budget_hint": 800,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "entities",
+        "edges"
+      ]
+    },
+    "prompt_fragments": [
+      "Identify entities and suggest backlinks with confidence scores."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "reflective_assistant",
+        "metacognition_assistant"
+      ],
+      "runtime_modes": [
+        "hybrid"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "kg_01",
+    "checked_at": "2026-04-09T18:01:29.102Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

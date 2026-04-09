@@ -1,0 +1,24 @@
+{
+  "$id": "https://free-ai.local/schemas/metacognitionResult.v1.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MetacognitionResult v1",
+  "type": "object",
+  "required": ["mode","passes","confidence","uncertainty_score","schema_version"],
+  "properties": {
+    "mode": {"type":"string"},
+    "passes": {"type":"array"},
+    "strategy_type": {"type":"string"},
+    "confidence": {"type":"number"},
+    "uncertainty_score": {"type":"number"},
+    "rationale_codes": {"type":"array"},
+    "risk_flags": {"type":"array"},
+    "quality_gate_needed": {"type":"boolean"},
+    "escalation_needed": {"type":"boolean"},
+    "persona_recommendation": {"type":"object"},
+    "skill_recommendation": {"type":"object"},
+    "provider_routing_recommendation": {"type":"object"},
+    "memory_write_candidate": {"type":"object"},
+    "schema_version": {"type":"string"}
+  },
+  "additionalProperties": true
+}

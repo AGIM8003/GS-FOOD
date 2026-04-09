@@ -1,0 +1,25 @@
+{
+  "id": "s-1775769165365-jc74ya",
+  "name": "orchestrator.orchestrateSkills",
+  "start": 1775769165365,
+  "meta": {
+    "intent_family": "question",
+    "persona": "researcher"
+  },
+  "events": [
+    {
+      "ts": 1775769165368,
+      "event": "orchestrator.result",
+      "data": {
+        "mounted": 5,
+        "token_budget": 2100
+      }
+    }
+  ],
+  "end": 1775769165368,
+  "duration_ms": 3,
+  "outcome": {
+    "status": "ok",
+    "mounted": 5
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "job_id": "job-1775765962966-xbz7",
+  "type": "skill",
+  "target_id": "legal",
+  "reason": "weak_skill_fit",
+  "state": "queued_for_acquisition",
+  "requested_by": "adaptive_runtime",
+  "created_at": "2026-04-09T20:19:22.966Z",
+  "updated_at": "2026-04-09T20:19:22.966Z",
+  "schema_version": "AcquisitionJob.v1"
+}

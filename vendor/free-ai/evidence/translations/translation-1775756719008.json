@@ -1,0 +1,22 @@
+{
+  "raw": "Please summarize the following paper ASAP.",
+  "normalized_text": "Please summarize the following paper ASAP.",
+  "language": "en",
+  "intent_family": "research",
+  "task_type": "research",
+  "entities": [],
+  "constraints": {},
+  "output_preferences": {},
+  "continuity": 0.5,
+  "risk_flags": [],
+  "ambiguity_flags": 0.9054089850944687,
+  "memory_need": false,
+  "persona_need": null,
+  "skill_need": null,
+  "model_preference_hint": null,
+  "acquisition_hint": null,
+  "tone": "polite",
+  "urgency": 0.5,
+  "confidence": 0.6189182029811062,
+  "schema_version": "translator.v1"
+}

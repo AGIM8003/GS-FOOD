@@ -1,0 +1,34 @@
+{
+  "prompt": "pricing fallback please",
+  "intent_family": "chat",
+  "context_domain": "general",
+  "report": {
+    "weak_persona": false,
+    "weak_skills": true,
+    "acquisition_jobs": [
+      {
+        "job_id": "job-1775768447221-oogc",
+        "type": "skill",
+        "target_id": "general",
+        "reason": "weak_skill_fit"
+      }
+    ],
+    "generated_persona_id": null,
+    "generated_skill_ids": [
+      "generated_general_fallback_chat_workflow"
+    ],
+    "research_summary": {
+      "research_id": "research-1775768448019-skill",
+      "keywords": [
+        "fallback",
+        "please",
+        "pricing"
+      ],
+      "github_sources": [],
+      "web_sources": []
+    },
+    "activated_now": true,
+    "queue_depth": 89
+  },
+  "generated_at": "2026-04-09T21:00:48.032Z"
+}

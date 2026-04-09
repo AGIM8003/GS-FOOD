@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-04-09T00:00:00Z",
+  "source": "bundled",
+  "count": 20,
+  "personas": [
+    "general_assistant",
+    "technical_architect",
+    "software_engineer",
+    "debugger",
+    "systems_operator",
+    "devops_operator",
+    "researcher",
+    "analyst",
+    "strategist",
+    "planner",
+    "product_manager",
+    "technical_writer",
+    "summarizer",
+    "teacher",
+    "critic",
+    "safety_assistant",
+    "reflective_assistant",
+    "synthesis_assistant",
+    "routing_assistant",
+    "evaluation_assistant"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "summarize",
+  "version": "v1",
+  "name": "Summarizer",
+  "description": "Condense text into concise summaries with key points.",
+  "tags": ["summarization","research"],
+  "triggers": ["summarize","summary","condense"],
+  "content": "When asked to summarize, produce a 3-5 bullet key points and one-sentence takeaway.",
+  "exclusions": [],
+  "dependencies": []
+}

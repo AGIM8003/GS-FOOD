@@ -1,0 +1,55 @@
+{
+  "skill": {
+    "id": "testing_01",
+    "name": "Test: Unit Test Template",
+    "version": "v1",
+    "purpose": "Generate unit test scaffold for given code",
+    "tags": [
+      "testing",
+      "qa"
+    ],
+    "triggers": [
+      "test",
+      "unit test"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 700,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "tests"
+      ]
+    },
+    "prompt_fragments": [
+      "Produce unit tests with edge cases and mocks."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "software_engineer",
+        "evaluation_assistant"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "cloud_only"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "testing_01",
+    "checked_at": "2026-04-09T18:01:29.102Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

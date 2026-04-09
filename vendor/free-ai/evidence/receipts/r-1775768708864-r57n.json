@@ -1,0 +1,107 @@
+{
+  "receipt_id": "r-1775768708864-r57n",
+  "trace_id": "t-1775768708337-qqyvkk",
+  "span_id": null,
+  "provider_id": "preview",
+  "model_id": null,
+  "http_status": 200,
+  "fallback_used": false,
+  "kb_short_circuit": false,
+  "persona": {
+    "id": "generated_general_create_persona",
+    "version": "v1"
+  },
+  "intent_family": "chat",
+  "skills_loaded": [
+    {
+      "id": "generated_general_create_chat_workflow",
+      "version": "v1"
+    },
+    {
+      "id": "gen_053",
+      "version": "v1"
+    },
+    {
+      "id": "planning_01",
+      "version": "v1"
+    },
+    {
+      "id": "testing_01",
+      "version": "v1"
+    },
+    {
+      "id": "testing_02",
+      "version": "v1"
+    }
+  ],
+  "latency_ms": 527,
+  "timestamp": "2026-04-09T21:05:08.864Z",
+  "schema_version": "requestReceipt.v1",
+  "selected_prompt_variant": "variant_b_structured",
+  "selected_output_contract": "plan_output",
+  "prompt_metadata": {
+    "prompt_contract_version": "promptContract.v1",
+    "prompt_template_version": "promptTemplate.v2",
+    "prompt_strategy_id": "freeai.default.runtime",
+    "prompt_family_id": "planning",
+    "prompt_variant": "variant_b_structured",
+    "persona_id": "generated_general_create_persona",
+    "persona_version": "v1",
+    "skill_ids": [
+      "generated_general_create_chat_workflow",
+      "gen_053",
+      "planning_01",
+      "testing_01",
+      "testing_02"
+    ],
+    "skill_versions": [
+      "v1",
+      "v1",
+      "v1",
+      "v1",
+      "v1"
+    ],
+    "translator_summary": {
+      "intent_family": "chat",
+      "task_type": "chat",
+      "constraints": {}
+    },
+    "context_summary": {
+      "domain": "general",
+      "continuity_score": 0.5,
+      "skill_hints": [],
+      "persona_hints": []
+    },
+    "reasoning_summary": {
+      "mode": "heuristic.v1",
+      "strategy_type": "compose",
+      "confidence": 0.7215888308335967
+    },
+    "learning_summary": {
+      "domain": "general",
+      "environment": "general",
+      "regulatory_mode": "baseline",
+      "guidance": [
+        "Ask clarifying questions earlier and narrow the answer scope before finalizing.",
+        "Prefer lower-latency, better-supported skills and keep provider requirements simpler.",
+        "Invest in domain-specific persona and skill overlays for repeated general work.",
+        "Focus practice on: create, decision, graphs, plan, short, testing, app, design.",
+        "Keep evidence, rationale, and compliance notes explicit in the final answer.",
+        "Prefer verification and clarification over confident extrapolation.",
+        "Lean into learned topics: create, decision, graphs, plan, short, testing.",
+        "Prefer smaller steps and explicit validation checkpoints."
+      ],
+      "compliance_notes": []
+    },
+    "response_contract_id": "plan_output",
+    "response_contract_type": "json",
+    "route_hint": null,
+    "trace_id": "t-1775768708337-qqyvkk",
+    "compiled_at": "2026-04-09T21:05:08.863Z"
+  },
+  "receipt_chain": {
+    "ledger_seq": 6,
+    "prev_hash": "65cc97998bd9d940b91bd03e2134b27038fce9a477b6ffee08031d119967902e",
+    "this_hash": "b31ba34bf69bbdc2a06ecf6b3e6fafd866ca9eb1f83f5d67bb944a3a29166e65"
+  }
+}

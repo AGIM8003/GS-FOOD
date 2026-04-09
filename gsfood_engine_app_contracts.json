@@ -1,0 +1,25 @@
+{
+  "contracts": {
+    "infer_request": {
+      "url": "http://localhost:3000/v1/infer",
+      "method": "POST",
+      "body": {
+        "text": "string",
+        "context": "object",
+        "forced_persona": "string (optional)",
+        "allowed_skills": "array (optional)"
+      }
+    },
+    "internal_inventory_request": {
+      "url": "http://localhost:8000/api/internal/pantry/inventory",
+      "method": "GET",
+      "params": {
+        "user_id": "string"
+      },
+      "response": {
+        "status": "success",
+        "data": { "inventory": [] }
+      }
+    }
+  }
+}

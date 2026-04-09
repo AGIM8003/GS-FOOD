@@ -1,0 +1,54 @@
+{
+  "skill": {
+    "id": "doc_02",
+    "name": "Docs: API Changelog",
+    "version": "v1",
+    "purpose": "Generate changelog entries for releases",
+    "tags": [
+      "documentation",
+      "changelog"
+    ],
+    "triggers": [
+      "changelog",
+      "release"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 200,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "changelog_entries"
+      ]
+    },
+    "prompt_fragments": [
+      "Create concise changelog entries from commit messages."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "technical_writer",
+        "product_manager"
+      ],
+      "runtime_modes": [
+        "hybrid"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "doc_02",
+    "checked_at": "2026-04-09T18:01:29.104Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

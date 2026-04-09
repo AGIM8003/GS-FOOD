@@ -1,0 +1,18 @@
+{
+  "memory_id": "mem-1775756718633-vwq4",
+  "category": "test",
+  "subject": "unittest",
+  "summary": "a test",
+  "structured_payload": {},
+  "source_trace_id": "t-1",
+  "source_receipt_id": null,
+  "confidence": 0.9,
+  "importance": 0.5,
+  "retention_class": "medium",
+  "version": "v1",
+  "memory_origin": "system",
+  "sensitivity_class": "normal",
+  "provenance": null,
+  "created_at": "2026-04-09T17:45:18.633Z",
+  "updated_at": "2026-04-09T17:45:18.633Z"
+}

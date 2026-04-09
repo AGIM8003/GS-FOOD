@@ -1,0 +1,53 @@
+{
+  "skill": {
+    "id": "misc_04",
+    "name": "Misc: Title Generator",
+    "version": "v1",
+    "purpose": "Generate concise titles",
+    "tags": [
+      "writing",
+      "ux"
+    ],
+    "triggers": [
+      "title"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 120,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "title"
+      ]
+    },
+    "prompt_fragments": [
+      "Produce a title under 8 words."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "technical_writer",
+        "summarizer"
+      ],
+      "runtime_modes": [
+        "hybrid"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "misc_04",
+    "checked_at": "2026-04-09T18:01:29.105Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

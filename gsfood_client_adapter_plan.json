@@ -1,0 +1,11 @@
+{
+  "adapter_strategy": {
+    "name": "free_ai_client.py",
+    "responsibilities": [
+      "Manage timeouts (15s default).",
+      "Normalize request context.",
+      "Parse the structured inference results and receipts.",
+      "Retry on 503 from the Node engine."
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "job_id": "job-1775763844385-4mcw",
+  "type": "persona",
+  "target_id": "persona_not_exists_x",
+  "reason": "requested_override_missing",
+  "state": "queued_for_acquisition",
+  "requested_by": "request",
+  "created_at": "2026-04-09T19:44:04.385Z",
+  "updated_at": "2026-04-09T19:44:04.386Z",
+  "schema_version": "AcquisitionJob.v1"
+}

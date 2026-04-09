@@ -1,0 +1,42 @@
+{
+  "id": "s-1775765091098-krpkym",
+  "name": "providers.callProviders",
+  "start": 1775765091098,
+  "meta": {
+    "prompt_snippet": "-- Prompt Runtime --\nPrompt Family: research\nPrompt Variant: variant_b_structured\nTrace ID: t-1775765090151-ievv81\nReasoning Strategy: synthesize\nOutput Contract: receipt_augmented_answer\nReturn only "
+  },
+  "events": [
+    {
+      "ts": 1775765091098,
+      "event": "provider.consider",
+      "data": {
+        "provider": "openrouter"
+      }
+    },
+    {
+      "ts": 1775765091099,
+      "event": "provider.attempt",
+      "data": {
+        "provider": "openrouter",
+        "model": "openrouter/free",
+        "latency": 1,
+        "ok": false
+      }
+    },
+    {
+      "ts": 1775765091099,
+      "event": "provider.error",
+      "data": {
+        "provider": "openrouter",
+        "model": "openrouter/free",
+        "errClass": "auth_error"
+      }
+    }
+  ],
+  "end": 1775765091099,
+  "duration_ms": 1,
+  "outcome": {
+    "status": "fail",
+    "failureCount": 1
+  }
+}

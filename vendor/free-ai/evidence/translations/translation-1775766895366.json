@@ -1,0 +1,36 @@
+{
+  "raw": "Research recent papers on LLM safety.",
+  "normalized_text": "Research recent papers on LLM safety.",
+  "language": "en",
+  "intent_family": "research",
+  "task_type": "research",
+  "entities": [],
+  "constraints": {},
+  "output_preferences": {},
+  "topics": [
+    "llm",
+    "papers",
+    "recent",
+    "research",
+    "safety"
+  ],
+  "domain_signals": [
+    "research"
+  ],
+  "continuity": 0.5,
+  "risk_flags": [],
+  "ambiguity_flags": 0.9054089850944687,
+  "memory_need": false,
+  "persona_need": [
+    "researcher"
+  ],
+  "skill_need": [
+    "research"
+  ],
+  "model_preference_hint": null,
+  "acquisition_hint": "dynamic_capability_review",
+  "tone": "neutral",
+  "urgency": 0.1,
+  "confidence": 0.6189182029811062,
+  "schema_version": "translator.v1"
+}

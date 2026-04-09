@@ -1,0 +1,53 @@
+{
+  "skill": {
+    "id": "gen_050",
+    "name": "Generated fallback skill 50",
+    "version": "v1",
+    "purpose": "Auto-generated fallback helper 50",
+    "tags": [
+      "fallback"
+    ],
+    "triggers": [
+      "fallback",
+      "fallback_50"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "high",
+    "token_budget_hint": 200,
+    "risk_class": "medium",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "result"
+      ]
+    },
+    "prompt_fragments": [
+      "Auto-generated prompt fragment for Generated fallback skill 50"
+    ],
+    "validation_rules": {},
+    "source_type": "generated",
+    "source_reference": "local-generator",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T17:25:25.881Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "general_assistant"
+      ],
+      "runtime_modes": [
+        "hybrid"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "gen_050",
+    "action": "promoted_from_quarantine",
+    "checked_at": "2026-04-09T18:01:29.133Z",
+    "reasons": [
+      "promoted_from_quarantine_for_coverage"
+    ]
+  }
+}

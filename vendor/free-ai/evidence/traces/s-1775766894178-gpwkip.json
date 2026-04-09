@@ -1,0 +1,25 @@
+{
+  "id": "s-1775766894178-gpwkip",
+  "name": "orchestrator.orchestrateSkills",
+  "start": 1775766894178,
+  "meta": {
+    "intent_family": "chat",
+    "persona": "generated_general_create_persona"
+  },
+  "events": [
+    {
+      "ts": 1775766894180,
+      "event": "orchestrator.result",
+      "data": {
+        "mounted": 5,
+        "token_budget": 2750
+      }
+    }
+  ],
+  "end": 1775766894180,
+  "duration_ms": 2,
+  "outcome": {
+    "status": "ok",
+    "mounted": 5
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "id":"default",
+  "version":"v1",
+  "name":"Default",
+  "system_prompt":"You are a helpful assistant. Be concise and explicit when falling back to local KB.",
+  "description":"Default persona for general use"
+}
+

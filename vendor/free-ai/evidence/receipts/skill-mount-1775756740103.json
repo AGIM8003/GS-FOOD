@@ -1,0 +1,43 @@
+{
+  "mounted_skills": [
+    {
+      "id": "research_01",
+      "version": "v1",
+      "purpose": "Summarize key papers and findings",
+      "token_budget_hint": 1200,
+      "score": 0.6363961030678927
+    },
+    {
+      "id": "gen_066",
+      "version": "v1",
+      "purpose": "Auto-generated research helper 66",
+      "token_budget_hint": 500,
+      "score": 0.62
+    },
+    {
+      "id": "summarization_01",
+      "version": "v1",
+      "purpose": "Create summaries for multi-paragraph text",
+      "token_budget_hint": 350,
+      "score": 0.27
+    },
+    {
+      "id": "coding_02",
+      "version": "v1",
+      "purpose": "Give PR review suggestions",
+      "token_budget_hint": 500,
+      "score": 0.19091883092036782
+    },
+    {
+      "id": "retrieval_01",
+      "version": "v1",
+      "purpose": "Search local KB for relevant passages",
+      "token_budget_hint": 400,
+      "score": 0.19091883092036782
+    }
+  ],
+  "conflicts": [],
+  "dependencies": [],
+  "token_budget": 2950,
+  "schema_version": "skillMountResult.v1"
+}

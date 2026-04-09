@@ -1,0 +1,72 @@
+{
+  "schema_version": "DecisionGraphRecord.v1",
+  "graph_id": "dg-1775769168315-qngo",
+  "generated_at": "2026-04-09T21:12:48.315Z",
+  "trace_id": "t-1775769167824-82zj5k",
+  "prompt_variant": "variant_b_structured",
+  "prompt_family_id": "chat",
+  "output_contract": "receipt_augmented_answer",
+  "provider_id": null,
+  "model_id": null,
+  "fallback_used": true,
+  "translator": {
+    "intent_family": "chat",
+    "task_type": "chat"
+  },
+  "context": {
+    "domain": "general",
+    "continuity_score": 0.5
+  },
+  "reasoning": {
+    "mode": "heuristic.v1",
+    "strategy_type": "compose",
+    "confidence": 0.7215888308335967
+  },
+  "persona": {
+    "id": "generated_general_app_persona",
+    "confidence": 1.01
+  },
+  "skills": [
+    {
+      "id": "summarization_01",
+      "version": "v1"
+    },
+    {
+      "id": "persona_control_01",
+      "version": "v1"
+    },
+    {
+      "id": "generated_general_create_chat_workflow",
+      "version": "v1"
+    },
+    {
+      "id": "generated_general_fallback_chat_workflow",
+      "version": "v1"
+    },
+    {
+      "id": "gen_068",
+      "version": "v1"
+    }
+  ],
+  "memory_hits": [],
+  "route_decision": {
+    "chosen_provider": null,
+    "chosen_tag": null,
+    "capability": "structured_output",
+    "timestamp": "2026-04-09T21:12:48.307Z",
+    "counts": {
+      "primary_free": 0,
+      "burst_free": 0,
+      "local_only": 0
+    },
+    "ranked": {
+      "primary_free": [],
+      "burst_free": [],
+      "starter_credit": [],
+      "low_cost_fallback": [],
+      "local_only": []
+    },
+    "governance": {}
+  },
+  "validation": null
+}

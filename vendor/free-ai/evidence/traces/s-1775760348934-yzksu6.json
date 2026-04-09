@@ -1,0 +1,32 @@
+{
+  "id": "s-1775760348934-yzksu6",
+  "name": "providers.callProviders",
+  "start": 1775760348934,
+  "meta": {
+    "prompt_snippet": "System Persona: blend:analyst+undefined\n\n\n-- Translator Summary --\nIntent Family: research\nTask Type: research\nConstraints: {}\nOutput Preferences: {}\n-- Active Skills (5) --\n# Skill: research_01 — res"
+  },
+  "events": [
+    {
+      "ts": 1775760348934,
+      "event": "provider.consider",
+      "data": {
+        "provider": "openrouter"
+      }
+    },
+    {
+      "ts": 1775760348934,
+      "event": "provider.exception",
+      "data": {
+        "provider": "openrouter",
+        "model": "openrouter/free",
+        "message": "OPENROUTER_API_KEY not set"
+      }
+    }
+  ],
+  "end": 1775760348934,
+  "duration_ms": 0,
+  "outcome": {
+    "status": "fail",
+    "failureCount": 1
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "skill": {
+    "id": "evidence_01",
+    "name": "Evidence: Receipt Generator",
+    "version": "v1",
+    "purpose": "Create structured evidence receipts for events",
+    "tags": [
+      "evidence",
+      "receipts"
+    ],
+    "triggers": [
+      "receipt",
+      "evidence"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 200,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "receipt_id",
+        "payload"
+      ]
+    },
+    "prompt_fragments": [
+      "Generate structured receipt JSON with required fields."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "general_assistant"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "cloud_only"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "evidence_01",
+    "checked_at": "2026-04-09T18:01:29.101Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

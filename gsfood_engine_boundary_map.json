@@ -1,0 +1,8 @@
+{
+  "engine_boundary": {
+    "layer": "AI Core Intelligence",
+    "location": "GS FOOD/vendor/free-ai",
+    "responsibilities": "Handling LLM inference, provider failovers, reasoning graphs, receipts, and culinary insight generation.",
+    "exclusion": "Not responsible for user authentication, primary database of users, or static asset delivery."
+  }
+}

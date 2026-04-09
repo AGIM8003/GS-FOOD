@@ -1,0 +1,11 @@
+{
+  "updated_at": "2026-04-09T21:12:48.451Z",
+  "patch": {
+    "environment": "law-office",
+    "environment_tags": [
+      "legal",
+      "law-office"
+    ]
+  },
+  "environment": "law-office"
+}

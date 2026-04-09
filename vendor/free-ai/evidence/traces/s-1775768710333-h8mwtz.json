@@ -1,0 +1,42 @@
+{
+  "id": "s-1775768710333-h8mwtz",
+  "name": "providers.callProviders",
+  "start": 1775768710333,
+  "meta": {
+    "prompt_snippet": "-- Prompt Runtime --\nPrompt Family: chat\nPrompt Variant: variant_b_structured\nTrace ID: t-1775768709826-0b4vic\nReasoning Strategy: compose\nOutput Contract: receipt_augmented_answer\nReturn only valid J"
+  },
+  "events": [
+    {
+      "ts": 1775768710333,
+      "event": "provider.consider",
+      "data": {
+        "provider": "openrouter"
+      }
+    },
+    {
+      "ts": 1775768710333,
+      "event": "provider.attempt",
+      "data": {
+        "provider": "openrouter",
+        "model": "openrouter/free",
+        "latency": 0,
+        "ok": false
+      }
+    },
+    {
+      "ts": 1775768710333,
+      "event": "provider.error",
+      "data": {
+        "provider": "openrouter",
+        "model": "openrouter/free",
+        "errClass": "auth_error"
+      }
+    }
+  ],
+  "end": 1775768710334,
+  "duration_ms": 1,
+  "outcome": {
+    "status": "fail",
+    "failureCount": 1
+  }
+}

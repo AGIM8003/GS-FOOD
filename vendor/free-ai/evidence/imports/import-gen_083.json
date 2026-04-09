@@ -1,0 +1,57 @@
+{
+  "skill": {
+    "id": "gen_083",
+    "name": "Generated observability skill 83",
+    "version": "v1",
+    "purpose": "Auto-generated observability helper 83",
+    "tags": [
+      "observability"
+    ],
+    "triggers": [
+      "observability",
+      "observability_83"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "high",
+    "token_budget_hint": 350,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "result"
+      ]
+    },
+    "prompt_fragments": [
+      "Auto-generated prompt fragment for Generated observability skill 83"
+    ],
+    "validation_rules": {},
+    "source_type": "generated",
+    "source_reference": "local-generator",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T17:25:25.881Z",
+    "enabled": true,
+    "deprecated": true,
+    "compatibility": {
+      "personas": [
+        "general_assistant"
+      ],
+      "runtime_modes": [
+        "hybrid"
+      ]
+    },
+    "schema_version": "skillManifest.v1",
+    "deprecated_reason": "duplicate_of:gen_052"
+  },
+  "receipt": {
+    "skill_id": "gen_083",
+    "checked_at": "2026-04-09T18:01:29.117Z",
+    "reasons": [
+      "similar_prompt_or_name",
+      "source_generated"
+    ],
+    "action": "duplicate",
+    "duplicate_of": "gen_052",
+    "quarantined": true
+  }
+}

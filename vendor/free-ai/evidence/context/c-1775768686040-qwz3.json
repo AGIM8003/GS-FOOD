@@ -1,0 +1,33 @@
+{
+  "context_id": "c-1775768686040-qwz3",
+  "intent_family": "research",
+  "domain": "general",
+  "task_type": "research",
+  "tone": "neutral",
+  "urgency": 0.1,
+  "risk_flags": [],
+  "ambiguity_score": 0.9054089850944687,
+  "continuity_score": 0.5,
+  "missing_info_flags": [],
+  "conversation_phase": "interaction",
+  "requested_output_form": "text",
+  "memory_retrieval_needed": false,
+  "persona_hints": [
+    "researcher"
+  ],
+  "skill_hints": [
+    "research"
+  ],
+  "provider_hints": [
+    "research"
+  ],
+  "model_hints": [
+    "research"
+  ],
+  "acquisition_hints": [
+    "dynamic_capability_review",
+    "topic_dense_request"
+  ],
+  "confidence": 0.6189182029811062,
+  "schema_version": "contextSnapshot.v1"
+}

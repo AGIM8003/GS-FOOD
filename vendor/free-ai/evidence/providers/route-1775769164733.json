@@ -1,0 +1,170 @@
+{
+  "ladderDecision": {
+    "chosen_provider": "gemini",
+    "chosen_tag": "primary_free",
+    "capability": "structured_output",
+    "timestamp": "2026-04-09T21:12:44.732Z",
+    "counts": {
+      "primary_free": 2,
+      "burst_free": 1,
+      "local_only": 0
+    },
+    "ranked": {
+      "primary_free": [
+        {
+          "id": "gemini",
+          "score": 72.5999875
+        },
+        {
+          "id": "huggingface",
+          "score": 54.5999875
+        }
+      ],
+      "burst_free": [
+        {
+          "id": "openrouter",
+          "score": 67.0399875
+        }
+      ],
+      "starter_credit": [
+        {
+          "id": "groq",
+          "score": 57.599999999999994
+        },
+        {
+          "id": "openai",
+          "score": 42.599999999999994
+        },
+        {
+          "id": "anthropic",
+          "score": 32.599999999999994
+        },
+        {
+          "id": "fireworks",
+          "score": 32.5999875
+        }
+      ],
+      "low_cost_fallback": [
+        {
+          "id": "ollama",
+          "score": 63.199487500000004
+        }
+      ],
+      "local_only": []
+    },
+    "governance": {
+      "openrouter": {
+        "provider_id": "openrouter",
+        "status": "demoted",
+        "route_penalty": -37,
+        "route_bonus": 0,
+        "reason": [
+          "probe:auth_error",
+          "low_free_reliability",
+          "health:auth_error"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      },
+      "openai": {
+        "provider_id": "openai",
+        "status": "demoted",
+        "route_penalty": -37,
+        "route_bonus": 0,
+        "reason": [
+          "probe:auth_error",
+          "low_free_reliability",
+          "health:auth_error"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      },
+      "anthropic": {
+        "provider_id": "anthropic",
+        "status": "demoted",
+        "route_penalty": -37,
+        "route_bonus": 0,
+        "reason": [
+          "probe:auth_error",
+          "low_free_reliability",
+          "health:auth_error"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      },
+      "gemini": {
+        "provider_id": "gemini",
+        "status": "demoted",
+        "route_penalty": -37,
+        "route_bonus": 0,
+        "reason": [
+          "probe:auth_error",
+          "low_free_reliability",
+          "health:auth_error"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      },
+      "groq": {
+        "provider_id": "groq",
+        "status": "demoted",
+        "route_penalty": -37,
+        "route_bonus": 0,
+        "reason": [
+          "probe:auth_error",
+          "low_free_reliability",
+          "health:auth_error"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      },
+      "huggingface": {
+        "provider_id": "huggingface",
+        "status": "demoted",
+        "route_penalty": -37,
+        "route_bonus": 0,
+        "reason": [
+          "probe:auth_error",
+          "low_free_reliability",
+          "health:auth_error"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      },
+      "fireworks": {
+        "provider_id": "fireworks",
+        "status": "demoted",
+        "route_penalty": -37,
+        "route_bonus": 0,
+        "reason": [
+          "probe:auth_error",
+          "low_free_reliability",
+          "health:auth_error"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      },
+      "ollama": {
+        "provider_id": "ollama",
+        "status": "demoted",
+        "route_penalty": -27,
+        "route_bonus": 0,
+        "reason": [
+          "probe:unknown_error",
+          "low_free_reliability"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      }
+    }
+  },
+  "persona": "generated_ai_systems_engineering_persona",
+  "intent": "research",
+  "skills": [
+    "gen_066",
+    "research_01",
+    "research_gen_116",
+    "persona_control_01",
+    "persona-control_gen_120"
+  ]
+}

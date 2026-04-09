@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>FREE AI - Admin</title>
+    <style>body{font-family:Segoe UI,Arial;margin:24px}button{margin:6px}</style>
+  </head>
+  <body>
+    <h1>FREE AI — Admin</h1>
+    <p>Quick links:</p>
+    <ul>
+      <li><a href="/health" target="_blank">Health (GET /health)</a></li>
+      <li><a id="inferLink" href="#">Open inference demo (POST /v1/infer)</a></li>
+    </ul>
+
+    <h2>Inference demo</h2>
+    <label>Persona: <input id="persona" value="researcher"></label><br/>
+    <textarea id="prompt" rows="4" cols="80">Summarize the benefits of caching</textarea><br/>
+    <button id="run">Run (non-stream)</button>
+    <button id="runStream">Run (stream)</button>
+
+    <pre id="out" style="background:#f7f7f7;padding:12px;border:1px solid #ddd;margin-top:12px;height:220px;overflow:auto"></pre>
+
+    <script>
+      const out = document.getElementById('out');
+      document.getElementById('run').addEventListener('click', async ()=>{
+        out.textContent = 'Running...';
+        const prompt = document.getElementById('prompt').value;
+        const persona = document.getElementById('persona').value;
+        try{
+          const res = await fetch('/v1/infer',{method:'POST',headers:{'Content-Type':'application/json'},body: JSON.stringify({prompt, persona})});
+          const j = await res.json();
+          out.textContent = JSON.stringify(j, null, 2);
+        }catch(e){ out.textContent = 'Error: '+e.message }
+      });
+
+      document.getElementById('runStream').addEventListener('click', async ()=>{
+        out.textContent = 'Streaming...\n';
+        const prompt = document.getElementById('prompt').value;
+        const persona = document.getElementById('persona').value;
+        const es = new EventSource('/v1/stream?prompt=' + encodeURIComponent(prompt) + '&persona=' + encodeURIComponent(persona));
+        es.onmessage = ev => { out.textContent += ev.data + '\n'; };
+        es.onerror = e => { out.textContent += '\n[stream error]'; es.close(); };
+      });
+    </script>
+  </body>
+</html>

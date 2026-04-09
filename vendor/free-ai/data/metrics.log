@@ -1,0 +1,8 @@
+{"ts":"2026-04-09T16:03:39.726Z","event":"request_handled","trace_id":"t-1775750619722-4vh8nm","persona":"researcher","cache_hit":false}
+{"ts":"2026-04-09T21:00:48.047Z","event":"request_handled","trace_id":"t-1775768447196-xejeec","persona":null,"cache_hit":false}
+{"ts":"2026-04-09T21:00:59.970Z","event":"request_handled","trace_id":"t-1775768459494-fhfax4","persona":null,"cache_hit":false}
+{"ts":"2026-04-09T21:04:47.496Z","event":"request_handled","trace_id":"t-1775768686613-yssh74","persona":null,"cache_hit":false}
+{"ts":"2026-04-09T21:05:10.342Z","event":"request_handled","trace_id":"t-1775768709826-0b4vic","persona":null,"cache_hit":false}
+{"ts":"2026-04-09T21:05:13.216Z","event":"request_handled","trace_id":"t-1775768712685-iukobt","persona":null,"cache_hit":false}
+{"ts":"2026-04-09T21:12:47.520Z","event":"request_handled","trace_id":"t-1775769167037-jq8wv7","persona":null,"cache_hit":false}
+{"ts":"2026-04-09T21:12:54.179Z","event":"request_handled","trace_id":"t-1775769173663-btatbn","persona":null,"cache_hit":false}

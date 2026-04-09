@@ -1,0 +1,10 @@
+{
+  "type": "prompt_promotion",
+  "family_id": "general",
+  "from_variant": null,
+  "to_variant": "variant_b_structured",
+  "baseline_metrics": {},
+  "candidate_metrics": {},
+  "reason": "test_promotion",
+  "promoted_at": "2026-04-09T19:52:27.151Z"
+}

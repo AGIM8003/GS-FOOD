@@ -1,0 +1,25 @@
+{
+  "id": "s-1775763286868-2e3suk",
+  "name": "orchestrator.orchestrateSkills",
+  "start": 1775763286868,
+  "meta": {
+    "intent_family": "chat",
+    "persona": "reflective"
+  },
+  "events": [
+    {
+      "ts": 1775763286869,
+      "event": "orchestrator.result",
+      "data": {
+        "mounted": 5,
+        "token_budget": 1300
+      }
+    }
+  ],
+  "end": 1775763286870,
+  "duration_ms": 2,
+  "outcome": {
+    "status": "ok",
+    "mounted": 5
+  }
+}

@@ -1,0 +1,4335 @@
+{
+  "schema_version": "skillCatalog.v1",
+  "generated_at": "2026-04-09T21:00:48.021Z",
+  "skills": [
+    {
+      "id": "planning_01",
+      "name": "Plan: Break Goals",
+      "version": "v1",
+      "purpose": "Decompose goals into milestones",
+      "tags": [
+        "planning",
+        "tasks"
+      ],
+      "triggers": [
+        "plan",
+        "milestone"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "steps"
+        ]
+      },
+      "prompt_fragments": [
+        "Decompose the goal into steps with owners and estimates."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "planner",
+          "product_manager"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "offline_optional",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "planning_02",
+      "name": "Plan: Sprint Backlog",
+      "version": "v1",
+      "purpose": "Create sprint backlog from roadmap",
+      "tags": [
+        "planning",
+        "agile"
+      ],
+      "triggers": [
+        "sprint",
+        "backlog"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 350,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "backlog_items"
+        ]
+      },
+      "prompt_fragments": [
+        "Generate a sprint backlog with priorities and acceptance criteria."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "planner",
+          "product_manager"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "planning_03",
+      "name": "Plan: Roadmap",
+      "version": "v1",
+      "purpose": "High-level product roadmap creation",
+      "tags": [
+        "planning",
+        "strategy"
+      ],
+      "triggers": [
+        "roadmap",
+        "strategy"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 600,
+      "risk_class": "medium",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "roadmap"
+        ]
+      },
+      "prompt_fragments": [
+        "Produce a 6-12 month roadmap aligned to objectives."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "strategist",
+          "product_manager"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "coding_01",
+      "name": "Code: Generate Function",
+      "version": "v1",
+      "purpose": "Generate a language function from spec",
+      "tags": [
+        "coding",
+        "implementation"
+      ],
+      "triggers": [
+        "implement",
+        "function",
+        "code"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 800,
+      "risk_class": "medium",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "code",
+          "tests"
+        ]
+      },
+      "prompt_fragments": [
+        "Write the requested function with comments and unit tests."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "software_engineer",
+          "technical_architect"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "coding_02",
+      "name": "Code: Review PR",
+      "version": "v1",
+      "purpose": "Give PR review suggestions",
+      "tags": [
+        "coding",
+        "review"
+      ],
+      "triggers": [
+        "review",
+        "pr",
+        "pull request"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 500,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "comments",
+          "severity"
+        ]
+      },
+      "prompt_fragments": [
+        "Provide code review comments and suggest improvements."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "software_engineer",
+          "debugger"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "coding_03",
+      "name": "Code: Bug Fix Suggestion",
+      "version": "v1",
+      "purpose": "Suggest probable fixes for given bug description",
+      "tags": [
+        "coding",
+        "debugging"
+      ],
+      "triggers": [
+        "bug",
+        "error",
+        "stack"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 700,
+      "risk_class": "high",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "root_cause",
+          "fix_suggestion"
+        ]
+      },
+      "prompt_fragments": [
+        "Analyze the error and propose a minimal safe fix."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "debugger",
+          "software_engineer"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "debugging_01",
+      "name": "Debug: Reproduce Steps",
+      "version": "v1",
+      "purpose": "Ask clarifying questions to reproduce a bug",
+      "tags": [
+        "debugging"
+      ],
+      "triggers": [
+        "reproduce",
+        "steps",
+        "bug report"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "questions"
+        ]
+      },
+      "prompt_fragments": [
+        "List targeted questions to reproduce the reported issue."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "debugger"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "debugging_02",
+      "name": "Debug: Stack Trace Analyzer",
+      "version": "v1",
+      "purpose": "Analyze stack traces and point to likely source",
+      "tags": [
+        "debugging",
+        "analysis"
+      ],
+      "triggers": [
+        "stack",
+        "trace",
+        "exception"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 600,
+      "risk_class": "medium",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "likely_files",
+          "lines",
+          "explanation"
+        ]
+      },
+      "prompt_fragments": [
+        "Given a stack trace, identify likely problematic code locations."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "debugger",
+          "software_engineer"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "architecture_01",
+      "name": "Arch: API Design",
+      "version": "v1",
+      "purpose": "Suggest API contract and examples",
+      "tags": [
+        "architecture",
+        "api"
+      ],
+      "triggers": [
+        "api",
+        "endpoint",
+        "contract"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 900,
+      "risk_class": "medium",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "openapi_spec",
+          "examples"
+        ]
+      },
+      "prompt_fragments": [
+        "Design a REST/GraphQL API with example requests and responses."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "technical_architect",
+          "software_engineer"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "research_01",
+      "name": "Research: Quick Lit Review",
+      "version": "v1",
+      "purpose": "Summarize key papers and findings",
+      "tags": [
+        "research",
+        "synthesis"
+      ],
+      "triggers": [
+        "research",
+        "literature",
+        "paper"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 1200,
+      "risk_class": "medium",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "summary",
+          "citations"
+        ]
+      },
+      "prompt_fragments": [
+        "Provide a concise literature review with citations and uncertainties."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "researcher",
+          "analyst"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "retrieval_01",
+      "name": "Retrieval: KB Search",
+      "version": "v1",
+      "purpose": "Search local KB for relevant passages",
+      "tags": [
+        "retrieval",
+        "kb"
+      ],
+      "triggers": [
+        "search",
+        "lookup"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 400,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "results"
+        ]
+      },
+      "prompt_fragments": [
+        "Return top relevant passages and sources."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "retrieval-focused-assistant",
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "summarization_01",
+      "name": "Summarize: Multi-paragraph",
+      "version": "v1",
+      "purpose": "Create summaries for multi-paragraph text",
+      "tags": [
+        "summarization"
+      ],
+      "triggers": [
+        "summarize",
+        "condense"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 350,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "summary"
+        ]
+      },
+      "prompt_fragments": [
+        "Summarize the provided text into 3-5 sentences."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "summarizer",
+          "technical_writer"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "memory_01",
+      "name": "Memory: Summarize Conversation",
+      "version": "v1",
+      "purpose": "Produce a conversation summary for memory write",
+      "tags": [
+        "memory",
+        "summary"
+      ],
+      "triggers": [
+        "summary",
+        "conversation summary"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 400,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "summary",
+          "highlights"
+        ]
+      },
+      "prompt_fragments": [
+        "Create a concise conversation summary suitable for memory storage."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "reflective_assistant",
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "persona_control_01",
+      "name": "Persona: Tone Adjust",
+      "version": "v1",
+      "purpose": "Adjust persona tone across output",
+      "tags": [
+        "persona-control"
+      ],
+      "triggers": [
+        "tone",
+        "style"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "modified_prompt"
+        ]
+      },
+      "prompt_fragments": [
+        "Modify prompt to match requested tone and brevity."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant",
+          "technical_writer"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "offline_optional",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "metacognition_01",
+      "name": "Metacog: Risk Detector",
+      "version": "v1",
+      "purpose": "Detect risk-sensitive content and advise M1 critic",
+      "tags": [
+        "metacognition",
+        "safety"
+      ],
+      "triggers": [
+        "risk",
+        "safety"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "high",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "risk_flags",
+          "recommendation"
+        ]
+      },
+      "prompt_fragments": [
+        "Assess risk and indicate whether M1 critic is required."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "safety_assistant",
+          "critic"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "evaluation_01",
+      "name": "Eval: Simple QA Test",
+      "version": "v1",
+      "purpose": "Create QA checks for output correctness",
+      "tags": [
+        "evaluation",
+        "testing"
+      ],
+      "triggers": [
+        "evaluate",
+        "qa"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 400,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "score",
+          "feedback"
+        ]
+      },
+      "prompt_fragments": [
+        "Produce pass/fail checks and scoring for the provided output."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "evaluation_assistant",
+          "critic"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "routing_01",
+      "name": "Routing: Provider Selector",
+      "version": "v1",
+      "purpose": "Score providers for task-fit",
+      "tags": [
+        "routing",
+        "provider"
+      ],
+      "triggers": [
+        "route",
+        "provider"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "scores"
+        ]
+      },
+      "prompt_fragments": [
+        "Score providers by task fit, latency preference, and persona."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "routing_assistant",
+          "technical_architect"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "safety_01",
+      "name": "Safety: Redaction Helper",
+      "version": "v1",
+      "purpose": "Redact PII and sensitive content",
+      "tags": [
+        "safety",
+        "redaction"
+      ],
+      "triggers": [
+        "redact",
+        "pii"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 250,
+      "risk_class": "high",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "redacted_text",
+          "masking_report"
+        ]
+      },
+      "prompt_fragments": [
+        "Identify and redact sensitive fields and produce redaction report."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "safety_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "reflection_01",
+      "name": "Reflection: Critique Output",
+      "version": "v1",
+      "purpose": "Provide critique and improvement suggestions",
+      "tags": [
+        "reflection",
+        "critique"
+      ],
+      "triggers": [
+        "critique",
+        "improve"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 400,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "issues",
+          "improvements"
+        ]
+      },
+      "prompt_fragments": [
+        "Evaluate the output and return actionable improvements."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "critic",
+          "reflective_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "invention_01",
+      "name": "Invention: Idea Suggester",
+      "version": "v1",
+      "purpose": "Propose new ideas or features",
+      "tags": [
+        "invention",
+        "ideation"
+      ],
+      "triggers": [
+        "idea",
+        "innovate"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 400,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "ideas",
+          "rationale"
+        ]
+      },
+      "prompt_fragments": [
+        "Generate novel ideas and pragmatic next steps."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "synthesis_assistant",
+          "strategist"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "evidence_01",
+      "name": "Evidence: Receipt Generator",
+      "version": "v1",
+      "purpose": "Create structured evidence receipts for events",
+      "tags": [
+        "evidence",
+        "receipts"
+      ],
+      "triggers": [
+        "receipt",
+        "evidence"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "receipt_id",
+          "payload"
+        ]
+      },
+      "prompt_fragments": [
+        "Generate structured receipt JSON with required fields."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "doc_01",
+      "name": "Docs: API Quickstart",
+      "version": "v1",
+      "purpose": "Generate API quickstart docs",
+      "tags": [
+        "documentation",
+        "docs"
+      ],
+      "triggers": [
+        "quickstart",
+        "docs"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 500,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "docs",
+          "examples"
+        ]
+      },
+      "prompt_fragments": [
+        "Produce a short quickstart guide with code snippets."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "technical_writer",
+          "product_manager"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "prompt_01",
+      "name": "Prompt: Cleanse Input",
+      "version": "v1",
+      "purpose": "Sanitize and normalize user input before compilation",
+      "tags": [
+        "prompt compilation",
+        "hygiene"
+      ],
+      "triggers": [
+        "sanitize",
+        "normalize"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 150,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "normalized_input"
+        ]
+      },
+      "prompt_fragments": [
+        "Normalize punctuation, remove problematic markup, and redact secrets."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant",
+          "safety_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "fallback_01",
+      "name": "Fallback: Explain Fallback",
+      "version": "v1",
+      "purpose": "Explain to user why fallback was used",
+      "tags": [
+        "fallback",
+        "explain"
+      ],
+      "triggers": [
+        "fallback",
+        "explain fallback"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "explanation"
+        ]
+      },
+      "prompt_fragments": [
+        "Explain why primary providers failed and what was used instead."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "routing_assistant",
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "hygiene_01",
+      "name": "Model Hygiene: Prompt Check",
+      "version": "v1",
+      "purpose": "Detect prompt issues like injection patterns",
+      "tags": [
+        "model hygiene",
+        "safety"
+      ],
+      "triggers": [
+        "sanitize",
+        "injection"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 250,
+      "risk_class": "high",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "issues",
+          "safe_prompt"
+        ]
+      },
+      "prompt_fragments": [
+        "Detect prompt injection patterns and produce a safe variant."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "safety_assistant",
+          "technical_writer"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "observability_01",
+      "name": "Metrics: Summarize Metrics",
+      "version": "v1",
+      "purpose": "Summarize recent metrics into key insights",
+      "tags": [
+        "observability",
+        "metrics"
+      ],
+      "triggers": [
+        "metrics",
+        "summary"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "insights",
+          "anomalies"
+        ]
+      },
+      "prompt_fragments": [
+        "Summarize last 24h metrics and flag anomalies."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "analyst",
+          "systems_operator"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "testing_01",
+      "name": "Test: Unit Test Template",
+      "version": "v1",
+      "purpose": "Generate unit test scaffold for given code",
+      "tags": [
+        "testing",
+        "qa"
+      ],
+      "triggers": [
+        "test",
+        "unit test"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 700,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "tests"
+        ]
+      },
+      "prompt_fragments": [
+        "Produce unit tests with edge cases and mocks."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "software_engineer",
+          "evaluation_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "kg_01",
+      "name": "KG: Entity Linker",
+      "version": "v1",
+      "purpose": "Link entities and suggest backlinks for vault",
+      "tags": [
+        "knowledge graph",
+        "linking"
+      ],
+      "triggers": [
+        "link",
+        "backlink"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 800,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "entities",
+          "edges"
+        ]
+      },
+      "prompt_fragments": [
+        "Identify entities and suggest backlinks with confidence scores."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "reflective_assistant",
+          "metacognition_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "obsidian_01",
+      "name": "Obsidian: Note Linker",
+      "version": "v1",
+      "purpose": "Create backlinkable notes suitable for vault",
+      "tags": [
+        "obsidian",
+        "vault",
+        "notes"
+      ],
+      "triggers": [
+        "note",
+        "backlink"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 450,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "note",
+          "links"
+        ]
+      },
+      "prompt_fragments": [
+        "Generate a small vault note with tags and backlinks."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "reflective_assistant",
+          "knowledge_manager"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "workflow_01",
+      "name": "Workflow: Orchestrate Steps",
+      "version": "v1",
+      "purpose": "Turn tasks into an orchestrated workflow",
+      "tags": [
+        "workflow",
+        "orchestration"
+      ],
+      "triggers": [
+        "orchestrate",
+        "workflow"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 900,
+      "risk_class": "medium",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "workflow",
+          "tasks"
+        ]
+      },
+      "prompt_fragments": [
+        "Create an orchestrated workflow with retries and dependencies."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "process_workflow_assistant",
+          "planner"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "quality_01",
+      "name": "Quality Gate: Sanity Checks",
+      "version": "v1",
+      "purpose": "Run sanity checks on outputs",
+      "tags": [
+        "quality",
+        "checks"
+      ],
+      "triggers": [
+        "sanity",
+        "check"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "pass",
+          "issues"
+        ]
+      },
+      "prompt_fragments": [
+        "Run a set of sanity checks to assert output quality."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "evaluation_assistant",
+          "critic"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "evidence_02",
+      "name": "Evidence: Trace Correlator",
+      "version": "v1",
+      "purpose": "Correlate traces and receipts for an event",
+      "tags": [
+        "evidence",
+        "tracing"
+      ],
+      "triggers": [
+        "trace",
+        "correlate"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "correlated_traces"
+        ]
+      },
+      "prompt_fragments": [
+        "Given receipts and traces, correlate related events."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "analyst",
+          "systems_operator"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "model_hygiene_02",
+      "name": "Model: Token Cost Estimator",
+      "version": "v1",
+      "purpose": "Estimate token cost for prompt+response",
+      "tags": [
+        "model-hygiene",
+        "cost"
+      ],
+      "triggers": [
+        "tokens",
+        "estimate"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "estimated_tokens",
+          "cost_estimate"
+        ]
+      },
+      "prompt_fragments": [
+        "Estimate token usage for the compiled prompt and expected output length."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "product_manager",
+          "technical_architect"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "safety_02",
+      "name": "Safety: Policy Checker",
+      "version": "v1",
+      "purpose": "Check content against policy rules",
+      "tags": [
+        "safety",
+        "policy"
+      ],
+      "triggers": [
+        "policy",
+        "check"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "high",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "violations",
+          "severity"
+        ]
+      },
+      "prompt_fragments": [
+        "Run policy checks and categorize violations."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "safety_assistant",
+          "critic"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "retrieval_02",
+      "name": "Retrieval: Semantic Rerank",
+      "version": "v1",
+      "purpose": "Re-rank hits by semantic similarity",
+      "tags": [
+        "retrieval",
+        "rerank"
+      ],
+      "triggers": [
+        "rerank",
+        "similarity"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 500,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "ranked_results"
+        ]
+      },
+      "prompt_fragments": [
+        "Rerank the candidate passages by semantic fit to the query."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "retrieval-focused-assistant",
+          "researcher"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "reflection_02",
+      "name": "Reflection: Bias Detector",
+      "version": "v1",
+      "purpose": "Detect likely biases in text",
+      "tags": [
+        "reflection",
+        "bias"
+      ],
+      "triggers": [
+        "bias",
+        "fairness"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "medium",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "biases",
+          "explanations"
+        ]
+      },
+      "prompt_fragments": [
+        "Identify potential biases and suggest mitigation."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "critic",
+          "safety_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "doc_02",
+      "name": "Docs: API Changelog",
+      "version": "v1",
+      "purpose": "Generate changelog entries for releases",
+      "tags": [
+        "documentation",
+        "changelog"
+      ],
+      "triggers": [
+        "changelog",
+        "release"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "changelog_entries"
+        ]
+      },
+      "prompt_fragments": [
+        "Create concise changelog entries from commit messages."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "technical_writer",
+          "product_manager"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "testing_02",
+      "name": "Testing: Integration Test Plan",
+      "version": "v1",
+      "purpose": "Draft an integration test plan",
+      "tags": [
+        "testing",
+        "integration"
+      ],
+      "triggers": [
+        "integration test",
+        "plan"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 800,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "test_plan"
+        ]
+      },
+      "prompt_fragments": [
+        "Create an integration test plan covering key flows."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "evaluation_assistant",
+          "systems_operator"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "knowledge_02",
+      "name": "KG: Tag Extractor",
+      "version": "v1",
+      "purpose": "Extract tags and metadata from text",
+      "tags": [
+        "knowledge graph",
+        "metadata"
+      ],
+      "triggers": [
+        "tags",
+        "metadata"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "tags"
+        ]
+      },
+      "prompt_fragments": [
+        "Extract concise tags and suggested categories."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "reflective_assistant",
+          "analyst"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "misc_01",
+      "name": "Misc: Short Answer Formatter",
+      "version": "v1",
+      "purpose": "Format short concise answers",
+      "tags": [
+        "formatting",
+        "ui"
+      ],
+      "triggers": [
+        "short",
+        "concise",
+        "format"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 150,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "answer"
+        ]
+      },
+      "prompt_fragments": [
+        "Return a 1-2 sentence concise answer."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant",
+          "summarizer"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "misc_02",
+      "name": "Misc: Expand Bullet Points",
+      "version": "v1",
+      "purpose": "Expand bullets into prose",
+      "tags": [
+        "writing"
+      ],
+      "triggers": [
+        "expand",
+        "bullets"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 250,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "expanded"
+        ]
+      },
+      "prompt_fragments": [
+        "Turn bullets into a clear paragraph."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "technical_writer",
+          "teacher"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "misc_03",
+      "name": "Misc: Translate Short",
+      "version": "v1",
+      "purpose": "Translate short phrases",
+      "tags": [
+        "translate"
+      ],
+      "triggers": [
+        "translate"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "translation"
+        ]
+      },
+      "prompt_fragments": [
+        "Translate the text into the requested language."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant",
+          "teacher"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "misc_04",
+      "name": "Misc: Title Generator",
+      "version": "v1",
+      "purpose": "Generate concise titles",
+      "tags": [
+        "writing",
+        "ux"
+      ],
+      "triggers": [
+        "title"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 120,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "title"
+        ]
+      },
+      "prompt_fragments": [
+        "Produce a title under 8 words."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "technical_writer",
+          "summarizer"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "misc_05",
+      "name": "Misc: Expand Acronyms",
+      "version": "v1",
+      "purpose": "Expand acronyms and provide definitions",
+      "tags": [
+        "glossary"
+      ],
+      "triggers": [
+        "acronym",
+        "define"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 100,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "expansions"
+        ]
+      },
+      "prompt_fragments": [
+        "Expand acronyms and give short definitions."
+      ],
+      "validation_rules": {},
+      "source_type": "bundled",
+      "source_reference": "local-bundle",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T00:00:00Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "teacher",
+          "technical_writer"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_045",
+      "name": "Generated reflection skill 45",
+      "version": "v1",
+      "purpose": "Auto-generated reflection helper 45",
+      "tags": [
+        "reflection"
+      ],
+      "triggers": [
+        "reflection",
+        "reflection_45"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 450,
+      "risk_class": "medium",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated reflection skill 45"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_046",
+      "name": "Generated invention skill 46",
+      "version": "v1",
+      "purpose": "Auto-generated invention helper 46",
+      "tags": [
+        "invention"
+      ],
+      "triggers": [
+        "invention",
+        "invention_46"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 500,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated invention skill 46"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_047",
+      "name": "Generated evidence skill 47",
+      "version": "v1",
+      "purpose": "Auto-generated evidence helper 47",
+      "tags": [
+        "evidence"
+      ],
+      "triggers": [
+        "evidence",
+        "evidence_47"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "high",
+      "token_budget_hint": 550,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated evidence skill 47"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_048",
+      "name": "Generated documentation skill 48",
+      "version": "v1",
+      "purpose": "Auto-generated documentation helper 48",
+      "tags": [
+        "documentation"
+      ],
+      "triggers": [
+        "documentation",
+        "documentation_48"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 600,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated documentation skill 48"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_050",
+      "name": "Generated fallback skill 50",
+      "version": "v1",
+      "purpose": "Auto-generated fallback helper 50",
+      "tags": [
+        "fallback"
+      ],
+      "triggers": [
+        "fallback",
+        "fallback_50"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "high",
+      "token_budget_hint": 200,
+      "risk_class": "medium",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated fallback skill 50"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_051",
+      "name": "Generated model_hygiene skill 51",
+      "version": "v1",
+      "purpose": "Auto-generated model_hygiene helper 51",
+      "tags": [
+        "model_hygiene"
+      ],
+      "triggers": [
+        "model_hygiene",
+        "model_hygiene_51"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 250,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated model_hygiene skill 51"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_052",
+      "name": "Generated observability skill 52",
+      "version": "v1",
+      "purpose": "Auto-generated observability helper 52",
+      "tags": [
+        "observability"
+      ],
+      "triggers": [
+        "observability",
+        "observability_52"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated observability skill 52"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_053",
+      "name": "Generated testing skill 53",
+      "version": "v1",
+      "purpose": "Auto-generated testing helper 53",
+      "tags": [
+        "testing"
+      ],
+      "triggers": [
+        "testing",
+        "testing_53"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "high",
+      "token_budget_hint": 350,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated testing skill 53"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_054",
+      "name": "Generated kg skill 54",
+      "version": "v1",
+      "purpose": "Auto-generated kg helper 54",
+      "tags": [
+        "kg"
+      ],
+      "triggers": [
+        "kg",
+        "kg_54"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 400,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated kg skill 54"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_055",
+      "name": "Generated obsidian skill 55",
+      "version": "v1",
+      "purpose": "Auto-generated obsidian helper 55",
+      "tags": [
+        "obsidian"
+      ],
+      "triggers": [
+        "obsidian",
+        "obsidian_55"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 450,
+      "risk_class": "medium",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated obsidian skill 55"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_057",
+      "name": "Generated quality skill 57",
+      "version": "v1",
+      "purpose": "Auto-generated quality helper 57",
+      "tags": [
+        "quality"
+      ],
+      "triggers": [
+        "quality",
+        "quality_57"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 550,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated quality skill 57"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_058",
+      "name": "Generated translator skill 58",
+      "version": "v1",
+      "purpose": "Auto-generated translator helper 58",
+      "tags": [
+        "translator"
+      ],
+      "triggers": [
+        "translator",
+        "translator_58"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 600,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated translator skill 58"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_059",
+      "name": "Generated continuity skill 59",
+      "version": "v1",
+      "purpose": "Auto-generated continuity helper 59",
+      "tags": [
+        "continuity"
+      ],
+      "triggers": [
+        "continuity",
+        "continuity_59"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "high",
+      "token_budget_hint": 650,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated continuity skill 59"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_060",
+      "name": "Generated ambiguity skill 60",
+      "version": "v1",
+      "purpose": "Auto-generated ambiguity helper 60",
+      "tags": [
+        "ambiguity"
+      ],
+      "triggers": [
+        "ambiguity",
+        "ambiguity_60"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "medium",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated ambiguity skill 60"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_061",
+      "name": "Generated contradiction skill 61",
+      "version": "v1",
+      "purpose": "Auto-generated contradiction helper 61",
+      "tags": [
+        "contradiction"
+      ],
+      "triggers": [
+        "contradiction",
+        "contradiction_61"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 250,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated contradiction skill 61"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_062",
+      "name": "Generated planning skill 62",
+      "version": "v1",
+      "purpose": "Auto-generated planning helper 62",
+      "tags": [
+        "planning"
+      ],
+      "triggers": [
+        "planning",
+        "planning_62"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "high",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated planning skill 62"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_064",
+      "name": "Generated debugging skill 64",
+      "version": "v1",
+      "purpose": "Auto-generated debugging helper 64",
+      "tags": [
+        "debugging"
+      ],
+      "triggers": [
+        "debugging",
+        "debugging_64"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 400,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated debugging skill 64"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_065",
+      "name": "Generated architecture skill 65",
+      "version": "v1",
+      "purpose": "Auto-generated architecture helper 65",
+      "tags": [
+        "architecture"
+      ],
+      "triggers": [
+        "architecture",
+        "architecture_65"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "high",
+      "token_budget_hint": 450,
+      "risk_class": "medium",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated architecture skill 65"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_066",
+      "name": "Generated research skill 66",
+      "version": "v1",
+      "purpose": "Auto-generated research helper 66",
+      "tags": [
+        "research"
+      ],
+      "triggers": [
+        "research",
+        "research_66"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 500,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated research skill 66"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_067",
+      "name": "Generated retrieval skill 67",
+      "version": "v1",
+      "purpose": "Auto-generated retrieval helper 67",
+      "tags": [
+        "retrieval"
+      ],
+      "triggers": [
+        "retrieval",
+        "retrieval_67"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 550,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated retrieval skill 67"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_068",
+      "name": "Generated summarization skill 68",
+      "version": "v1",
+      "purpose": "Auto-generated summarization helper 68",
+      "tags": [
+        "summarization"
+      ],
+      "triggers": [
+        "summarization",
+        "summarization_68"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "high",
+      "token_budget_hint": 600,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated summarization skill 68"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_069",
+      "name": "Generated memory skill 69",
+      "version": "v1",
+      "purpose": "Auto-generated memory helper 69",
+      "tags": [
+        "memory"
+      ],
+      "triggers": [
+        "memory",
+        "memory_69"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 650,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated memory skill 69"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_071",
+      "name": "Generated metacognition skill 71",
+      "version": "v1",
+      "purpose": "Auto-generated metacognition helper 71",
+      "tags": [
+        "metacognition"
+      ],
+      "triggers": [
+        "metacognition",
+        "metacognition_71"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "high",
+      "token_budget_hint": 250,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated metacognition skill 71"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_072",
+      "name": "Generated reasoning skill 72",
+      "version": "v1",
+      "purpose": "Auto-generated reasoning helper 72",
+      "tags": [
+        "reasoning"
+      ],
+      "triggers": [
+        "reasoning",
+        "reasoning_72"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated reasoning skill 72"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_073",
+      "name": "Generated evaluation skill 73",
+      "version": "v1",
+      "purpose": "Auto-generated evaluation helper 73",
+      "tags": [
+        "evaluation"
+      ],
+      "triggers": [
+        "evaluation",
+        "evaluation_73"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 350,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated evaluation skill 73"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_074",
+      "name": "Generated routing skill 74",
+      "version": "v1",
+      "purpose": "Auto-generated routing helper 74",
+      "tags": [
+        "routing"
+      ],
+      "triggers": [
+        "routing",
+        "routing_74"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "high",
+      "token_budget_hint": 400,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated routing skill 74"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "gen_075",
+      "name": "Generated safety skill 75",
+      "version": "v1",
+      "purpose": "Auto-generated safety helper 75",
+      "tags": [
+        "safety"
+      ],
+      "triggers": [
+        "safety",
+        "safety_75"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 450,
+      "risk_class": "medium",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "result"
+        ]
+      },
+      "prompt_fragments": [
+        "Auto-generated prompt fragment for Generated safety skill 75"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "bundled",
+      "imported_at": "2026-04-09T17:25:25.881Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "general_assistant"
+        ],
+        "runtime_modes": [
+          "hybrid"
+        ]
+      },
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "protocol_gen_111",
+      "name": "protocol helper 111",
+      "version": "v1",
+      "purpose": "Auto-generated helper skill for protocol",
+      "tags": [
+        "protocol"
+      ],
+      "triggers": [
+        "protocol",
+        "protocol_helper"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "protocol helper: produce concise results for protocol"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:00:40.363Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "marketplace_gen_112",
+      "name": "marketplace helper 112",
+      "version": "v1",
+      "purpose": "Auto-generated helper skill for marketplace",
+      "tags": [
+        "marketplace"
+      ],
+      "triggers": [
+        "marketplace",
+        "marketplace_helper"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "marketplace helper: produce concise results for marketplace"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:00:40.363Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "planning_gen_113",
+      "name": "planning helper 113",
+      "version": "v1",
+      "purpose": "Auto-generated helper skill for planning",
+      "tags": [
+        "planning"
+      ],
+      "triggers": [
+        "planning",
+        "planning_helper"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "planning helper: produce concise results for planning"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:00:40.363Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "coding_gen_114",
+      "name": "coding helper 114",
+      "version": "v1",
+      "purpose": "Auto-generated helper skill for coding",
+      "tags": [
+        "coding"
+      ],
+      "triggers": [
+        "coding",
+        "coding_helper"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "coding helper: produce concise results for coding"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:00:40.363Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "debugging_gen_115",
+      "name": "debugging helper 115",
+      "version": "v1",
+      "purpose": "Auto-generated helper skill for debugging",
+      "tags": [
+        "debugging"
+      ],
+      "triggers": [
+        "debugging",
+        "debugging_helper"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "debugging helper: produce concise results for debugging"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:00:40.363Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "research_gen_116",
+      "name": "research helper 116",
+      "version": "v1",
+      "purpose": "Auto-generated helper skill for research",
+      "tags": [
+        "research"
+      ],
+      "triggers": [
+        "research",
+        "research_helper"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "research helper: produce concise results for research"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:00:40.363Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "retrieval_gen_117",
+      "name": "retrieval helper 117",
+      "version": "v1",
+      "purpose": "Auto-generated helper skill for retrieval",
+      "tags": [
+        "retrieval"
+      ],
+      "triggers": [
+        "retrieval",
+        "retrieval_helper"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "retrieval helper: produce concise results for retrieval"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:00:40.363Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "summarization_gen_118",
+      "name": "summarization helper 118",
+      "version": "v1",
+      "purpose": "Auto-generated helper skill for summarization",
+      "tags": [
+        "summarization"
+      ],
+      "triggers": [
+        "summarization",
+        "summarization_helper"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "summarization helper: produce concise results for summarization"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:00:40.363Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "memory_gen_119",
+      "name": "memory helper 119",
+      "version": "v1",
+      "purpose": "Auto-generated helper skill for memory",
+      "tags": [
+        "memory"
+      ],
+      "triggers": [
+        "memory",
+        "memory_helper"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "memory helper: produce concise results for memory"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:00:40.363Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "persona-control_gen_120",
+      "name": "persona-control helper 120",
+      "version": "v1",
+      "purpose": "Auto-generated helper skill for persona-control",
+      "tags": [
+        "persona-control"
+      ],
+      "triggers": [
+        "persona-control",
+        "persona-control_helper"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 300,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "persona-control helper: produce concise results for persona-control"
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "local-generator",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:00:40.363Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_082",
+      "name": "Auto promoted skill 82",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.077Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_083",
+      "name": "Auto promoted skill 83",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.079Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_084",
+      "name": "Auto promoted skill 84",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.079Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_085",
+      "name": "Auto promoted skill 85",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.080Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_086",
+      "name": "Auto promoted skill 86",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.080Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_087",
+      "name": "Auto promoted skill 87",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.080Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_088",
+      "name": "Auto promoted skill 88",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.081Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_089",
+      "name": "Auto promoted skill 89",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.081Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_090",
+      "name": "Auto promoted skill 90",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.081Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_091",
+      "name": "Auto promoted skill 91",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.081Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_092",
+      "name": "Auto promoted skill 92",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.081Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_093",
+      "name": "Auto promoted skill 93",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.082Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_094",
+      "name": "Auto promoted skill 94",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.082Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_095",
+      "name": "Auto promoted skill 95",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.082Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_096",
+      "name": "Auto promoted skill 96",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.082Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_097",
+      "name": "Auto promoted skill 97",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.082Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_098",
+      "name": "Auto promoted skill 98",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.083Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_099",
+      "name": "Auto promoted skill 99",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.083Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "auto_promoted_100",
+      "name": "Auto promoted skill 100",
+      "version": "v1",
+      "purpose": "Temporary auto-promoted filler for catalog coverage",
+      "tags": [
+        "auto",
+        "generated"
+      ],
+      "triggers": [
+        "auto_promote",
+        "filler_skill"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "low",
+      "token_budget_hint": 200,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "text"
+      },
+      "prompt_fragments": [
+        "Auto-promoted filler skill."
+      ],
+      "validation_rules": {},
+      "source_type": "generated_promoted",
+      "source_reference": "auto-boost-script",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T18:02:14.083Z",
+      "enabled": true,
+      "deprecated": false,
+      "schema_version": "skillManifest.v1"
+    },
+    {
+      "id": "generated_legal_adaptive_compose_workflow",
+      "name": "Legal Adaptive Workflow",
+      "version": "v1",
+      "purpose": "Handle legal compose requests when bundled skills are weak or absent.",
+      "tags": [
+        "legal",
+        "compose",
+        "generated",
+        "adaptive",
+        "audit",
+        "claims"
+      ],
+      "triggers": [
+        "adaptive",
+        "audit",
+        "claims",
+        "compliance",
+        "controls"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 600,
+      "risk_class": "medium",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "answer",
+          "why"
+        ]
+      },
+      "prompt_fragments": [
+        "Adapt the response to legal context and emphasize adaptive.",
+        "Use the strongest available persona, preferably generated_legal_adaptive_persona, and maintain continuity with the active conversation.",
+        "If the domain remains uncertain, expose assumptions and proceed with the closest practical answer instead of blocking."
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "heuristic+web+github",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T20:04:09.648Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "generated_legal_adaptive_persona",
+          "technical",
+          "researcher",
+          "default"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1",
+      "quality_state": "provisional_active",
+      "generated_from_prompt": "Create an adaptive persona and workflow for insurance claims compliance escalation with audit controls and research-backed response guidance."
+    },
+    {
+      "id": "generated_general_create_chat_workflow",
+      "name": "General Create Workflow",
+      "version": "v1",
+      "purpose": "Handle general chat requests when bundled skills are weak or absent.",
+      "tags": [
+        "general",
+        "chat",
+        "generated",
+        "create",
+        "decision",
+        "graphs"
+      ],
+      "triggers": [
+        "create",
+        "decision",
+        "graphs",
+        "plan",
+        "short"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 600,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "answer",
+          "why"
+        ]
+      },
+      "prompt_fragments": [
+        "Adapt the response to general context and emphasize create.",
+        "Use the strongest available persona, preferably generated_general_create_persona, and maintain continuity with the active conversation.",
+        "If the domain remains uncertain, expose assumptions and proceed with the closest practical answer instead of blocking."
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "heuristic+web+github",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T20:04:15.817Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "generated_general_create_persona",
+          "technical",
+          "researcher",
+          "default"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1",
+      "quality_state": "provisional_active",
+      "generated_from_prompt": "Create a short plan for testing decision graphs."
+    },
+    {
+      "id": "generated_general_fallback_chat_workflow",
+      "name": "General Fallback Workflow",
+      "version": "v1",
+      "purpose": "Handle general chat requests when bundled skills are weak or absent.",
+      "tags": [
+        "general",
+        "chat",
+        "generated",
+        "fallback",
+        "please",
+        "pricing"
+      ],
+      "triggers": [
+        "fallback",
+        "please",
+        "pricing"
+      ],
+      "exclusions": [],
+      "dependencies": [],
+      "latency_hint": "medium",
+      "token_budget_hint": 600,
+      "risk_class": "low",
+      "output_contract": {
+        "type": "object",
+        "fields": [
+          "answer",
+          "why"
+        ]
+      },
+      "prompt_fragments": [
+        "Adapt the response to general context and emphasize fallback.",
+        "Use the strongest available persona, preferably blend:generated_general_create_persona+generated_general_app_persona, and maintain continuity with the active conversation.",
+        "If the domain remains uncertain, expose assumptions and proceed with the closest practical answer instead of blocking."
+      ],
+      "validation_rules": {},
+      "source_type": "generated",
+      "source_reference": "heuristic+web+github",
+      "source_license": "generated",
+      "imported_at": "2026-04-09T21:00:48.020Z",
+      "enabled": true,
+      "deprecated": false,
+      "compatibility": {
+        "personas": [
+          "blend:generated_general_create_persona+generated_general_app_persona",
+          "technical",
+          "researcher",
+          "default"
+        ],
+        "runtime_modes": [
+          "hybrid",
+          "cloud_only",
+          "offline_optional"
+        ]
+      },
+      "schema_version": "skillManifest.v1",
+      "quality_state": "provisional_active",
+      "generated_from_prompt": "pricing fallback please"
+    }
+  ]
+}

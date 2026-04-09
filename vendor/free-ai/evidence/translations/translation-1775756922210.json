@@ -1,0 +1,22 @@
+{
+  "raw": "Explain how to design a scalable REST API with pagination and caching.",
+  "normalized_text": "Explain how to design a scalable REST API with pagination and caching.",
+  "language": "en",
+  "intent_family": "chat",
+  "task_type": "chat",
+  "entities": [],
+  "constraints": {},
+  "output_preferences": {},
+  "continuity": 0.5,
+  "risk_flags": [],
+  "ambiguity_flags": 0.8435050642538463,
+  "memory_need": false,
+  "persona_need": null,
+  "skill_need": null,
+  "model_preference_hint": null,
+  "acquisition_hint": null,
+  "tone": "neutral",
+  "urgency": 0,
+  "confidence": 0.6312989871492307,
+  "schema_version": "translator.v1"
+}

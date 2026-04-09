@@ -1,0 +1,53 @@
+{
+  "skill": {
+    "id": "misc_03",
+    "name": "Misc: Translate Short",
+    "version": "v1",
+    "purpose": "Translate short phrases",
+    "tags": [
+      "translate"
+    ],
+    "triggers": [
+      "translate"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 200,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "translation"
+      ]
+    },
+    "prompt_fragments": [
+      "Translate the text into the requested language."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "general_assistant",
+        "teacher"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "offline_optional"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "misc_03",
+    "checked_at": "2026-04-09T18:01:29.105Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

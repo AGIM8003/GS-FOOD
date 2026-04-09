@@ -1,0 +1,6 @@
+{
+  "id": "format",
+  "version": "v1",
+  "description": "Formatting assistant skill",
+  "content": "When asked to format text, ensure consistent markdown and short examples."
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "vendor": "openrouter",
+    "checked_at_utc": "2026-04-09T17:28:42.1948085+02:00",
+    "detected_free_models": [
+      "google/gemma-4-26b-a4b-it:free",
+      "google/gemma-4-31b-it:free",
+      "google/lyria-3-pro-preview",
+      "google/lyria-3-clip-preview",
+      "nvidia/nemotron-3-super-120b-a12b:free",
+      "minimax/minimax-m2.5:free",
+      "openrouter/free",
+      "arcee-ai/trinity-large-preview:free",
+      "liquid/lfm-2.5-1.2b-thinking:free",
+      "liquid/lfm-2.5-1.2b-instruct:free",
+      "nvidia/nemotron-3-nano-30b-a3b:free",
+      "arcee-ai/trinity-mini:free",
+      "nvidia/nemotron-nano-12b-v2-vl:free",
+      "qwen/qwen3-next-80b-a3b-instruct:free",
+      "nvidia/nemotron-nano-9b-v2:free",
+      "openai/gpt-oss-120b:free",
+      "openai/gpt-oss-20b:free",
+      "z-ai/glm-4.5-air:free",
+      "qwen/qwen3-coder:free",
+      "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+      "google/gemma-3n-e2b-it:free",
+      "google/gemma-3n-e4b-it:free",
+      "google/gemma-3-4b-it:free",
+      "google/gemma-3-12b-it:free",
+      "google/gemma-3-27b-it:free",
+      "meta-llama/llama-3.3-70b-instruct:free",
+      "meta-llama/llama-3.2-3b-instruct:free",
+      "nousresearch/hermes-3-llama-3.1-405b:free"
+    ],
+    "status": "ok",
+    "notes": ""
+  },
+  {
+    "vendor": "openai",
+    "checked_at_utc": "2026-04-09T17:28:42.5073664+02:00",
+    "detected_free_models": [],
+    "status": "error",
+    "notes": "Response status code does not indicate success: 401 (Unauthorized)."
+  },
+  {
+    "vendor": "anthropic",
+    "checked_at_utc": "2026-04-09T17:28:42.9962817+02:00",
+    "detected_free_models": [],
+    "status": "error",
+    "notes": "Response status code does not indicate success: 401 (Unauthorized)."
+  },
+  {
+    "vendor": "gemini",
+    "checked_at_utc": "2026-04-09T17:28:43.4091772+02:00",
+    "detected_free_models": [],
+    "status": "error",
+    "notes": "No such host is known. (api.openrouter.ai:443)"
+  },
+  {
+    "vendor": "grok",
+    "checked_at_utc": "2026-04-09T17:28:43.4463138+02:00",
+    "detected_free_models": [],
+    "status": "error",
+    "notes": "The SSL connection could not be established, see inner exception."
+  },
+  {
+    "vendor": "deepseek",
+    "checked_at_utc": "2026-04-09T17:28:44.9528524+02:00",
+    "detected_free_models": [],
+    "status": "error",
+    "notes": "No such host is known. (api.deepseek.ai:443)"
+  },
+  {
+    "vendor": "regional-cn",
+    "checked_at_utc": "2026-04-09T17:28:44.9991769+02:00",
+    "detected_free_models": [],
+    "status": "error",
+    "notes": "The request was canceled due to the configured HttpClient.Timeout of 15 seconds elapsing."
+  }
+]

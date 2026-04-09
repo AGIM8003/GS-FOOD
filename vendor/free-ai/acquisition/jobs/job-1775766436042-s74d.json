@@ -1,0 +1,11 @@
+{
+  "job_id": "job-1775766436042-s74d",
+  "type": "persona",
+  "target_id": "general",
+  "reason": "weak_persona_fit",
+  "state": "queued_for_acquisition",
+  "requested_by": "adaptive_runtime",
+  "created_at": "2026-04-09T20:27:16.042Z",
+  "updated_at": "2026-04-09T20:27:16.042Z",
+  "schema_version": "AcquisitionJob.v1"
+}

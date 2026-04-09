@@ -1,0 +1,44 @@
+{
+  "id": "gen_077",
+  "name": "Generated invention skill 77",
+  "version": "v1",
+  "purpose": "Auto-generated invention helper 77",
+  "tags": [
+    "invention"
+  ],
+  "triggers": [
+    "invention",
+    "invention_77"
+  ],
+  "exclusions": [],
+  "dependencies": [],
+  "latency_hint": "high",
+  "token_budget_hint": 550,
+  "risk_class": "high",
+  "output_contract": {
+    "type": "object",
+    "fields": [
+      "result"
+    ]
+  },
+  "prompt_fragments": [
+    "Auto-generated prompt fragment for Generated invention skill 77"
+  ],
+  "validation_rules": {},
+  "source_type": "generated",
+  "source_reference": "local-generator",
+  "source_license": "bundled",
+  "imported_at": "2026-04-09T17:25:25.881Z",
+  "enabled": true,
+  "deprecated": true,
+  "compatibility": {
+    "personas": [
+      "general_assistant"
+    ],
+    "runtime_modes": [
+      "hybrid"
+    ]
+  },
+  "schema_version": "skillManifest.v1",
+  "deprecated_reason": "duplicate_of:gen_046"
+}

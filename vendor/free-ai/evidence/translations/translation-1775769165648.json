@@ -1,0 +1,29 @@
+{
+  "raw": "Create a 3 step plan for testing",
+  "normalized_text": "Create a 3 step plan for testing",
+  "language": "en",
+  "intent_family": "chat",
+  "task_type": "chat",
+  "entities": [],
+  "constraints": {},
+  "output_preferences": {},
+  "topics": [
+    "create",
+    "plan",
+    "step",
+    "testing"
+  ],
+  "domain_signals": [],
+  "continuity": 0.5,
+  "risk_flags": [],
+  "ambiguity_flags": 0.8920558458320165,
+  "memory_need": false,
+  "persona_need": [],
+  "skill_need": [],
+  "model_preference_hint": null,
+  "acquisition_hint": "dynamic_capability_review",
+  "tone": "neutral",
+  "urgency": 0.1,
+  "confidence": 0.6215888308335967,
+  "schema_version": "translator.v1"
+}

@@ -1,0 +1,10 @@
+{
+  "running": false,
+  "last_run_at": "2026-04-09T21:13:01.245Z",
+  "last_cycle_id": "cycle-1775769180756-b1ro",
+  "last_status": "completed",
+  "last_control_action": null,
+  "last_error": null,
+  "retired_overlay_count": 13,
+  "schema_version": "trainingState.v1"
+}

@@ -1,0 +1,286 @@
+{
+  "cycle_id": "cycle-1775769175176-8gbr",
+  "generated_at": "2026-04-09T21:12:55.533Z",
+  "status": "completed",
+  "reason": "test_training_cycle",
+  "observation_count": 3,
+  "summary": {
+    "top_domains": [
+      {
+        "value": "medical",
+        "count": 3
+      }
+    ],
+    "top_personas": [
+      {
+        "value": "technical",
+        "count": 3
+      }
+    ],
+    "top_skills": [
+      {
+        "value": "skill_summarize",
+        "count": 3
+      },
+      {
+        "value": "skill_memory",
+        "count": 1
+      }
+    ]
+  },
+  "academies": [
+    {
+      "id": "medical",
+      "domain": "medical",
+      "status": "guarded",
+      "observation_count": 3,
+      "success_rate": 0.667,
+      "dominant_personas": [
+        "technical"
+      ],
+      "dominant_skills": [
+        "skill_summarize",
+        "skill_memory"
+      ],
+      "topics": [
+        "symptoms",
+        "triage",
+        "patient-intake",
+        "risk"
+      ],
+      "curriculum": [
+        "Use high-caution medical response framing and keep claims bounded.",
+        "Ask clarifying questions earlier and narrow the answer scope before finalizing.",
+        "Invest in domain-specific persona and skill overlays for repeated medical work.",
+        "Focus practice on: symptoms, triage, patient-intake, risk.",
+        "Keep evidence, rationale, and compliance notes explicit in the final answer."
+      ],
+      "compliance_notes": [
+        "Operate in guarded mode for medical requests and prefer conservative, non-final language.",
+        "Surface uncertainty, applicable regulations, and suggest professional review for medical output."
+      ],
+      "research_sources": [],
+      "environment_tags": [
+        "medical",
+        "doctor-office"
+      ],
+      "updated_at": "2026-04-09T21:12:55.525Z",
+      "schema_version": "trainingAcademy.v1",
+      "learned_domains": [],
+      "learned_topics": [],
+      "response_style_hints": [],
+      "execution_hints": [],
+      "compatible_personas": [],
+      "created_at": "2026-04-09T21:12:55.525Z"
+    }
+  ],
+  "persona_overlays": [
+    {
+      "id": "technical",
+      "status": "guarded",
+      "usage_count": 3,
+      "success_rate": 0.667,
+      "learned_domains": [
+        "medical"
+      ],
+      "learned_topics": [
+        "symptoms",
+        "triage",
+        "patient-intake",
+        "risk"
+      ],
+      "response_style_hints": [
+        "State limits clearly when acting as technical in medical contexts.",
+        "Prefer verification and clarification over confident extrapolation.",
+        "Lean into learned topics: symptoms, triage, patient-intake, risk."
+      ],
+      "compliance_notes": [
+        "Operate in guarded mode for medical requests and prefer conservative, non-final language.",
+        "Surface uncertainty, applicable regulations, and suggest professional review for medical output."
+      ],
+      "selection_boost": 0.12,
+      "environment_tags": [
+        "medical",
+        "doctor-office"
+      ],
+      "updated_at": "2026-04-09T21:12:55.532Z",
+      "schema_version": "trainingPersonaOverlay.v1",
+      "execution_hints": [],
+      "compatible_personas": [],
+      "created_at": "2026-04-09T21:12:55.532Z"
+    }
+  ],
+  "skill_overlays": [
+    {
+      "id": "skill_summarize",
+      "status": "guarded",
+      "usage_count": 3,
+      "success_rate": 0.667,
+      "learned_domains": [
+        "medical"
+      ],
+      "learned_topics": [
+        "symptoms",
+        "triage",
+        "patient-intake",
+        "risk"
+      ],
+      "compatible_personas": [
+        "technical"
+      ],
+      "execution_hints": [
+        "Keep skill_summarize outputs auditable and conservative in medical contexts.",
+        "Prefer smaller steps and explicit validation checkpoints.",
+        "Optimize skill_summarize for: symptoms, triage, patient-intake, risk."
+      ],
+      "compliance_notes": [
+        "Operate in guarded mode for medical requests and prefer conservative, non-final language.",
+        "Surface uncertainty, applicable regulations, and suggest professional review for medical output."
+      ],
+      "routing_boost": 0.097,
+      "environment_tags": [
+        "medical",
+        "doctor-office"
+      ],
+      "updated_at": "2026-04-09T21:12:55.532Z",
+      "schema_version": "trainingSkillOverlay.v1",
+      "response_style_hints": [],
+      "created_at": "2026-04-09T21:12:55.532Z"
+    },
+    {
+      "id": "skill_memory",
+      "status": "guarded",
+      "usage_count": 1,
+      "success_rate": 0,
+      "learned_domains": [
+        "medical"
+      ],
+      "learned_topics": [
+        "risk",
+        "symptoms"
+      ],
+      "compatible_personas": [
+        "technical"
+      ],
+      "execution_hints": [
+        "Keep skill_memory outputs auditable and conservative in medical contexts.",
+        "Prefer smaller steps and explicit validation checkpoints.",
+        "Optimize skill_memory for: risk, symptoms."
+      ],
+      "compliance_notes": [
+        "Operate in guarded mode for medical requests and prefer conservative, non-final language.",
+        "Surface uncertainty, applicable regulations, and suggest professional review for medical output."
+      ],
+      "routing_boost": 0.048,
+      "environment_tags": [
+        "medical",
+        "doctor-office"
+      ],
+      "updated_at": "2026-04-09T21:12:55.533Z",
+      "schema_version": "trainingSkillOverlay.v1",
+      "response_style_hints": [],
+      "created_at": "2026-04-09T21:12:55.533Z"
+    }
+  ],
+  "acquisition_signals": [
+    {
+      "domain": "medical",
+      "count": 1
+    }
+  ],
+  "retired_overlays": [
+    {
+      "bucket": "persona",
+      "id": "generated_ai_systems_engineering_persona",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0
+    },
+    {
+      "bucket": "persona",
+      "id": "generated_general_app_persona",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0
+    },
+    {
+      "bucket": "persona",
+      "id": "generated_general_create_persona",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0
+    },
+    {
+      "bucket": "persona",
+      "id": "blend:generated_general_create_persona+generated_general_app_persona",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0
+    },
+    {
+      "bucket": "skill",
+      "id": "generated_general_create_chat_workflow",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0
+    },
+    {
+      "bucket": "skill",
+      "id": "persona_control_01",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0
+    },
+    {
+      "bucket": "skill",
+      "id": "gen_053",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0
+    },
+    {
+      "bucket": "skill",
+      "id": "gen_066",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0
+    },
+    {
+      "bucket": "skill",
+      "id": "gen_068",
+      "prior_status": "retired",
+      "reason": "low_success_rate",
+      "age_days": 0.01
+    },
+    {
+      "bucket": "skill",
+      "id": "planning_01",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0
+    },
+    {
+      "bucket": "skill",
+      "id": "testing_01",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0
+    },
+    {
+      "bucket": "skill",
+      "id": "testing_02",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0
+    },
+    {
+      "bucket": "skill",
+      "id": "generated_general_fallback_chat_workflow",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0
+    }
+  ],
+  "review_candidates": [],
+  "schema_version": "trainingInsights.v1"
+}

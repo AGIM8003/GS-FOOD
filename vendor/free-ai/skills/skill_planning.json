@@ -1,0 +1,11 @@
+{
+  "id": "planning",
+  "version": "v1",
+  "name": "Planner",
+  "description": "Decompose tasks, produce step-by-step plans and milestones.",
+  "tags": ["planning","reasoning"],
+  "triggers": ["plan","milestone","roadmap","steps"],
+  "content": "When asked to plan, decompose into steps and list dependencies and time estimates.",
+  "exclusions": [],
+  "dependencies": []
+}

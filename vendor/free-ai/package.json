@@ -1,0 +1,29 @@
+{
+  "name": "free-ai",
+  "version": "0.1.0",
+  "description": "FREE AI - local multi-provider free-tier gateway (single-folder implementation)",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "sync": "node src/sync/syncFromProbe.js",
+    "test": "node scripts/run_all_tests.js",
+    "probes": "node scripts/run_provider_probes.js",
+    "governance": "node scripts/run_provider_governance_cycle.js",
+    "project-eval": "node scripts/evaluate_project.js",
+    "quality-gate": "node scripts/quality_gate.js",
+    "integration-kit": "node scripts/build_integration_kit.js",
+    "prompt-promote": "node scripts/promote_prompt_variant.js",
+    "prompt-rollback": "node scripts/rollback_prompt_variant.js",
+    "bootstrap-host": "node scripts/bootstrap_host_project.js --dry-run",
+    "admin-report": "node scripts/admin_status_report.js",
+    "training-cycle": "node scripts/run_training_cycle.js",
+    "training-report": "node scripts/training_status_report.js",
+    "training-review-report": "node scripts/training_review_report.js",
+    "training-on": "node scripts/set_training_state.js on",
+    "training-off": "node scripts/set_training_state.js off"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

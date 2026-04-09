@@ -1,0 +1,30 @@
+{
+  "$id": "https://free-ai.local/schemas/modelManifest.v1.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ModelManifest v1",
+  "type": "object",
+  "required": ["id","name","family","version","provider_family","source_type","source_reference","source_license","retrieved_at","imported_at","checksum","file_size","install_state","runtime_backend","modalities","schema_version"],
+  "properties": {
+    "id": {"type":"string"},
+    "name": {"type":"string"},
+    "family": {"type":"string"},
+    "version": {"type":"string"},
+    "provider_family": {"type":"string"},
+    "source_type": {"type":"string"},
+    "source_reference": {"type":"string"},
+    "source_license": {"type":"string"},
+    "retrieved_at": {"type":"string"},
+    "imported_at": {"type":"string"},
+    "checksum": {"type":"string"},
+    "file_size": {"type":"number"},
+    "install_state": {"type":"string"},
+    "runtime_backend": {"type":"string"},
+    "modalities": {"type":"array"},
+    "context_window": {"type":"number"},
+    "hardware_profile": {"type":"string"},
+    "recommended_use": {"type":"string"},
+    "tags": {"type":"array"},
+    "schema_version": {"type":"string"}
+  },
+  "additionalProperties": true
+}

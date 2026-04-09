@@ -1,0 +1,57 @@
+{
+  "skill": {
+    "id": "debugging_02",
+    "name": "Debug: Stack Trace Analyzer",
+    "version": "v1",
+    "purpose": "Analyze stack traces and point to likely source",
+    "tags": [
+      "debugging",
+      "analysis"
+    ],
+    "triggers": [
+      "stack",
+      "trace",
+      "exception"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "medium",
+    "token_budget_hint": 600,
+    "risk_class": "medium",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "likely_files",
+        "lines",
+        "explanation"
+      ]
+    },
+    "prompt_fragments": [
+      "Given a stack trace, identify likely problematic code locations."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "debugger",
+        "software_engineer"
+      ],
+      "runtime_modes": [
+        "hybrid"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "debugging_02",
+    "checked_at": "2026-04-09T18:01:29.099Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

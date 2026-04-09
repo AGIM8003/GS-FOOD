@@ -1,0 +1,43 @@
+{
+  "mounted_skills": [
+    {
+      "id": "generated_general_fallback_chat_workflow",
+      "version": "v1",
+      "purpose": "Handle general chat requests when bundled skills are weak or absent.",
+      "token_budget_hint": 600,
+      "score": 0.5078608733370457
+    },
+    {
+      "id": "gen_050",
+      "version": "v1",
+      "purpose": "Auto-generated fallback helper 50",
+      "token_budget_hint": 200,
+      "score": 0.43000000000000005
+    },
+    {
+      "id": "persona_control_01",
+      "version": "v1",
+      "purpose": "Adjust persona tone across output",
+      "token_budget_hint": 200,
+      "score": 0.36
+    },
+    {
+      "id": "fallback_01",
+      "version": "v1",
+      "purpose": "Explain to user why fallback was used",
+      "token_budget_hint": 200,
+      "score": 0.30405591591021547
+    },
+    {
+      "id": "generated_general_create_chat_workflow",
+      "version": "v1",
+      "purpose": "Handle general chat requests when bundled skills are weak or absent.",
+      "token_budget_hint": 600,
+      "score": 0.29802125203862
+    }
+  ],
+  "conflicts": [],
+  "dependencies": [],
+  "token_budget": 1800,
+  "schema_version": "skillMountResult.v1"
+}

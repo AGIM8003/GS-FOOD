@@ -1,0 +1,29 @@
+{
+  "decision": {
+    "chosen_provider": null,
+    "chosen_tag": null,
+    "capability": "structured_output",
+    "timestamp": "2026-04-09T21:12:54.983Z",
+    "counts": {
+      "primary_free": 0,
+      "burst_free": 0,
+      "local_only": 0
+    },
+    "ranked": {
+      "primary_free": [],
+      "burst_free": [],
+      "starter_credit": [],
+      "low_cost_fallback": [],
+      "local_only": []
+    },
+    "governance": {}
+  },
+  "ladder": {
+    "primary_free": [],
+    "burst_free": [],
+    "starter_credit": [],
+    "low_cost_fallback": [],
+    "local_only": []
+  },
+  "providers": []
+}

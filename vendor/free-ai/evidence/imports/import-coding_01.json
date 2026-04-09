@@ -1,0 +1,57 @@
+{
+  "skill": {
+    "id": "coding_01",
+    "name": "Code: Generate Function",
+    "version": "v1",
+    "purpose": "Generate a language function from spec",
+    "tags": [
+      "coding",
+      "implementation"
+    ],
+    "triggers": [
+      "implement",
+      "function",
+      "code"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 800,
+    "risk_class": "medium",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "code",
+        "tests"
+      ]
+    },
+    "prompt_fragments": [
+      "Write the requested function with comments and unit tests."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "software_engineer",
+        "technical_architect"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "cloud_only"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "coding_01",
+    "checked_at": "2026-04-09T18:01:29.098Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

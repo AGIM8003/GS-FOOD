@@ -1,0 +1,42 @@
+{
+  "raw": "We need a persona and skill for biomedical policy review with evidence-backed escalation handling and research-driven recommendations.",
+  "normalized_text": "We need a persona and skill for biomedical policy review with evidence-backed escalation handling and research-driven recommendations.",
+  "language": "en",
+  "intent_family": "research",
+  "task_type": "research",
+  "entities": [],
+  "constraints": {},
+  "output_preferences": {},
+  "topics": [
+    "biomedical",
+    "escalation",
+    "evidence-backed",
+    "handling",
+    "policy",
+    "recommendations"
+  ],
+  "domain_signals": [
+    "ai_systems",
+    "research",
+    "health",
+    "legal"
+  ],
+  "continuity": 0.5,
+  "risk_flags": [],
+  "ambiguity_flags": 0.8109628242103835,
+  "memory_need": false,
+  "persona_need": [
+    "technical",
+    "researcher"
+  ],
+  "skill_need": [
+    "research",
+    "persona-control"
+  ],
+  "model_preference_hint": null,
+  "acquisition_hint": "dynamic_capability_review",
+  "tone": "neutral",
+  "urgency": 0,
+  "confidence": 0.6378074351579233,
+  "schema_version": "translator.v1"
+}

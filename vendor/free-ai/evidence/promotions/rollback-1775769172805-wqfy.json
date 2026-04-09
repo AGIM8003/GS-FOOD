@@ -1,0 +1,8 @@
+{
+  "type": "prompt_rollback",
+  "family_id": "general",
+  "from_variant": "variant_b_structured",
+  "to_variant": "variant_a_default",
+  "reason": "test_rollback",
+  "rolled_back_at": "2026-04-09T21:12:52.805Z"
+}

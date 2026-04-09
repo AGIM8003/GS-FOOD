@@ -1,0 +1,90 @@
+{
+  "openrouter": {
+    "requests_per_day": 32,
+    "tokens_per_day": 140,
+    "recent_429_count": 0,
+    "recent_timeout_count": 0,
+    "success_count": 14,
+    "failure_count": 18,
+    "success_rate": 0.438,
+    "average_latency": 1,
+    "free_reliability_score": 0.438
+  },
+  "gemini": {
+    "requests_per_day": 18,
+    "tokens_per_day": 0,
+    "recent_429_count": 15,
+    "recent_timeout_count": 0,
+    "success_count": 0,
+    "failure_count": 18,
+    "success_rate": 0,
+    "average_latency": 1,
+    "free_reliability_score": 0
+  },
+  "openai": {
+    "requests_per_day": 3,
+    "tokens_per_day": 0,
+    "recent_429_count": 0,
+    "recent_timeout_count": 0,
+    "success_count": 0,
+    "failure_count": 3,
+    "success_rate": 0,
+    "average_latency": 0,
+    "free_reliability_score": 0
+  },
+  "anthropic": {
+    "requests_per_day": 3,
+    "tokens_per_day": 0,
+    "recent_429_count": 0,
+    "recent_timeout_count": 0,
+    "success_count": 0,
+    "failure_count": 3,
+    "success_rate": 0,
+    "average_latency": 1,
+    "free_reliability_score": 0
+  },
+  "groq": {
+    "requests_per_day": 3,
+    "tokens_per_day": 0,
+    "recent_429_count": 0,
+    "recent_timeout_count": 0,
+    "success_count": 0,
+    "failure_count": 3,
+    "success_rate": 0,
+    "average_latency": 0,
+    "free_reliability_score": 0
+  },
+  "huggingface": {
+    "requests_per_day": 3,
+    "tokens_per_day": 0,
+    "recent_429_count": 0,
+    "recent_timeout_count": 0,
+    "success_count": 0,
+    "failure_count": 3,
+    "success_rate": 0,
+    "average_latency": 1,
+    "free_reliability_score": 0
+  },
+  "fireworks": {
+    "requests_per_day": 3,
+    "tokens_per_day": 0,
+    "recent_429_count": 0,
+    "recent_timeout_count": 0,
+    "success_count": 0,
+    "failure_count": 3,
+    "success_rate": 0,
+    "average_latency": 1,
+    "free_reliability_score": 0
+  },
+  "ollama": {
+    "requests_per_day": 3,
+    "tokens_per_day": 0,
+    "recent_429_count": 0,
+    "recent_timeout_count": 0,
+    "success_count": 0,
+    "failure_count": 3,
+    "success_rate": 0,
+    "average_latency": 42,
+    "free_reliability_score": 0
+  }
+}

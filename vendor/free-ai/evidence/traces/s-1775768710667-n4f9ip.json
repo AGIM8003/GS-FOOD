@@ -1,0 +1,25 @@
+{
+  "id": "s-1775768710667-n4f9ip",
+  "name": "orchestrator.orchestrateSkills",
+  "start": 1775768710667,
+  "meta": {
+    "intent_family": "chat",
+    "persona": "generated_general_app_persona"
+  },
+  "events": [
+    {
+      "ts": 1775768710671,
+      "event": "orchestrator.result",
+      "data": {
+        "mounted": 5,
+        "token_budget": 2350
+      }
+    }
+  ],
+  "end": 1775768710672,
+  "duration_ms": 5,
+  "outcome": {
+    "status": "ok",
+    "mounted": 5
+  }
+}

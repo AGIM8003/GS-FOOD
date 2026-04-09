@@ -1,0 +1,17 @@
+{
+  "final_persona_id": "default",
+  "persona_version": "v1",
+  "blend_weights": null,
+  "confidence": 1,
+  "source": "override",
+  "rationale_codes": [
+    "override"
+  ],
+  "persona": {
+    "id": "default",
+    "version": "v1",
+    "name": "Default",
+    "system_prompt": "You are a helpful assistant. Be concise and explicit when falling back to local KB.",
+    "description": "Default persona for general use"
+  }
+}

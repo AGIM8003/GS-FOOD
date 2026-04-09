@@ -1,0 +1,31 @@
+{
+  "observation_id": "obs-1775765966772-b49j",
+  "created_at": "2026-04-09T20:19:26.772Z",
+  "trace_id": "t-1775765966289-2gbjso",
+  "prompt_excerpt": "Summarize the design of a small app",
+  "intent_family": "chat",
+  "task_type": "chat",
+  "domain": "general",
+  "topics": [
+    "app",
+    "design",
+    "small",
+    "summarize"
+  ],
+  "persona_id": "generated_general_app_persona",
+  "skill_ids": [
+    "summarization_01",
+    "generated_general_create_chat_workflow",
+    "gen_068",
+    "summarization_gen_118",
+    "persona_control_01"
+  ],
+  "provider_id": "none",
+  "preview_only": false,
+  "fallback_used": true,
+  "validation_valid": true,
+  "acquisition_used": true,
+  "generated_capability_used": false,
+  "environment": "general",
+  "reasoning_mode": "heuristic.v1"
+}

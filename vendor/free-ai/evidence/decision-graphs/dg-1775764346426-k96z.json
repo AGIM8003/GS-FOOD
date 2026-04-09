@@ -1,0 +1,157 @@
+{
+  "schema_version": "DecisionGraphRecord.v1",
+  "graph_id": "dg-1775764346426-k96z",
+  "generated_at": "2026-04-09T19:52:26.426Z",
+  "trace_id": "t-1775764346408-1dhqdr",
+  "prompt_variant": "variant_b_structured",
+  "prompt_family_id": "research",
+  "output_contract": "receipt_augmented_answer",
+  "provider_id": null,
+  "model_id": null,
+  "fallback_used": true,
+  "translator": {
+    "intent_family": "research",
+    "task_type": "research"
+  },
+  "context": {
+    "domain": "general",
+    "continuity_score": 0.5
+  },
+  "reasoning": {
+    "mode": "heuristic.v1",
+    "strategy_type": "synthesize",
+    "confidence": 0.7239444915467244
+  },
+  "persona": {
+    "id": "blend:analyst+undefined",
+    "confidence": 0.1
+  },
+  "skills": [
+    {
+      "id": "research_01",
+      "version": "v1"
+    },
+    {
+      "id": "gen_066",
+      "version": "v1"
+    },
+    {
+      "id": "research_gen_116",
+      "version": "v1"
+    },
+    {
+      "id": "summarization_01",
+      "version": "v1"
+    },
+    {
+      "id": "coding_02",
+      "version": "v1"
+    }
+  ],
+  "memory_hits": [],
+  "route_decision": {
+    "chosen_provider": "gemini",
+    "chosen_tag": "primary_free",
+    "capability": "structured_output",
+    "timestamp": "2026-04-09T19:52:26.421Z",
+    "counts": {
+      "primary_free": 2,
+      "burst_free": 1,
+      "local_only": 0
+    },
+    "ranked": {
+      "primary_free": [
+        {
+          "id": "gemini",
+          "score": 109.6
+        },
+        {
+          "id": "huggingface",
+          "score": 91.5999875
+        }
+      ],
+      "burst_free": [
+        {
+          "id": "openrouter",
+          "score": 104.48998750000001
+        }
+      ],
+      "starter_credit": [
+        {
+          "id": "groq",
+          "score": 94.6
+        },
+        {
+          "id": "openai",
+          "score": 79.6
+        },
+        {
+          "id": "anthropic",
+          "score": 69.6
+        },
+        {
+          "id": "fireworks",
+          "score": 69.6
+        }
+      ],
+      "low_cost_fallback": [
+        {
+          "id": "ollama",
+          "score": 90.19946250000001
+        }
+      ],
+      "local_only": []
+    },
+    "governance": {
+      "openrouter": {
+        "status": "neutral",
+        "route_penalty": 0,
+        "route_bonus": 0,
+        "last_known_good_model": null
+      },
+      "openai": {
+        "status": "neutral",
+        "route_penalty": 0,
+        "route_bonus": 0,
+        "last_known_good_model": null
+      },
+      "anthropic": {
+        "status": "neutral",
+        "route_penalty": 0,
+        "route_bonus": 0,
+        "last_known_good_model": null
+      },
+      "gemini": {
+        "status": "neutral",
+        "route_penalty": 0,
+        "route_bonus": 0,
+        "last_known_good_model": null
+      },
+      "groq": {
+        "status": "neutral",
+        "route_penalty": 0,
+        "route_bonus": 0,
+        "last_known_good_model": null
+      },
+      "huggingface": {
+        "status": "neutral",
+        "route_penalty": 0,
+        "route_bonus": 0,
+        "last_known_good_model": null
+      },
+      "fireworks": {
+        "status": "neutral",
+        "route_penalty": 0,
+        "route_bonus": 0,
+        "last_known_good_model": null
+      },
+      "ollama": {
+        "status": "neutral",
+        "route_penalty": 0,
+        "route_bonus": 0,
+        "last_known_good_model": null
+      }
+    }
+  },
+  "validation": null
+}

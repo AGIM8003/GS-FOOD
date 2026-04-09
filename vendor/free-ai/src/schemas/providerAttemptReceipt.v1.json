@@ -1,0 +1,18 @@
+{
+  "$id": "https://free-ai.local/schemas/providerAttemptReceipt.v1.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProviderAttemptReceipt v1",
+  "type": "object",
+  "required": ["attempt_id","provider_id","model_id","status","latency_ms","schema_version"],
+  "properties": {
+    "attempt_id": {"type":"string"},
+    "provider_id": {"type":"string"},
+    "model_id": {"type":"string"},
+    "status": {"type":"string"},
+    "error_class": {"type":"string"},
+    "latency_ms": {"type":"number"},
+    "response_tokens": {"type":"number"},
+    "schema_version": {"type":"string"}
+  },
+  "additionalProperties": true
+}

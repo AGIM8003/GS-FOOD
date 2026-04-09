@@ -1,0 +1,42 @@
+{
+  "id": "s-1775766435232-s5zr8h",
+  "name": "providers.callProviders",
+  "start": 1775766435232,
+  "meta": {
+    "prompt_snippet": "-- Prompt Runtime --\nPrompt Family: research\nPrompt Variant: variant_b_structured\nTrace ID: t-1775766434394-d7c41z\nReasoning Strategy: synthesize\nOutput Contract: receipt_augmented_answer\nReturn only "
+  },
+  "events": [
+    {
+      "ts": 1775766435232,
+      "event": "provider.consider",
+      "data": {
+        "provider": "openrouter"
+      }
+    },
+    {
+      "ts": 1775766435232,
+      "event": "provider.attempt",
+      "data": {
+        "provider": "openrouter",
+        "model": "openrouter/free",
+        "latency": 0,
+        "ok": false
+      }
+    },
+    {
+      "ts": 1775766435232,
+      "event": "provider.error",
+      "data": {
+        "provider": "openrouter",
+        "model": "openrouter/free",
+        "errClass": "auth_error"
+      }
+    }
+  ],
+  "end": 1775766435233,
+  "duration_ms": 1,
+  "outcome": {
+    "status": "fail",
+    "failureCount": 1
+  }
+}

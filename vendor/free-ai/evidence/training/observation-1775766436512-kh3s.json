@@ -1,0 +1,31 @@
+{
+  "observation_id": "obs-1775766436510-iwxw",
+  "created_at": "2026-04-09T20:27:16.510Z",
+  "trace_id": "t-1775766436021-kta839",
+  "prompt_excerpt": "Create a 3 step plan for testing",
+  "intent_family": "chat",
+  "task_type": "chat",
+  "domain": "general",
+  "topics": [
+    "create",
+    "plan",
+    "step",
+    "testing"
+  ],
+  "persona_id": "generated_general_create_persona",
+  "skill_ids": [
+    "generated_general_create_chat_workflow",
+    "gen_053",
+    "planning_01",
+    "testing_01",
+    "testing_02"
+  ],
+  "provider_id": "preview",
+  "preview_only": true,
+  "fallback_used": false,
+  "validation_valid": true,
+  "acquisition_used": true,
+  "generated_capability_used": false,
+  "environment": "general",
+  "reasoning_mode": "heuristic.v1"
+}

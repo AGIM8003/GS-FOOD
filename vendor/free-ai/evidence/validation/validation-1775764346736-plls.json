@@ -1,0 +1,14 @@
+{
+  "contract_id": "plan_output",
+  "valid": true,
+  "repaired": true,
+  "raw_text": "```json\n{\"steps\":[\"a\",\"b\"]}\n```",
+  "parsed": {
+    "steps": [
+      "a",
+      "b"
+    ]
+  },
+  "errors": [],
+  "validated_at": "2026-04-09T19:52:26.736Z"
+}

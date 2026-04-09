@@ -1,0 +1,162 @@
+{
+  "openrouter": {
+    "structured_output": {
+      "attempts": 32,
+      "successes": 14,
+      "failures": 18,
+      "avg_latency_ms": 1,
+      "last_failure_class": "auth_error",
+      "last_checked": "2026-04-09T21:12:56.410Z",
+      "healthy": false
+    },
+    "plain_chat": {
+      "attempts": 3,
+      "successes": 0,
+      "failures": 3,
+      "avg_latency_ms": 1,
+      "last_failure_class": "auth_error",
+      "last_checked": "2026-04-09T21:12:56.410Z",
+      "healthy": false
+    }
+  },
+  "gemini": {
+    "structured_output": {
+      "attempts": 18,
+      "successes": 0,
+      "failures": 18,
+      "avg_latency_ms": 1,
+      "last_failure_class": "auth_error",
+      "last_checked": "2026-04-09T21:12:56.412Z",
+      "healthy": false
+    },
+    "plain_chat": {
+      "attempts": 3,
+      "successes": 0,
+      "failures": 3,
+      "avg_latency_ms": 0,
+      "last_failure_class": "auth_error",
+      "last_checked": "2026-04-09T21:12:56.412Z",
+      "healthy": false
+    }
+  },
+  "openai": {
+    "plain_chat": {
+      "attempts": 3,
+      "successes": 0,
+      "failures": 3,
+      "avg_latency_ms": 0,
+      "last_failure_class": "auth_error",
+      "last_checked": "2026-04-09T21:12:56.411Z",
+      "healthy": false
+    },
+    "structured_output": {
+      "attempts": 3,
+      "successes": 0,
+      "failures": 3,
+      "avg_latency_ms": 0,
+      "last_failure_class": "auth_error",
+      "last_checked": "2026-04-09T21:12:56.411Z",
+      "healthy": false
+    }
+  },
+  "anthropic": {
+    "plain_chat": {
+      "attempts": 3,
+      "successes": 0,
+      "failures": 3,
+      "avg_latency_ms": 1,
+      "last_failure_class": "auth_error",
+      "last_checked": "2026-04-09T21:12:56.412Z",
+      "healthy": false
+    },
+    "structured_output": {
+      "attempts": 3,
+      "successes": 0,
+      "failures": 3,
+      "avg_latency_ms": 1,
+      "last_failure_class": "auth_error",
+      "last_checked": "2026-04-09T21:12:56.412Z",
+      "healthy": false
+    }
+  },
+  "groq": {
+    "plain_chat": {
+      "attempts": 3,
+      "successes": 0,
+      "failures": 3,
+      "avg_latency_ms": 0,
+      "last_failure_class": "auth_error",
+      "last_checked": "2026-04-09T21:12:56.413Z",
+      "healthy": false
+    },
+    "structured_output": {
+      "attempts": 3,
+      "successes": 0,
+      "failures": 3,
+      "avg_latency_ms": 0,
+      "last_failure_class": "auth_error",
+      "last_checked": "2026-04-09T21:12:56.413Z",
+      "healthy": false
+    }
+  },
+  "huggingface": {
+    "plain_chat": {
+      "attempts": 3,
+      "successes": 0,
+      "failures": 3,
+      "avg_latency_ms": 1,
+      "last_failure_class": "auth_error",
+      "last_checked": "2026-04-09T21:12:56.414Z",
+      "healthy": false
+    },
+    "structured_output": {
+      "attempts": 3,
+      "successes": 0,
+      "failures": 3,
+      "avg_latency_ms": 1,
+      "last_failure_class": "auth_error",
+      "last_checked": "2026-04-09T21:12:56.414Z",
+      "healthy": false
+    }
+  },
+  "fireworks": {
+    "plain_chat": {
+      "attempts": 3,
+      "successes": 0,
+      "failures": 3,
+      "avg_latency_ms": 1,
+      "last_failure_class": "auth_error",
+      "last_checked": "2026-04-09T21:12:56.415Z",
+      "healthy": false
+    },
+    "structured_output": {
+      "attempts": 3,
+      "successes": 0,
+      "failures": 3,
+      "avg_latency_ms": 1,
+      "last_failure_class": "auth_error",
+      "last_checked": "2026-04-09T21:12:56.415Z",
+      "healthy": false
+    }
+  },
+  "ollama": {
+    "plain_chat": {
+      "attempts": 3,
+      "successes": 0,
+      "failures": 3,
+      "avg_latency_ms": 42,
+      "last_failure_class": "unknown_error",
+      "last_checked": "2026-04-09T21:12:56.459Z",
+      "healthy": false
+    },
+    "structured_output": {
+      "attempts": 3,
+      "successes": 0,
+      "failures": 3,
+      "avg_latency_ms": 42,
+      "last_failure_class": "unknown_error",
+      "last_checked": "2026-04-09T21:12:56.459Z",
+      "healthy": false
+    }
+  }
+}

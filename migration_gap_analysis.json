@@ -1,0 +1,7 @@
+{
+  "gap_analysis": {
+    "gsfood_current": "Python-based backend (server/) with a large modular UI (stitch_pantry_planner_ui). Currently lacks a self-contained, enterprise-grade AI reasoning loop, proven quality gates, and structured memory/metrics pipelines.",
+    "freeai_offer": "Complete Node.js-based AI engine delivering semantic context, persona selection, verifiable provider routing, receipt chains, and robust evaluation gates.",
+    "gap": "GS FOOD needs an internal engine to handle complex culinary reasoning, recipe generation, pantry analysis, and contextual Chat tasks with receipts and traceability. FREE AI fills this gap but needs to be adapted for food-specific scenarios."
+  }
+}

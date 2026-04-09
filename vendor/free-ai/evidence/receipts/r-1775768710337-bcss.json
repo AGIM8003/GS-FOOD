@@ -1,0 +1,218 @@
+{
+  "receipt_id": "r-1775768710337-bcss",
+  "trace_id": "t-1775768709826-0b4vic",
+  "span_id": null,
+  "provider_id": "none",
+  "model_id": null,
+  "http_status": 503,
+  "fallback_used": true,
+  "kb_short_circuit": false,
+  "persona": {
+    "id": "blend:generated_general_create_persona+generated_general_app_persona",
+    "version": "v1+v1"
+  },
+  "intent_family": "chat",
+  "skills_loaded": [
+    {
+      "id": "generated_general_fallback_chat_workflow",
+      "version": "v1"
+    },
+    {
+      "id": "gen_050",
+      "version": "v1"
+    },
+    {
+      "id": "persona_control_01",
+      "version": "v1"
+    },
+    {
+      "id": "fallback_01",
+      "version": "v1"
+    },
+    {
+      "id": "generated_general_create_chat_workflow",
+      "version": "v1"
+    }
+  ],
+  "latency_ms": 511,
+  "timestamp": "2026-04-09T21:05:10.337Z",
+  "schema_version": "requestReceipt.v1",
+  "selected_prompt_variant": "variant_b_structured",
+  "selected_output_contract": "receipt_augmented_answer",
+  "route_decision": {
+    "chosen_provider": "gemini",
+    "chosen_tag": "primary_free",
+    "capability": "structured_output",
+    "timestamp": "2026-04-09T21:05:10.331Z",
+    "counts": {
+      "primary_free": 2,
+      "burst_free": 1,
+      "local_only": 0
+    },
+    "ranked": {
+      "primary_free": [
+        {
+          "id": "gemini",
+          "score": 72.5999875
+        },
+        {
+          "id": "huggingface",
+          "score": 54.5999875
+        }
+      ],
+      "burst_free": [
+        {
+          "id": "openrouter",
+          "score": 67.81998750000001
+        }
+      ],
+      "starter_credit": [
+        {
+          "id": "groq",
+          "score": 57.599999999999994
+        },
+        {
+          "id": "openai",
+          "score": 42.599999999999994
+        },
+        {
+          "id": "anthropic",
+          "score": 32.599999999999994
+        },
+        {
+          "id": "fireworks",
+          "score": 32.5999875
+        }
+      ],
+      "low_cost_fallback": [
+        {
+          "id": "ollama",
+          "score": 63.199487500000004
+        }
+      ],
+      "local_only": []
+    },
+    "governance": {
+      "openrouter": {
+        "provider_id": "openrouter",
+        "status": "demoted",
+        "route_penalty": -37,
+        "route_bonus": 0,
+        "reason": [
+          "probe:auth_error",
+          "low_free_reliability",
+          "health:auth_error"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      },
+      "openai": {
+        "provider_id": "openai",
+        "status": "demoted",
+        "route_penalty": -37,
+        "route_bonus": 0,
+        "reason": [
+          "probe:auth_error",
+          "low_free_reliability",
+          "health:auth_error"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      },
+      "anthropic": {
+        "provider_id": "anthropic",
+        "status": "demoted",
+        "route_penalty": -37,
+        "route_bonus": 0,
+        "reason": [
+          "probe:auth_error",
+          "low_free_reliability",
+          "health:auth_error"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      },
+      "gemini": {
+        "provider_id": "gemini",
+        "status": "demoted",
+        "route_penalty": -37,
+        "route_bonus": 0,
+        "reason": [
+          "probe:auth_error",
+          "low_free_reliability",
+          "health:auth_error"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      },
+      "groq": {
+        "provider_id": "groq",
+        "status": "demoted",
+        "route_penalty": -37,
+        "route_bonus": 0,
+        "reason": [
+          "probe:auth_error",
+          "low_free_reliability",
+          "health:auth_error"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      },
+      "huggingface": {
+        "provider_id": "huggingface",
+        "status": "demoted",
+        "route_penalty": -37,
+        "route_bonus": 0,
+        "reason": [
+          "probe:auth_error",
+          "low_free_reliability",
+          "health:auth_error"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      },
+      "fireworks": {
+        "provider_id": "fireworks",
+        "status": "demoted",
+        "route_penalty": -37,
+        "route_bonus": 0,
+        "reason": [
+          "probe:auth_error",
+          "low_free_reliability",
+          "health:auth_error"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      },
+      "ollama": {
+        "provider_id": "ollama",
+        "status": "demoted",
+        "route_penalty": -27,
+        "route_bonus": 0,
+        "reason": [
+          "probe:unknown_error",
+          "low_free_reliability"
+        ],
+        "last_known_good_model": null,
+        "updated_at": "2026-04-09T19:52:37.846Z"
+      }
+    }
+  },
+  "local_survival_used": true,
+  "quota_snapshot": {
+    "requests_per_day": 2,
+    "tokens_per_day": 0,
+    "recent_429_count": 0,
+    "recent_timeout_count": 0,
+    "success_count": 0,
+    "failure_count": 2,
+    "success_rate": 0,
+    "average_latency": 41,
+    "free_reliability_score": 0
+  },
+  "receipt_chain": {
+    "ledger_seq": 2,
+    "prev_hash": "e2bee8e4fb8c0ef0892abcf0b68bb91c366d859a767c5e2124ec8a4062e8a00d",
+    "this_hash": "391e4a574a93a00e413103e15bf91b3799e87447d3334b362ae51b26810cc742"
+  }
+}

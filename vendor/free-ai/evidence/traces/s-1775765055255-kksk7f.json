@@ -1,0 +1,62 @@
+{
+  "id": "s-1775765055255-kksk7f",
+  "name": "router.handleRequest",
+  "start": 1775765055255,
+  "meta": {
+    "trace_id": "t-1775765055255-ew2k6t",
+    "prompt": "Create a short plan for testing decision graphs."
+  },
+  "events": [
+    {
+      "ts": 1775765055262,
+      "event": "translator.complete",
+      "data": {
+        "intent_family": "chat"
+      }
+    },
+    {
+      "ts": 1775765055264,
+      "event": "reasoning.complete",
+      "data": {
+        "strategy": "heuristic.v1"
+      }
+    },
+    {
+      "ts": 1775765055271,
+      "event": "persona.selected",
+      "data": {
+        "persona": "reflective",
+        "confidence": 0.5
+      }
+    },
+    {
+      "ts": 1775765055277,
+      "event": "skills.mounted",
+      "data": {
+        "count": 5,
+        "skills": [
+          "gen_053",
+          "planning_01",
+          "testing_01",
+          "testing_02",
+          "misc_01"
+        ]
+      }
+    },
+    {
+      "ts": 1775765055828,
+      "event": "capabilities.resolved",
+      "data": {
+        "persona": "generated_general_create_persona",
+        "skill_count": 5,
+        "adaptive_activated": true
+      }
+    }
+  ],
+  "end": 1775765055831,
+  "duration_ms": 576,
+  "outcome": {
+    "status": "fallback",
+    "reason": "providers_exhausted"
+  }
+}

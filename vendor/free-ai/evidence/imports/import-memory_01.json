@@ -1,0 +1,56 @@
+{
+  "skill": {
+    "id": "memory_01",
+    "name": "Memory: Summarize Conversation",
+    "version": "v1",
+    "purpose": "Produce a conversation summary for memory write",
+    "tags": [
+      "memory",
+      "summary"
+    ],
+    "triggers": [
+      "summary",
+      "conversation summary"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 400,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "summary",
+        "highlights"
+      ]
+    },
+    "prompt_fragments": [
+      "Create a concise conversation summary suitable for memory storage."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "reflective_assistant",
+        "general_assistant"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "offline_optional"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "memory_01",
+    "checked_at": "2026-04-09T18:01:29.100Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

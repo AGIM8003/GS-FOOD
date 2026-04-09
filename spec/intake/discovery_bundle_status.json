@@ -1,0 +1,15 @@
+{
+  "soft_blockers": [
+    "donor repos",
+    "deeper GS FOOD artifact verification",
+    "supervision detail depth",
+    "optional operator/admin optimizations"
+  ],
+  "hard_blockers": [
+    "SCA file",
+    "repo tree",
+    "replit.md",
+    ".replit/runtime config",
+    "auth/session implementation entrypoints"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "compiled_prompt": "-- Prompt Runtime --\nPrompt Family: research\nPrompt Variant: variant_b_structured\nTrace ID: t-1775763844063-nxcnw2\nReasoning Strategy: synthesize\nOutput Contract: receipt_augmented_answer\nReturn only valid JSON matching the requested contract.\nSystem Persona: blend:analyst+undefined\n\n\n-- Translator Summary --\nIntent Family: research\nTask Type: research\nConstraints: {}\nOutput Preferences: {}\n-- Context Snapshot --\nDomain: general\nContinuity: 0.5\nPersona Hints: researcher\nSkill Hints: research\n-- Active Skills (5) --\n# Skill: research_01 — research_01\nPurpose: Summarize key papers and findings\n# Skill: gen_066 — gen_066\nPurpose: Auto-generated research helper 66\n# Skill: research_gen_116 — research_gen_116\nPurpose: Auto-generated helper skill for research\n# Skill: summarization_01 — summarization_01\nPurpose: Create summaries for multi-paragraph text\n# Skill: coding_02 — coding_02\nPurpose: Give PR review suggestions\n-- Response Requirements --\n1) Provide a concise answer first (3-5 sentences) followed by an evidence section.\n2) If structured output is requested, return only the requested contract in JSON under a top-level `result` field.\n3) Always include a `why` block listing: selected persona, selected skills, provider route class, and brief rationale (2-3 bullets).\n4) If unsure or lacking information, ask a clarifying question rather than guessing.\n5) Enforce safety: remove PII, do not provide disallowed content.\n-- User Prompt --\nResearch: summarize recent best practices for prompt engineering\n-- Evidence / Why Panel Template --\nEXPLAIN: Provide JSON with keys: `final_persona_id`, `skills_used`, `route_reason`, `confidence` and `notes` (short).\n",
+  "metadata": {
+    "prompt_contract_version": "promptContract.v1",
+    "prompt_template_version": "promptTemplate.v2",
+    "prompt_strategy_id": "freeai.default.runtime",
+    "prompt_family_id": "research",
+    "prompt_variant": "variant_b_structured",
+    "persona_id": "blend:analyst+undefined",
+    "persona_version": "v1+v1",
+    "skill_ids": [
+      "research_01",
+      "gen_066",
+      "research_gen_116",
+      "summarization_01",
+      "coding_02"
+    ],
+    "skill_versions": [
+      "v1",
+      "v1",
+      "v1",
+      "v1",
+      "v1"
+    ],
+    "translator_summary": {
+      "intent_family": "research",
+      "task_type": "research",
+      "constraints": {}
+    },
+    "context_summary": {
+      "domain": "general",
+      "continuity_score": 0.5,
+      "skill_hints": [
+        "research"
+      ],
+      "persona_hints": [
+        "researcher"
+      ]
+    },
+    "reasoning_summary": {
+      "mode": "heuristic.v1",
+      "strategy_type": "synthesize",
+      "confidence": 0.7239444915467244
+    },
+    "response_contract_id": "receipt_augmented_answer",
+    "route_hint": null,
+    "trace_id": "t-1775763844063-nxcnw2",
+    "compiled_at": "2026-04-09T19:44:04.077Z"
+  }
+}

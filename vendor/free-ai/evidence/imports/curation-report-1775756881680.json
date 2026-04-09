@@ -1,0 +1,336 @@
+{
+  "ts": "2026-04-09T17:48:01.680Z",
+  "count": 66,
+  "items": [
+    {
+      "id": "gen_045",
+      "file": "gen_045.json",
+      "summary": "Auto-generated reflection helper 45"
+    },
+    {
+      "id": "gen_046",
+      "file": "gen_046.json",
+      "summary": "Auto-generated invention helper 46"
+    },
+    {
+      "id": "gen_047",
+      "file": "gen_047.json",
+      "summary": "Auto-generated evidence helper 47"
+    },
+    {
+      "id": "gen_048",
+      "file": "gen_048.json",
+      "summary": "Auto-generated documentation helper 48"
+    },
+    {
+      "id": "gen_049",
+      "file": "gen_049.json",
+      "summary": "Auto-generated prompt helper 49"
+    },
+    {
+      "id": "gen_050",
+      "file": "gen_050.json",
+      "summary": "Auto-generated fallback helper 50"
+    },
+    {
+      "id": "gen_051",
+      "file": "gen_051.json",
+      "summary": "Auto-generated model_hygiene helper 51"
+    },
+    {
+      "id": "gen_052",
+      "file": "gen_052.json",
+      "summary": "Auto-generated observability helper 52"
+    },
+    {
+      "id": "gen_053",
+      "file": "gen_053.json",
+      "summary": "Auto-generated testing helper 53"
+    },
+    {
+      "id": "gen_054",
+      "file": "gen_054.json",
+      "summary": "Auto-generated kg helper 54"
+    },
+    {
+      "id": "gen_055",
+      "file": "gen_055.json",
+      "summary": "Auto-generated obsidian helper 55"
+    },
+    {
+      "id": "gen_056",
+      "file": "gen_056.json",
+      "summary": "Auto-generated workflow helper 56"
+    },
+    {
+      "id": "gen_057",
+      "file": "gen_057.json",
+      "summary": "Auto-generated quality helper 57"
+    },
+    {
+      "id": "gen_058",
+      "file": "gen_058.json",
+      "summary": "Auto-generated translator helper 58"
+    },
+    {
+      "id": "gen_059",
+      "file": "gen_059.json",
+      "summary": "Auto-generated continuity helper 59"
+    },
+    {
+      "id": "gen_060",
+      "file": "gen_060.json",
+      "summary": "Auto-generated ambiguity helper 60"
+    },
+    {
+      "id": "gen_061",
+      "file": "gen_061.json",
+      "summary": "Auto-generated contradiction helper 61"
+    },
+    {
+      "id": "gen_062",
+      "file": "gen_062.json",
+      "summary": "Auto-generated planning helper 62"
+    },
+    {
+      "id": "gen_063",
+      "file": "gen_063.json",
+      "summary": "Auto-generated coding helper 63"
+    },
+    {
+      "id": "gen_064",
+      "file": "gen_064.json",
+      "summary": "Auto-generated debugging helper 64"
+    },
+    {
+      "id": "gen_065",
+      "file": "gen_065.json",
+      "summary": "Auto-generated architecture helper 65"
+    },
+    {
+      "id": "gen_066",
+      "file": "gen_066.json",
+      "summary": "Auto-generated research helper 66"
+    },
+    {
+      "id": "gen_067",
+      "file": "gen_067.json",
+      "summary": "Auto-generated retrieval helper 67"
+    },
+    {
+      "id": "gen_068",
+      "file": "gen_068.json",
+      "summary": "Auto-generated summarization helper 68"
+    },
+    {
+      "id": "gen_069",
+      "file": "gen_069.json",
+      "summary": "Auto-generated memory helper 69"
+    },
+    {
+      "id": "gen_070",
+      "file": "gen_070.json",
+      "summary": "Auto-generated persona_control helper 70"
+    },
+    {
+      "id": "gen_071",
+      "file": "gen_071.json",
+      "summary": "Auto-generated metacognition helper 71"
+    },
+    {
+      "id": "gen_072",
+      "file": "gen_072.json",
+      "summary": "Auto-generated reasoning helper 72"
+    },
+    {
+      "id": "gen_073",
+      "file": "gen_073.json",
+      "summary": "Auto-generated evaluation helper 73"
+    },
+    {
+      "id": "gen_074",
+      "file": "gen_074.json",
+      "summary": "Auto-generated routing helper 74"
+    },
+    {
+      "id": "gen_075",
+      "file": "gen_075.json",
+      "summary": "Auto-generated safety helper 75"
+    },
+    {
+      "id": "gen_076",
+      "file": "gen_076.json",
+      "summary": "Auto-generated reflection helper 76"
+    },
+    {
+      "id": "gen_077",
+      "file": "gen_077.json",
+      "summary": "Auto-generated invention helper 77"
+    },
+    {
+      "id": "gen_078",
+      "file": "gen_078.json",
+      "summary": "Auto-generated evidence helper 78"
+    },
+    {
+      "id": "gen_079",
+      "file": "gen_079.json",
+      "summary": "Auto-generated documentation helper 79"
+    },
+    {
+      "id": "gen_080",
+      "file": "gen_080.json",
+      "summary": "Auto-generated prompt helper 80"
+    },
+    {
+      "id": "gen_081",
+      "file": "gen_081.json",
+      "summary": "Auto-generated fallback helper 81"
+    },
+    {
+      "id": "gen_082",
+      "file": "gen_082.json",
+      "summary": "Auto-generated model_hygiene helper 82"
+    },
+    {
+      "id": "gen_083",
+      "file": "gen_083.json",
+      "summary": "Auto-generated observability helper 83"
+    },
+    {
+      "id": "gen_084",
+      "file": "gen_084.json",
+      "summary": "Auto-generated testing helper 84"
+    },
+    {
+      "id": "gen_085",
+      "file": "gen_085.json",
+      "summary": "Auto-generated kg helper 85"
+    },
+    {
+      "id": "gen_086",
+      "file": "gen_086.json",
+      "summary": "Auto-generated obsidian helper 86"
+    },
+    {
+      "id": "gen_087",
+      "file": "gen_087.json",
+      "summary": "Auto-generated workflow helper 87"
+    },
+    {
+      "id": "gen_088",
+      "file": "gen_088.json",
+      "summary": "Auto-generated quality helper 88"
+    },
+    {
+      "id": "gen_089",
+      "file": "gen_089.json",
+      "summary": "Auto-generated translator helper 89"
+    },
+    {
+      "id": "gen_090",
+      "file": "gen_090.json",
+      "summary": "Auto-generated continuity helper 90"
+    },
+    {
+      "id": "gen_091",
+      "file": "gen_091.json",
+      "summary": "Auto-generated ambiguity helper 91"
+    },
+    {
+      "id": "gen_092",
+      "file": "gen_092.json",
+      "summary": "Auto-generated contradiction helper 92"
+    },
+    {
+      "id": "gen_093",
+      "file": "gen_093.json",
+      "summary": "Auto-generated planning helper 93"
+    },
+    {
+      "id": "gen_094",
+      "file": "gen_094.json",
+      "summary": "Auto-generated coding helper 94"
+    },
+    {
+      "id": "gen_095",
+      "file": "gen_095.json",
+      "summary": "Auto-generated debugging helper 95"
+    },
+    {
+      "id": "gen_096",
+      "file": "gen_096.json",
+      "summary": "Auto-generated architecture helper 96"
+    },
+    {
+      "id": "gen_097",
+      "file": "gen_097.json",
+      "summary": "Auto-generated research helper 97"
+    },
+    {
+      "id": "gen_098",
+      "file": "gen_098.json",
+      "summary": "Auto-generated retrieval helper 98"
+    },
+    {
+      "id": "gen_099",
+      "file": "gen_099.json",
+      "summary": "Auto-generated summarization helper 99"
+    },
+    {
+      "id": "gen_100",
+      "file": "gen_100.json",
+      "summary": "Auto-generated memory helper 100"
+    },
+    {
+      "id": "gen_101",
+      "file": "gen_101.json",
+      "summary": "Auto-generated persona_control helper 101"
+    },
+    {
+      "id": "gen_102",
+      "file": "gen_102.json",
+      "summary": "Auto-generated metacognition helper 102"
+    },
+    {
+      "id": "gen_103",
+      "file": "gen_103.json",
+      "summary": "Auto-generated reasoning helper 103"
+    },
+    {
+      "id": "gen_104",
+      "file": "gen_104.json",
+      "summary": "Auto-generated evaluation helper 104"
+    },
+    {
+      "id": "gen_105",
+      "file": "gen_105.json",
+      "summary": "Auto-generated routing helper 105"
+    },
+    {
+      "id": "gen_106",
+      "file": "gen_106.json",
+      "summary": "Auto-generated safety helper 106"
+    },
+    {
+      "id": "gen_107",
+      "file": "gen_107.json",
+      "summary": "Auto-generated reflection helper 107"
+    },
+    {
+      "id": "gen_108",
+      "file": "gen_108.json",
+      "summary": "Auto-generated invention helper 108"
+    },
+    {
+      "id": "gen_109",
+      "file": "gen_109.json",
+      "summary": "Auto-generated evidence helper 109"
+    },
+    {
+      "id": "gen_110",
+      "file": "gen_110.json",
+      "summary": "Auto-generated documentation helper 110"
+    }
+  ]
+}

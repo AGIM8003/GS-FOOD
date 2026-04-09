@@ -1,0 +1,43 @@
+{
+  "skill": {
+    "id": "auto_promoted_085",
+    "name": "Auto promoted skill 85",
+    "version": "v1",
+    "purpose": "Temporary auto-promoted filler for catalog coverage",
+    "tags": [
+      "auto",
+      "generated"
+    ],
+    "triggers": [
+      "auto_promote",
+      "filler_skill"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 200,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "text"
+    },
+    "prompt_fragments": [
+      "Auto-promoted filler skill."
+    ],
+    "validation_rules": {},
+    "source_type": "generated_promoted",
+    "source_reference": "auto-boost-script",
+    "source_license": "generated",
+    "imported_at": "2026-04-09T18:02:14.080Z",
+    "enabled": true,
+    "deprecated": false,
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "auto_promoted_085",
+    "action": "auto_promoted_boost",
+    "checked_at": "2026-04-09T18:02:14.080Z",
+    "reasons": [
+      "boost_active_catalog_to_100"
+    ]
+  }
+}

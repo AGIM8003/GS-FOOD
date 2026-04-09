@@ -1,0 +1,32 @@
+{
+  "reasoning_mode": "heuristic.v1",
+  "strategy_type": "compose",
+  "decomposition_level": 1,
+  "confidence": 0.7239444915467244,
+  "uncertainty_score": 0.880277542266378,
+  "rationale_codes": [],
+  "quality_gate_needed": false,
+  "escalation_needed": false,
+  "persona_recommendation": "general",
+  "skill_recommendation": [],
+  "provider_routing_recommendation": [],
+  "model_selection_recommendation": [],
+  "memory_write_candidate": null,
+  "acquisition_recommendation": {
+    "need_persona": true,
+    "need_skills": true,
+    "suggested_topics": [
+      "create",
+      "decision",
+      "graphs",
+      "plan",
+      "short",
+      "testing"
+    ],
+    "rationale": [
+      "capability_review_hint",
+      "no_skill_hints"
+    ]
+  },
+  "schema_version": "reasoning.v1"
+}

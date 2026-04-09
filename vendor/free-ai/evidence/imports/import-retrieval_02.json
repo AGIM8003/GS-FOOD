@@ -1,0 +1,55 @@
+{
+  "skill": {
+    "id": "retrieval_02",
+    "name": "Retrieval: Semantic Rerank",
+    "version": "v1",
+    "purpose": "Re-rank hits by semantic similarity",
+    "tags": [
+      "retrieval",
+      "rerank"
+    ],
+    "triggers": [
+      "rerank",
+      "similarity"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "medium",
+    "token_budget_hint": 500,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "ranked_results"
+      ]
+    },
+    "prompt_fragments": [
+      "Rerank the candidate passages by semantic fit to the query."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "retrieval-focused-assistant",
+        "researcher"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "offline_optional"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "retrieval_02",
+    "checked_at": "2026-04-09T18:01:29.104Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

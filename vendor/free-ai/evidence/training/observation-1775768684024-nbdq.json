@@ -1,0 +1,33 @@
+{
+  "observation_id": "obs-1775768684023-qosu",
+  "created_at": "2026-04-09T21:04:44.023Z",
+  "trace_id": "t-1775768683028-rh4bfy",
+  "prompt_excerpt": "Research: summarize recent best practices for prompt engineering",
+  "intent_family": "research",
+  "task_type": "research",
+  "domain": "ai_systems",
+  "topics": [
+    "best",
+    "engineering",
+    "practices",
+    "prompt",
+    "recent",
+    "research"
+  ],
+  "persona_id": "generated_ai_systems_engineering_persona",
+  "skill_ids": [
+    "gen_066",
+    "research_01",
+    "research_gen_116",
+    "persona_control_01",
+    "persona-control_gen_120"
+  ],
+  "provider_id": "none",
+  "preview_only": false,
+  "fallback_used": true,
+  "validation_valid": true,
+  "acquisition_used": true,
+  "generated_capability_used": false,
+  "environment": "general",
+  "reasoning_mode": "heuristic.v1"
+}

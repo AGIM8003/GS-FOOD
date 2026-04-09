@@ -2,7 +2,7 @@ import json
 from pydantic import BaseModel
 from typing import List, Optional
 import logging
-from .orchestrator import SwarmOrchestrator
+from app.free_ai_client import FreeAIClient
 
 logger = logging.getLogger(__name__)
 
@@ -12,76 +12,33 @@ class MealAgent:
     followed by an un-wrapped 0.KB CRAG Validator (Critic) pass to eliminate hallucinations.
     """
     def __init__(self):
-        self.orchestrator = SwarmOrchestrator()
+        self.ai_client = FreeAIClient()
         
-    async def process_cooking_intent(self, available_ingredients: List[str], chef_persona: str, health_modifiers: List[str], positive_affinities: List[str] = None, negative_affinities: List[str] = None) -> dict:
+    async def process_cooking_intent(self, available_ingredients: List[str], chef_persona: str, health_modifiers: List[str], current_user: dict, positive_affinities: List[str] = None, negative_affinities: List[str] = None) -> dict:
         """
-        Decomposes the intent and executes a multi-agent cascade.
+        Decomposes the intent and executes the FREE AI reasoning cascade within full authenticated user context.
         """
-        system_prompt = f"""
-You are the GS FOOD AI Meal Orchestrator. 
-Your active Chef Persona is: {chef_persona}.
+        system_context = {
+            "chef_persona": chef_persona,
+            "target_user_id": current_user.get("user_id"),
+            "target_user_role": current_user.get("role"),
+            "positive_affinities": positive_affinities or [],
+            "negative_affinities": negative_affinities or [],
+            "health_modifiers": health_modifiers or []
+        }
 
-MEMORY-DRIVEN INVENTION TENSIONS:
-- User actively PREFERS (Positive Affinities): {', '.join(positive_affinities) if positive_affinities else 'No explicit preferences yet.'}
-- User actively DISLIKES/ABANDONS (Negative Affinities): {', '.join(negative_affinities) if negative_affinities else 'No explicit rejections yet.'}
-Your meal inventions MUST lean heavily into the positive affinities (suggesting those cuisines, flavors, or repeated ingredients), whilst strictly avoiding the negative affinities. Do not apologize or explain this logically; simply generate deeply personalized recipes.
+        user_prompt = f"Generate meal recommendations. Available ingredients: {', '.join(available_ingredients) if available_ingredients else 'None provided'}."
 
-You must output valid JSON containing exactly an array of "cards".
-Schema:
-{{
-   "title": "String name of the dish",
-   "time": "String estimated time",
-   "cuisine": "String cuisine",
-   "match_type": "String category (e.g., 'Best Match')",
-   "used_inventory_ingredients": [
-      {{ "name": "Str", "quantity": 1.0, "unit": "Str", "category": "Str", "is_substitution": false, "substitution_for": null }}
-   ],
-   "missing_shopping_deficits": [
-      {{ "name": "Str", "quantity": 1.0, "unit": "Str", "category": "Str", "is_substitution": false, "substitution_for": null }}
-   ],
-   "compliance": {{
-      "is_compliant": true,
-      "violated_rules": [],
-      "blocked_ingredients": [],
-      "warning_level": "SAFE",
-      "explanation": "Brief explanation of health logic"
-   }},
-   "ai_explanation_trace": [
-      "Reasoning string 1",
-      "Reasoning string 2"
-   ]
-}}
-
-Dietary restrictions: {', '.join(health_modifiers) if health_modifiers else 'None'}.
-You MUST return ONLY JSON matching this exact structure.
-"""
-        user_prompt = f"Available ingredients: {', '.join(available_ingredients) if available_ingredients else 'None provided'}."
-
-        # Pass 1: Generation
-        initial_output = await self.orchestrator.execute_cascade(system_prompt, user_prompt)
+        # Execute through Vendored Node.js FREE AI Engine
+        response_payload = await self.ai_client.infer(
+            text=user_prompt,
+            context=system_context,
+            forced_persona="gs_food_culinary_guide"
+        )
         
         try:
-            initial_output = self._clean_json(initial_output)
-            initial_payload = json.loads(initial_output)
-            
-            # 0.KB SKILL INJECTION: CRAG VALIDATOR / CRITIC PASS
-            # Un-wrapped direct LLM call to validate its own output
-            validation_prompt = f"""
-You are an uncompromising Culinary Critic Agent.
-The user ONLY has these ingredients available: {', '.join(available_ingredients)}.
-The generation agent just proposed this JSON recipe list: 
-{json.dumps(initial_payload)}
-
-TASK: Fix the JSON. 
-1. If any recipe uses a core ingredient the user DOES NOT have, move its object to "missing_shopping_deficits".
-2. If "used_inventory_ingredients" contains something not in the user's real list, fix it or mark it as a substitution.
-3. Keep the strict JSON structure perfectly intact. Return ONLY the JSON.
-"""
-            validated_output = await self.orchestrator.execute_cascade(validation_prompt, "Review and fix the JSON.")
-            validated_output = self._clean_json(validated_output)
-            
-            return json.loads(validated_output)
+            return response_payload.get("cards", response_payload.get("data", response_payload))
+            pass
 
         except Exception as e:
             logger.error(f"Agent Pipeline Failed: {e}")

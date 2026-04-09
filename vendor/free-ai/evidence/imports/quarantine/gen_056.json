@@ -1,0 +1,43 @@
+{
+  "id": "gen_056",
+  "name": "Generated workflow skill 56",
+  "version": "v1",
+  "purpose": "Auto-generated workflow helper 56",
+  "tags": [
+    "workflow"
+  ],
+  "triggers": [
+    "workflow",
+    "workflow_56"
+  ],
+  "exclusions": [],
+  "dependencies": [],
+  "latency_hint": "high",
+  "token_budget_hint": 500,
+  "risk_class": "high",
+  "output_contract": {
+    "type": "object",
+    "fields": [
+      "result"
+    ]
+  },
+  "prompt_fragments": [
+    "Auto-generated prompt fragment for Generated workflow skill 56"
+  ],
+  "validation_rules": {},
+  "source_type": "generated",
+  "source_reference": "local-generator",
+  "source_license": "bundled",
+  "imported_at": "2026-04-09T17:25:25.881Z",
+  "enabled": true,
+  "deprecated": false,
+  "compatibility": {
+    "personas": [
+      "general_assistant"
+    ],
+    "runtime_modes": [
+      "hybrid"
+    ]
+  },
+  "schema_version": "skillManifest.v1"
+}

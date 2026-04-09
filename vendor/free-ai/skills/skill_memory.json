@@ -1,0 +1,11 @@
+{
+  "id": "memory",
+  "version": "v1",
+  "name": "Memory Helper",
+  "description": "Assist with retrieving and formatting memories and creating summary notes.",
+  "tags": ["memory","retrieval"],
+  "triggers": ["remember","memo","note","save"],
+  "content": "When asked, suggest memory write candidates and format them for vault ingestion.",
+  "exclusions": [],
+  "dependencies": []
+}

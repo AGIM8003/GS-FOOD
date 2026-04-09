@@ -1,0 +1,85 @@
+{
+  "receipt_id": "r-1775763665336-1a43",
+  "trace_id": "t-1775763665323-dpycno",
+  "span_id": null,
+  "provider_id": "preview",
+  "model_id": null,
+  "http_status": 200,
+  "fallback_used": false,
+  "kb_short_circuit": false,
+  "persona": {
+    "id": "reflective",
+    "version": "v1"
+  },
+  "intent_family": "chat",
+  "skills_loaded": [
+    {
+      "id": "gen_053",
+      "version": "v1"
+    },
+    {
+      "id": "planning_01",
+      "version": "v1"
+    },
+    {
+      "id": "testing_01",
+      "version": "v1"
+    },
+    {
+      "id": "testing_02",
+      "version": "v1"
+    },
+    {
+      "id": "persona_control_01",
+      "version": "v1"
+    }
+  ],
+  "latency_ms": 13,
+  "timestamp": "2026-04-09T19:41:05.336Z",
+  "schema_version": "requestReceipt.v1",
+  "selected_prompt_variant": "variant_b_structured",
+  "selected_output_contract": "plan_output",
+  "prompt_metadata": {
+    "prompt_contract_version": "promptContract.v1",
+    "prompt_template_version": "promptTemplate.v2",
+    "prompt_strategy_id": "freeai.default.runtime",
+    "prompt_family_id": "planning",
+    "prompt_variant": "variant_b_structured",
+    "persona_id": "reflective",
+    "persona_version": "v1",
+    "skill_ids": [
+      "gen_053",
+      "planning_01",
+      "testing_01",
+      "testing_02",
+      "persona_control_01"
+    ],
+    "skill_versions": [
+      "v1",
+      "v1",
+      "v1",
+      "v1",
+      "v1"
+    ],
+    "translator_summary": {
+      "intent_family": "chat",
+      "task_type": "chat",
+      "constraints": {}
+    },
+    "context_summary": {
+      "domain": "general",
+      "continuity_score": 0.5,
+      "skill_hints": [],
+      "persona_hints": []
+    },
+    "reasoning_summary": {
+      "mode": "heuristic.v1",
+      "strategy_type": "compose",
+      "confidence": 0.7215888308335967
+    },
+    "response_contract_id": "plan_output",
+    "route_hint": null,
+    "trace_id": "t-1775763665323-dpycno",
+    "compiled_at": "2026-04-09T19:41:05.335Z"
+  }
+}

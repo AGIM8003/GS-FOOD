@@ -1,0 +1,7 @@
+1. workspace run config
+2. deployment config
+3. secrets names
+4. port binding behavior (0.0.0.0 explicit)
+5. persistence model (no local durable assumption)
+6. health/readiness endpoints
+7. storage access model

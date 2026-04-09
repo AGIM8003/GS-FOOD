@@ -1,8 +1,7 @@
-{ pkgs }: {
+{
   deps = [
-    pkgs.cacert
-    pkgs.flutter
-    pkgs.git
-    pkgs.sqlite
+    pkgs.nodejs-18_x
+    pkgs.python312
+    pkgs.nodePackages.pm2
   ];
 }

@@ -1,0 +1,32 @@
+{
+  "id": "memory_gen_119",
+  "name": "memory helper 119",
+  "version": "v1",
+  "purpose": "Auto-generated helper skill for memory",
+  "tags": [
+    "memory"
+  ],
+  "triggers": [
+    "memory",
+    "memory_helper"
+  ],
+  "exclusions": [],
+  "dependencies": [],
+  "latency_hint": "low",
+  "token_budget_hint": 300,
+  "risk_class": "low",
+  "output_contract": {
+    "type": "text"
+  },
+  "prompt_fragments": [
+    "memory helper: produce concise results for memory"
+  ],
+  "validation_rules": {},
+  "source_type": "generated",
+  "source_reference": "local-generator",
+  "source_license": "generated",
+  "imported_at": "2026-04-09T18:00:40.363Z",
+  "enabled": true,
+  "deprecated": false,
+  "schema_version": "skillManifest.v1"
+}

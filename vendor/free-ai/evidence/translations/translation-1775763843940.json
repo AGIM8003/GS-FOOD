@@ -1,0 +1,22 @@
+{
+  "raw": "Fix the failing CI job and re-run tests.",
+  "normalized_text": "Fix the failing CI job and re-run tests.",
+  "language": "en",
+  "intent_family": "command",
+  "task_type": "command",
+  "entities": [],
+  "constraints": {},
+  "output_preferences": {},
+  "continuity": 0.5,
+  "risk_flags": [],
+  "ambiguity_flags": 0.880277542266378,
+  "memory_need": false,
+  "persona_need": null,
+  "skill_need": null,
+  "model_preference_hint": null,
+  "acquisition_hint": null,
+  "tone": "neutral",
+  "urgency": 0,
+  "confidence": 0.6239444915467244,
+  "schema_version": "translator.v1"
+}

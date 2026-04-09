@@ -1,0 +1,53 @@
+{
+  "skill": {
+    "id": "gen_053",
+    "name": "Generated testing skill 53",
+    "version": "v1",
+    "purpose": "Auto-generated testing helper 53",
+    "tags": [
+      "testing"
+    ],
+    "triggers": [
+      "testing",
+      "testing_53"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "high",
+    "token_budget_hint": 350,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "result"
+      ]
+    },
+    "prompt_fragments": [
+      "Auto-generated prompt fragment for Generated testing skill 53"
+    ],
+    "validation_rules": {},
+    "source_type": "generated",
+    "source_reference": "local-generator",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T17:25:25.881Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "general_assistant"
+      ],
+      "runtime_modes": [
+        "hybrid"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "gen_053",
+    "action": "promoted_from_quarantine",
+    "checked_at": "2026-04-09T18:01:29.133Z",
+    "reasons": [
+      "promoted_from_quarantine_for_coverage"
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "skill": {
+    "id": "safety_02",
+    "name": "Safety: Policy Checker",
+    "version": "v1",
+    "purpose": "Check content against policy rules",
+    "tags": [
+      "safety",
+      "policy"
+    ],
+    "triggers": [
+      "policy",
+      "check"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 300,
+    "risk_class": "high",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "violations",
+        "severity"
+      ]
+    },
+    "prompt_fragments": [
+      "Run policy checks and categorize violations."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "safety_assistant",
+        "critic"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "cloud_only"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "safety_02",
+    "checked_at": "2026-04-09T18:01:29.103Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

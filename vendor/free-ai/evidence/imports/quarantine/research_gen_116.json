@@ -1,0 +1,32 @@
+{
+  "id": "research_gen_116",
+  "name": "research helper 116",
+  "version": "v1",
+  "purpose": "Auto-generated helper skill for research",
+  "tags": [
+    "research"
+  ],
+  "triggers": [
+    "research",
+    "research_helper"
+  ],
+  "exclusions": [],
+  "dependencies": [],
+  "latency_hint": "low",
+  "token_budget_hint": 300,
+  "risk_class": "low",
+  "output_contract": {
+    "type": "text"
+  },
+  "prompt_fragments": [
+    "research helper: produce concise results for research"
+  ],
+  "validation_rules": {},
+  "source_type": "generated",
+  "source_reference": "local-generator",
+  "source_license": "generated",
+  "imported_at": "2026-04-09T18:00:40.363Z",
+  "enabled": true,
+  "deprecated": false,
+  "schema_version": "skillManifest.v1"
+}

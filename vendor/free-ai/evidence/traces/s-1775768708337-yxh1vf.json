@@ -1,0 +1,62 @@
+{
+  "id": "s-1775768708337-yxh1vf",
+  "name": "router.handleRequest",
+  "start": 1775768708337,
+  "meta": {
+    "trace_id": "t-1775768708337-qqyvkk",
+    "prompt": "Create a 3 step plan for testing"
+  },
+  "events": [
+    {
+      "ts": 1775768708344,
+      "event": "translator.complete",
+      "data": {
+        "intent_family": "chat"
+      }
+    },
+    {
+      "ts": 1775768708347,
+      "event": "reasoning.complete",
+      "data": {
+        "strategy": "heuristic.v1"
+      }
+    },
+    {
+      "ts": 1775768708356,
+      "event": "persona.selected",
+      "data": {
+        "persona": "generated_general_create_persona",
+        "confidence": 0.9849999999999999
+      }
+    },
+    {
+      "ts": 1775768708359,
+      "event": "skills.mounted",
+      "data": {
+        "count": 5,
+        "skills": [
+          "gen_053",
+          "generated_general_create_chat_workflow",
+          "planning_01",
+          "testing_01",
+          "testing_02"
+        ]
+      }
+    },
+    {
+      "ts": 1775768708862,
+      "event": "capabilities.resolved",
+      "data": {
+        "persona": "generated_general_create_persona",
+        "skill_count": 5,
+        "adaptive_activated": true
+      }
+    }
+  ],
+  "end": 1775768708867,
+  "duration_ms": 530,
+  "outcome": {
+    "status": "preview",
+    "latency_ms": 530
+  }
+}

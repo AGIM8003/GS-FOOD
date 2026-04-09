@@ -1,0 +1,83 @@
+{
+  "prompt": "Summarize the latest best practices for prompt engineering in a paragraph.",
+  "result": {
+    "status": 200,
+    "body": "I'm unable to reach external providers right now. This is a local fallback response (fallback_used=true).",
+    "receipt": {
+      "receipt_id": "r-1775756922198-nyjn",
+      "trace_id": "t-1775756922186-23a7tz",
+      "provider_id": "none",
+      "model_id": null,
+      "http_status": 503,
+      "fallback_used": true,
+      "kb_short_circuit": false,
+      "persona": {
+        "id": "reflective",
+        "version": "v1"
+      },
+      "intent_family": "chat",
+      "skills_loaded": [
+        {
+          "id": "summarization_01",
+          "version": "v1"
+        },
+        {
+          "id": "coding_02",
+          "version": "v1"
+        },
+        {
+          "id": "testing_01",
+          "version": "v1"
+        },
+        {
+          "id": "persona_control_01",
+          "version": "v1"
+        },
+        {
+          "id": "gen_049",
+          "version": "v1"
+        }
+      ],
+      "latency_ms": 11,
+      "timestamp": "2026-04-09T17:48:42.198Z",
+      "schema_version": "requestReceipt.v1",
+      "persona_selected": {
+        "final_persona_id": "reflective",
+        "persona_version": "v1",
+        "blend_weights": null,
+        "confidence": 0.5,
+        "source": "v4-heuristic",
+        "rationale_codes": [
+          "v4:heuristic"
+        ]
+      },
+      "metacognition": {
+        "plan_summary": {
+          "steps": [
+            "engage"
+          ],
+          "strategy_type": "chat",
+          "execution_mode": "M0"
+        },
+        "strategy_type": "chat",
+        "confidence": 0.8,
+        "uncertainty_score": 0.2,
+        "rationale_codes": [],
+        "risk_flags": [],
+        "memory_write_candidate": null,
+        "quality_gate_needed": false,
+        "escalation_needed": false,
+        "persona_recommendation": null,
+        "skill_recommendation": null
+      },
+      "failure_chain": [
+        {
+          "provider": "openrouter",
+          "model": "openrouter/free",
+          "error": "unknown_error",
+          "raw": "OPENROUTER_API_KEY not set"
+        }
+      ]
+    }
+  }
+}

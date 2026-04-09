@@ -1,0 +1,15 @@
+{
+  "id": "s-1775760351064-f421b0",
+  "name": "providers.callProviders",
+  "start": 1775760351064,
+  "meta": {
+    "prompt_snippet": "System Persona: Reflective\nYou are reflective and memory-aware: surface past context, summarize, and suggest follow-ups. Prioritize continuity and clarity.\n-- Translator Summary --\nIntent Family: chat"
+  },
+  "events": [],
+  "end": 1775760351064,
+  "duration_ms": 0,
+  "outcome": {
+    "status": "fail",
+    "failureCount": 0
+  }
+}

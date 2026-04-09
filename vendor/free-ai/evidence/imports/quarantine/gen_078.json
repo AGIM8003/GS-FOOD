@@ -1,0 +1,44 @@
+{
+  "id": "gen_078",
+  "name": "Generated evidence skill 78",
+  "version": "v1",
+  "purpose": "Auto-generated evidence helper 78",
+  "tags": [
+    "evidence"
+  ],
+  "triggers": [
+    "evidence",
+    "evidence_78"
+  ],
+  "exclusions": [],
+  "dependencies": [],
+  "latency_hint": "low",
+  "token_budget_hint": 600,
+  "risk_class": "low",
+  "output_contract": {
+    "type": "object",
+    "fields": [
+      "result"
+    ]
+  },
+  "prompt_fragments": [
+    "Auto-generated prompt fragment for Generated evidence skill 78"
+  ],
+  "validation_rules": {},
+  "source_type": "generated",
+  "source_reference": "local-generator",
+  "source_license": "bundled",
+  "imported_at": "2026-04-09T17:25:25.881Z",
+  "enabled": true,
+  "deprecated": true,
+  "compatibility": {
+    "personas": [
+      "general_assistant"
+    ],
+    "runtime_modes": [
+      "hybrid"
+    ]
+  },
+  "schema_version": "skillManifest.v1",
+  "deprecated_reason": "duplicate_of:gen_047"
+}

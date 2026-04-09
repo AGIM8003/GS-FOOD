@@ -1,0 +1,29 @@
+{
+  "$id": "https://free-ai.local/schemas/personaManifest.v1.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PersonaManifest v1",
+  "type": "object",
+  "required": ["id","name","version","description","category","tags","domain_strengths","interaction_style","risk_profile","triggers","prompt_fragments","source_type","source_reference","source_license","imported_at","schema_version"],
+  "properties": {
+    "id": {"type":"string"},
+    "name": {"type":"string"},
+    "version": {"type":"string"},
+    "description": {"type":"string"},
+    "category": {"type":"string"},
+    "tags": {"type":"array"},
+    "domain_strengths": {"type":"array"},
+    "interaction_style": {"type":"string"},
+    "risk_profile": {"type":"string"},
+    "triggers": {"type":"array"},
+    "exclusions": {"type":"array"},
+    "blend_compatibility": {"type":"array"},
+    "prompt_fragments": {"type":"array"},
+    "tool_preferences": {"type":"object"},
+    "source_type": {"type":"string"},
+    "source_reference": {"type":"string"},
+    "source_license": {"type":"string"},
+    "imported_at": {"type":"string"},
+    "schema_version": {"type":"string"}
+  },
+  "additionalProperties": true
+}

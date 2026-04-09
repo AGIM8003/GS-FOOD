@@ -1,0 +1,53 @@
+{
+  "id": "s-1775763286858-ouw8aj",
+  "name": "router.handleRequest",
+  "start": 1775763286858,
+  "meta": {
+    "trace_id": "t-1775763286858-xqm97n",
+    "prompt": "Summarize the design of a small app"
+  },
+  "events": [
+    {
+      "ts": 1775763286861,
+      "event": "translator.complete",
+      "data": {
+        "intent_family": "chat"
+      }
+    },
+    {
+      "ts": 1775763286863,
+      "event": "reasoning.complete",
+      "data": {
+        "strategy": "heuristic.v1"
+      }
+    },
+    {
+      "ts": 1775763286868,
+      "event": "persona.selected",
+      "data": {
+        "persona": "reflective",
+        "confidence": 0.5
+      }
+    },
+    {
+      "ts": 1775763286870,
+      "event": "skills.mounted",
+      "data": {
+        "count": 5,
+        "skills": [
+          "summarization_01",
+          "persona_control_01",
+          "persona-control_gen_120",
+          "debugging_01",
+          "misc_02"
+        ]
+      }
+    }
+  ],
+  "end": 1775763286875,
+  "duration_ms": 17,
+  "outcome": {
+    "status": "fallback",
+    "reason": "providers_exhausted"
+  }
+}

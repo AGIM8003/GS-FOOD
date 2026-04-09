@@ -1,0 +1,24 @@
+{
+  "schema_version": "skillManifest.v1",
+  "id": "gs_food_recipe_generator",
+  "name": "Recipe Generator",
+  "description": "Generates a customized recipe based on pantry inventory and dietary constraints.",
+  "endpoint": "http://localhost:8000/api/internal/recipes/generate",
+  "method": "POST",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "ingredients": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "List of available ingredients"
+      },
+      "style": {
+        "type": "string",
+        "description": "Culinary style or cuisine"
+      }
+    },
+    "required": ["ingredients"]
+  },
+  "auth_required": false
+}

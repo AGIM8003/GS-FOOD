@@ -1,0 +1,678 @@
+{
+  "cycle_id": "cycle-1775769162969-g9cn",
+  "generated_at": "2026-04-09T21:12:43.750Z",
+  "status": "completed",
+  "reason": "request_observation",
+  "observation_count": 27,
+  "summary": {
+    "top_domains": [
+      {
+        "value": "general",
+        "count": 20
+      },
+      {
+        "value": "ai_systems",
+        "count": 7
+      }
+    ],
+    "top_personas": [
+      {
+        "value": "generated_general_create_persona",
+        "count": 8
+      },
+      {
+        "value": "generated_ai_systems_engineering_persona",
+        "count": 7
+      },
+      {
+        "value": "generated_general_app_persona",
+        "count": 7
+      },
+      {
+        "value": "blend:generated_general_create_persona+generated_general_app_persona",
+        "count": 5
+      }
+    ],
+    "top_skills": [
+      {
+        "value": "generated_general_create_chat_workflow",
+        "count": 20
+      },
+      {
+        "value": "persona_control_01",
+        "count": 19
+      },
+      {
+        "value": "gen_053",
+        "count": 8
+      },
+      {
+        "value": "generated_general_fallback_chat_workflow",
+        "count": 8
+      },
+      {
+        "value": "planning_01",
+        "count": 8
+      },
+      {
+        "value": "testing_01",
+        "count": 8
+      },
+      {
+        "value": "testing_02",
+        "count": 8
+      },
+      {
+        "value": "gen_066",
+        "count": 7
+      }
+    ]
+  },
+  "academies": [
+    {
+      "id": "general",
+      "domain": "general",
+      "status": "active",
+      "observation_count": 20,
+      "success_rate": 0,
+      "dominant_personas": [
+        "generated_general_create_persona",
+        "generated_general_app_persona",
+        "blend:generated_general_create_persona+generated_general_app_persona"
+      ],
+      "dominant_skills": [
+        "generated_general_create_chat_workflow",
+        "persona_control_01",
+        "gen_053",
+        "generated_general_fallback_chat_workflow",
+        "planning_01"
+      ],
+      "topics": [
+        "create",
+        "decision",
+        "graphs",
+        "plan",
+        "short",
+        "testing",
+        "app",
+        "design"
+      ],
+      "curriculum": [
+        "Ask clarifying questions earlier and narrow the answer scope before finalizing.",
+        "Prefer lower-latency, better-supported skills and keep provider requirements simpler.",
+        "Invest in domain-specific persona and skill overlays for repeated general work.",
+        "Focus practice on: create, decision, graphs, plan, short, testing, app, design.",
+        "Keep evidence, rationale, and compliance notes explicit in the final answer."
+      ],
+      "compliance_notes": [],
+      "research_sources": [],
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T21:12:43.430Z",
+      "schema_version": "trainingAcademy.v1",
+      "learned_domains": [],
+      "learned_topics": [],
+      "response_style_hints": [],
+      "execution_hints": [],
+      "compatible_personas": [],
+      "created_at": "2026-04-09T20:19:26.778Z"
+    },
+    {
+      "id": "ai_systems",
+      "domain": "ai_systems",
+      "status": "active",
+      "observation_count": 7,
+      "success_rate": 0,
+      "dominant_personas": [
+        "generated_ai_systems_engineering_persona"
+      ],
+      "dominant_skills": [
+        "gen_066",
+        "persona_control_01",
+        "persona-control_gen_120",
+        "research_01",
+        "research_gen_116"
+      ],
+      "topics": [
+        "best",
+        "engineering",
+        "practices",
+        "prompt",
+        "recent",
+        "research"
+      ],
+      "curriculum": [
+        "Ask clarifying questions earlier and narrow the answer scope before finalizing.",
+        "Prefer lower-latency, better-supported skills and keep provider requirements simpler.",
+        "Invest in domain-specific persona and skill overlays for repeated ai_systems work.",
+        "Focus practice on: best, engineering, practices, prompt, recent, research.",
+        "Keep evidence, rationale, and compliance notes explicit in the final answer."
+      ],
+      "compliance_notes": [],
+      "research_sources": [],
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T21:12:43.735Z",
+      "schema_version": "trainingAcademy.v1",
+      "learned_domains": [],
+      "learned_topics": [],
+      "response_style_hints": [],
+      "execution_hints": [],
+      "compatible_personas": [],
+      "created_at": "2026-04-09T20:19:26.787Z"
+    }
+  ],
+  "persona_overlays": [
+    {
+      "id": "generated_general_create_persona",
+      "status": "active",
+      "usage_count": 8,
+      "success_rate": 0,
+      "learned_domains": [
+        "general"
+      ],
+      "learned_topics": [
+        "create",
+        "decision",
+        "graphs",
+        "plan",
+        "short",
+        "testing"
+      ],
+      "response_style_hints": [
+        "Prefer verification and clarification over confident extrapolation.",
+        "Lean into learned topics: create, decision, graphs, plan, short, testing."
+      ],
+      "compliance_notes": [],
+      "selection_boost": 0.13,
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T21:12:43.749Z",
+      "schema_version": "trainingPersonaOverlay.v1",
+      "execution_hints": [],
+      "compatible_personas": [],
+      "created_at": "2026-04-09T20:19:26.799Z",
+      "retired_at": "2026-04-09T21:12:42.970Z",
+      "retirement_reason": "low_success_rate"
+    },
+    {
+      "id": "generated_ai_systems_engineering_persona",
+      "status": "active",
+      "usage_count": 7,
+      "success_rate": 0,
+      "learned_domains": [
+        "ai_systems"
+      ],
+      "learned_topics": [
+        "best",
+        "engineering",
+        "practices",
+        "prompt",
+        "recent",
+        "research"
+      ],
+      "response_style_hints": [
+        "Prefer verification and clarification over confident extrapolation.",
+        "Lean into learned topics: best, engineering, practices, prompt, recent, research."
+      ],
+      "compliance_notes": [],
+      "selection_boost": 0.12,
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T21:12:43.749Z",
+      "schema_version": "trainingPersonaOverlay.v1",
+      "execution_hints": [],
+      "compatible_personas": [],
+      "created_at": "2026-04-09T20:19:26.799Z",
+      "retired_at": "2026-04-09T21:12:42.970Z",
+      "retirement_reason": "low_success_rate"
+    },
+    {
+      "id": "generated_general_app_persona",
+      "status": "active",
+      "usage_count": 7,
+      "success_rate": 0,
+      "learned_domains": [
+        "general"
+      ],
+      "learned_topics": [
+        "app",
+        "design",
+        "small",
+        "summarize"
+      ],
+      "response_style_hints": [
+        "Prefer verification and clarification over confident extrapolation.",
+        "Lean into learned topics: app, design, small, summarize."
+      ],
+      "compliance_notes": [],
+      "selection_boost": 0.12,
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T21:12:43.749Z",
+      "schema_version": "trainingPersonaOverlay.v1",
+      "execution_hints": [],
+      "compatible_personas": [],
+      "created_at": "2026-04-09T20:19:26.799Z",
+      "retired_at": "2026-04-09T21:12:42.970Z",
+      "retirement_reason": "low_success_rate"
+    },
+    {
+      "id": "blend:generated_general_create_persona+generated_general_app_persona",
+      "status": "active",
+      "usage_count": 5,
+      "success_rate": 0,
+      "learned_domains": [
+        "general"
+      ],
+      "learned_topics": [
+        "fallback",
+        "please",
+        "pricing"
+      ],
+      "response_style_hints": [
+        "Prefer verification and clarification over confident extrapolation.",
+        "Lean into learned topics: fallback, please, pricing."
+      ],
+      "compliance_notes": [],
+      "selection_boost": 0.1,
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T21:12:43.749Z",
+      "schema_version": "trainingPersonaOverlay.v1",
+      "execution_hints": [],
+      "compatible_personas": [],
+      "created_at": "2026-04-09T21:00:56.842Z"
+    }
+  ],
+  "skill_overlays": [
+    {
+      "id": "generated_general_create_chat_workflow",
+      "status": "active",
+      "usage_count": 20,
+      "success_rate": 0,
+      "learned_domains": [
+        "general"
+      ],
+      "learned_topics": [
+        "app",
+        "create",
+        "decision",
+        "design",
+        "graphs",
+        "plan",
+        "short",
+        "small",
+        "testing"
+      ],
+      "compatible_personas": [
+        "generated_general_app_persona",
+        "generated_general_create_persona",
+        "blend:generated_general_create_persona+generated_general_app_persona"
+      ],
+      "execution_hints": [
+        "Prefer smaller steps and explicit validation checkpoints.",
+        "Optimize generated_general_create_chat_workflow for: app, create, decision, design, graphs, plan, short, small.",
+        "Optimize generated_general_create_chat_workflow for: create, decision, graphs, plan, short, testing, app, design."
+      ],
+      "compliance_notes": [],
+      "routing_boost": 0.2,
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T21:12:43.749Z",
+      "schema_version": "trainingSkillOverlay.v1",
+      "response_style_hints": [],
+      "created_at": "2026-04-09T20:19:26.799Z",
+      "retired_at": "2026-04-09T21:12:42.970Z",
+      "retirement_reason": "low_success_rate"
+    },
+    {
+      "id": "persona_control_01",
+      "status": "active",
+      "usage_count": 19,
+      "success_rate": 0,
+      "learned_domains": [
+        "ai_systems",
+        "general"
+      ],
+      "learned_topics": [
+        "app",
+        "best",
+        "design",
+        "engineering",
+        "practices",
+        "prompt",
+        "recent",
+        "research"
+      ],
+      "compatible_personas": [
+        "generated_ai_systems_engineering_persona",
+        "generated_general_app_persona",
+        "blend:generated_general_create_persona+generated_general_app_persona"
+      ],
+      "execution_hints": [
+        "Prefer smaller steps and explicit validation checkpoints.",
+        "Optimize persona_control_01 for: app, best, design, engineering, practices, prompt, recent, research."
+      ],
+      "compliance_notes": [],
+      "routing_boost": 0.192,
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T21:12:43.749Z",
+      "schema_version": "trainingSkillOverlay.v1",
+      "response_style_hints": [],
+      "created_at": "2026-04-09T20:19:26.799Z",
+      "retired_at": "2026-04-09T21:12:42.970Z",
+      "retirement_reason": "low_success_rate"
+    },
+    {
+      "id": "gen_053",
+      "status": "active",
+      "usage_count": 8,
+      "success_rate": 0,
+      "learned_domains": [
+        "general"
+      ],
+      "learned_topics": [
+        "create",
+        "decision",
+        "graphs",
+        "plan",
+        "short",
+        "testing"
+      ],
+      "compatible_personas": [
+        "generated_general_create_persona"
+      ],
+      "execution_hints": [
+        "Prefer smaller steps and explicit validation checkpoints.",
+        "Optimize gen_053 for: create, decision, graphs, plan, short, testing."
+      ],
+      "compliance_notes": [],
+      "routing_boost": 0.104,
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T21:12:43.749Z",
+      "schema_version": "trainingSkillOverlay.v1",
+      "response_style_hints": [],
+      "created_at": "2026-04-09T20:19:26.799Z",
+      "retired_at": "2026-04-09T21:12:42.970Z",
+      "retirement_reason": "low_success_rate"
+    },
+    {
+      "id": "generated_general_fallback_chat_workflow",
+      "status": "active",
+      "usage_count": 8,
+      "success_rate": 0,
+      "learned_domains": [
+        "general"
+      ],
+      "learned_topics": [
+        "fallback",
+        "please",
+        "pricing",
+        "app",
+        "design",
+        "small",
+        "summarize"
+      ],
+      "compatible_personas": [
+        "blend:generated_general_create_persona+generated_general_app_persona",
+        "generated_general_app_persona"
+      ],
+      "execution_hints": [
+        "Prefer smaller steps and explicit validation checkpoints.",
+        "Optimize generated_general_fallback_chat_workflow for: fallback, please, pricing, app, design, small, summarize."
+      ],
+      "compliance_notes": [],
+      "routing_boost": 0.104,
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T21:12:43.749Z",
+      "schema_version": "trainingSkillOverlay.v1",
+      "response_style_hints": [],
+      "created_at": "2026-04-09T21:12:43.749Z"
+    },
+    {
+      "id": "planning_01",
+      "status": "active",
+      "usage_count": 8,
+      "success_rate": 0,
+      "learned_domains": [
+        "general"
+      ],
+      "learned_topics": [
+        "create",
+        "decision",
+        "graphs",
+        "plan",
+        "short",
+        "testing"
+      ],
+      "compatible_personas": [
+        "generated_general_create_persona"
+      ],
+      "execution_hints": [
+        "Prefer smaller steps and explicit validation checkpoints.",
+        "Optimize planning_01 for: create, decision, graphs, plan, short, testing."
+      ],
+      "compliance_notes": [],
+      "routing_boost": 0.104,
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T21:12:43.749Z",
+      "schema_version": "trainingSkillOverlay.v1",
+      "response_style_hints": [],
+      "created_at": "2026-04-09T20:19:26.799Z",
+      "retired_at": "2026-04-09T21:12:42.970Z",
+      "retirement_reason": "low_success_rate"
+    },
+    {
+      "id": "testing_01",
+      "status": "active",
+      "usage_count": 8,
+      "success_rate": 0,
+      "learned_domains": [
+        "general"
+      ],
+      "learned_topics": [
+        "create",
+        "decision",
+        "graphs",
+        "plan",
+        "short",
+        "testing"
+      ],
+      "compatible_personas": [
+        "generated_general_create_persona"
+      ],
+      "execution_hints": [
+        "Prefer smaller steps and explicit validation checkpoints.",
+        "Optimize testing_01 for: create, decision, graphs, plan, short, testing."
+      ],
+      "compliance_notes": [],
+      "routing_boost": 0.104,
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T21:12:43.749Z",
+      "schema_version": "trainingSkillOverlay.v1",
+      "response_style_hints": [],
+      "created_at": "2026-04-09T20:27:14.250Z",
+      "retired_at": "2026-04-09T21:12:42.970Z",
+      "retirement_reason": "low_success_rate"
+    },
+    {
+      "id": "testing_02",
+      "status": "active",
+      "usage_count": 8,
+      "success_rate": 0,
+      "learned_domains": [
+        "general"
+      ],
+      "learned_topics": [
+        "create",
+        "decision",
+        "graphs",
+        "plan",
+        "short",
+        "testing"
+      ],
+      "compatible_personas": [
+        "generated_general_create_persona"
+      ],
+      "execution_hints": [
+        "Prefer smaller steps and explicit validation checkpoints.",
+        "Optimize testing_02 for: create, decision, graphs, plan, short, testing."
+      ],
+      "compliance_notes": [],
+      "routing_boost": 0.104,
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T21:12:43.750Z",
+      "schema_version": "trainingSkillOverlay.v1",
+      "response_style_hints": [],
+      "created_at": "2026-04-09T20:27:14.250Z",
+      "retired_at": "2026-04-09T21:12:42.970Z",
+      "retirement_reason": "low_success_rate"
+    },
+    {
+      "id": "gen_066",
+      "status": "active",
+      "usage_count": 7,
+      "success_rate": 0,
+      "learned_domains": [
+        "ai_systems"
+      ],
+      "learned_topics": [
+        "best",
+        "engineering",
+        "practices",
+        "prompt",
+        "recent",
+        "research"
+      ],
+      "compatible_personas": [
+        "generated_ai_systems_engineering_persona"
+      ],
+      "execution_hints": [
+        "Prefer smaller steps and explicit validation checkpoints.",
+        "Optimize gen_066 for: best, engineering, practices, prompt, recent, research."
+      ],
+      "compliance_notes": [],
+      "routing_boost": 0.096,
+      "environment_tags": [
+        "general"
+      ],
+      "updated_at": "2026-04-09T21:12:43.750Z",
+      "schema_version": "trainingSkillOverlay.v1",
+      "response_style_hints": [],
+      "created_at": "2026-04-09T20:19:26.799Z",
+      "retired_at": "2026-04-09T21:12:42.970Z",
+      "retirement_reason": "low_success_rate"
+    }
+  ],
+  "acquisition_signals": [
+    {
+      "domain": "general",
+      "count": 20
+    },
+    {
+      "domain": "ai_systems",
+      "count": 7
+    }
+  ],
+  "retired_overlays": [
+    {
+      "bucket": "persona",
+      "id": "generated_ai_systems_engineering_persona",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0.01
+    },
+    {
+      "bucket": "persona",
+      "id": "generated_general_app_persona",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0.01
+    },
+    {
+      "bucket": "persona",
+      "id": "generated_general_create_persona",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0.01
+    },
+    {
+      "bucket": "skill",
+      "id": "generated_general_create_chat_workflow",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0.01
+    },
+    {
+      "bucket": "skill",
+      "id": "persona_control_01",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0.01
+    },
+    {
+      "bucket": "skill",
+      "id": "gen_053",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0.01
+    },
+    {
+      "bucket": "skill",
+      "id": "gen_066",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0.01
+    },
+    {
+      "bucket": "skill",
+      "id": "gen_068",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0.01
+    },
+    {
+      "bucket": "skill",
+      "id": "planning_01",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0.01
+    },
+    {
+      "bucket": "skill",
+      "id": "testing_01",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0.01
+    },
+    {
+      "bucket": "skill",
+      "id": "testing_02",
+      "prior_status": "active",
+      "reason": "low_success_rate",
+      "age_days": 0.01
+    }
+  ],
+  "review_candidates": [],
+  "schema_version": "trainingInsights.v1"
+}

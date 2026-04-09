@@ -1,0 +1,53 @@
+{
+  "skill": {
+    "id": "gen_067",
+    "name": "Generated retrieval skill 67",
+    "version": "v1",
+    "purpose": "Auto-generated retrieval helper 67",
+    "tags": [
+      "retrieval"
+    ],
+    "triggers": [
+      "retrieval",
+      "retrieval_67"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "medium",
+    "token_budget_hint": 550,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "result"
+      ]
+    },
+    "prompt_fragments": [
+      "Auto-generated prompt fragment for Generated retrieval skill 67"
+    ],
+    "validation_rules": {},
+    "source_type": "generated",
+    "source_reference": "local-generator",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T17:25:25.881Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "general_assistant"
+      ],
+      "runtime_modes": [
+        "hybrid"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "gen_067",
+    "action": "auto_promoted",
+    "checked_at": "2026-04-09T18:01:29.130Z",
+    "reasons": [
+      "auto_promote_to_reach_100"
+    ]
+  }
+}

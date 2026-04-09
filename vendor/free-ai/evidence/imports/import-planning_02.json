@@ -1,0 +1,55 @@
+{
+  "skill": {
+    "id": "planning_02",
+    "name": "Plan: Sprint Backlog",
+    "version": "v1",
+    "purpose": "Create sprint backlog from roadmap",
+    "tags": [
+      "planning",
+      "agile"
+    ],
+    "triggers": [
+      "sprint",
+      "backlog"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 350,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "backlog_items"
+      ]
+    },
+    "prompt_fragments": [
+      "Generate a sprint backlog with priorities and acceptance criteria."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "planner",
+        "product_manager"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "cloud_only"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "planning_02",
+    "checked_at": "2026-04-09T18:01:29.098Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

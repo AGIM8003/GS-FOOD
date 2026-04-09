@@ -1,0 +1,879 @@
+[
+  {
+    "node_id": "mem-1775764346556-6rrx",
+    "type": "memory",
+    "key": "graph subject",
+    "label": "graph subject",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.8,
+    "importance": 0.7,
+    "updated_at": "2026-04-09T19:52:26.559Z",
+    "created_at": "2026-04-09T19:52:26.559Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "subject-graph-subject",
+    "type": "subject",
+    "key": "graph subject",
+    "label": "graph subject",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.5,
+    "updated_at": "2026-04-09T21:12:51.652Z",
+    "created_at": "2026-04-09T19:52:26.560Z",
+    "meta": {
+      "category": "test"
+    }
+  },
+  {
+    "node_id": "mem-1775764346880-s6gh",
+    "type": "memory",
+    "key": "unittest",
+    "label": "unittest",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.9,
+    "importance": 0.5,
+    "updated_at": "2026-04-09T19:52:26.882Z",
+    "created_at": "2026-04-09T19:52:26.882Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "subject-unittest",
+    "type": "subject",
+    "key": "unittest",
+    "label": "unittest",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.5,
+    "updated_at": "2026-04-09T21:12:52.021Z",
+    "created_at": "2026-04-09T19:52:26.883Z",
+    "meta": {
+      "category": "test"
+    }
+  },
+  {
+    "node_id": "mem-1775765056624-dmqt",
+    "type": "memory",
+    "key": "graph subject",
+    "label": "graph subject",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.8,
+    "importance": 0.7,
+    "updated_at": "2026-04-09T20:04:16.628Z",
+    "created_at": "2026-04-09T20:04:16.628Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "mem-1775765057041-o3tu",
+    "type": "memory",
+    "key": "unittest",
+    "label": "unittest",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.9,
+    "importance": 0.5,
+    "updated_at": "2026-04-09T20:04:17.043Z",
+    "created_at": "2026-04-09T20:04:17.043Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "academy-medical",
+    "type": "academy",
+    "key": "medical",
+    "label": "medical academy",
+    "tags": [
+      "symptoms",
+      "triage",
+      "patient-intake",
+      "risk"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.7,
+    "updated_at": "2026-04-09T21:12:55.526Z",
+    "created_at": "2026-04-09T20:19:19.513Z",
+    "meta": {
+      "status": "guarded",
+      "observation_count": 3
+    }
+  },
+  {
+    "node_id": "persona-learning-technical",
+    "type": "persona-learning",
+    "key": "technical",
+    "label": "technical",
+    "tags": [
+      "analysis"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.65,
+    "updated_at": "2026-04-09T21:12:55.937Z",
+    "created_at": "2026-04-09T20:19:19.514Z",
+    "meta": {
+      "academy": "general"
+    }
+  },
+  {
+    "node_id": "skill-learning-skill-summarize",
+    "type": "skill-learning",
+    "key": "skill_summarize",
+    "label": "skill_summarize",
+    "tags": [
+      "analysis"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.62,
+    "updated_at": "2026-04-09T21:12:55.939Z",
+    "created_at": "2026-04-09T20:19:19.516Z",
+    "meta": {
+      "academy": "general"
+    }
+  },
+  {
+    "node_id": "skill-learning-skill-memory",
+    "type": "skill-learning",
+    "key": "skill_memory",
+    "label": "skill_memory",
+    "tags": [
+      "symptoms",
+      "triage",
+      "patient-intake",
+      "risk"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.62,
+    "updated_at": "2026-04-09T21:12:55.531Z",
+    "created_at": "2026-04-09T20:19:19.517Z",
+    "meta": {
+      "academy": "medical"
+    }
+  },
+  {
+    "node_id": "mem-1775765964604-trfk",
+    "type": "memory",
+    "key": "graph subject",
+    "label": "graph subject",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.8,
+    "importance": 0.7,
+    "updated_at": "2026-04-09T20:19:24.607Z",
+    "created_at": "2026-04-09T20:19:24.607Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "mem-1775765965035-sah1",
+    "type": "memory",
+    "key": "unittest",
+    "label": "unittest",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.9,
+    "importance": 0.5,
+    "updated_at": "2026-04-09T20:19:25.037Z",
+    "created_at": "2026-04-09T20:19:25.037Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "academy-general",
+    "type": "academy",
+    "key": "general",
+    "label": "general academy",
+    "tags": [
+      "app",
+      "create",
+      "decision",
+      "design",
+      "graphs",
+      "plan",
+      "short",
+      "small"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.7,
+    "updated_at": "2026-04-09T21:13:01.094Z",
+    "created_at": "2026-04-09T20:19:26.779Z",
+    "meta": {
+      "status": "active",
+      "observation_count": 25
+    }
+  },
+  {
+    "node_id": "persona-learning-generated-general-app-persona",
+    "type": "persona-learning",
+    "key": "generated_general_app_persona",
+    "label": "generated_general_app_persona",
+    "tags": [
+      "app",
+      "create",
+      "decision",
+      "design",
+      "graphs",
+      "plan",
+      "short",
+      "small"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.65,
+    "updated_at": "2026-04-09T21:13:01.095Z",
+    "created_at": "2026-04-09T20:19:26.780Z",
+    "meta": {
+      "academy": "general"
+    }
+  },
+  {
+    "node_id": "persona-learning-generated-general-create-persona",
+    "type": "persona-learning",
+    "key": "generated_general_create_persona",
+    "label": "generated_general_create_persona",
+    "tags": [
+      "app",
+      "create",
+      "decision",
+      "design",
+      "graphs",
+      "plan",
+      "short",
+      "small"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.65,
+    "updated_at": "2026-04-09T21:13:01.097Z",
+    "created_at": "2026-04-09T20:19:26.781Z",
+    "meta": {
+      "academy": "general"
+    }
+  },
+  {
+    "node_id": "skill-learning-generated-general-create-chat-workflow",
+    "type": "skill-learning",
+    "key": "generated_general_create_chat_workflow",
+    "label": "generated_general_create_chat_workflow",
+    "tags": [
+      "app",
+      "create",
+      "decision",
+      "design",
+      "graphs",
+      "plan",
+      "short",
+      "small"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.62,
+    "updated_at": "2026-04-09T21:13:01.101Z",
+    "created_at": "2026-04-09T20:19:26.782Z",
+    "meta": {
+      "academy": "general"
+    }
+  },
+  {
+    "node_id": "skill-learning-gen-053",
+    "type": "skill-learning",
+    "key": "gen_053",
+    "label": "gen_053",
+    "tags": [
+      "app",
+      "create",
+      "decision",
+      "design",
+      "graphs",
+      "plan",
+      "short",
+      "small"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.62,
+    "updated_at": "2026-04-09T21:13:01.106Z",
+    "created_at": "2026-04-09T20:19:26.784Z",
+    "meta": {
+      "academy": "general"
+    }
+  },
+  {
+    "node_id": "skill-learning-gen-068",
+    "type": "skill-learning",
+    "key": "gen_068",
+    "label": "gen_068",
+    "tags": [
+      "app",
+      "create",
+      "decision",
+      "design",
+      "graphs",
+      "plan",
+      "short",
+      "small"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.62,
+    "updated_at": "2026-04-09T21:13:01.107Z",
+    "created_at": "2026-04-09T20:19:26.784Z",
+    "meta": {
+      "academy": "general"
+    }
+  },
+  {
+    "node_id": "skill-learning-persona-control-01",
+    "type": "skill-learning",
+    "key": "persona_control_01",
+    "label": "persona_control_01",
+    "tags": [
+      "best",
+      "engineering",
+      "practices",
+      "prompt",
+      "recent",
+      "research"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.62,
+    "updated_at": "2026-04-09T21:13:01.237Z",
+    "created_at": "2026-04-09T20:19:26.786Z",
+    "meta": {
+      "academy": "ai_systems"
+    }
+  },
+  {
+    "node_id": "skill-learning-planning-01",
+    "type": "skill-learning",
+    "key": "planning_01",
+    "label": "planning_01",
+    "tags": [
+      "create",
+      "decision",
+      "graphs",
+      "plan",
+      "short",
+      "testing",
+      "app",
+      "design"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.62,
+    "updated_at": "2026-04-09T21:12:43.449Z",
+    "created_at": "2026-04-09T20:19:26.786Z",
+    "meta": {
+      "academy": "general"
+    }
+  },
+  {
+    "node_id": "academy-ai-systems",
+    "type": "academy",
+    "key": "ai_systems",
+    "label": "ai_systems academy",
+    "tags": [
+      "best",
+      "engineering",
+      "practices",
+      "prompt",
+      "recent",
+      "research"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.7,
+    "updated_at": "2026-04-09T21:13:01.232Z",
+    "created_at": "2026-04-09T20:19:26.788Z",
+    "meta": {
+      "status": "active",
+      "observation_count": 9
+    }
+  },
+  {
+    "node_id": "persona-learning-generated-ai-systems-engineering-persona",
+    "type": "persona-learning",
+    "key": "generated_ai_systems_engineering_persona",
+    "label": "generated_ai_systems_engineering_persona",
+    "tags": [
+      "best",
+      "engineering",
+      "practices",
+      "prompt",
+      "recent",
+      "research"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.65,
+    "updated_at": "2026-04-09T21:13:01.232Z",
+    "created_at": "2026-04-09T20:19:26.788Z",
+    "meta": {
+      "academy": "ai_systems"
+    }
+  },
+  {
+    "node_id": "skill-learning-gen-066",
+    "type": "skill-learning",
+    "key": "gen_066",
+    "label": "gen_066",
+    "tags": [
+      "best",
+      "engineering",
+      "practices",
+      "prompt",
+      "recent",
+      "research"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.62,
+    "updated_at": "2026-04-09T21:13:01.235Z",
+    "created_at": "2026-04-09T20:19:26.790Z",
+    "meta": {
+      "academy": "ai_systems"
+    }
+  },
+  {
+    "node_id": "skill-learning-persona-control-gen-120",
+    "type": "skill-learning",
+    "key": "persona-control_gen_120",
+    "label": "persona-control_gen_120",
+    "tags": [
+      "best",
+      "engineering",
+      "practices",
+      "prompt",
+      "recent",
+      "research"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.62,
+    "updated_at": "2026-04-09T21:13:01.240Z",
+    "created_at": "2026-04-09T20:19:26.795Z",
+    "meta": {
+      "academy": "ai_systems"
+    }
+  },
+  {
+    "node_id": "skill-learning-research-01",
+    "type": "skill-learning",
+    "key": "research_01",
+    "label": "research_01",
+    "tags": [
+      "best",
+      "engineering",
+      "practices",
+      "prompt",
+      "recent",
+      "research"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.62,
+    "updated_at": "2026-04-09T21:13:01.241Z",
+    "created_at": "2026-04-09T20:19:26.796Z",
+    "meta": {
+      "academy": "ai_systems"
+    }
+  },
+  {
+    "node_id": "skill-learning-research-gen-116",
+    "type": "skill-learning",
+    "key": "research_gen_116",
+    "label": "research_gen_116",
+    "tags": [
+      "best",
+      "engineering",
+      "practices",
+      "prompt",
+      "recent",
+      "research"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.62,
+    "updated_at": "2026-04-09T21:13:01.243Z",
+    "created_at": "2026-04-09T20:19:26.797Z",
+    "meta": {
+      "academy": "ai_systems"
+    }
+  },
+  {
+    "node_id": "mem-1775766214358-esih",
+    "type": "memory",
+    "key": "graph subject",
+    "label": "graph subject",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.8,
+    "importance": 0.7,
+    "updated_at": "2026-04-09T20:23:34.361Z",
+    "created_at": "2026-04-09T20:23:34.361Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "mem-1775766214726-xiio",
+    "type": "memory",
+    "key": "unittest",
+    "label": "unittest",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.9,
+    "importance": 0.5,
+    "updated_at": "2026-04-09T20:23:34.729Z",
+    "created_at": "2026-04-09T20:23:34.729Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "skill-learning-testing-01",
+    "type": "skill-learning",
+    "key": "testing_01",
+    "label": "testing_01",
+    "tags": [
+      "create",
+      "decision",
+      "graphs",
+      "plan",
+      "short",
+      "testing",
+      "app",
+      "design"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.62,
+    "updated_at": "2026-04-09T21:00:56.712Z",
+    "created_at": "2026-04-09T20:27:14.236Z",
+    "meta": {
+      "academy": "general"
+    }
+  },
+  {
+    "node_id": "skill-learning-testing-02",
+    "type": "skill-learning",
+    "key": "testing_02",
+    "label": "testing_02",
+    "tags": [
+      "create",
+      "decision",
+      "graphs",
+      "plan",
+      "short",
+      "testing",
+      "app",
+      "design"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.62,
+    "updated_at": "2026-04-09T20:34:51.762Z",
+    "created_at": "2026-04-09T20:27:14.238Z",
+    "meta": {
+      "academy": "general"
+    }
+  },
+  {
+    "node_id": "mem-1775766435387-yyo8",
+    "type": "memory",
+    "key": "graph subject",
+    "label": "graph subject",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.8,
+    "importance": 0.7,
+    "updated_at": "2026-04-09T20:27:15.389Z",
+    "created_at": "2026-04-09T20:27:15.389Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "mem-1775766435805-prct",
+    "type": "memory",
+    "key": "unittest",
+    "label": "unittest",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.9,
+    "importance": 0.5,
+    "updated_at": "2026-04-09T20:27:15.807Z",
+    "created_at": "2026-04-09T20:27:15.807Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "mem-1775766893387-bo32",
+    "type": "memory",
+    "key": "graph subject",
+    "label": "graph subject",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.8,
+    "importance": 0.7,
+    "updated_at": "2026-04-09T20:34:53.390Z",
+    "created_at": "2026-04-09T20:34:53.390Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "mem-1775766893893-y6to",
+    "type": "memory",
+    "key": "unittest",
+    "label": "unittest",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.9,
+    "importance": 0.5,
+    "updated_at": "2026-04-09T20:34:53.897Z",
+    "created_at": "2026-04-09T20:34:53.898Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "persona-learning-blend-generated-general-create-persona-generated-general-app-persona",
+    "type": "persona-learning",
+    "key": "blend:generated_general_create_persona+generated_general_app_persona",
+    "label": "blend:generated_general_create_persona+generated_general_app_persona",
+    "tags": [
+      "app",
+      "create",
+      "decision",
+      "design",
+      "graphs",
+      "plan",
+      "short",
+      "small"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.65,
+    "updated_at": "2026-04-09T21:13:01.099Z",
+    "created_at": "2026-04-09T21:00:56.705Z",
+    "meta": {
+      "academy": "general"
+    }
+  },
+  {
+    "node_id": "mem-1775768457599-v0y3",
+    "type": "memory",
+    "key": "graph subject",
+    "label": "graph subject",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.8,
+    "importance": 0.7,
+    "updated_at": "2026-04-09T21:00:57.601Z",
+    "created_at": "2026-04-09T21:00:57.601Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "mem-1775768457969-47m3",
+    "type": "memory",
+    "key": "unittest",
+    "label": "unittest",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.9,
+    "importance": 0.5,
+    "updated_at": "2026-04-09T21:00:57.971Z",
+    "created_at": "2026-04-09T21:00:57.971Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "mem-1775768684173-jlkt",
+    "type": "memory",
+    "key": "graph subject",
+    "label": "graph subject",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.8,
+    "importance": 0.7,
+    "updated_at": "2026-04-09T21:04:44.178Z",
+    "created_at": "2026-04-09T21:04:44.178Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "mem-1775768684604-sfbp",
+    "type": "memory",
+    "key": "unittest",
+    "label": "unittest",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.9,
+    "importance": 0.5,
+    "updated_at": "2026-04-09T21:04:44.606Z",
+    "created_at": "2026-04-09T21:04:44.606Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "mem-1775768707641-p06t",
+    "type": "memory",
+    "key": "graph subject",
+    "label": "graph subject",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.8,
+    "importance": 0.7,
+    "updated_at": "2026-04-09T21:05:07.644Z",
+    "created_at": "2026-04-09T21:05:07.644Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "mem-1775768708071-6zjc",
+    "type": "memory",
+    "key": "unittest",
+    "label": "unittest",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.9,
+    "importance": 0.5,
+    "updated_at": "2026-04-09T21:05:08.073Z",
+    "created_at": "2026-04-09T21:05:08.073Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "skill-learning-generated-general-fallback-chat-workflow",
+    "type": "skill-learning",
+    "key": "generated_general_fallback_chat_workflow",
+    "label": "generated_general_fallback_chat_workflow",
+    "tags": [
+      "app",
+      "create",
+      "decision",
+      "design",
+      "graphs",
+      "plan",
+      "short",
+      "small"
+    ],
+    "provenance": null,
+    "confidence": 0.7,
+    "importance": 0.62,
+    "updated_at": "2026-04-09T21:13:01.104Z",
+    "created_at": "2026-04-09T21:12:43.447Z",
+    "meta": {
+      "academy": "general"
+    }
+  },
+  {
+    "node_id": "mem-1775769164954-1jsk",
+    "type": "memory",
+    "key": "graph subject",
+    "label": "graph subject",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.8,
+    "importance": 0.7,
+    "updated_at": "2026-04-09T21:12:44.956Z",
+    "created_at": "2026-04-09T21:12:44.956Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "mem-1775769165369-7u7o",
+    "type": "memory",
+    "key": "unittest",
+    "label": "unittest",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.9,
+    "importance": 0.5,
+    "updated_at": "2026-04-09T21:12:45.371Z",
+    "created_at": "2026-04-09T21:12:45.371Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "mem-1775769171648-ejlz",
+    "type": "memory",
+    "key": "graph subject",
+    "label": "graph subject",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.8,
+    "importance": 0.7,
+    "updated_at": "2026-04-09T21:12:51.651Z",
+    "created_at": "2026-04-09T21:12:51.651Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  },
+  {
+    "node_id": "mem-1775769172018-xpgd",
+    "type": "memory",
+    "key": "unittest",
+    "label": "unittest",
+    "tags": [],
+    "provenance": null,
+    "confidence": 0.9,
+    "importance": 0.5,
+    "updated_at": "2026-04-09T21:12:52.020Z",
+    "created_at": "2026-04-09T21:12:52.020Z",
+    "meta": {
+      "category": "test",
+      "retention_class": "medium"
+    }
+  }
+]

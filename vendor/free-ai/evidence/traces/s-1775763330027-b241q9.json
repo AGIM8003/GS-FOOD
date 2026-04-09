@@ -1,0 +1,25 @@
+{
+  "id": "s-1775763330027-b241q9",
+  "name": "orchestrator.orchestrateSkills",
+  "start": 1775763330027,
+  "meta": {
+    "intent_family": "research",
+    "persona": "blend:analyst+undefined"
+  },
+  "events": [
+    {
+      "ts": 1775763330028,
+      "event": "orchestrator.result",
+      "data": {
+        "mounted": 5,
+        "token_budget": 2850
+      }
+    }
+  ],
+  "end": 1775763330029,
+  "duration_ms": 2,
+  "outcome": {
+    "status": "ok",
+    "mounted": 5
+  }
+}

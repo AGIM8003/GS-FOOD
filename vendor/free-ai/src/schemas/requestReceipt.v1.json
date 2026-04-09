@@ -1,0 +1,23 @@
+{
+  "$id": "https://free-ai.local/schemas/requestReceipt.v1.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RequestReceipt v1",
+  "type": "object",
+  "required": ["receipt_id","trace_id","timestamp","schema_version"],
+  "properties": {
+    "receipt_id": {"type":"string"},
+    "trace_id": {"type":"string"},
+    "provider_id": {"type":"string"},
+    "model_id": {"type":"string"},
+    "http_status": {"type":"number"},
+    "fallback_used": {"type":"boolean"},
+    "kb_short_circuit": {"type":"boolean"},
+    "persona": {"type":"object"},
+    "intent_family": {"type":"string"},
+    "skills_loaded": {"type":"array"},
+    "latency_ms": {"type":"number"},
+    "timestamp": {"type":"string"},
+    "schema_version": {"type":"string"}
+  },
+  "additionalProperties": true
+}

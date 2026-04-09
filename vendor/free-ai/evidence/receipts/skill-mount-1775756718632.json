@@ -1,0 +1,43 @@
+{
+  "mounted_skills": [
+    {
+      "id": "summarization_01",
+      "version": "v1",
+      "purpose": "Create summaries for multi-paragraph text",
+      "token_budget_hint": 350,
+      "score": 0.27
+    },
+    {
+      "id": "persona_control_01",
+      "version": "v1",
+      "purpose": "Adjust persona tone across output",
+      "token_budget_hint": 200,
+      "score": 0.13999999999999999
+    },
+    {
+      "id": "debugging_01",
+      "version": "v1",
+      "purpose": "Ask clarifying questions to reproduce a bug",
+      "token_budget_hint": 200,
+      "score": 0.02
+    },
+    {
+      "id": "misc_02",
+      "version": "v1",
+      "purpose": "Expand bullets into prose",
+      "token_budget_hint": 250,
+      "score": 0.02
+    },
+    {
+      "id": "misc_03",
+      "version": "v1",
+      "purpose": "Translate short phrases",
+      "token_budget_hint": 200,
+      "score": 0.02
+    }
+  ],
+  "conflicts": [],
+  "dependencies": [],
+  "token_budget": 1200,
+  "schema_version": "skillMountResult.v1"
+}

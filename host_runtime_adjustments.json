@@ -1,0 +1,7 @@
+{
+  "host_runtime_adjustments": {
+    "python_backend": "Must add HTTP client to call localhost:3000 (or custom PORT) for inference.",
+    "startup_script": "Need to ensure vendor/free-ai starts up as part of the overall GS FOOD launch sequence.",
+    "env_vars": "Merge free-ai required env variables with GS FOOD env."
+  }
+}

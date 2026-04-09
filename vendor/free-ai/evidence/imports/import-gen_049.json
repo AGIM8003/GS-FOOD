@@ -1,0 +1,54 @@
+{
+  "skill": {
+    "id": "gen_049",
+    "name": "Generated prompt skill 49",
+    "version": "v1",
+    "purpose": "Auto-generated prompt helper 49",
+    "tags": [
+      "prompt"
+    ],
+    "triggers": [
+      "prompt",
+      "prompt_49"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "medium",
+    "token_budget_hint": 650,
+    "risk_class": "high",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "result"
+      ]
+    },
+    "prompt_fragments": [
+      "Auto-generated prompt fragment for Generated prompt skill 49"
+    ],
+    "validation_rules": {},
+    "source_type": "generated",
+    "source_reference": "local-generator",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T17:25:25.881Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "general_assistant"
+      ],
+      "runtime_modes": [
+        "hybrid"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "gen_049",
+    "checked_at": "2026-04-09T18:01:29.107Z",
+    "reasons": [
+      "source_generated"
+    ],
+    "action": "quarantine_generated",
+    "quarantined": true
+  }
+}

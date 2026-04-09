@@ -1,0 +1,50 @@
+[
+  {
+    "path": "d:\\GITHUB RESPIRATORY\\GS FOOD\\post_orchestration_hardening_plan.json",
+    "artifact_name": "post_orchestration_hardening_plan.json",
+    "current": "unknown",
+    "present_in_repo": "yes",
+    "authoritative": "unknown",
+    "maintained_as": "unknown"
+  },
+  {
+    "path": "d:\\GITHUB RESPIRATORY\\GS FOOD\\gsfood_engine_app_contracts.json",
+    "artifact_name": "gsfood_engine_app_contracts.json",
+    "current": "unknown",
+    "present_in_repo": "yes",
+    "authoritative": "unknown",
+    "maintained_as": "unknown"
+  },
+  {
+    "path": "d:\\GITHUB RESPIRATORY\\GS FOOD\\gsfood_operator_control_plan.json",
+    "artifact_name": "gsfood_operator_control_plan.json",
+    "current": "unknown",
+    "present_in_repo": "yes",
+    "authoritative": "unknown",
+    "maintained_as": "unknown"
+  },
+  {
+    "path": "d:\\GITHUB RESPIRATORY\\GS FOOD\\gsfood_client_adapter_plan.json",
+    "artifact_name": "gsfood_client_adapter_plan.json",
+    "current": "unknown",
+    "present_in_repo": "yes",
+    "authoritative": "unknown",
+    "maintained_as": "unknown"
+  },
+  {
+    "path": "d:\\GITHUB RESPIRATORY\\GS FOOD\\gsfood_e2e_flow_map.json",
+    "artifact_name": "gsfood_e2e_flow_map.json",
+    "current": "unknown",
+    "present_in_repo": "yes",
+    "authoritative": "unknown",
+    "maintained_as": "unknown"
+  },
+  {
+    "path": "d:\\GITHUB RESPIRATORY\\GS FOOD\\GSFOOD_ORCHESTRATION_RUNBOOK.md",
+    "artifact_name": "GSFOOD_ORCHESTRATION_RUNBOOK.md",
+    "current": "unknown",
+    "present_in_repo": "yes",
+    "authoritative": "unknown",
+    "maintained_as": "unknown"
+  }
+]

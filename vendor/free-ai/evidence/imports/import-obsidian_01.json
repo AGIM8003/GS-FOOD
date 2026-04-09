@@ -1,0 +1,57 @@
+{
+  "skill": {
+    "id": "obsidian_01",
+    "name": "Obsidian: Note Linker",
+    "version": "v1",
+    "purpose": "Create backlinkable notes suitable for vault",
+    "tags": [
+      "obsidian",
+      "vault",
+      "notes"
+    ],
+    "triggers": [
+      "note",
+      "backlink"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 450,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "note",
+        "links"
+      ]
+    },
+    "prompt_fragments": [
+      "Generate a small vault note with tags and backlinks."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "reflective_assistant",
+        "knowledge_manager"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "offline_optional"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "obsidian_01",
+    "checked_at": "2026-04-09T18:01:29.102Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

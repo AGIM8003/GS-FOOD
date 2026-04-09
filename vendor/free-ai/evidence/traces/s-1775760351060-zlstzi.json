@@ -1,0 +1,25 @@
+{
+  "id": "s-1775760351060-zlstzi",
+  "name": "orchestrator.orchestrateSkills",
+  "start": 1775760351060,
+  "meta": {
+    "intent_family": "chat",
+    "persona": "reflective"
+  },
+  "events": [
+    {
+      "ts": 1775760351062,
+      "event": "orchestrator.result",
+      "data": {
+        "mounted": 5,
+        "token_budget": 1300
+      }
+    }
+  ],
+  "end": 1775760351062,
+  "duration_ms": 2,
+  "outcome": {
+    "status": "ok",
+    "mounted": 5
+  }
+}

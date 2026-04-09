@@ -1,0 +1,20 @@
+{
+  "final_persona_id": "blend:analyst+undefined",
+  "persona_version": "v1+undefined",
+  "blend_weights": {
+    "analyst": 0.6,
+    "undefined": 0.4
+  },
+  "confidence": 0.05,
+  "source": "heuristic+blend",
+  "rationale_codes": [
+    "blend",
+    "close_scores"
+  ],
+  "persona": {
+    "id": "blend:analyst+undefined",
+    "version": "v1+undefined",
+    "system_prompt": "undefined\nundefined"
+  },
+  "effectiveness_snapshot": null
+}

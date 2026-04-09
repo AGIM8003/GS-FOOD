@@ -1,0 +1,22 @@
+{
+  "$id": "https://free-ai.local/schemas/intentEnvelope.v1.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IntentEnvelope v1",
+  "type": "object",
+  "required": ["raw_text","normalized_text","language","intent_family","continuity","risk_flags","urgency","task_type","confidence","schema_version"],
+  "properties": {
+    "raw_text": {"type":"string"},
+    "normalized_text": {"type":"string"},
+    "language": {"type":"string"},
+    "intent_family": {"type":"string"},
+    "entities": {"type":"object"},
+    "continuity": {"type":"string"},
+    "risk_flags": {"type":"array"},
+    "urgency": {"type":"string"},
+    "task_type": {"type":"string"},
+    "confidence": {"type":"number"},
+    "thread_hint": {"type":"string"},
+    "schema_version": {"type":"string"}
+  },
+  "additionalProperties": true
+}

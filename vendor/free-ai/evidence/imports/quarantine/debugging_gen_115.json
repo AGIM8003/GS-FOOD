@@ -1,0 +1,32 @@
+{
+  "id": "debugging_gen_115",
+  "name": "debugging helper 115",
+  "version": "v1",
+  "purpose": "Auto-generated helper skill for debugging",
+  "tags": [
+    "debugging"
+  ],
+  "triggers": [
+    "debugging",
+    "debugging_helper"
+  ],
+  "exclusions": [],
+  "dependencies": [],
+  "latency_hint": "low",
+  "token_budget_hint": 300,
+  "risk_class": "low",
+  "output_contract": {
+    "type": "text"
+  },
+  "prompt_fragments": [
+    "debugging helper: produce concise results for debugging"
+  ],
+  "validation_rules": {},
+  "source_type": "generated",
+  "source_reference": "local-generator",
+  "source_license": "generated",
+  "imported_at": "2026-04-09T18:00:40.363Z",
+  "enabled": true,
+  "deprecated": false,
+  "schema_version": "skillManifest.v1"
+}

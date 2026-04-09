@@ -1,0 +1,30 @@
+{
+  "ladderDecision": {
+    "chosen_provider": null,
+    "chosen_tag": null,
+    "capability": "structured_output",
+    "timestamp": "2026-04-09T19:52:26.272Z",
+    "counts": {
+      "primary_free": 0,
+      "burst_free": 0,
+      "local_only": 0
+    },
+    "ranked": {
+      "primary_free": [],
+      "burst_free": [],
+      "starter_credit": [],
+      "low_cost_fallback": [],
+      "local_only": []
+    },
+    "governance": {}
+  },
+  "persona": "reflective",
+  "intent": "chat",
+  "skills": [
+    "gen_053",
+    "planning_01",
+    "testing_01",
+    "testing_02",
+    "misc_01"
+  ]
+}

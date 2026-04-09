@@ -1,0 +1,32 @@
+{
+  "id": "s-1775759672081-c98vc2",
+  "name": "providers.callProviders",
+  "start": 1775759672081,
+  "meta": {
+    "prompt_snippet": "\n\n\n# Skill:research_01\n\n\n# Skill:gen_066\n\n\n# Skill:research_gen_116\n\n\n# Skill:summarization_01\n\n\n# Skill:coding_02\n\nUser: Research: summarize recent best practices for prompt engineering"
+  },
+  "events": [
+    {
+      "ts": 1775759672081,
+      "event": "provider.consider",
+      "data": {
+        "provider": "openrouter"
+      }
+    },
+    {
+      "ts": 1775759672081,
+      "event": "provider.exception",
+      "data": {
+        "provider": "openrouter",
+        "model": "openrouter/free",
+        "message": "OPENROUTER_API_KEY not set"
+      }
+    }
+  ],
+  "end": 1775759672081,
+  "duration_ms": 0,
+  "outcome": {
+    "status": "fail",
+    "failureCount": 1
+  }
+}

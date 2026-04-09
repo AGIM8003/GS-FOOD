@@ -1,0 +1,43 @@
+{
+  "prompt": "Create a short plan for testing decision graphs.",
+  "intent_family": "chat",
+  "context_domain": "general",
+  "report": {
+    "weak_persona": true,
+    "weak_skills": true,
+    "acquisition_jobs": [
+      {
+        "job_id": "job-1775769161900-1qnb",
+        "type": "persona",
+        "target_id": "general",
+        "reason": "weak_persona_fit"
+      },
+      {
+        "job_id": "job-1775769161902-qqks",
+        "type": "skill",
+        "target_id": "general",
+        "reason": "weak_skill_fit"
+      }
+    ],
+    "generated_persona_id": "generated_general_create_persona",
+    "generated_skill_ids": [
+      "generated_general_create_chat_workflow"
+    ],
+    "research_summary": {
+      "research_id": "research-1775769162936-persona-skill",
+      "keywords": [
+        "create",
+        "decision",
+        "graphs",
+        "plan",
+        "short",
+        "testing"
+      ],
+      "github_sources": [],
+      "web_sources": []
+    },
+    "activated_now": true,
+    "queue_depth": 127
+  },
+  "generated_at": "2026-04-09T21:12:42.956Z"
+}

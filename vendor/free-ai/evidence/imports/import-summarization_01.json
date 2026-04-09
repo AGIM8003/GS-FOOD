@@ -1,0 +1,54 @@
+{
+  "skill": {
+    "id": "summarization_01",
+    "name": "Summarize: Multi-paragraph",
+    "version": "v1",
+    "purpose": "Create summaries for multi-paragraph text",
+    "tags": [
+      "summarization"
+    ],
+    "triggers": [
+      "summarize",
+      "condense"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 350,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "summary"
+      ]
+    },
+    "prompt_fragments": [
+      "Summarize the provided text into 3-5 sentences."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "summarizer",
+        "technical_writer"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "offline_optional"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "summarization_01",
+    "checked_at": "2026-04-09T18:01:29.099Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

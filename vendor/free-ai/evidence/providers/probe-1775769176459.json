@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-04-09T21:12:56.409Z",
+  "probes": [
+    {
+      "provider_id": "openrouter",
+      "model_id": "openrouter/free",
+      "ok": false,
+      "failure_class": "auth_error",
+      "latency_ms": 0,
+      "supports_plain_chat": false,
+      "supports_structured_output": false,
+      "supports_streaming": true
+    },
+    {
+      "provider_id": "openai",
+      "model_id": "gpt-4o-mini",
+      "ok": false,
+      "failure_class": "auth_error",
+      "latency_ms": 0,
+      "supports_plain_chat": false,
+      "supports_structured_output": false,
+      "supports_streaming": true
+    },
+    {
+      "provider_id": "anthropic",
+      "model_id": "claude-2",
+      "ok": false,
+      "failure_class": "auth_error",
+      "latency_ms": 1,
+      "supports_plain_chat": false,
+      "supports_structured_output": false,
+      "supports_streaming": false
+    },
+    {
+      "provider_id": "gemini",
+      "model_id": "gemini-2.5-flash",
+      "ok": false,
+      "failure_class": "auth_error",
+      "latency_ms": 0,
+      "supports_plain_chat": false,
+      "supports_structured_output": false,
+      "supports_streaming": true
+    },
+    {
+      "provider_id": "groq",
+      "model_id": "openai/gpt-oss-20b",
+      "ok": false,
+      "failure_class": "auth_error",
+      "latency_ms": 0,
+      "supports_plain_chat": false,
+      "supports_structured_output": false,
+      "supports_streaming": true
+    },
+    {
+      "provider_id": "huggingface",
+      "model_id": "deepseek-ai/DeepSeek-R1:fastest",
+      "ok": false,
+      "failure_class": "auth_error",
+      "latency_ms": 0,
+      "supports_plain_chat": false,
+      "supports_structured_output": false,
+      "supports_streaming": true
+    },
+    {
+      "provider_id": "fireworks",
+      "model_id": "openai/gpt-oss-20b",
+      "ok": false,
+      "failure_class": "auth_error",
+      "latency_ms": 0,
+      "supports_plain_chat": false,
+      "supports_structured_output": false,
+      "supports_streaming": true
+    },
+    {
+      "provider_id": "ollama",
+      "model_id": "ollama/local-model",
+      "ok": false,
+      "failure_class": "unknown_error",
+      "latency_ms": 43,
+      "supports_plain_chat": false,
+      "supports_structured_output": false,
+      "supports_streaming": false
+    }
+  ]
+}

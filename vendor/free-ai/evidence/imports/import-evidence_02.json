@@ -1,0 +1,55 @@
+{
+  "skill": {
+    "id": "evidence_02",
+    "name": "Evidence: Trace Correlator",
+    "version": "v1",
+    "purpose": "Correlate traces and receipts for an event",
+    "tags": [
+      "evidence",
+      "tracing"
+    ],
+    "triggers": [
+      "trace",
+      "correlate"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 300,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "correlated_traces"
+      ]
+    },
+    "prompt_fragments": [
+      "Given receipts and traces, correlate related events."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "analyst",
+        "systems_operator"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "cloud_only"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "evidence_02",
+    "checked_at": "2026-04-09T18:01:29.103Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

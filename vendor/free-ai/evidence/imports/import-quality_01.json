@@ -1,0 +1,56 @@
+{
+  "skill": {
+    "id": "quality_01",
+    "name": "Quality Gate: Sanity Checks",
+    "version": "v1",
+    "purpose": "Run sanity checks on outputs",
+    "tags": [
+      "quality",
+      "checks"
+    ],
+    "triggers": [
+      "sanity",
+      "check"
+    ],
+    "exclusions": [],
+    "dependencies": [],
+    "latency_hint": "low",
+    "token_budget_hint": 300,
+    "risk_class": "low",
+    "output_contract": {
+      "type": "object",
+      "fields": [
+        "pass",
+        "issues"
+      ]
+    },
+    "prompt_fragments": [
+      "Run a set of sanity checks to assert output quality."
+    ],
+    "validation_rules": {},
+    "source_type": "bundled",
+    "source_reference": "local-bundle",
+    "source_license": "bundled",
+    "imported_at": "2026-04-09T00:00:00Z",
+    "enabled": true,
+    "deprecated": false,
+    "compatibility": {
+      "personas": [
+        "evaluation_assistant",
+        "critic"
+      ],
+      "runtime_modes": [
+        "hybrid",
+        "cloud_only"
+      ]
+    },
+    "schema_version": "skillManifest.v1"
+  },
+  "receipt": {
+    "skill_id": "quality_01",
+    "checked_at": "2026-04-09T18:01:29.103Z",
+    "reasons": [],
+    "action": "accepted",
+    "quarantined": false
+  }
+}

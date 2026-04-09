@@ -1,0 +1,15 @@
+{
+  "id": "s-1775759679045-k7q1nj",
+  "name": "providers.callProviders",
+  "start": 1775759679045,
+  "meta": {
+    "prompt_snippet": "You are reflective and memory-aware: surface past context, summarize, and suggest follow-ups. Prioritize continuity and clarity.\n\n# Skill:summarization_01\n\n\n# Skill:persona_control_01\n\n\n# Skill:person"
+  },
+  "events": [],
+  "end": 1775759679045,
+  "duration_ms": 0,
+  "outcome": {
+    "status": "fail",
+    "failureCount": 0
+  }
+}

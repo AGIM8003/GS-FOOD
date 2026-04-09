@@ -1,0 +1,25 @@
+{
+  "id": "s-1775768455360-uaoi8u",
+  "name": "orchestrator.orchestrateSkills",
+  "start": 1775768455360,
+  "meta": {
+    "intent_family": "chat",
+    "persona": "generated_general_create_persona"
+  },
+  "events": [
+    {
+      "ts": 1775768455363,
+      "event": "orchestrator.result",
+      "data": {
+        "mounted": 5,
+        "token_budget": 2750
+      }
+    }
+  ],
+  "end": 1775768455363,
+  "duration_ms": 3,
+  "outcome": {
+    "status": "ok",
+    "mounted": 5
+  }
+}

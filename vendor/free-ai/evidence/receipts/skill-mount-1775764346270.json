@@ -1,0 +1,43 @@
+{
+  "mounted_skills": [
+    {
+      "id": "gen_053",
+      "version": "v1",
+      "purpose": "Auto-generated testing helper 53",
+      "token_budget_hint": 350,
+      "score": 0.27
+    },
+    {
+      "id": "planning_01",
+      "version": "v1",
+      "purpose": "Decompose goals into milestones",
+      "token_budget_hint": 300,
+      "score": 0.19091883092036782
+    },
+    {
+      "id": "testing_01",
+      "version": "v1",
+      "purpose": "Generate unit test scaffold for given code",
+      "token_budget_hint": 700,
+      "score": 0.19091883092036782
+    },
+    {
+      "id": "testing_02",
+      "version": "v1",
+      "purpose": "Draft an integration test plan",
+      "token_budget_hint": 800,
+      "score": 0.19091883092036782
+    },
+    {
+      "id": "misc_01",
+      "version": "v1",
+      "purpose": "Format short concise answers",
+      "token_budget_hint": 150,
+      "score": 0.19091883092036782
+    }
+  ],
+  "conflicts": [],
+  "dependencies": [],
+  "token_budget": 2300,
+  "schema_version": "skillMountResult.v1"
+}

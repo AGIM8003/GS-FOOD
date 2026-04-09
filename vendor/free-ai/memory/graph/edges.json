@@ -1,0 +1,1388 @@
+[
+  {
+    "edge_id": "edge-1775764346560-2qi1",
+    "from": "mem-1775764346556-6rrx",
+    "to": "subject-graph-subject",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.8,
+    "created_at": "2026-04-09T19:52:26.560Z"
+  },
+  {
+    "edge_id": "edge-1775764346884-yio8",
+    "from": "mem-1775764346880-s6gh",
+    "to": "subject-unittest",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.9,
+    "created_at": "2026-04-09T19:52:26.884Z"
+  },
+  {
+    "edge_id": "edge-1775765056629-uzzg",
+    "from": "mem-1775765056624-dmqt",
+    "to": "subject-graph-subject",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.8,
+    "created_at": "2026-04-09T20:04:16.629Z"
+  },
+  {
+    "edge_id": "edge-1775765057045-f0i6",
+    "from": "mem-1775765057041-o3tu",
+    "to": "subject-unittest",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.9,
+    "created_at": "2026-04-09T20:04:17.045Z"
+  },
+  {
+    "edge_id": "edge-1775765959515-3ep2",
+    "from": "academy-medical",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:19:19.515Z"
+  },
+  {
+    "edge_id": "edge-1775765959517-vmoq",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:19:19.517Z"
+  },
+  {
+    "edge_id": "edge-1775765959518-xd1x",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-memory",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:19:19.518Z"
+  },
+  {
+    "edge_id": "edge-1775765964609-zfeo",
+    "from": "mem-1775765964604-trfk",
+    "to": "subject-graph-subject",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.8,
+    "created_at": "2026-04-09T20:19:24.609Z"
+  },
+  {
+    "edge_id": "edge-1775765965039-cydl",
+    "from": "mem-1775765965035-sah1",
+    "to": "subject-unittest",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.9,
+    "created_at": "2026-04-09T20:19:25.039Z"
+  },
+  {
+    "edge_id": "edge-1775765966780-vcdv",
+    "from": "academy-general",
+    "to": "persona-learning-generated-general-app-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:19:26.780Z"
+  },
+  {
+    "edge_id": "edge-1775765966781-herk",
+    "from": "academy-general",
+    "to": "persona-learning-generated-general-create-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:19:26.781Z"
+  },
+  {
+    "edge_id": "edge-1775765966783-7p2v",
+    "from": "academy-general",
+    "to": "skill-learning-generated-general-create-chat-workflow",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:19:26.783Z"
+  },
+  {
+    "edge_id": "edge-1775765966784-a41l",
+    "from": "academy-general",
+    "to": "skill-learning-gen-053",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:19:26.784Z"
+  },
+  {
+    "edge_id": "edge-1775765966785-b7n1",
+    "from": "academy-general",
+    "to": "skill-learning-gen-068",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:19:26.785Z"
+  },
+  {
+    "edge_id": "edge-1775765966786-ch4j",
+    "from": "academy-general",
+    "to": "skill-learning-persona-control-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:19:26.786Z"
+  },
+  {
+    "edge_id": "edge-1775765966787-q9a5",
+    "from": "academy-general",
+    "to": "skill-learning-planning-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:19:26.787Z"
+  },
+  {
+    "edge_id": "edge-1775765966789-2jrt",
+    "from": "academy-ai-systems",
+    "to": "persona-learning-generated-ai-systems-engineering-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:19:26.789Z"
+  },
+  {
+    "edge_id": "edge-1775765966791-6cal",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-gen-066",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:19:26.791Z"
+  },
+  {
+    "edge_id": "edge-1775765966793-mdlt",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-persona-control-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:19:26.793Z"
+  },
+  {
+    "edge_id": "edge-1775765966795-4fih",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-persona-control-gen-120",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:19:26.795Z"
+  },
+  {
+    "edge_id": "edge-1775765966796-2ba3",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-research-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:19:26.796Z"
+  },
+  {
+    "edge_id": "edge-1775765966798-kyi1",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-research-gen-116",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:19:26.798Z"
+  },
+  {
+    "edge_id": "edge-1775765967526-lqmr",
+    "from": "academy-medical",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:19:27.526Z"
+  },
+  {
+    "edge_id": "edge-1775765967527-iub6",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:19:27.527Z"
+  },
+  {
+    "edge_id": "edge-1775765967529-639l",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-memory",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:19:27.529Z"
+  },
+  {
+    "edge_id": "edge-1775766211948-2spb",
+    "from": "academy-general",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:23:31.948Z"
+  },
+  {
+    "edge_id": "edge-1775766211950-246r",
+    "from": "academy-general",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:23:31.950Z"
+  },
+  {
+    "edge_id": "edge-1775766212458-86c2",
+    "from": "academy-medical",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:23:32.458Z"
+  },
+  {
+    "edge_id": "edge-1775766212460-08gj",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:23:32.460Z"
+  },
+  {
+    "edge_id": "edge-1775766212463-z0cg",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-memory",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:23:32.463Z"
+  },
+  {
+    "edge_id": "edge-1775766214363-mmdg",
+    "from": "mem-1775766214358-esih",
+    "to": "subject-graph-subject",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.8,
+    "created_at": "2026-04-09T20:23:34.363Z"
+  },
+  {
+    "edge_id": "edge-1775766214730-cok0",
+    "from": "mem-1775766214726-xiio",
+    "to": "subject-unittest",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.9,
+    "created_at": "2026-04-09T20:23:34.730Z"
+  },
+  {
+    "edge_id": "edge-1775766217034-8nb1",
+    "from": "academy-medical",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:23:37.034Z"
+  },
+  {
+    "edge_id": "edge-1775766217036-bi1l",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:23:37.036Z"
+  },
+  {
+    "edge_id": "edge-1775766217038-k41x",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-memory",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:23:37.038Z"
+  },
+  {
+    "edge_id": "edge-1775766217459-ab50",
+    "from": "academy-general",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:23:37.459Z"
+  },
+  {
+    "edge_id": "edge-1775766217462-zj6q",
+    "from": "academy-general",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:23:37.462Z"
+  },
+  {
+    "edge_id": "edge-1775766434228-9ei5",
+    "from": "academy-general",
+    "to": "persona-learning-generated-general-create-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:27:14.228Z"
+  },
+  {
+    "edge_id": "edge-1775766434229-7u0f",
+    "from": "academy-general",
+    "to": "persona-learning-generated-general-app-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:27:14.229Z"
+  },
+  {
+    "edge_id": "edge-1775766434232-wln4",
+    "from": "academy-general",
+    "to": "skill-learning-generated-general-create-chat-workflow",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:27:14.232Z"
+  },
+  {
+    "edge_id": "edge-1775766434234-8oym",
+    "from": "academy-general",
+    "to": "skill-learning-gen-053",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:27:14.234Z"
+  },
+  {
+    "edge_id": "edge-1775766434235-e6b8",
+    "from": "academy-general",
+    "to": "skill-learning-planning-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:27:14.235Z"
+  },
+  {
+    "edge_id": "edge-1775766434237-vb21",
+    "from": "academy-general",
+    "to": "skill-learning-testing-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:27:14.237Z"
+  },
+  {
+    "edge_id": "edge-1775766434238-zr4r",
+    "from": "academy-general",
+    "to": "skill-learning-testing-02",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:27:14.238Z"
+  },
+  {
+    "edge_id": "edge-1775766434241-1w4s",
+    "from": "academy-ai-systems",
+    "to": "persona-learning-generated-ai-systems-engineering-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:27:14.241Z"
+  },
+  {
+    "edge_id": "edge-1775766434242-ery4",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-gen-066",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:27:14.242Z"
+  },
+  {
+    "edge_id": "edge-1775766434245-5m8z",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-persona-control-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:27:14.245Z"
+  },
+  {
+    "edge_id": "edge-1775766434246-268e",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-persona-control-gen-120",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:27:14.246Z"
+  },
+  {
+    "edge_id": "edge-1775766434248-j6wj",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-research-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:27:14.248Z"
+  },
+  {
+    "edge_id": "edge-1775766434249-w1i3",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-research-gen-116",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:27:14.249Z"
+  },
+  {
+    "edge_id": "edge-1775766435391-w5qe",
+    "from": "mem-1775766435387-yyo8",
+    "to": "subject-graph-subject",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.8,
+    "created_at": "2026-04-09T20:27:15.391Z"
+  },
+  {
+    "edge_id": "edge-1775766435809-zgsx",
+    "from": "mem-1775766435805-prct",
+    "to": "subject-unittest",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.9,
+    "created_at": "2026-04-09T20:27:15.809Z"
+  },
+  {
+    "edge_id": "edge-1775766438005-zqpd",
+    "from": "academy-medical",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:27:18.005Z"
+  },
+  {
+    "edge_id": "edge-1775766438007-0o3c",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:27:18.007Z"
+  },
+  {
+    "edge_id": "edge-1775766438009-6sbv",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-memory",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:27:18.009Z"
+  },
+  {
+    "edge_id": "edge-1775766438438-lchv",
+    "from": "academy-general",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:27:18.438Z"
+  },
+  {
+    "edge_id": "edge-1775766438440-fjxo",
+    "from": "academy-general",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:27:18.440Z"
+  },
+  {
+    "edge_id": "edge-1775766891753-eawf",
+    "from": "academy-general",
+    "to": "persona-learning-generated-general-create-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:34:51.753Z"
+  },
+  {
+    "edge_id": "edge-1775766891754-io0a",
+    "from": "academy-general",
+    "to": "persona-learning-generated-general-app-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:34:51.754Z"
+  },
+  {
+    "edge_id": "edge-1775766891756-ei19",
+    "from": "academy-general",
+    "to": "skill-learning-generated-general-create-chat-workflow",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:34:51.756Z"
+  },
+  {
+    "edge_id": "edge-1775766891758-q4ep",
+    "from": "academy-general",
+    "to": "skill-learning-gen-053",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:34:51.758Z"
+  },
+  {
+    "edge_id": "edge-1775766891760-v1vc",
+    "from": "academy-general",
+    "to": "skill-learning-planning-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:34:51.760Z"
+  },
+  {
+    "edge_id": "edge-1775766891762-igqb",
+    "from": "academy-general",
+    "to": "skill-learning-testing-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:34:51.762Z"
+  },
+  {
+    "edge_id": "edge-1775766891763-5ltv",
+    "from": "academy-general",
+    "to": "skill-learning-testing-02",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:34:51.763Z"
+  },
+  {
+    "edge_id": "edge-1775766892125-cx2y",
+    "from": "academy-ai-systems",
+    "to": "persona-learning-generated-ai-systems-engineering-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:34:52.125Z"
+  },
+  {
+    "edge_id": "edge-1775766892127-hwdg",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-gen-066",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:34:52.127Z"
+  },
+  {
+    "edge_id": "edge-1775766892128-70l1",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-persona-control-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:34:52.128Z"
+  },
+  {
+    "edge_id": "edge-1775766892130-w194",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-persona-control-gen-120",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:34:52.130Z"
+  },
+  {
+    "edge_id": "edge-1775766892131-gaeu",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-research-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:34:52.131Z"
+  },
+  {
+    "edge_id": "edge-1775766892133-n0m4",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-research-gen-116",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:34:52.133Z"
+  },
+  {
+    "edge_id": "edge-1775766893392-1fbg",
+    "from": "mem-1775766893387-bo32",
+    "to": "subject-graph-subject",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.8,
+    "created_at": "2026-04-09T20:34:53.392Z"
+  },
+  {
+    "edge_id": "edge-1775766893900-ocle",
+    "from": "mem-1775766893893-y6to",
+    "to": "subject-unittest",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.9,
+    "created_at": "2026-04-09T20:34:53.900Z"
+  },
+  {
+    "edge_id": "edge-1775766897191-b2hc",
+    "from": "academy-medical",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:34:57.191Z"
+  },
+  {
+    "edge_id": "edge-1775766897193-nxwn",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:34:57.193Z"
+  },
+  {
+    "edge_id": "edge-1775766897194-1pbh",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-memory",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:34:57.194Z"
+  },
+  {
+    "edge_id": "edge-1775766897633-bnfs",
+    "from": "academy-general",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T20:34:57.633Z"
+  },
+  {
+    "edge_id": "edge-1775766897636-os32",
+    "from": "academy-general",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T20:34:57.636Z"
+  },
+  {
+    "edge_id": "edge-1775768456703-0rq5",
+    "from": "academy-general",
+    "to": "persona-learning-generated-general-create-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:00:56.703Z"
+  },
+  {
+    "edge_id": "edge-1775768456704-epl7",
+    "from": "academy-general",
+    "to": "persona-learning-generated-general-app-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:00:56.704Z"
+  },
+  {
+    "edge_id": "edge-1775768456706-xx7d",
+    "from": "academy-general",
+    "to": "persona-learning-blend-generated-general-create-persona-generated-general-app-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:00:56.706Z"
+  },
+  {
+    "edge_id": "edge-1775768456707-h0c3",
+    "from": "academy-general",
+    "to": "skill-learning-generated-general-create-chat-workflow",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:00:56.707Z"
+  },
+  {
+    "edge_id": "edge-1775768456709-2ld7",
+    "from": "academy-general",
+    "to": "skill-learning-gen-053",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:00:56.709Z"
+  },
+  {
+    "edge_id": "edge-1775768456710-fufj",
+    "from": "academy-general",
+    "to": "skill-learning-persona-control-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:00:56.710Z"
+  },
+  {
+    "edge_id": "edge-1775768456711-oe6w",
+    "from": "academy-general",
+    "to": "skill-learning-planning-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:00:56.711Z"
+  },
+  {
+    "edge_id": "edge-1775768456713-ucb3",
+    "from": "academy-general",
+    "to": "skill-learning-testing-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:00:56.713Z"
+  },
+  {
+    "edge_id": "edge-1775768456835-jgbc",
+    "from": "academy-ai-systems",
+    "to": "persona-learning-generated-ai-systems-engineering-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:00:56.835Z"
+  },
+  {
+    "edge_id": "edge-1775768456836-92iv",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-gen-066",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:00:56.836Z"
+  },
+  {
+    "edge_id": "edge-1775768456837-h27n",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-persona-control-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:00:56.837Z"
+  },
+  {
+    "edge_id": "edge-1775768456839-onto",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-persona-control-gen-120",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:00:56.839Z"
+  },
+  {
+    "edge_id": "edge-1775768456841-5uya",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-research-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:00:56.841Z"
+  },
+  {
+    "edge_id": "edge-1775768456842-vdmu",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-research-gen-116",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:00:56.842Z"
+  },
+  {
+    "edge_id": "edge-1775768457603-5skr",
+    "from": "mem-1775768457599-v0y3",
+    "to": "subject-graph-subject",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.8,
+    "created_at": "2026-04-09T21:00:57.603Z"
+  },
+  {
+    "edge_id": "edge-1775768457973-0jw5",
+    "from": "mem-1775768457969-47m3",
+    "to": "subject-unittest",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.9,
+    "created_at": "2026-04-09T21:00:57.973Z"
+  },
+  {
+    "edge_id": "edge-1775768461294-5uv9",
+    "from": "academy-medical",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:01:01.295Z"
+  },
+  {
+    "edge_id": "edge-1775768461296-xgcd",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:01:01.296Z"
+  },
+  {
+    "edge_id": "edge-1775768461298-v2ls",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-memory",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:01:01.298Z"
+  },
+  {
+    "edge_id": "edge-1775768461712-acen",
+    "from": "academy-general",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:01:01.712Z"
+  },
+  {
+    "edge_id": "edge-1775768461714-q1vu",
+    "from": "academy-general",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:01:01.714Z"
+  },
+  {
+    "edge_id": "edge-1775768684181-rfx8",
+    "from": "mem-1775768684173-jlkt",
+    "to": "subject-graph-subject",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.8,
+    "created_at": "2026-04-09T21:04:44.181Z"
+  },
+  {
+    "edge_id": "edge-1775768684608-w7mw",
+    "from": "mem-1775768684604-sfbp",
+    "to": "subject-unittest",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.9,
+    "created_at": "2026-04-09T21:04:44.608Z"
+  },
+  {
+    "edge_id": "edge-1775768689287-1opd",
+    "from": "academy-medical",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:04:49.287Z"
+  },
+  {
+    "edge_id": "edge-1775768689289-lop5",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:04:49.289Z"
+  },
+  {
+    "edge_id": "edge-1775768689290-ys50",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-memory",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:04:49.291Z"
+  },
+  {
+    "edge_id": "edge-1775768689728-sdy4",
+    "from": "academy-general",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:04:49.728Z"
+  },
+  {
+    "edge_id": "edge-1775768689729-f8ho",
+    "from": "academy-general",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:04:49.729Z"
+  },
+  {
+    "edge_id": "edge-1775768707647-llml",
+    "from": "mem-1775768707641-p06t",
+    "to": "subject-graph-subject",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.8,
+    "created_at": "2026-04-09T21:05:07.647Z"
+  },
+  {
+    "edge_id": "edge-1775768708075-rafr",
+    "from": "mem-1775768708071-6zjc",
+    "to": "subject-unittest",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.9,
+    "created_at": "2026-04-09T21:05:08.075Z"
+  },
+  {
+    "edge_id": "edge-1775768711737-v1fz",
+    "from": "academy-medical",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:05:11.737Z"
+  },
+  {
+    "edge_id": "edge-1775768711739-0zvn",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:05:11.739Z"
+  },
+  {
+    "edge_id": "edge-1775768711741-u1ze",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-memory",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:05:11.741Z"
+  },
+  {
+    "edge_id": "edge-1775768712203-9zkf",
+    "from": "academy-general",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:05:12.203Z"
+  },
+  {
+    "edge_id": "edge-1775768712205-b1vx",
+    "from": "academy-general",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:05:12.205Z"
+  },
+  {
+    "edge_id": "edge-1775769163433-v66y",
+    "from": "academy-general",
+    "to": "persona-learning-generated-general-create-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:12:43.433Z"
+  },
+  {
+    "edge_id": "edge-1775769163436-7ry2",
+    "from": "academy-general",
+    "to": "persona-learning-generated-general-app-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:12:43.436Z"
+  },
+  {
+    "edge_id": "edge-1775769163437-yfje",
+    "from": "academy-general",
+    "to": "persona-learning-blend-generated-general-create-persona-generated-general-app-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:12:43.437Z"
+  },
+  {
+    "edge_id": "edge-1775769163439-ntth",
+    "from": "academy-general",
+    "to": "skill-learning-generated-general-create-chat-workflow",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:43.439Z"
+  },
+  {
+    "edge_id": "edge-1775769163444-m52a",
+    "from": "academy-general",
+    "to": "skill-learning-persona-control-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:43.444Z"
+  },
+  {
+    "edge_id": "edge-1775769163446-3ase",
+    "from": "academy-general",
+    "to": "skill-learning-gen-053",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:43.446Z"
+  },
+  {
+    "edge_id": "edge-1775769163448-uexb",
+    "from": "academy-general",
+    "to": "skill-learning-generated-general-fallback-chat-workflow",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:43.448Z"
+  },
+  {
+    "edge_id": "edge-1775769163450-jy94",
+    "from": "academy-general",
+    "to": "skill-learning-planning-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:43.450Z"
+  },
+  {
+    "edge_id": "edge-1775769163738-sx0c",
+    "from": "academy-ai-systems",
+    "to": "persona-learning-generated-ai-systems-engineering-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:12:43.738Z"
+  },
+  {
+    "edge_id": "edge-1775769163740-i5wr",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-gen-066",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:43.740Z"
+  },
+  {
+    "edge_id": "edge-1775769163742-y8gl",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-persona-control-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:43.742Z"
+  },
+  {
+    "edge_id": "edge-1775769163744-tn6i",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-persona-control-gen-120",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:43.744Z"
+  },
+  {
+    "edge_id": "edge-1775769163747-tzg1",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-research-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:43.747Z"
+  },
+  {
+    "edge_id": "edge-1775769163748-w7hs",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-research-gen-116",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:43.748Z"
+  },
+  {
+    "edge_id": "edge-1775769164959-aba0",
+    "from": "mem-1775769164954-1jsk",
+    "to": "subject-graph-subject",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.8,
+    "created_at": "2026-04-09T21:12:44.959Z"
+  },
+  {
+    "edge_id": "edge-1775769165373-ewm3",
+    "from": "mem-1775769165369-7u7o",
+    "to": "subject-unittest",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.9,
+    "created_at": "2026-04-09T21:12:45.373Z"
+  },
+  {
+    "edge_id": "edge-1775769168875-kisc",
+    "from": "academy-medical",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:12:48.875Z"
+  },
+  {
+    "edge_id": "edge-1775769168877-w37t",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:48.877Z"
+  },
+  {
+    "edge_id": "edge-1775769168879-3c0k",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-memory",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:48.879Z"
+  },
+  {
+    "edge_id": "edge-1775769169297-5gub",
+    "from": "academy-general",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:12:49.297Z"
+  },
+  {
+    "edge_id": "edge-1775769169299-wkze",
+    "from": "academy-general",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:49.299Z"
+  },
+  {
+    "edge_id": "edge-1775769171654-ps22",
+    "from": "mem-1775769171648-ejlz",
+    "to": "subject-graph-subject",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.8,
+    "created_at": "2026-04-09T21:12:51.654Z"
+  },
+  {
+    "edge_id": "edge-1775769172022-g1sn",
+    "from": "mem-1775769172018-xpgd",
+    "to": "subject-unittest",
+    "relation": "about",
+    "provenance": null,
+    "confidence": 0.9,
+    "created_at": "2026-04-09T21:12:52.022Z"
+  },
+  {
+    "edge_id": "edge-1775769175528-dama",
+    "from": "academy-medical",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:12:55.528Z"
+  },
+  {
+    "edge_id": "edge-1775769175530-tqhd",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:55.530Z"
+  },
+  {
+    "edge_id": "edge-1775769175532-6ics",
+    "from": "academy-medical",
+    "to": "skill-learning-skill-memory",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:55.532Z"
+  },
+  {
+    "edge_id": "edge-1775769175938-8n75",
+    "from": "academy-general",
+    "to": "persona-learning-technical",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:12:55.938Z"
+  },
+  {
+    "edge_id": "edge-1775769175940-vt1b",
+    "from": "academy-general",
+    "to": "skill-learning-skill-summarize",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:12:55.940Z"
+  },
+  {
+    "edge_id": "edge-1775769181096-p91l",
+    "from": "academy-general",
+    "to": "persona-learning-generated-general-app-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:13:01.096Z"
+  },
+  {
+    "edge_id": "edge-1775769181098-f0h7",
+    "from": "academy-general",
+    "to": "persona-learning-generated-general-create-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:13:01.098Z"
+  },
+  {
+    "edge_id": "edge-1775769181099-9zpe",
+    "from": "academy-general",
+    "to": "persona-learning-blend-generated-general-create-persona-generated-general-app-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:13:01.099Z"
+  },
+  {
+    "edge_id": "edge-1775769181102-3780",
+    "from": "academy-general",
+    "to": "skill-learning-generated-general-create-chat-workflow",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:13:01.102Z"
+  },
+  {
+    "edge_id": "edge-1775769181103-zmz8",
+    "from": "academy-general",
+    "to": "skill-learning-persona-control-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:13:01.103Z"
+  },
+  {
+    "edge_id": "edge-1775769181105-de0r",
+    "from": "academy-general",
+    "to": "skill-learning-generated-general-fallback-chat-workflow",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:13:01.105Z"
+  },
+  {
+    "edge_id": "edge-1775769181106-gwj8",
+    "from": "academy-general",
+    "to": "skill-learning-gen-053",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:13:01.106Z"
+  },
+  {
+    "edge_id": "edge-1775769181108-mjcq",
+    "from": "academy-general",
+    "to": "skill-learning-gen-068",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:13:01.108Z"
+  },
+  {
+    "edge_id": "edge-1775769181234-18tw",
+    "from": "academy-ai-systems",
+    "to": "persona-learning-generated-ai-systems-engineering-persona",
+    "relation": "trains_persona",
+    "provenance": null,
+    "confidence": 0.72,
+    "created_at": "2026-04-09T21:13:01.234Z"
+  },
+  {
+    "edge_id": "edge-1775769181236-v7yb",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-gen-066",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:13:01.236Z"
+  },
+  {
+    "edge_id": "edge-1775769181238-385j",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-persona-control-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:13:01.238Z"
+  },
+  {
+    "edge_id": "edge-1775769181241-2o63",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-persona-control-gen-120",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:13:01.241Z"
+  },
+  {
+    "edge_id": "edge-1775769181242-z4ln",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-research-01",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:13:01.242Z"
+  },
+  {
+    "edge_id": "edge-1775769181244-311v",
+    "from": "academy-ai-systems",
+    "to": "skill-learning-research-gen-116",
+    "relation": "trains_skill",
+    "provenance": null,
+    "confidence": 0.7,
+    "created_at": "2026-04-09T21:13:01.244Z"
+  }
+]
