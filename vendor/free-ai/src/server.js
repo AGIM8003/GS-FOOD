@@ -220,7 +220,7 @@ const server = http.createServer(async (req, res) => {
   res.end('not found');
 });
 
-server.listen(port, () => {
+server.listen(port, '127.0.0.1', () => {
   startupComplete = true;
-  console.log(`FREE AI server listening on ${port}`);
+  console.log(`FREE AI server listening locally on 127.0.0.1:${port}`);
 });
