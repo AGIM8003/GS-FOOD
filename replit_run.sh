@@ -10,6 +10,7 @@ if [ ! -d ".venv" ]; then
     python3 -m venv .venv
 fi
 source .venv/bin/activate
+export PYTHONPATH="$(pwd)/server:$PYTHONPATH"
 pip install -r requirements.txt httpx fastapi uvicorn pydantic
 
 # 2. Setup Node Env (FREE AI Sidecar)
