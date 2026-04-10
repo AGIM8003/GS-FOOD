@@ -67,11 +67,11 @@
       "health": "unknown",
       "cooldownUntil": null,
       "lastChecked": null,
-      "pinnedModel": "openai/gpt-oss-20b",
+      "pinnedModel": "llama-3.1-8b-instant",
       "candidates": ["llama-3.1-8b-instant","openai/gpt-oss-120b"],
       "envKey": "GROQ_API_KEY",
       "supportsStreaming": true,
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "huggingface",
