@@ -18,6 +18,7 @@ export function computeProviderLadder(providers, { persona, intent, skills, outp
     else ladder.low_cost_fallback.push(p);
   }
   const capability = outputContractId && outputContractId !== 'plain_text' ? 'structured_output' : 'plain_chat';
+  const isCulinary = intent?.task_type === 'culinary_generation' || intent?.intent_family === 'culinary_generation';
   const rank = (p) => {
     const quota = snapshotFor(p.id);
     const health = getProviderCapability(p.id, capability);
@@ -25,7 +26,14 @@ export function computeProviderLadder(providers, { persona, intent, skills, outp
     const healthBonus = health.healthy ? 0.2 : -0.4;
     const reliability = quota.free_reliability_score || 0;
     const latencyPenalty = Math.min(0.25, (quota.average_latency || 0) / 80000);
-    return (p.weight || 0) + (reliability * 10) + healthBonus - latencyPenalty + (governance.route_bonus || 0) + (governance.route_penalty || 0);
+    
+    let bonus = 0;
+    if (isCulinary) {
+      if (p.id === 'openrouter') bonus += 1000;
+      else if (p.id === 'openai') bonus += 500;
+    }
+    
+    return (p.weight || 0) + (reliability * 10) + healthBonus - latencyPenalty + (governance.route_bonus || 0) + (governance.route_penalty || 0) + bonus;
   };
   for (const key of Object.keys(ladder)) ladder[key].sort((a,b)=> rank(b) - rank(a));
   const chosen = ladder.primary_free[0] || ladder.burst_free[0] || ladder.starter_credit[0] || ladder.low_cost_fallback[0] || ladder.local_only[0] || null;

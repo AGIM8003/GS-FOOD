@@ -9,14 +9,16 @@ function loadSchema(name){
   return JSON.parse(fs.readFileSync(file,'utf8'));
 }
 
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
 let ajv = null;
 let compiled = {};
-try{
-  // try dynamic import of Ajv if available
-  // eslint-disable-next-line no-eval
-  const Ajv = eval("require")('ajv');
+try {
+  // Use standard secure module require instead of dynamic eval
+  const Ajv = require('ajv');
   ajv = new Ajv({allErrors:true, strict:false});
-}catch(e){
+} catch(e) {
   ajv = null;
 }
 
@@ -30,7 +32,22 @@ export function validate(schemaBaseName, obj){
       compiled[schemaName] = ajv.compile(schema);
     }
     const valid = compiled[schemaName](obj);
-    return { valid: !!valid, errors: compiled[schemaName].errors || [] };
+    let finalValid = !!valid;
+    let finalErrors = compiled[schemaName].errors || [];
+    
+    // Culinary domain specific rules
+    if (finalValid && schemaFileBase.includes('recipe')) {
+        if (!obj.ingredients || !Array.isArray(obj.ingredients) || obj.ingredients.length === 0) {
+            finalValid = false;
+            finalErrors.push({ message: "domain-error-missing-ingredients" });
+        }
+        if (!obj.instructions || obj.instructions.length < 2) {
+            finalValid = false;
+            finalErrors.push({ message: "domain-error-too-few-instructions" });
+        }
+    }
+    
+    return { valid: finalValid, errors: finalErrors };
   }
   // fallback: basic required field check
   const schema = loadSchema(schemaFileBase);
@@ -41,6 +58,13 @@ export function validate(schemaBaseName, obj){
       if (obj[r] === undefined) errors.push({message:`missing-required-${r}`, field:r});
     }
   }
+
+  // Culinary domain fallback rules
+  if (errors.length === 0 && schemaFileBase.includes('recipe')) {
+      if (!obj.ingredients || !Array.isArray(obj.ingredients) || obj.ingredients.length === 0) errors.push({ message: "domain-error-missing-ingredients" });
+      if (!obj.instructions || obj.instructions.length < 2) errors.push({ message: "domain-error-too-few-instructions" });
+  }
+
   return { valid: errors.length===0, errors };
 }
 

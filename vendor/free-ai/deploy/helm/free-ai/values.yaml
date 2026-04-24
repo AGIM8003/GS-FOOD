@@ -1,0 +1,35 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/example/free-ai-engine
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 3000
+
+# Engine listens on 127.0.0.1 by default in code; in Kubernetes bind to all interfaces
+# so the Service can reach pods (set in deployment template).
+env:
+  PORT: "3000"
+  NODE_ENV: production
+
+# Reference only — mount real secrets via extraEnvFrom / sealed secrets in your overlay.
+extraEnv: []
+
+resources:
+  limits:
+    memory: 1Gi
+  requests:
+    cpu: 250m
+    memory: 512Mi
+
+# HTTP probes (paths match src/server.js)
+probes:
+  livenessPath: /health/live
+  readinessPath: /health/ready
+  livenessInitialDelaySeconds: 15
+  livenessPeriodSeconds: 10
+  readinessInitialDelaySeconds: 5
+  readinessPeriodSeconds: 5

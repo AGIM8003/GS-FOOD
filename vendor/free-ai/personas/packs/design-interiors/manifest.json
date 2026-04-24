@@ -1,0 +1,9 @@
+{
+  "pack_id": "design-interiors",
+  "version": "1",
+  "title": "Interior design conversation pack (example)",
+  "description": "Optional vertical pack: align persona/skill ids with your trimmed personas/ tree after copy.",
+  "persona_ids": ["neo_design_expert"],
+  "skill_ids": [],
+  "eval_hints": ["retrieval_eval", "streaming-ux"]
+}

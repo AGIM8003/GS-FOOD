@@ -16,7 +16,12 @@ from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, Field, conlist
 import pathlib
 
-from .meal_agent import MealAgent
+from app.clients.vendor_client import UniversalVendorClient
+from app.contracts.request_envelope import (
+    UnifiedRequestEnvelope, TraceFlags, PantryContext, DietaryContext,
+    RetrievalContext, MemoryContext, BudgetPolicy
+)
+import uuid
 
 STATIC_DIR = pathlib.Path(__file__).resolve().parent.parent / "static"
 
@@ -110,6 +115,8 @@ class CookSuggestResponse(BaseModel):
 # ==========================================
 
 from app.auth import get_current_user
+from app.telemetry.decision_trace_writer import DecisionTraceWriter
+from app.persistence.memory_coordinator import MemoryCoordinator
 
 @app.post("/v1/cook/suggest", response_model=CookSuggestResponse)
 async def cook_suggest(body: CookSuggestRequest, current_user: dict = Depends(get_current_user)) -> CookSuggestResponse:
@@ -134,26 +141,54 @@ async def cook_suggest(body: CookSuggestRequest, current_user: dict = Depends(ge
             elif snap.glucose_recent_trend_state == "falling":
                 modifiers.append("Stable Carb Energy")
 
-    agent = MealAgent()
-    payload = await agent.process_cooking_intent(
-        available_ingredients=body.ingredients,
-        chef_persona=body.chef_persona,
-        health_modifiers=modifiers,
-        current_user=current_user,
-        positive_affinities=body.positive_affinities,
-        negative_affinities=body.negative_affinities
-    )
+    client = UniversalVendorClient()
+    try:
+        user_id = current_user.get("user_id", "anonymous") if isinstance(current_user, dict) else str(current_user)
+        request_envelope = UnifiedRequestEnvelope(
+            request_id=str(uuid.uuid4()),
+            session_id=str(uuid.uuid4()),
+            user_id=user_id,
+            task_type="recipe_generation", # Must be from TaskType literals
+            task_intent="generate_structured_meal_cards",
+            user_input=f"Suggest me a meal. Using ingredients: {', '.join(body.ingredients)}",
+            pantry_context=PantryContext(items=body.ingredients),
+            dietary_context=DietaryContext(restrictions=modifiers + body.negative_affinities),
+            retrieval_context=RetrievalContext(sources=["meal_slot:" + (body.meal_slot or "any")]),
+            memory_context=MemoryContext(session_memory_refs=body.positive_affinities),
+            budget_policy=BudgetPolicy(max_cost_tier="free", latency_class="balanced", repair_budget=2),
+            response_schema_id="meal_card_suggestions",
+            timeout_ms=20000,
+            trace_flags=TraceFlags(emit_detailed_trace=True, preview_allowed=False, admin_request=False)
+        )
+
+        free_ai_resp = await client.execute_task(request_envelope)
+        
+        if free_ai_resp.status == "bridge_error" or free_ai_resp.status == "provider_unavailable":
+            raise HTTPException(status_code=502, detail=f"FREE AI Engine Error: {free_ai_resp.status}")
+
+        # Telemetry trace
+        DecisionTraceWriter.write_trace(free_ai_resp.engine_run_id or request_envelope.request_id, request_envelope.model_dump(), free_ai_resp.model_dump())
+
+        # Memory writing
+        if free_ai_resp.memory_write_candidates:
+            MemoryCoordinator.process_memory_candidates(user_id, free_ai_resp.memory_write_candidates)
+
+        payload = free_ai_resp.structured_result or free_ai_resp.output_payload or {}
+        cards = payload.get("cards", [])
+    finally:
+        await client.close()
 
     return CookSuggestResponse(
         action="cook_now",
-        suggestion="Swarm Orchestrator active.",
-        cards=payload.get("cards", []),
-        source="cybernetic_swarm_orchestrator"
+        suggestion="AI Reasoning dynamically mapped and solved.",
+        cards=cards,
+        source="free_ai_engine_" + (free_ai_resp.selected_provider or "unknown")
     )
 
 # ==========================================
 from app.database import db
-from app.auth import get_current_user, require_internal_service
+from app.auth import get_current_user
+from app.security.internal_service_auth import require_internal_service
 from fastapi import Depends
 
 @app.get("/api/internal/pantry/inventory")
@@ -176,14 +211,12 @@ async def get_internal_pantry_inventory(target_user_id: str, service_context: di
 # GS FOOD OPERATOR / ADMIN INTEGRATION
 # ==========================================
 
-from app.free_ai_client import FreeAIClient
-
 @app.get("/api/admin/ai_health")
 async def get_ai_health():
     """
     Reports the health of the GS FOOD backend alongside the vendored FREE AI.
     """
-    client = FreeAIClient()
+    client = UniversalVendorClient()
     try:
         ai_health_result = await client.health()
     finally:
@@ -199,7 +232,7 @@ async def get_ai_traces(limit: int = 10):
     """
     Proxies FreeAI decision traces to the GS FOOD operator dashboard.
     """
-    client = FreeAIClient()
+    client = UniversalVendorClient()
     try:
         traces = await client.get_traces(limit)
     finally:

@@ -1,0 +1,84 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: FREE AI
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: FREE AI/package-lock.json
+      - name: Install
+        run: npm ci
+      - name: Enterprise trust preflight (dummy secrets — CI only)
+        env:
+          NODE_ENV: production
+          FREEAI_REQUIRE_ADMIN_KEY: "1"
+          ADMIN_API_KEY: dummy-ci-preflight-only-do-not-use
+          FREEAI_CORS_ALLOW_ORIGINS: https://app.example.com
+        run: node scripts/validate_enterprise_trust.js
+      - name: Quality gate (fast)
+        run: node scripts/quality_gate.js --fast
+      - name: Model catalog refresh (no network)
+        run: FREEAI_REFRESH_SKIP_NETWORK=1 node scripts/refresh_model_catalog.js
+      - name: Build competitiveness scorecard
+        run: node scripts/build_competitiveness_scorecard.js
+      - name: SBOM (best effort)
+        continue-on-error: true
+        run: node scripts/generate_sbom.js
+      - name: npm audit (high severity)
+        continue-on-error: true
+        run: npm audit --audit-level=high
+
+  soak-baseline:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: FREE AI
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: FREE AI/package-lock.json
+      - name: Install
+        run: npm ci
+      - name: Run soak baseline
+        env:
+          SOAK_CONCURRENCY: "6"
+          SOAK_DURATION_S: "15"
+          SOAK_WORKERS: "2"
+          SOAK_BASELINE_ID: "ci-scheduled"
+        run: node scripts/soak_swarm_with_energy.js
+      - name: Upload soak artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: soak-baseline-reports
+          path: |
+            FREE AI/evidence/reports/soak/*.json
+            FREE AI/evidence/reports/soak/index.jsonl
+      - name: Build competitiveness scorecard
+        run: node scripts/build_competitiveness_scorecard.js
+      - name: Upload competitiveness scorecard
+        uses: actions/upload-artifact@v4
+        with:
+          name: competitiveness-scorecard
+          path: |
+            FREE AI/evidence/reports/competitiveness-scorecard-*.json
+            FREE AI/evidence/reports/competitiveness-scorecard-latest.json

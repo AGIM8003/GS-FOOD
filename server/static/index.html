@@ -122,7 +122,7 @@
 </div>
 </div>
 </header>
-<main class="pt-24 px-5 space-y-8 mx-auto">
+<main id="page-home" class="tab-page pt-24 px-5 space-y-8 mx-auto block">
 <!-- GREETING & CONTEXT -->
 <header class="space-y-1">
 <p class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-500">Predictive Command Center</p>
@@ -227,30 +227,75 @@
 </div>
 </section>
 </main>
+
+<!-- Pantry Stub -->
+<main id="page-pantry" class="tab-page pt-24 px-5 space-y-8 mx-auto hidden">
+    <header class="space-y-1">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-500">Inventory Status</p>
+        <h2 class="text-3xl font-black tracking-tight">My Food.</h2>
+    </header>
+    <section class="glass-card rounded-lg p-6 border border-white/5 flex items-center justify-center">
+        <p class="text-neutral-400">Pantry inventory module loading...</p>
+    </section>
+</main>
+
+<!-- Cook Stub -->
+<main id="page-cook" class="tab-page pt-24 px-5 space-y-8 mx-auto hidden">
+    <header class="space-y-1">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-500">Ai Orchestrator</p>
+        <h2 class="text-3xl font-black tracking-tight">Cook Now.</h2>
+    </header>
+    <section class="glass-card rounded-lg p-6 border border-white/5 flex items-center justify-center">
+        <p class="text-neutral-400">AI recipe generation module loading...</p>
+    </section>
+</main>
+
+<!-- Plan Stub -->
+<main id="page-plan" class="tab-page pt-24 px-5 space-y-8 mx-auto hidden">
+    <header class="space-y-1">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-500">Forecasting</p>
+        <h2 class="text-3xl font-black tracking-tight">Plan.</h2>
+    </header>
+    <section class="glass-card rounded-lg p-6 border border-white/5 flex items-center justify-center">
+        <p class="text-neutral-400">Meal planner module loading...</p>
+    </section>
+</main>
+
+<!-- Shop Stub -->
+<main id="page-shop" class="tab-page pt-24 px-5 space-y-8 mx-auto hidden">
+    <header class="space-y-1">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-500">Procurement</p>
+        <h2 class="text-3xl font-black tracking-tight">Shop.</h2>
+    </header>
+    <section class="glass-card rounded-lg p-6 border border-white/5 flex items-center justify-center">
+        <p class="text-neutral-400">Shopping list module loading...</p>
+    </section>
+</main>
+
 <!-- BottomNavBar Shell -->
 <nav class="absolute bottom-0 w-full px-6 py-4 flex justify-between items-center bg-black/80 backdrop-blur-3xl border-t border-white/5 z-50">
 <!-- Home (Active) -->
-<a class="flex flex-col items-center justify-center text-orange-500 scale-105 transition-transform" href="#">
+<a id="nav-home" class="flex flex-col items-center justify-center text-orange-500 scale-105 transition-transform" href="#">
 <span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
 <span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold mt-1">Home</span>
 </a>
 <!-- My Food -->
-<a class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors" href="#">
+<a id="nav-pantry" class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors" href="#">
 <span class="material-symbols-outlined" data-icon="database">database</span>
 <span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold mt-1">Pantry</span>
 </a>
 <!-- Cook -->
-<a class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors" href="#">
+<a id="nav-cook" class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors" href="#">
 <span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
 <span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold mt-1">Cook</span>
 </a>
 <!-- Plan -->
-<a class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors" href="#">
+<a id="nav-plan" class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors" href="#">
 <span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
 <span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold mt-1">Plan</span>
 </a>
 <!-- Shop -->
-<a class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors" href="#">
+<a id="nav-shop" class="flex flex-col items-center justify-center text-neutral-500 hover:text-orange-400 transition-colors" href="#">
 <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
 <span class="font-['Inter'] text-[10px] tracking-wider uppercase font-bold mt-1">Shop</span>
 </a>
@@ -260,4 +305,5 @@
 <span class="material-symbols-outlined text-2xl" data-icon="add">add</span>
 </button>
 </div>
+<script src="/static/app.js"></script>
 </body></html>

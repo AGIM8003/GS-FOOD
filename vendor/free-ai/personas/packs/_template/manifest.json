@@ -1,0 +1,9 @@
+{
+  "pack_id": "template",
+  "version": "1",
+  "title": "Example vertical pack",
+  "description": "Replace with industry-specific scope. Host merges may copy this folder as a starting point.",
+  "persona_ids": [],
+  "skill_ids": [],
+  "eval_hints": ["Add host-specific retrieval or safety evals under evidence/eval/"]
+}

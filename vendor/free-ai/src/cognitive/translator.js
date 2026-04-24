@@ -70,7 +70,7 @@ function inferSkillNeeds({ intent_family, domainSignals, topics }) {
   return [...new Set(needs)];
 }
 
-export async function translateIntent(text, { memory=null, prevContext=null } = {}) {
+export async function translateIntent(text, { memory=null, prevContext=null, payload=null } = {}) {
   const raw = (text||'').trim();
   const normalized = raw.replace(/\s+/g,' ').trim();
   const language = detectLanguage(raw);

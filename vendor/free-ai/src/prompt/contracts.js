@@ -70,6 +70,34 @@ export const outputContracts = {
       required: ['steps'],
     },
   },
+  meal_card_suggestions: {
+    id: 'meal_card_suggestions',
+    type: 'json',
+    schema: {
+      type: 'object',
+      additionalProperties: true,
+      properties: {
+        cards: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+              title: { type: 'string' },
+              time: { type: 'string' },
+              cuisine: { type: 'string' },
+              match_type: { type: 'string' },
+              used_inventory_ingredients: { type: 'array' },
+              missing_shopping_deficits: { type: 'array' },
+              compliance: { type: 'object' },
+              ai_explanation_trace: { type: 'array', items: { type: 'string' } }
+            },
+            required: ['title', 'used_inventory_ingredients']
+          }
+        }
+      },
+      required: ['cards']
+    }
+  }
 };
 
 export function selectOutputContract({ intent = {}, payload = {} } = {}) {

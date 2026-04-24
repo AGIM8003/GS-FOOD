@@ -66,11 +66,21 @@ export async function summarizeGraph() {
   await ensure();
   const nodes = await readJson(NODES, []);
   const edges = await readJson(EDGES, []);
+  
+  // Build a summary of identities and their traits
+  const identities = nodes.filter(n => n.type === 'identity');
+  const user_profiles = identities.map(user => {
+      const userTraits = edges.filter(e => e.from === user.node_id && e.relation === 'has_trait').map(e => e.to);
+      return { user_id: user.node_id, traits_inferred: userTraits.length, trait_keys: nodes.filter(n => userTraits.includes(n.node_id)).map(n => n.label) };
+  });
+
   const summary = {
     generated_at: new Date().toISOString(),
     node_count: nodes.length,
     edge_count: edges.length,
     node_types: [...new Set(nodes.map((n) => n.type))].sort(),
+    active_users: user_profiles.length,
+    user_topologies: user_profiles
   };
   await fs.writeFile(join(SNAPSHOTS, `graph-summary-${Date.now()}.json`), JSON.stringify(summary, null, 2), 'utf8');
   return summary;

@@ -1,0 +1,25 @@
+node_modules/
+.env
+.DS_Store
+npm-debug.log*
+
+# High-volume runtime (copy-only engine writes here)
+evidence/*
+!evidence/.gitkeep
+acquisition/
+memory/
+data/metrics.jsonl
+data/traces.jsonl
+data/l2.json
+data/model_control_plane/**
+!data/model_control_plane/.gitkeep
+data/swarm_runs/**
+!data/swarm_runs/.gitkeep
+out/
+dist/
+
+# Optional: keep small seed JSONs tracked; ignore large jsonl streams
+data/**/*.jsonl
+
+# Editor artifacts
+.vscode/*.vsix

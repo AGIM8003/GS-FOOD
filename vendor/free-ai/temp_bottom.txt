@@ -1,0 +1,10 @@
+});
+
+const listenHost = String(process.env.FREEAI_BIND_HOST || '127.0.0.1').trim() || '127.0.0.1';
+server.listen(port, listenHost, async () => {
+  startupComplete = true;
+  console.log(`FREE AI server listening on ${listenHost}:${port}`);
+  const { DaemonCrawler } = await import('./improvement/daemonCrawler.js');
+  const crawler = new DaemonCrawler();
+  crawler.start();
+});

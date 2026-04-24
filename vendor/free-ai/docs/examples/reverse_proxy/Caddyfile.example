@@ -1,0 +1,22 @@
+# Example: Caddy reverse proxy in front of FREE AI on loopback.
+# Replace example.com and paths; do not commit real secrets.
+#
+# Engine: node src/server.js with default bind 127.0.0.1:3000
+# See docs/ENTERPRISE_DEPLOY.md
+
+ai.example.com {
+	tls /etc/certs/fullchain.pem /etc/certs/privkey.pem
+
+	encode gzip
+
+	@admin path /admin*
+	handle @admin {
+		# Enforce auth here (forward_auth to IdP, basicauth with caddy hash-password, etc.)
+		reverse_proxy 127.0.0.1:3000
+	}
+
+	handle {
+		# Rate limit at edge (module or WAF); example placeholder
+		reverse_proxy 127.0.0.1:3000
+	}
+}

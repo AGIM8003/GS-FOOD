@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://free-ai.local/schemas/assignmentContext.v1.json",
+  "title": "AssignmentContext (per-worker, host → engine)",
+  "description": "One assignment envelope for a single engine invocation in a swarm fan-out. Aligns with FREEAI.md §19. Host owns scheduling and merge; engine honors persona_id + skill_ids for this call.",
+  "type": "object",
+  "required": ["schema_version", "assignment_id", "persona_id", "skill_ids"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "assignmentContext.v1" },
+    "assignment_id": { "type": "string", "description": "Stable id for this worker invocation (host-generated)." },
+    "swarm_task_id": { "type": ["string", "null"], "description": "Logical swarm task; correlates fan-in rollup." },
+    "swarm_agent_id": { "type": ["string", "null"], "description": "Worker label within the task graph." },
+    "persona_id": { "type": "string" },
+    "skill_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Host may pin skills; engine still runs orchestrator unless host pins override policy."
+    },
+    "intent_family": { "type": "string", "description": "Often swarm_task for swarm workers." },
+    "intent_subset": { "type": "object", "additionalProperties": true },
+    "constraints": { "type": "object", "additionalProperties": true },
+    "subtask_goal": { "type": ["string", "null"] },
+    "traceparent": { "type": ["string", "null"], "description": "W3C trace context for §22 correlation." }
+  },
+  "additionalProperties": true
+}

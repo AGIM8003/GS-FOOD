@@ -1,0 +1,105 @@
+# OpenAPI 3.0 fragment — POST /v1/infer (swarm-related fields only)
+# Merge into your host gateway spec; not a complete FREE AI API definition.
+
+openapi: 3.0.3
+info:
+  title: FREE AI infer — swarm fragment
+  version: "1.0"
+paths:
+  /v1/infer:
+    post:
+      summary: Infer (swarm fields)
+      parameters:
+        - name: traceparent
+          in: header
+          required: false
+          schema:
+            type: string
+            example: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+          description: W3C Trace Context (FREEAI §22).
+        - name: tracestate
+          in: header
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - prompt
+              properties:
+                prompt:
+                  type: string
+                intent_family:
+                  type: string
+                  enum: [swarm_task]
+                  description: Optional; also inferred when `swarm` carries task/agent/role.
+                preview_only:
+                  type: boolean
+                  description: When true, returns compiled prompt metadata without provider round-trip.
+                persona:
+                  type: string
+                  description: Optional override; otherwise `swarm.role` may select `swarm_role_*` personas.
+                swarm:
+                  type: object
+                  description: Present when validating (see FREEAI_VALIDATE_SWARM_PAYLOAD / production strict mode).
+                  properties:
+                    task_id:
+                      type: string
+                    agent_id:
+                      type: string
+                    role:
+                      type: string
+                      enum: [researcher, coder, reviewer]
+                    subtask_goal:
+                      type: string
+                    child_trace_ids:
+                      type: array
+                      items:
+                        type: string
+                      maxItems: 128
+                    fan_in:
+                      type: boolean
+                    rollup:
+                      type: boolean
+                    merge_strategy:
+                      type: string
+                    parent_trace_id:
+                      type: string
+                  additionalProperties: false
+      responses:
+        "200":
+          description: Success envelope (engine returns status, body, receipt)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  body: {}
+                  receipt:
+                    type: object
+                    properties:
+                      trace_id:
+                        type: string
+                      intent_family:
+                        type: string
+                      swarm:
+                        type: object
+                        nullable: true
+                        properties:
+                          task_id:
+                            type: string
+                          agent_id:
+                            type: string
+                            nullable: true
+                          role:
+                            type: string
+                            nullable: true
+        "400":
+          description: Invalid swarm payload when strict validation is enabled

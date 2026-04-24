@@ -4,6 +4,7 @@ import { dirname, join } from 'path';
 import { Router } from './server/router.js';
 import * as Admin from './server/admin.js';
 import { loadConfig } from './config.js';
+import { startScheduler } from './server/scheduler.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -56,40 +57,14 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
-  // Simple EventSource streaming proxy: /v1/stream?prompt=...&persona=...
-  if (req.method === 'GET' && req.url && req.url.startsWith('/v1/stream')) {
-    // parse query
-    try{
-      const url = new URL(req.url, `http://localhost:${port}`);
-      const prompt = url.searchParams.get('prompt') || '';
-      const persona = url.searchParams.get('persona') || undefined;
-      // set headers for SSE
-      res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', Connection: 'keep-alive' });
-      // call stream handler
-      await router.handleRequestStream({ prompt, persona, streaming:true }, res);
-      return;
-    } catch (e) { res.writeHead(500); res.end('stream error'); return; }
+  if (req.method === 'POST' && req.url === '/v1/infer/typed') {
+    const { handleTypedInference } = await import('./api/internalBridgeRouter.js');
+    return handleTypedInference(req, res, router);
   }
 
-  if (req.method === 'POST' && req.url === '/v1/infer') {
-    try {
-      const payload = await readJsonBody(req);
-      if (payload.streaming) {
-        // streaming mode uses router handleRequestStream which writes direct to res
-        await router.handleRequestStream(payload, res);
-        return;
-      }
-      const response = await router.handleRequest(payload);
-      logStructured({ event: 'request_handled', trace_id: response?.receipt?.trace_id || null, persona: payload.persona || null, cache_hit: !!(response?.receipt && response.receipt && response.receipt.provider_id==='local-cache') });
-      emitMetric({ event: 'request_handled', trace_id: response?.receipt?.trace_id || null, cache_hit: !!(response?.receipt && response.receipt && response.receipt.provider_id==='local-cache'), status: response.status || 200 }).catch(()=>{});
-      res.writeHead(response.status || 200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify(response));
-    } catch (err) {
-      res.writeHead(500, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ error: err.message }));
-    }
-    return;
-  }
+  // ALL OTHER INFERENCE ROUTES HAVE BEEN STRIPPED.
+  // GS FOOD IS THE ABSOLUTE SINGLE SOURCE OF TRUTH. ALL COGNITION ROUTES MUST PASS THROUGH /v1/infer/typed
+  
   if (req.method === 'GET' && req.url === '/health/live') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ status: 'ok' }));
@@ -112,110 +87,16 @@ const server = http.createServer(async (req, res) => {
     res.end(JSON.stringify(getHealthReport()));
     return;
   }
-  // Admin endpoints
-  if (req.method === 'GET' && req.url === '/admin/imports'){
-    const s = await Admin.latestImportSummary();
-    res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(s||{})); return;
+  // Admin endpoints - Stripped off standalone FREE AI interfaces
+  // Retaining ONLY the trace extraction endpoint for the GS FOOD Operator integration
+  if (req.method === 'GET' && req.url === '/admin/traces') {
+    const e = await Admin.listTraceFiles(); 
+    res.writeHead(200, { 'Content-Type': 'application/json' }); 
+    res.end(JSON.stringify(e)); 
+    return;
   }
-  if (req.method === 'GET' && req.url === '/admin/quarantine'){
-    const q = await Admin.listQuarantine(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(q)); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/evidence'){
-    const e = await Admin.readEvidence('imports'); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e)); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/prompts'){
-    const e = await Admin.listPromptReceipts(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e)); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/validation'){
-    const e = await Admin.listValidationReceipts(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e)); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/traces'){
-    const e = await Admin.listTraceFiles(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e)); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/provider-ladder'){
-    const e = Admin.getProviderLadderStatus(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || {})); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/provider-health'){
-    const e = Admin.getProviderHealthMatrix(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || {})); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/quota-snapshots'){
-    const e = Admin.getQuotaSnapshots(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || {})); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/cooldowns'){
-    const e = Admin.getCooldownStatus(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || {})); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/provider-governance'){
-    const e = Admin.getProviderGovernance(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || {})); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/decision-graphs'){
-    const e = Admin.getDecisionGraphs(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || [])); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/prompt-promotions'){
-    const e = Admin.getPromptPromotions(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || [])); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/receipt-chain'){
-    const e = Admin.getReceiptLedgerStatus(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || {})); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/memory-graph'){
-    const e = await Admin.getMemoryGraphSummary(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || {})); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/acquisition'){
-    const e = await Admin.getAcquisitionJobs(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || [])); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/training'){
-    const e = await Admin.getTrainingEngineStatus(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || {})); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/training/insights'){
-    const e = await Admin.getTrainingInsights(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || {})); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/training/overlays'){
-    const e = await Admin.getTrainingOverlays(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || {})); return;
-  }
-  if (req.method === 'GET' && req.url === '/admin/training/review-queue'){
-    const e = await Admin.getTrainingReviewItems(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || {})); return;
-  }
-  if (req.method === 'POST' && req.url === '/admin/training/run'){
-    try {
-      const e = await Admin.runTrainingNow(); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || {})); return;
-    } catch (error) {
-      res.writeHead(500,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify({ error: error.message })); return;
-    }
-  }
-  if (req.method === 'POST' && req.url === '/admin/training/control'){
-    try {
-      const payload = await readJsonBody(req);
-      const e = await Admin.setTrainingControl(payload.enabled !== false); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || {})); return;
-    } catch (error) {
-      res.writeHead(500,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify({ error: error.message })); return;
-    }
-  }
-  if (req.method === 'POST' && req.url === '/admin/training/profile'){
-    try {
-      const payload = await readJsonBody(req);
-      const e = await Admin.updateTrainingEnvironmentProfile(payload || {}); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || {})); return;
-    } catch (error) {
-      res.writeHead(500,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify({ error: error.message })); return;
-    }
-  }
-  if (req.method === 'POST' && req.url === '/admin/training/review'){
-    try {
-      const payload = await readJsonBody(req);
-      const e = await Admin.reviewTrainingItem(payload || {}); res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(e || {})); return;
-    } catch (error) {
-      res.writeHead(500,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify({ error: error.message })); return;
-    }
-  }
-  if (req.method === 'GET' && req.url && req.url.startsWith('/admin/prompt-preview')){
-    try {
-      const url = new URL(req.url, `http://localhost:${port}`);
-      const prompt = url.searchParams.get('prompt') || '';
-      const payload = { prompt, output_contract: url.searchParams.get('output_contract') || undefined, prompt_variant: url.searchParams.get('prompt_variant') || undefined };
-      const preview = await router.handleRequest({ ...payload, preview_only: true, timeout: 1000 }).catch(() => null);
-      res.writeHead(200,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify(preview || { error: 'preview_failed' })); return;
-    } catch (e) {
-      res.writeHead(500,{ 'Content-Type': 'application/json' }); res.end(JSON.stringify({ error: e.message })); return;
-    }
-  }
+  
+  // ALL OTHER ROUTES BLOCKED TO ENFORCE GS-FOOD OS SUPREMACY
   res.writeHead(404);
   res.end('not found');
 });
@@ -223,4 +104,5 @@ const server = http.createServer(async (req, res) => {
 server.listen(port, '127.0.0.1', () => {
   startupComplete = true;
   console.log(`FREE AI server listening locally on 127.0.0.1:${port}`);
+  startScheduler(150000); // Probe every 2.5 minutes
 });

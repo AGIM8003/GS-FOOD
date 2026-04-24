@@ -85,6 +85,7 @@ function inferPromptFamily(intent, outputContract) {
 }
 
 function selectVariant({ intent, outputContract, reasoning }) {
+  if (intent?.task_intent === 'generate_structured_meal_cards') return 'variant_gs_food_v4';
   if (outputContract.type === 'json') return 'variant_b_structured';
   if (reasoning?.confidence !== undefined && reasoning.confidence < 0.55) return 'variant_c_cautious';
   if (intent?.urgency && intent.urgency > 0.7) return 'variant_a_fast';

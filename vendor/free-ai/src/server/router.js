@@ -13,6 +13,7 @@ import { runReasoning } from '../cognitive/reasoning.js';
 import { loadSkillsForRequest } from '../cognitive/skillLoader.js';
 import { compilePromptRuntime } from '../prompt/runtime.js';
 import { parseAndValidateOutput, tryRepairJson } from '../prompt/contracts.js';
+import { enforceQualityGates } from '../prompt/gates.js';
 import { buildProviderResponseFormat } from '../prompt/providerFormat.js';
 import { makeReceipt } from '../receipts.js';
 import { selectPersona } from '../persona/registry.js';
@@ -141,17 +142,34 @@ export class Router {
 
     // On success
     if (providerResp && providerResp.ok) {
-      let validation = parseAndValidateOutput(providerResp.output, promptRuntime.output_contract);
+      let validation = enforceQualityGates(providerResp.output, promptRuntime.output_contract, {
+          repair_attempts: payload._repairAttempted ? 1 : 0,
+          memory_candidates: meta?.metacog?.memory_write_candidate ? [meta.metacog.memory_write_candidate] : []
+      });
       if (!validation.valid && promptRuntime.output_contract.type === 'json') {
         const repaired = tryRepairJson(providerResp.output);
         if (repaired !== null) {
-          validation = parseAndValidateOutput(JSON.stringify(repaired), promptRuntime.output_contract);
+          validation = enforceQualityGates(JSON.stringify(repaired), promptRuntime.output_contract, {
+              repair_attempts: payload._repairAttempted ? 1 : 0,
+              memory_candidates: meta?.metacog?.memory_write_candidate ? [meta.metacog.memory_write_candidate] : []
+          });
         }
       }
       if (!validation.valid && promptRuntime.output_contract.type === 'json' && !payload._repairAttempted) {
-        const repairPrompt = `${compiled}\n\nREPAIR: Return only valid JSON that satisfies the requested contract. No markdown, no prose.`;
+        // Swap to the next best provider in the ladder if possible to avoid duplicating the same error
+        const backupProvider = ladderDecision.ranked?.primary_free?.[1]?.id || ladderDecision.ranked?.burst_free?.[0]?.id || null;
+        if (backupProvider && backupProvider !== ladderDecision.chosen_provider) {
+            ladderDecision.chosen_provider = backupProvider;
+        }
+
+        const repairPrompt = `${compiled}\n\nREPAIR: Return only valid JSON that satisfies the requested contract. No markdown, no prose. Fix these errors: ${JSON.stringify(validation.errors)}`;
         providerResp = await this.registry.callProviders(repairPrompt, { persona, intent, skills, trace_id, ladderDecision, response_contract_id: promptRuntime.output_contract.id, response_contract: promptRuntime.output_contract, response_format: responseFormat }, { timeout: payload.timeout || 15000, maxAttemptsPerProvider: 1 });
-        if (providerResp && providerResp.ok) validation = parseAndValidateOutput(providerResp.output, promptRuntime.output_contract);
+        if (providerResp && providerResp.ok) {
+           validation = enforceQualityGates(providerResp.output, promptRuntime.output_contract, {
+              repair_attempts: 1,
+              memory_candidates: meta?.metacog?.memory_write_candidate ? [meta.metacog.memory_write_candidate] : []
+           });
+        }
       }
       // cache L1
       this.cache.set(cacheKey, providerResp.output);

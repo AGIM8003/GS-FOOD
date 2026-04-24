@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>FREE AI — Enterprise Control Plane</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: rgba(255, 255, 255, 0.05);
+      --glass: rgba(20, 20, 30, 0.7);
+      --border: rgba(255, 255, 255, 0.1);
+      --primary: #6366f1;
+      --secondary: #8b5cf6;
+      --success: #10b981;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.15), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.15), transparent 25%);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    h1 { margin: 0; font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px; background: -webkit-linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+    .pulse {
+      display: inline-block;
+      width: 10px; height: 10px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--success);
+      animation: pulse 2s infinite;
+      margin-right: 8px;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+    .container { padding: 2rem; max-width: 1400px; margin: 0 auto; display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, border-color 0.3s;
+      animation: slideUp 0.6s ease-out;
+    }
+    .card:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.2); }
+    .card h2 { margin-top: 0; font-size: 1.25rem; font-weight: 600; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); color: var(--text); }
+    .metric-row { display: flex; justify-content: space-between; margin-bottom: 0.75rem; align-items: baseline; }
+    .metric-val { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; color: var(--primary); }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { text-align: left; padding: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    th { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;}
+    td { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
+    @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .status-ok { color: var(--success); }
+    .status-warn { color: var(--warning); }
+    .status-err { color: var(--danger); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FREE AI Control Plane</h1>
+    <div><span class="pulse"></span><span style="font-size:0.9rem; color:var(--text-muted)">Cluster Active</span></div>
+  </header>
+  
+  <div class="container">
+    <!-- Health Map -->
+    <div class="card">
+      <h2>System Core Heath</h2>
+      <div id="health-content">Loading...</div>
+    </div>
+    
+    <!-- Provider Matrix -->
+    <div class="card">
+      <h2>Provider Health Matrix</h2>
+      <div id="providers-content" style="overflow-x:auto">Loading...</div>
+    </div>
+
+    <!-- Cluster Metrics -->
+    <div class="card">
+      <h2>Cluster Velocity Matrix</h2>
+      <div id="metrics-content">Loading...</div>
+    </div>
+
+    <!-- Swarm Runs -->
+    <div class="card" style="grid-column: 1 / -1;">
+      <h2>Active Swarm Intelligence DAGs</h2>
+      <div id="swarm-content" style="overflow-x:auto; max-height:400px; overflow-y:auto">Loading...</div>
+    </div>
+  </div>
+
+  <script>
+    async function fetchData() {
+      try {
+        const [healthRes, provRes, metricsRes, swarmRes] = await Promise.all([
+          fetch('/health').catch(() => null),
+          fetch('/admin/provider-health').catch(() => null),
+          fetch('/admin/metrics-summary').catch(() => null),
+          fetch('/admin/swarm-runs').catch(() => null)
+        ]);
+
+        // Health Core
+        if(healthRes && healthRes.ok) {
+          const h = await healthRes.json();
+          document.getElementById('health-content').innerHTML = `
+            <div class="metric-row"><span>Status:</span> <span class="metric-val status-ok">${h.status}</span></div>
+            <div class="metric-row"><span>Uptime:</span> <span class="metric-val">${h.uptime_s}s</span></div>
+            <div class="metric-row"><span>Version:</span> <span class="metric-val">${h.version}</span></div>
+            <div class="metric-row"><span>Live Probe:</span> <span class="metric-val status-ok">${h.probes.live}</span></div>
+            <div class="metric-row"><span>Ready Probe:</span> <span class="metric-val status-ok">${h.probes.ready}</span></div>
+          `;
+        }
+
+        // Provider Health
+        if(provRes && provRes.ok) {
+          const p = await provRes.json();
+          const providers = Array.isArray(p) ? p : Object.keys(p).map(k => ({id: k, ...p[k]}));
+          
+          let table = `<table><tr><th>Provider</th><th>Health</th><th>Succ/Fail</th><th>Errors</th></tr>`;
+          if(!providers || providers.length === 0) table += `<tr><td colspan="4">No data</td></tr>`;
+          providers.forEach(prov => {
+            const h = prov.health_score !== undefined ? (prov.health_score * 100).toFixed(0)+'%' : 'N/A';
+            const cls = prov.health_score > 0.8 ? 'status-ok' : prov.health_score > 0.5 ? 'status-warn' : 'status-err';
+            table += `<tr><td>${prov.id}</td><td class="${cls}">${h}</td><td>${prov.success_count||0} / ${prov.fail_count||0}</td><td class="status-err">${prov.total_errors||0}</td></tr>`;
+          });
+          table += `</table>`;
+          document.getElementById('providers-content').innerHTML = table;
+        }
+
+        // Metrics Summary
+        if(metricsRes && metricsRes.ok) {
+          const m = await metricsRes.json();
+          let html = '';
+          for (const [k, v] of Object.entries(m)) {
+            if(typeof v === 'object') {
+              html += `<div style="font-size:0.8rem; color:var(--text-muted); margin-top:8px">${k.toUpperCase()}</div>`;
+              for (const [sk, sv] of Object.entries(v)) {
+                html += `<div class="metric-row"><span>${sk}:</span> <span class="metric-val">${sv}</span></div>`;
+              }
+            } else {
+              html += `<div class="metric-row"><span>${k}:</span> <span class="metric-val">${v}</span></div>`;
+            }
+          }
+          document.getElementById('metrics-content').innerHTML = html || '<div class="metric-row">No telemetry recorded yet</div>';
+        }
+
+        // Swarm Runs
+        if(swarmRes && swarmRes.ok) {
+           const s = await swarmRes.json();
+           const runs = s.runs || [];
+           let table = `<table><tr><th>Run ID</th><th>Graph</th><th>State</th><th>Start</th></tr>`;
+           if(!runs || runs.length === 0) table += `<tr><td colspan="4">No active swarm tasks identified or missing admin auth.</td></tr>`;
+           runs.forEach(r => {
+             const cls = r.run_state === 'completed' ? 'status-ok' : r.run_state === 'failed' ? 'status-err' : 'status-warn';
+             table += `<tr><td>${r.run_id}</td><td>${r.graph_id}</td><td class="${cls}">${r.run_state}</td><td>${new Date(r.started_at).toLocaleTimeString()}</td></tr>`;
+           });
+           table += `</table>`;
+           document.getElementById('swarm-content').innerHTML = table;
+        }
+
+      } catch (err) {
+        console.error('Fetch error:', err);
+      }
+    }
+
+    fetchData();
+    setInterval(fetchData, 5000); // 5s refresh loop
+  </script>
+</body>
+</html>

@@ -4185,3 +4185,1677 @@ FOOD GUIDE APP is a privacy-first, offline-first, camera-first household food as
 ====================================================================
 END OF APPENDIX D — GS-FOOD2.md (VERBATIM, COMPLETE)
 ====================================================================
+GS FOOD — Enterprise Architecture Improvement Blueprint
+Production Readiness Directive and Immediate Execution Specification
+
+1. Executive Summary
+
+GS FOOD is a hybrid culinary intelligence platform composed of a legacy Python backend, the stitch_pantry_planner_ui experience layer, and a vendored Node.js intelligence engine named FREE AI. The platform already demonstrates strong architectural instincts: provider ladders exist, budget guardians exist, internal routing is constrained, and the FastAPI boundary is security-aware. The current platform is not failing because it lacks ideas or technical ambition. It is failing to reach production readiness because the highest-capability reasoning and orchestration engine, FREE AI, is not yet authoritative in the live request path, leaving GS FOOD in a fragmented dual-brain state.
+
+The immediate production objective is to eliminate architectural ambiguity. Python must become the stable API facade, authentication boundary, policy gateway, persistence coordinator, and external service surface. FREE AI must become the primary reasoning, orchestration, provider-governance, schema-repair, and intelligence execution core. Legacy Python-side agent logic must be reduced to transport, compatibility, and policy-adjacent duties only. GS FOOD must not remain a dual-brain architecture.
+
+The current system score remains constrained because the advanced runtime controls are incomplete in the production path. The bridge from Python to FREE AI is not finalized. The structured output repair system is still too dependent on extraction-first retries. The memory graph remains incomplete, so cross-session personalization is weak. Scheduled provider probes are missing, so provider volatility and throttling can silently degrade the platform. Evidence receipts exist, but the decision graph is incomplete, so traceability, rollback, and root-cause analysis are materially weaker than required for production operation.
+
+This blueprint is an implementation directive. The next agent must treat it as authority to begin building immediately. The next agent must not merely comment on the design. The next agent must implement the system directly from this specification, including code, contracts, schemas, bridge logic, validation flows, telemetry, persistence, probes, control-plane surfaces, and rollout mechanics. Execution is required. Commentary is insufficient. The receiving agent must start writing the implementation directly from this blueprint.
+
+Donor-derived runtime patterns are generalized into GS FOOD only where they improve production readiness without distorting the product. Those patterns include strict request and response contracts, normalized infer-result handling, health-aware fallback behavior, telemetry event taxonomy, non-bypassable enforcement pipelines, schema normalization, stateful observability events, server-side secret isolation, structured ingestion discipline, and operator-facing control-plane patterns. Donor-specific domain behavior, styling, branding, and irrelevant chat-oriented patterns are not adopted.
+
+2. Current-State Architectural Baseline
+
+2.1 Operational Reality
+
+GS FOOD currently operates as a hybrid system with three practical centers of gravity.
+
+The first center is the legacy Python backend. It currently acts as the externally reachable API surface and also retains legacy agent-hub behavior. This means Python still performs request acceptance, security enforcement, some orchestration behavior, and compatibility logic. This role is too broad for the target state and is the primary source of integration drag.
+
+The second center is stitch_pantry_planner_ui. This is the user-facing interaction layer and should remain thin. It should not own reasoning, provider selection, memory logic, or policy logic. It should emit well-formed requests and render validated results, traces, and controlled UI states only.
+
+The third center is FREE AI, the vendored Node.js intelligence engine. FREE AI is the most advanced runtime in the platform. It already contains stronger orchestration, retrieval, routing, and intelligence execution capabilities than the Python-side logic. However, FREE AI is not yet fully authoritative because the Python bridge is incomplete. As a result, GS FOOD continues to exhibit fragmented request handling and duplicated logic risk.
+
+2.2 Current Strengths That Must Be Preserved
+
+The Python boundary is already security-forward. Internal routing restrictions exist. JWT-based isolation exists. FastAPI hardening is present. These properties make Python the correct location for external ingress, authentication, tenancy boundaries, rate controls, and policy enforcement.
+
+Provider ladders and budget guardian logic already exist conceptually and likely partially in runtime. That means the platform already understands provider sequencing, cost ceilings, fallback posture, and volatility management. This must be preserved and relocated into the authoritative intelligence execution path centered in FREE AI.
+
+Evidence receipts are already generated. That means GS FOOD already has the beginnings of traceability discipline. The production upgrade is not to discard receipts but to expand them into a durable decision graph with structured event storage.
+
+2.3 Current Weaknesses Blocking Production Readiness
+
+The Python backend has not fully adopted FREE AI as the unified intelligence core. This causes split decision logic, weak contract discipline, duplicated orchestration risk, inconsistent output handling, and unclear ownership of retries, validation, and fallback.
+
+The memory graph remains design-only or partial. This caps reasoning quality, cross-session continuity, household personalization, dietary safety recall, and long-term preference inference.
+
+The provider probe subsystem is missing. This leaves external inference provider health largely reactive. Silent model deprecations, throttling, latency spikes, or schema drift can degrade the platform before operators understand the failure pattern.
+
+The schema repair pipeline is primitive. The system still relies too heavily on extraction-first retry behavior rather than a structured validation and repair family. This wastes tokens, increases latency, raises failure variability, and allows malformed outputs to move too close to end-user exposure.
+
+The observability and control surface is incomplete. Evidence receipts exist, but operator-grade request tracing, repair visibility, memory review, provider health status, and rollout monitoring do not yet exist as a unified operational plane.
+
+2.4 Production Readiness Interpretation
+
+The platform is promising but not production-ready. The blockers are structural, not cosmetic. The path to production readiness is therefore to finish the authority handoff from Python-side orchestration to FREE AI, enforce strict contracts at the bridge, add a non-bypassable validation and promotion pipeline, persist the decision graph, operationalize provider probes, and complete the memory graph with trust-gated write semantics.
+
+3. System Composition and Runtime Boundaries
+
+3.1 Client/UI Layer
+
+Target component or subsystem:
+stitch_pantry_planner_ui
+
+Implementation objective:
+Reduce the UI to a presentation and request-capture layer that emits typed request envelopes and renders only validated, promoted results and controlled degraded states.
+
+Concrete files, modules, services, or layers to create or modify:
+- ui/services/gsFoodApiClient
+- ui/types/requestEnvelope
+- ui/types/responseEnvelope
+- ui/state/requestTraceSummary
+- ui/components/admin/* only if an internal admin front end exists within the UI surface
+- UI request serializer and response normalizer layers
+
+Contracts and data structures:
+The UI must emit the canonical request envelope defined in Section 8 and receive the canonical response envelope. No UI-side provider logic, memory logic, repair logic, or orchestration logic is permitted.
+
+Runtime behavior:
+The UI submits requests to Python only. It never talks directly to FREE AI. It renders status states including queued, processing, degraded, quarantined-preview, validated-success, and blocked-error. It may optionally display trace summaries if authorized.
+
+Validation rules:
+Client-side validation is limited to request completeness, allowed enum values, and basic payload shape. Business and intelligence validation remain server-side.
+
+Operational controls:
+UI feature flags must allow:
+- bridge-rollout mode selection indicator
+- admin trace visibility gating
+- degraded-mode banner visibility
+- prompt-evaluation tooling visibility for authorized roles only
+
+Rollout sequence:
+UI changes can ship early as long as they remain backward compatible with the current Python API, then switch to strict request envelope mode once Python bridge endpoints are live.
+
+Failure handling:
+If the response status indicates degraded, blocked, or quarantined-preview, the UI must render a controlled state, not raw provider output.
+
+Acceptance criteria:
+- UI emits canonical request envelope fields
+- UI never invokes FREE AI directly
+- UI can render validated and degraded states distinctly
+- UI supports correlation ID display for support workflows
+
+3.2 Python API and Legacy Service Layer
+
+Target component or subsystem:
+Python FastAPI service
+
+Implementation objective:
+Convert Python into the stable API facade, auth boundary, policy gateway, persistence coordinator, bridge owner, and external service surface. Remove or downgrade legacy Python intelligence orchestration.
+
+Concrete files, modules, services, or layers to create or modify:
+- server/app/main.py
+- server/app/clients/free_ai_client.py
+- server/app/contracts/request_envelope.py
+- server/app/contracts/response_envelope.py
+- server/app/contracts/error_contracts.py
+- server/app/routes/intelligence.py
+- server/app/security/internal_service_auth.py
+- server/app/policies/request_policy.py
+- server/app/telemetry/event_emitter.py
+- server/app/persistence/decision_trace_writer.py
+- server/app/persistence/memory_write_coordinator.py
+- server/app/compat/legacy_agent_shim.py
+- server/app/health/free_ai_health.py
+
+Contracts and data structures:
+Python owns the external request contract and validates ingress envelopes. Python also validates normalized FREE AI responses before returning them externally. Python persists decision traces and coordinates any durable writes approved by the promotion pipeline.
+
+Runtime behavior:
+Python accepts inbound requests, authenticates them, applies ingress policy, enriches them with session and authorization context, forwards them to FREE AI via FreeAIClient, receives normalized results, applies final policy and promotion checks, coordinates persistence, and returns canonical responses.
+
+Trust boundary:
+Python is the external trust boundary. FREE AI is an internal trusted service, but only after mutual internal authentication.
+
+Current maturity:
+Partial. Strong security posture exists, but bridge authority is incomplete.
+
+Target maturity:
+Full production ingress boundary with no duplicate intelligence logic beyond compatibility shims.
+
+Migration implication:
+Legacy Python agents must be retired or placed behind an explicit deprecated compatibility shim with a removal schedule.
+
+Operational risk if left unchanged:
+Dual-brain divergence, inconsistent outputs, trace fragmentation, repeated bugs, and unclear system ownership.
+
+Concrete implementation responsibilities:
+- enforce ingress auth
+- enforce rate limiting
+- assign request_id and trace context
+- invoke FREE AI
+- coordinate persistence
+- emit telemetry
+- enforce final response policy
+- own degraded-mode response semantics
+
+3.3 FREE AI Intelligence Engine
+
+Target component or subsystem:
+FREE AI Node.js engine
+
+Implementation objective:
+Make FREE AI the authoritative reasoning, orchestration, provider governance, retrieval, schema-repair, and intelligence execution core.
+
+Concrete files, modules, services, or layers to create or modify:
+- src/api/internalBridgeRouter.js
+- src/contracts/requestEnvelope.js
+- src/contracts/responseEnvelope.js
+- src/orchestration/requestClassifier.js
+- src/orchestration/providerPolicyRouter.js
+- src/orchestration/complexityRouter.js
+- src/providers/healthMatrix.js
+- src/providers/providerCooldownManager.js
+- src/providers/providerLadderEngine.js
+- src/validation/schemaGate.js
+- src/validation/domainGate.js
+- src/validation/promotionGate.js
+- src/repair/repairRouter.js
+- src/repair/providerSpecificRepairStrategies.js
+- src/retrieval/culinaryEntityResolver.js
+- src/retrieval/retrievalFusionEngine.js
+- src/memory/memoryCandidateBuilder.js
+- src/telemetry/eventPublisher.js
+- src/health/bridgeHealthEndpoint.js
+
+Contracts and data structures:
+FREE AI accepts the canonical request envelope and returns the canonical response envelope with normalized infer results, validation status, repair actions, and memory write candidates.
+
+Runtime behavior:
+FREE AI classifies the request, selects the execution path, chooses providers or local execution strategies, performs retrieval, composes outputs, validates outputs, repairs if needed, evaluates promotion gates, generates memory write candidates, and returns normalized results to Python.
+
+Trust boundary:
+Internal trusted execution engine. It does not expose raw provider secrets to clients and must only be reachable through internal service auth.
+
+Current maturity:
+Higher than Python-side orchestration, but incomplete as the authoritative production path.
+
+Target maturity:
+Single source of truth for intelligence execution.
+
+Migration implication:
+FREE AI must absorb orchestration authority. Existing Python-side logic must not remain co-equal.
+
+Operational risk if left unchanged:
+Persistent dual-brain architecture and production inconsistency.
+
+Concrete implementation responsibilities:
+- request classification
+- provider selection
+- retrieval orchestration
+- schema repair
+- validation
+- memory candidate generation
+- decision event emission
+- health reporting
+
+3.4 Provider Abstraction and Governance Layer
+
+Implementation objective:
+Centralize provider selection, provider suitability, budget policy, structured output fit, cooldown management, and failover logic.
+
+Concrete modules:
+- src/providers/providerCatalog.js
+- src/providers/providerCapabilityMap.js
+- src/providers/providerHealthMatrix.js
+- src/providers/providerBudgetGuardian.js
+- src/providers/providerFailoverPolicy.js
+- src/providers/providerQuarantineStore.js
+
+Operational risk if left unchanged:
+Provider volatility and cost drift continue to cause hidden production instability.
+
+3.5 Validation and Repair Layer
+
+Implementation objective:
+Create a non-bypassable post-compose enforcement pipeline that blocks invalid outputs from display or persistence.
+
+Concrete modules:
+- src/validation/*
+- src/repair/*
+- quarantine storage integration in Python persistence layer
+
+Operational risk if left unchanged:
+Malformed, unsafe, or semantically incorrect culinary outputs can leak to users or memory.
+
+3.6 Memory and Retrieval Layer
+
+Implementation objective:
+Upgrade retrieval from semantic-only support into entity-linked culinary reasoning, and upgrade memory from context arrays into a trust-gated graph.
+
+Concrete modules:
+- retrieval resolvers
+- entity dictionaries
+- graph storage adapters
+- memory write APIs
+- preference conflict handlers
+
+Operational risk if left unchanged:
+Poor personalization, dietary safety gaps, substitution inconsistency, and weak cross-session continuity.
+
+3.7 Evaluation, Evidence, and Decision Graph Layer
+
+Implementation objective:
+Persist complete request-level execution traces, promotion events, validation outcomes, fallback behavior, and operator interventions.
+
+Concrete modules:
+- decision event schema registry
+- async event writer
+- dashboard aggregates
+- replay query APIs
+
+Operational risk if left unchanged:
+Rollback, incident review, regression diagnosis, and auditability remain inadequate.
+
+3.8 Reliability Monitoring Layer
+
+Implementation objective:
+Continuously probe provider health and schema conformance, mutate ladder posture safely, and surface degraded states before user impact escalates.
+
+Concrete modules:
+- scheduled probe runners
+- health state evaluators
+- cooldown logic
+- alert producers
+
+Operational risk if left unchanged:
+Provider outages remain reactive and silent.
+
+3.9 Admin and Observability Layer
+
+Implementation objective:
+Give operators controlled visibility into request traces, provider health, memory review, quarantines, rollout safety, and release health.
+
+Concrete modules:
+- admin dashboard backend
+- aggregated metrics materializer
+- search endpoints for traces, memory nodes, and quarantined artifacts
+
+Operational risk if left unchanged:
+Production support remains blind and rollback decisions remain guesswork.
+
+3.10 Background Jobs and Probe Runners
+
+Implementation objective:
+Isolate non-user-blocking work from hot-path inference.
+
+Concrete modules:
+- provider probes
+- telemetry materialization
+- memory reconciliation jobs
+- regression scorecard jobs
+- prompt tuning batch jobs
+
+Operational risk if left unchanged:
+Latency and reliability degrade due to background contention on the primary request path.
+
+3.11 Persistence and Storage Layer
+
+Implementation objective:
+Define durable stores for session context, decision graph events, memory graph, quarantine artifacts, schema registries, and provider health history.
+
+Concrete stores:
+- relational or document store for request traces and aggregates
+- graph-capable store or graph-emulation schema for memory and decision graph relations
+- object store or blob table for quarantined artifacts
+- cache store for hot provider health and session state
+
+Operational risk if left unchanged:
+Critical runtime artifacts remain fragmented or non-durable.
+
+4. Scorecard Interpretation by Capability Domain
+
+4.1 Architecture — 75%
+
+What is already working:
+GS FOOD is modular. UI, Python API, and Node.js intelligence are already conceptually separated.
+
+What deficit prevents a higher score:
+The primary production flow still lacks the finalized unified API bridge. Architectural boundaries exist on paper but are not enforced by a single authoritative runtime path.
+
+What engineering work materially raises the score:
+Implement FreeAIClient, establish strict canonical contracts, retire Python-side agent orchestration, and enforce Python-as-facade plus FREE-AI-as-core.
+
+Production risk if not improved:
+Dual ownership, drift, duplicated bug surfaces, trace fragmentation, and rollout ambiguity.
+
+Donor-grade runtime controls that elevate the domain:
+Strict bridge contracts, never-throw boundary semantics, normalized infer-result contracts, health probe endpoints, and non-bypassable enforcement.
+
+Implementation tasks to execute first:
+- create FreeAIClient
+- define request/response schemas
+- replace legacy Python agent calls with bridge invocation
+- add bridge health endpoint and contract tests
+
+4.2 Orchestration — 80%
+
+What is already working:
+Provider ladders, budget guardians, and explicit routing ideas exist and are strong foundations.
+
+What deficit prevents a higher score:
+Routing is not yet fully centralized and authority is still fragmented.
+
+What engineering work materially raises the score:
+Move all provider selection and request classification into FREE AI, add adaptive complexity routing, health-aware cooldown logic, and schema-aware model swap rules.
+
+Production risk if not improved:
+Inconsistent task handling, inflated costs, and weak degraded-mode behavior.
+
+Implementation tasks:
+- centralize provider routing modules
+- add policy tables by task class
+- add health matrix and cooldown manager
+
+4.3 Security — 85%
+
+What is already working:
+Strong FastAPI hardening, JWT isolation, and internal routing restrictions.
+
+What deficit prevents a higher score:
+Internal bridge auth, signed service-to-service requests, and stronger persistence trust gates need to be formalized.
+
+What engineering work materially raises the score:
+Add mTLS or signed internal tokens, enforce least-privilege internal routes, add admin action audit logging, and implement validation-before-display and validation-before-persist gates.
+
+Production risk if not improved:
+Integration changes could weaken the strongest part of the platform.
+
+Implementation tasks:
+- internal service auth module
+- signed bridge requests
+- audit log model
+- rate limiting and abuse controls on public endpoints
+
+4.4 Reasoning Quality — 60%
+
+What is already working:
+FREE AI already provides stronger orchestration and structured generation capability than Python-side logic.
+
+What deficit prevents a higher score:
+Primitive extraction-first repair logic, incomplete memory graph, and insufficient entity-linked retrieval reduce reliability of complex culinary reasoning.
+
+What engineering work materially raises the score:
+Introduce the full post-compose validation and repair pipeline, domain gates, structured repair families, and memory-backed personalization.
+
+Production risk if not improved:
+Low-confidence meal plans, invalid structured outputs, and inconsistent dietary reasoning.
+
+Implementation tasks:
+- schema validator
+- domain validator
+- repair router
+- critic gate
+- memory candidate builder
+
+4.5 Retrieval — 65%
+
+What is already working:
+Semantic context retrieval exists.
+
+What deficit prevents a higher score:
+Entity linking, pantry canonicalization, substitution reasoning, and confidence-weighted fusion are incomplete.
+
+What engineering work materially raises the score:
+Implement ingredient and pantry entity resolution, dietary rule retrieval, substitution knowledge modeling, and provenance-aware retrieval summaries.
+
+Production risk if not improved:
+Context will remain useful but unreliable for production-grade culinary decisions.
+
+Implementation tasks:
+- culinary entity resolver
+- pantry canonical dictionary
+- retrieval fusion engine
+- dietary rules registry
+
+4.6 Reliability — 65%
+
+What is already working:
+Ad hoc provider handling exists and some local probes may exist.
+
+What deficit prevents a higher score:
+No scheduled provider probes, no structured demotion logic, no cooldown windows, and no restoration criteria.
+
+What engineering work materially raises the score:
+Add probe runners, rolling health windows, provider quarantine, model availability checks, schema conformance probes, and alerting.
+
+Production risk if not improved:
+Silent provider degradation, throttling failures, and unstable user-facing behavior.
+
+Implementation tasks:
+- provider probe scheduler
+- health history store
+- cooldown manager
+- ladder mutation logic
+
+4.7 UX (System/Admin) — 70%
+
+What is already working:
+Admin controls likely exist through API endpoints.
+
+What deficit prevents a higher score:
+No rich trace UI, no repair analytics, no quarantine viewer, no memory review panel, no rollout health surface.
+
+What engineering work materially raises the score:
+Build an operator dashboard with trace search, provider health, repair analytics, decision graph explorer, and quarantine review workflows.
+
+Production risk if not improved:
+Support and release management remain slow and error-prone.
+
+Implementation tasks:
+- admin dashboard APIs
+- aggregate materializer jobs
+- trace explorer UI
+- quarantine review UI
+
+4.8 Memory — 40%
+
+What is already working:
+Memory direction exists conceptually.
+
+What deficit prevents a higher score:
+Design-only or partial state. No complete graph, no write tiers, no review workflow, no conflict resolution.
+
+What engineering work materially raises the score:
+Build the memory graph, memory write tiers, provenance fields, contradiction logic, and review tooling.
+
+Production risk if not improved:
+Weak personalization, repeated user correction, and dietary safety recall failures.
+
+Implementation tasks:
+- graph schema
+- memory write coordinator
+- conflict markers
+- review APIs
+- tiered write policies
+
+4.9 Performance — 70%
+
+What is already working:
+The modular stack can support optimization once paths are consolidated.
+
+What deficit prevents a higher score:
+Bridge latency, free-tier throttling, repair-loop amplification, background contention, and persistence overhead are not yet systematically managed.
+
+What engineering work materially raises the score:
+Introduce hot-path and cold-path separation, async telemetry, probe isolation, request classification, concurrency controls, and caching.
+
+Production risk if not improved:
+Latency creep and unstable throughput during load or provider throttling events.
+
+Implementation tasks:
+- queue-based background jobs
+- async event writer
+- cache layer
+- task-class timeout budgets
+
+5. Confirmed Strengths and What They Mean Architecturally
+
+5.1 Modular Separation Between UI, Python API, and Node.js AI Engine
+
+Mechanism:
+The system is already split into distinct runtime zones, which is the correct structural pattern for a production platform.
+
+Architectural meaning:
+This enables hard boundaries for security, contracts, scaling, and ownership.
+
+Why it matters:
+Production stability improves when ingress, intelligence execution, and presentation do not share uncontrolled logic.
+
+How to preserve through migration:
+Do not move auth or public ingress into FREE AI. Do not move intelligence execution back into the UI or Python.
+
+Regression risks during integration:
+Bridge shortcuts could accidentally embed business logic in Python or client fallback logic in the UI.
+
+Explicit guardrails:
+- UI never talks to providers or FREE AI directly
+- Python never remains co-equal orchestration brain
+- FREE AI never becomes public ingress
+
+Implementation rules:
+Add ownership statements in contracts and test them via integration checks.
+
+5.2 Provider Ladders
+
+Mechanism:
+Provider ladders establish ordered provider preference and fallback sequencing.
+
+Architectural meaning:
+The platform can degrade gracefully rather than fail abruptly when a provider or model becomes unavailable.
+
+Why it matters:
+This is essential for free-tier volatility and structured output reliability.
+
+How to preserve:
+Provider ladders must be moved into the authoritative FREE AI path and backed by live health state.
+
+Regression risks:
+Static ladders without health data will route into degraded providers.
+
+Guardrails:
+- health state must influence ladder ordering
+- ladder mutations must be observable and auditable
+
+5.3 Budget Guardian Strategies
+
+Mechanism:
+Budget guardians constrain cost exposure and likely influence provider choice.
+
+Architectural meaning:
+Inference execution remains economically bounded.
+
+Why it matters:
+Free-tier and mixed-cost provider environments require execution discipline.
+
+How to preserve:
+Budget policy must be embedded in request envelopes and enforced by FREE AI routing modules.
+
+Regression risks:
+Bridge migration could bypass budget enforcement if legacy Python logic remains active.
+
+Guardrails:
+Budget policy field required in request envelope. FREE AI must emit chosen policy and cost posture in decision trace.
+
+5.4 Explicit Routing Policies
+
+Mechanism:
+Task classes likely already influence provider or execution choice.
+
+Architectural meaning:
+Different workloads are not treated as equivalent.
+
+Why it matters:
+Structured extraction, recipe generation, dietary reasoning, and admin evaluations do not need the same inference posture.
+
+How to preserve:
+Encode routing policy tables and task classification modules explicitly.
+
+Regression risks:
+Ad hoc routing if policy tables are not centralized.
+
+Guardrails:
+All task_class decisions must emit policy_reason events.
+
+5.5 Hardened FastAPI Security Posture
+
+Mechanism:
+FastAPI boundary uses bearer auth, JWT claims, and internal route restrictions.
+
+Architectural meaning:
+External request validation and authorization are already in the right service.
+
+Why it matters:
+Python is the correct ingress owner.
+
+How to preserve:
+Do not bypass Python for public requests.
+
+Regression risks:
+A direct FREE AI exposure would weaken current posture.
+
+Guardrails:
+Reject any implementation that exposes FREE AI directly to clients.
+
+5.6 Internal Routing Restrictions
+
+Mechanism:
+Only approved internal paths are reachable across service boundaries.
+
+Architectural meaning:
+Lateral movement and accidental public exposure are constrained.
+
+Why it matters:
+Bridge security depends on internal-only surfaces.
+
+Guardrails:
+Define allowed service paths and forbidden service paths in routing policy.
+
+5.7 Evidence Receipt Generation
+
+Mechanism:
+Receipts capture some execution metadata.
+
+Architectural meaning:
+The platform already values traceability.
+
+Why it matters:
+Decision graphs can be built on top of this discipline rather than from scratch.
+
+Guardrails:
+Do not replace receipts with logs-only visibility. Expand them into structured decision events and persisted graphs.
+
+6. Critical Gaps and Root Causes
+
+6.1 Integration Disconnect
+
+Current symptom:
+Python server still acts as a legacy agent hub and has not formally adopted FREE AI through a unified bridge.
+
+Likely root cause:
+Bridge contract and FreeAIClient are missing or incomplete. Legacy logic remains in place for historical continuity.
+
+Affected modules:
+server/app/main.py, legacy Python agent modules, absent or incomplete bridge client, existing Python route handlers.
+
+User-visible consequence:
+Inconsistent output behavior and unstable feature quality.
+
+Operator-visible consequence:
+Difficult root-cause attribution and uncertain execution ownership.
+
+Data quality risk:
+Different reasoning paths may produce conflicting structured outputs.
+
+Trust risk:
+Users receive variable behavior without transparent explanation.
+
+Performance impact:
+Duplicate retries and unnecessary routing layers increase latency.
+
+Production risk:
+Architectural drift and high operational complexity.
+
+Remediation path:
+Implement bridge authority, deprecate legacy Python reasoning logic, formalize canonical request/response envelopes, and enforce single-brain execution.
+
+Concrete implementation actions:
+- build FreeAIClient
+- route all intelligence endpoints through it
+- mark legacy Python agents deprecated
+- create compatibility shims only where temporary continuity is needed
+- add integration tests to prove Python delegates to FREE AI
+
+6.2 Fragile Memory State
+
+Current symptom:
+Memory graph remains incomplete or design-only.
+
+Root cause:
+Persistent entity model, write policies, and review tooling were never completed.
+
+Affected modules:
+memory layer, preference handling, dietary recall logic, session-to-session personalization paths.
+
+User-visible consequence:
+Repeated preferences must be re-explained. Long-term personalization is weak.
+
+Operator-visible consequence:
+No memory audit or correction workflow.
+
+Data quality risk:
+Incorrect inferred preferences may be applied or forgotten inconsistently.
+
+Trust risk:
+Users perceive the system as unreliable or unsafe around dietary preferences.
+
+Performance impact:
+Repeated context gathering inflates prompt size and latency.
+
+Production risk:
+Unsafe recalls for restrictions or allergies if memory remains ad hoc.
+
+Remediation:
+Build graph-backed memory with tiered write policies and trust gating.
+
+6.3 Reliability Blindspots
+
+Current symptom:
+No scheduled provider probes and no dynamic health mutation.
+
+Root cause:
+Reliability logic remains reactive and tied to request-time failures.
+
+Affected modules:
+provider governance, routing, operations, alerting.
+
+User-visible consequence:
+Unexpected provider failures and degraded experience.
+
+Operator-visible consequence:
+No early warning or controlled demotion.
+
+Data quality risk:
+Provider schema drift may silently poison outputs.
+
+Trust risk:
+System appears unstable or arbitrary.
+
+Performance impact:
+Repeated failed attempts on degraded providers.
+
+Production risk:
+High during free-tier throttling or provider change events.
+
+Remediation:
+Scheduled probes, rolling windows, cooldowns, restoration criteria, and dashboard surfacing.
+
+6.4 Primitive Error Repair
+
+Current symptom:
+Simple extraction-first fallbacks dominate.
+
+Root cause:
+Missing repair family architecture and missing non-bypassable quality gates.
+
+Affected modules:
+structured output parsing, provider retries, downstream persistence.
+
+User-visible consequence:
+Malformed or semantically weak structured outputs.
+
+Operator-visible consequence:
+No clear repair telemetry.
+
+Data quality risk:
+Invalid structured outputs may persist or display.
+
+Trust risk:
+Users lose confidence in meal planning or pantry reasoning accuracy.
+
+Performance impact:
+Retry storms and token waste.
+
+Production risk:
+Unsafe promotion of malformed content.
+
+Remediation:
+Build parser, schema gate, type gate, domain gate, repair router, critic gate, and promotion gate.
+
+6.5 Observability Deficits
+
+Current symptom:
+Evidence receipts exist but decision graph correlation is partial and admin surface is weak.
+
+Root cause:
+No durable event taxonomy, no aggregate materialization, no dashboard-first operations design.
+
+Affected modules:
+telemetry, support workflows, release monitoring.
+
+User-visible consequence:
+Delayed incident resolution.
+
+Operator-visible consequence:
+Blind support and weak root-cause inspection.
+
+Data quality risk:
+Hidden failure patterns go unnoticed.
+
+Trust risk:
+Operational unpredictability persists.
+
+Performance impact:
+Longer mean time to detection and longer mean time to recovery.
+
+Production risk:
+Unsafe releases and slower rollback decisions.
+
+Remediation:
+Add event taxonomy, async event ingestion, decision graph store, admin APIs, and operator dashboard.
+
+6.6 Duplicated Orchestration Logic Across Python and Node
+
+Remediation:
+Deprecate Python-side intelligence routing except for compatibility shims and policy gating.
+
+6.7 Partial Decision Provenance
+
+Remediation:
+Persist every routing, validation, repair, fallback, memory, and promotion event with correlation IDs.
+
+6.8 Weak Cross-Session Personalization
+
+Remediation:
+Graph memory with evidence-backed preference evolution.
+
+6.9 Provider Health Drift Over Time
+
+Remediation:
+Probe runners plus provider cooldown manager.
+
+6.10 Schema Retry Waste
+
+Remediation:
+Repair attempt budgets and model-swap thresholds.
+
+6.11 Fragmented Admin Surface Area
+
+Remediation:
+Unified operator control plane with role-restricted actions.
+
+6.12 Incomplete Trust Gating Before Persistence
+
+Remediation:
+Promotion gates must explicitly approve memory writes and response display separately.
+
+6.13 Insufficient Rollout Safety Signals
+
+Remediation:
+Release health view, regression scorecards, and progressive bridge rollout flags.
+
+7. Python-to-FREE-AI Bridge Architecture
+
+7.1 Implementation Objective
+
+The FreeAIClient in server/app/main.py must be implemented immediately and must become the authoritative mechanism by which Python delegates intelligence execution to FREE AI. Python remains the stable API facade, auth boundary, security boundary, policy gateway, persistence coordinator, and external service surface. FREE AI becomes the primary reasoning, orchestration, provider-governance, schema-repair, and intelligence execution core. Legacy standalone Python agents are to be reduced to compatibility shims or removed.
+
+7.2 Modules to Create or Modify
+
+Python side:
+- server/app/main.py
+- server/app/routes/intelligence.py
+- server/app/clients/free_ai_client.py
+- server/app/contracts/request_envelope.py
+- server/app/contracts/response_envelope.py
+- server/app/contracts/internal_bridge_errors.py
+- server/app/security/internal_service_auth.py
+- server/app/policies/bridge_policy.py
+- server/app/telemetry/event_emitter.py
+- server/app/health/free_ai_bridge_health.py
+- server/app/compat/legacy_agent_shim.py
+- server/app/tests/test_free_ai_bridge_contract.py
+- server/app/tests/test_bridge_degraded_mode.py
+- server/app/tests/test_legacy_agent_retirement_paths.py
+
+FREE AI side:
+- src/api/internalBridgeRouter.js
+- src/contracts/requestEnvelope.js
+- src/contracts/responseEnvelope.js
+- src/health/internalHealthRoute.js
+- src/telemetry/bridgeEvents.js
+- src/tests/bridgeContract.test.js
+
+7.3 Unified Request Contract
+
+Canonical request envelope:
+{
+  "request_id": "uuid",
+  "session_id": "string",
+  "user_id": "string|null",
+  "anonymous_id": "string|null",
+  "task_type": "pantry_match|recipe_generation|meal_plan|dietary_reasoning|substitution_reasoning|structured_extraction|admin_evaluation",
+  "task_intent": "string",
+  "user_input": "string",
+  "pantry_context": {
+    "items": [],
+    "freshness": {},
+    "source": "user|memory|system"
+  },
+  "dietary_context": {
+    "restrictions": [],
+    "allergies": [],
+    "preferences": [],
+    "confidence": {}
+  },
+  "retrieval_context": {
+    "enabled": true,
+    "sources": [],
+    "top_k": 0,
+    "filters": {}
+  },
+  "memory_context": {
+    "session_memory_refs": [],
+    "durable_memory_refs": [],
+    "write_policy_tier": "tier1|tier2|tier3"
+  },
+  "budget_policy": {
+    "max_cost_tier": "free|low|standard",
+    "latency_class": "fast|balanced|deep",
+    "repair_budget": 0
+  },
+  "response_schema_id": "string",
+  "trace_flags": {
+    "emit_detailed_trace": true,
+    "preview_allowed": false,
+    "admin_request": false
+  },
+  "timeout_ms": 0
+}
+
+Canonical response envelope:
+{
+  "request_id": "uuid",
+  "engine_run_id": "uuid",
+  "selected_provider": "string|null",
+  "selected_model": "string|null",
+  "output_payload": {},
+  "structured_result": {},
+  "validation_status": {
+    "schema_valid": false,
+    "domain_valid": false,
+    "promotion_status": "approved|preview_only|blocked"
+  },
+  "repair_actions": [],
+  "citations_or_evidence": [],
+  "memory_write_candidates": [],
+  "decision_trace_ref": "string",
+  "latency_ms": 0,
+  "status": "success|degraded|blocked|timeout|bridge_error|provider_unavailable"
+}
+
+7.4 Bridge Responsibilities That Remain in Python
+
+Python must own:
+- external authentication and authorization
+- request rate limiting
+- tenant and user identity resolution
+- API request validation at ingress
+- correlation ID generation if absent
+- bridge invocation
+- final response normalization verification
+- durable persistence coordination
+- admin authorization checks
+- degraded-mode and fallback HTTP semantics
+- audit trail emission for external actions
+
+Python must not remain responsible for:
+- provider routing
+- structured output repair strategy
+- reasoning orchestration
+- primary retrieval orchestration
+- intelligence response composition
+
+7.5 Responsibilities That Move to FREE AI
+
+FREE AI must own:
+- request classification
+- provider selection
+- provider ladder execution
+- health-aware fallback logic
+- adaptive complexity routing
+- retrieval orchestration
+- output composition
+- schema repair routing
+- critic-node-style pre-display validation
+- memory write candidate generation
+- decision event emission for internal execution steps
+
+7.6 Invocation Pattern
+
+Synchronous path:
+Used for user-facing pantry matching, recipe generation, meal planning, and dietary reasoning requests. Python calls FREE AI and awaits a normalized response within task-class timeout budgets.
+
+Asynchronous path:
+Used for admin evaluations, regression runs, heavy recomputation tasks, and possibly long-running plan generation or bulk profiling jobs. Python returns accepted/queued status and the job executes through a background queue.
+
+7.7 Timeout Policy
+
+Gateway-side timeout enforcement is mandatory.
+Recommended timeout classes:
+- pantry_match fast path: 1500–3000 ms target budget, hard timeout 5000 ms
+- recipe_generation balanced path: 4000–8000 ms target budget, hard timeout 12000 ms
+- meal_plan deep path: 8000–15000 ms target budget, hard timeout 20000 ms
+- admin_evaluation async preferred, synchronous fallback hard timeout 30000 ms
+
+Python must enforce client-facing timeout ceilings. FREE AI may have shorter internal provider sub-timeouts per attempt to preserve repair budget.
+
+7.8 Retry Policy
+
+FreeAIClient must never blindly retry the full request without classifying error type. Allowed retry categories:
+- transient network failure to FREE AI internal endpoint: one retry with jitter if idempotent
+- provider-unavailable result returned by FREE AI: no Python-level blind retry; FREE AI should have already executed fallback
+- malformed internal bridge response: zero automatic retries; respond degraded and emit alert
+- timeout from FREE AI: no repeated retries for hot path; return degraded or timeout status
+
+7.9 Error Classes
+
+Python internal bridge errors:
+- BridgeConnectionError
+- BridgeTimeoutError
+- BridgeAuthError
+- BridgeContractError
+- BridgeDegradedModeError
+
+FREE AI execution errors normalized into response status:
+- provider_unavailable
+- schema_validation_failed
+- domain_validation_failed
+- repair_budget_exhausted
+- blocked_by_policy
+- degraded_mode_served
+
+Never-throw bridge semantics at the client boundary:
+FreeAIClient must normalize internal failures into controlled return types wherever possible. Python endpoints must not leak raw stack traces or provider internals.
+
+7.10 Internal Authentication and Secret Isolation
+
+Python-to-FREE-AI communication must use service-to-service authentication with one of:
+- mTLS between internal services
+- signed short-lived internal JWTs with audience restriction
+- HMAC request signing with timestamp validation if internal environment is simpler
+
+Required controls:
+- FREE AI endpoint internal-only
+- provider secrets stored server-side only
+- FREE AI never returns raw provider credentials or secret-bearing payloads
+- Python never exposes FREE AI topology externally
+
+7.11 Correlation IDs and Idempotency
+
+Every request must carry:
+- request_id
+- session_id
+- engine_run_id once FREE AI accepts execution
+
+Idempotency considerations:
+Python should add an idempotency key for retry-safe operations where duplicate external submissions are plausible, especially admin evaluations and persistent write flows.
+
+7.12 Response Normalization Across FREE AI Variants
+
+The bridge must normalize response extraction regardless of FREE AI internal response variant. If FREE AI returns different internal shapes by provider family or internal execution path, src/api/internalBridgeRouter.js must normalize these to the canonical response envelope before returning to Python.
+
+7.13 Health Probe Endpoint Design
+
+FREE AI must expose an internal health endpoint that reports:
+- process_up
+- bridge_contract_version
+- provider_health_summary
+- readiness_state
+- degraded_mode_state
+- queue_depth if async execution exists
+
+Python must consume this for readiness checks and operational dashboarding.
+
+7.14 Degraded-Mode Behavior
+
+If FREE AI is unavailable:
+- Python does not reactivate full legacy Python intelligence logic as a co-equal path
+- Python returns controlled degraded responses for user-facing tasks
+- only explicitly approved minimal compatibility fallbacks may execute, and only for narrow low-risk task classes
+- degraded responses must emit decision events and operator alerts
+
+7.15 Modules to Deprecate on Python Side
+
+Deprecate or reduce:
+- legacy standalone Python agent orchestration modules
+- duplicated provider selection logic in Python
+- duplicated schema repair logic in Python
+- duplicated retrieval orchestration if present
+- duplicated prompt family selection logic
+
+Retain only:
+- compatibility shims where immediate removal is too risky
+- policy-adjacent preprocessing
+- persistence coordination
+- ingress validation and auth
+
+7.16 Contract Versioning Strategy
+
+Both request and response contracts must include an internal version field in implementation, even if omitted in simplified examples. Version negotiation is internal and fail-closed. Python and FREE AI must reject unsupported versions clearly.
+
+7.17 Acceptance Tests for Bridge Completion
+
+Required tests:
+- Python delegates all intelligence endpoints to FreeAIClient
+- FREE AI returns canonical response envelope
+- malformed FREE AI responses are blocked and alerted
+- bridge degraded mode produces controlled client responses
+- correlation IDs propagate end-to-end
+- legacy Python agent paths are unreachable except approved compatibility routes
+- provider secrets are never exposed in responses
+- request contract validation rejects malformed task_type, budget_policy, and trace_flags
+
+8. Orchestration and Provider Governance Design
+
+8.1 Implementation Objective
+
+All provider routing, laddering, fallback, budget control, and execution-path selection must be centralized in FREE AI. Python must not make provider selection decisions beyond ingress policy constraints.
+
+8.2 Modules to Create or Refactor
+
+- src/orchestration/requestClassifier.js
+- src/orchestration/taskPolicyTable.js
+- src/orchestration/complexityRouter.js
+- src/providers/providerCatalog.js
+- src/providers/providerCapabilityMap.js
+- src/providers/providerLadderEngine.js
+- src/providers/providerHealthMatrix.js
+- src/providers/providerCooldownManager.js
+- src/providers/providerBudgetGuardian.js
+- src/providers/providerFailoverPolicy.js
+- src/providers/providerSuitabilityScorer.js
+- src/providers/providerQuarantineStore.js
+
+8.3 Request Classification
+
+Task classes:
+- pantry matching
+- recipe generation
+- meal planning
+- dietary reasoning
+- substitution reasoning
+- structured extraction
+- operator/admin actions
+- background evaluation tasks
+
+Classification factors:
+- expected output schema rigidity
+- token complexity
+- need for retrieval
+- need for domain validation strictness
+- latency budget
+- budget policy
+- provider health posture
+
+8.4 Provider Decision Factors
+
+Provider selection must consider:
+- structured output reliability
+- current health score
+- recent schema conformance rate
+- recent timeout rate
+- cooldown status
+- cost tier compatibility
+- task class suitability
+- latency requirements
+- repair budget remaining
+- historical quality score by task class
+
+8.5 Silent Fallback Routing
+
+FREE-AI-inspired silent fallback routing is mandatory. If the preferred provider fails before user-visible promotion, FREE AI must automatically move down the ladder according to policy and health state. The user must not receive raw provider failure details unless the result degrades below promotion thresholds.
+
+8.6 Adaptive Complexity Routing
+
+FREE AI must implement adaptive complexity routing.
+- Simple pantry lookup: low-cost fast model, minimal repair budget, strict timeouts
+- Recipe generation: balanced model with structured generation fit
+- Meal planning: deeper reasoning class, retrieval enabled, larger repair budget
+- Dietary reasoning: high domain validation strictness, provider must meet safety and schema reliability thresholds
+- Structured extraction: provider selected primarily for strict schema conformance
+- Admin/evaluation tasks: may use more expensive or deeper evaluation-capable path asynchronously
+
+8.7 Health Matrix and Cooldown Logic
+
+ProviderHealthMatrix fields:
+- provider_id
+- model_id
+- health_score
+- schema_success_rate_rolling
+- timeout_rate_rolling
+- avg_latency_rolling
+- quota_error_rate_rolling
+- cooldown_until
+- quarantine_state
+- last_probe_at
+- last_success_at
+
+Cooldown rules:
+- repeated transient failures beyond threshold enter cooldown window
+- schema failure spikes trigger model demotion
+- quota exhaustion triggers short-term demotion and alternate provider promotion
+- repeated failures across a provider family trigger broader provider quarantine if configured
+
+Restoration rules:
+- provider exits cooldown only after successful scheduled probes or observed recovery in controlled traffic
+- restoration must be gradual and traceable
+
+8.8 Deterministic Fallback Path
+
+When all preferred providers degrade, FREE AI must follow a deterministic fallback path by task class. This path must be codified, not improvised. For example:
+- structured extraction may prefer reduced-scope output over unstructured output
+- recipe generation may return validated degraded suggestions with warning status
+- meal planning may return preview-only or partial plan if promotion gates are not met
+
+8.9 Schema-Failure-Aware Model Swap Triggers
+
+If a provider exceeds schema failure thresholds for a given response_schema_id over a rolling window, that provider-model pair must be demoted for that schema class. This directly adapts the missing FREE AI pattern into GS FOOD.
+
+8.10 Policy Tables
+
+Implementation must include policy tables mapping:
+task_type -> provider class preference -> health threshold -> schema strictness -> repair budget -> timeout class -> fallback mode -> memory write allowance
+
+8.11 Operator Override Boundaries
+
+Operators may:
+- manually quarantine a provider-model pair
+- override ladder order temporarily
+- disable a task class for a provider
+- force evaluation traffic only to a provider in staging
+
+Operators may not:
+- bypass promotion gates for user-facing production responses without audit
+- disable all validation
+- route public requests directly to raw provider outputs
+
+8.12 Acceptance Criteria
+
+- all provider choices are emitted as decision events
+- ladder mutation is visible in dashboard
+- cooldown timers are enforced
+- restoration requires probe-confirmed health
+- request class policy tables are complete for all GS FOOD task types
+
+9. Structured Output, Validation, and Schema Repair Architecture
+
+9.1 Implementation Objective
+
+Replace primitive extraction-first repair logic with a non-bypassable structured validation and repair pipeline that blocks invalid outputs from display or persistence.
+
+9.2 Mandatory Output Flow
+
+draft output -> parser -> validator -> domain checker -> repair router -> critic -> final promotion
+
+This flow must be implemented exactly as a pipeline. No display and no persistence may occur before final promotion.
+
+9.3 Modules to Create or Refactor
+
+- src/validation/parser.js
+- src/validation/schemaValidator.js
+- src/validation/typeValidator.js
+- src/validation/domainValidator.js
+- src/validation/validationResultNormalizer.js
+- src/repair/repairRouter.js
+- src/repair/providerSpecificRepairStrategies.js
+- src/repair/repairBudgetManager.js
+- src/validation/criticGate.js
+- src/validation/promotionGate.js
+- src/quarantine/outputQuarantineWriter.js
+- src/quarantine/quarantineStateMachine.js
+- server/app/persistence/quarantine_store.py
+
+9.4 Parser Stage
+
+Purpose:
+Extract structured output according to the declared response_schema_id.
+
+Responsibilities:
+- parse provider response
+- normalize common wrapper variants
+- detect malformed JSON or partial structure
+- attach parse diagnostics
+
+Failure handling:
+Parse failure enters repair router immediately if budget remains.
+
+9.5 Schema Validator
+
+Purpose:
+Validate required fields, field presence, enum values, nested structure, and contract alignment.
+
+Failure classes:
+- missing_required_field
+- invalid_enum
+- unexpected_structure
+- array_shape_error
+
+9.6 Type Validator
+
+Purpose:
+Validate primitive and composite types, numeric ranges where defined, and field coercion rules if safe.
+
+Failure classes:
+- type_mismatch
+- numeric_out_of_range
+- invalid_nullable_usage
+
+9.7 Domain Validator
+
+Purpose:
+Validate culinary correctness and policy compliance.
+
+Mandatory culinary domain rules:
+- allergy conflicts
+- dietary conflicts
+- pantry availability confidence
+- substitution plausibility
+- unit/quantity sanity
+- meal-plan coherence
+- unsupported health claims prohibition
+
+Examples:
+A recipe recommendation cannot violate known allergy data without being blocked.
+A meal plan cannot simultaneously claim vegan compliance while containing non-vegan ingredients.
+A substitution must be plausible in culinary use, not merely semantically related.
+Units and quantities must remain sane within recipe context.
+Health claims not supported by approved knowledge sources must be blocked.
+
+9.8 Repair Router
+
+Purpose:
+Select the correct repair family based on failure class, provider, model, schema, and task type.
+
+Repair families:
+- parse recovery
+- schema field completion
+- type correction
+- domain correction
+- provider switch repair
+- constrained regeneration
+
+Repair triggers:
+- parse failure
+- schema failure
+- type failure
+- domain failure
+- critic failure
+- provider trust or health downgrade during execution
+
+9.9 Provider-Specific Repair Prompts
+
+Provider-specific repair prompts must exist because schema drift and output failure patterns vary by provider family. These prompts are internal execution assets and must remain compiled and versioned.
+
+Strict compiled prompt structure for intelligence execution is required:
+- system invariants
+- schema-specific constraints
+- domain constraints
+- prohibited behaviors
+- repair objective
+- prior failure diagnostics
+
+9.10 Repair Attempt Budgets and Circuit Breakers
+
+Each request carries repair_budget from budget_policy.
+Repair attempts must be bounded.
+Circuit breaker triggers:
+- parse failure repeated beyond threshold
+- domain failure repeated beyond threshold
+- total repair latency exceeds class budget
+- provider-model schema instability threshold exceeded
+
+When circuit breaks:
+- attempt provider-model swap if policy allows
+- if no trusted path remains, quarantine and return blocked or preview-only based on task class
+
+9.11 Critic-Node-Style Pre-Display Validation
+
+A critic gate must review outputs after repair but before promotion. This gate evaluates:
+- domain risk
+- unsupported claims
+- obvious internal contradictions
+- missing evidence in required evidence-bearing task classes
+- memory write safety posture
+
+9.12 Quality Gates
+
+Gate 1: schema validity
+The output must match the declared response_schema_id.
+
+Gate 2: domain validity
+The output must satisfy culinary and dietary rules.
+
+Gate 3: provider trust and health acceptance
+The final output may not be promoted if produced under disallowed degraded provider conditions.
+
+Gate 4: repair budget acceptance
+The output may not be promoted if repair exceeded allowed budget or circuit-break threshold.
+
+Gate 5: memory write safety
+Memory write candidates must pass trust-tier gating independently of response display.
+
+Gate 6: response display approval
+The output must pass critic review and overall promotion policy.
+
+Gate 7: evidence and trace completeness
+Required decision events and supporting diagnostics must exist before promotion.
+
+9.13 Dispatch-Allowed Gating Semantics
+
+Adapted donor pattern:
+The final validation object must include dispatch_allowed semantics for:
+- display_allowed
+- persistence_allowed
+- memory_write_allowed
+
+These are independent. A response may be display_allowed but memory_write_allowed=false. A quarantined artifact is always persistence_allowed to quarantine storage but not display_allowed to end users.
+
+9.14 Preview-Mode Logic
+
+Preview-only is allowed only for explicitly permitted task classes and privileged surfaces. It is intended for operator/admin review or degraded user-safe fallback in narrow cases. Preview mode must be visibly marked and must not auto-write memory.
+
+9.15 Quarantine Storage Behavior
+
+Invalid outputs and blocked memory writes must be written to quarantine with:
+- request_id
+- engine_run_id
+- provider
+- model
+- failure_class
+- validation diagnostics
+- repair history
+- trace reference
+- created_at
+- state
+
+States:
+- quarantined
+- under_review
+- rescued
+- replayed
+- discarded
+
+9.16 Acceptance Tests
+
+- malformed provider output is blocked from display
+- schema-valid but domain-invalid output is blocked
+- repair attempts stop at configured budget
+- provider switch occurs after repeated schema failure where policy allows
+- quarantine records contain diagnostics and trace refs
+- display and memory-write approvals are independently enforced
+
+10. Memory Graph and Long-Term Context Architecture
+
+10.1 Implementation Objective
+
+Replace simple context arrays with a production memory graph that models users, households, pantry state, preferences, dietary constraints, substitutions, and meal history with evidence-backed, trust-gated writes.
+
+10.2 Graph Node Types
+
+Required nodes:
+- User
+- Household
+- PantryItem
+- IngredientPreference
+- DietaryRestriction
+- Allergy
+- DislikedIngredient
+- CuisinePreference
+- MealHistory
+- PlanHistory
+- SubstitutionPattern
+- SessionMemoryFragment
+- EvidenceReference
+
+10.3 Edge Types
+
+Required edges:
+- belongs_to_household
+- has_in_pantry
+- prefers
+- avoids
+- allergic_to
+- cooked_recently
+- follows_diet
+- substitutes_with
+- derived_from_evidence
+- confirmed_by_user
+- inferred_from_repetition
+
+10.4 Mandatory Memory Write Tiers
+
+Tier 1: ephemeral low-trust session memory
+Used for temporary conversational context, short-term pantry mentions, and recent task-local details. Auto-write allowed. Expires automatically. Not treated as durable truth.
+
+Tier 2: durable inferred preference memory with evidence threshold
+Used for repeated preferences or repeated pantry patterns with evidence across sessions or repeated confirmations by behavior. Requires confidence threshold, provenance, and contradiction checks. Auto-write allowed only if evidence threshold is met.
+
+Tier 3: user-confirmed persistent identity memory
+Used for allergies, hard dietary restrictions, household anchors, and identity-level preferences that materially affect safety or system behavior. Requires explicit user confirmation or trusted migration import. Never auto-written from a single speculative inference.
+
+10.5 What Can Be Auto-Written
+
+Allowed Tier 1 examples:
+- recent pantry items mentioned in the session
+- recent cuisine interest for the current conversation
+- temporary meal plan intent
+
+Allowed Tier 2 examples:
+- repeated preference for certain cuisine after multiple validated sessions
+- repeated dislike of a specific ingredient inferred from corrections or consistent avoidance
+
+10.6 What Needs Stronger Evidence
+
+Requires repeated evidence:
+- inferred dietary preference
+- recurring household pantry patterns
+- stable substitution preference
+
+10.7 What Requires Explicit Confirmation
+
+Requires Tier 3 confirmation:
+- allergies
+- medical-style dietary restrictions
+- household composition
+- long-term protected preference that affects exclusion rules
+
+10.8 What Must Never Be Auto-Written
+
+Never auto-write:
+- health conditions not explicitly confirmed
+- allergy status from weak inference
+- strict religious or ethical diet commitment without confirmation
+- any unsupported health claim about user needs
+
+10.9 Provenance Fields
+
+Every durable memory write must store:
+- memory_id
+- node_type
+- edge_type if applicable
+- source_request_id
+- source_engine_run_id
+- evidence_refs
+- confidence_score
+- recency_score
+- created_at
+- updated_at
+- write_tier
+- write_reason
+- confirmed_by_user boolean
+- conflict_state
+
+10.10 Conflict Resolution
+
+Memory contradiction detection must compare new candidate facts against existing durable facts. Conflicts create a conflict marker rather than silent overwrite. Conflict states:
+- none
+- mild_conflict
+- hard_conflict
+- user_confirmation_required
+
+10.11 False Memory Prevention
+
+Truth-gated memory persistence is mandatory.
+No memory candidate becomes durable unless:
+- its write tier allows it
+- evidence threshold is satisfied
+- contradiction checks pass or move it into review
+- promotion gate approves memory_write_allowed
+
+10.12 User Correction Workflows
+
+Users must be able to:
+- correct pantry state
+- remove wrongly inferred preferences
+- confirm or deny proposed durable preferences
+- update allergies or restrictions intentionally
+
+10.13 Admin Review Workflows
+
+Operators must be able to:
+- inspect memory lineage
+- review blocked or conflicting memory candidates
+- rescue false positives with audit trail
+- trigger replay after correction
+
+10.14 Storage Model
+
+Preferred model:
+- graph-capable database or graph-emulation schema using relational tables:
+  nodes, edges, evidence_refs, memory_conflicts, memory_reviews
+
+Required write APIs:
+- write_session_memory
+- propose_durable_memory
+- confirm_identity_memory
+- resolve_memory_conflict
+- retire_memory_entry
+
+10.15 Why the Current Design-Only State Caps Reasoning Quality
+
+Without durable memory graphing, GS FOOD cannot safely and consistently recall pantry context, preferences, exclusions, or cross-session patterns. This forces repeated prompt stuffing, increases latency, weakens personalization, and reduces safety confidence for dietary outputs.
+
+11. Decision Graph, Traceability, and Evaluation Receipts
+
+11.1 Implementation Objective
+
+Expand partial evidence receipts into a durable decision graph that captures the full execution lineage of each request.
+
+11.2 Why Receipts Alone Are Insufficient
+
+Receipts summarize. They do not fully encode branching, retries, provider switches, repair sequences, validation failures, memory write candidates, operator overrides, or fallback causality. Production operations require full execution lineage, not just endpoint summaries.
+
+11.3 Event Types to Persist
+
+Mandatory structured event types:
+- request_received
+- ingress_validated
+- free_ai_call_started
+- free_ai_call_completed
+- retrieval_started
+- retrieval_completed
+- provider_selected
+- provider_failed
+- provider_cooldown_applied
+- fallback_triggered
+- draft_output_generated
+- parse_failed
+- schema_validation_failed
+- type_validation_failed
+- domain_validation_failed
+- repair_started
+- repair_completed
+- critic_blocked
+- promotion_approved
+- promotion_blocked
+- memory_read
+- memory_write_candidate
+- memory_write_blocked
+- memory_write_committed
+- quarantine_written
+- operator_override
+- response_returned
+
+11.4 Minimum Event Schema
+
+Each event must contain:
+- event_id
+- event_type
+- request_id
+- session_id
+- engine_run_id
+- parent_event_id nullable
+- timestamp
+- actor_type system|operator
+- component_name
+- task_type
+- provider_id nullable
+- model_id nullable
+- payload_summary
+- decision_reason
+- severity
+- trace_tags
+
+11.5 Storage Strategy
+
+Use async ingestion with non-blocking writes.
+Stores:
+- hot event store for recent

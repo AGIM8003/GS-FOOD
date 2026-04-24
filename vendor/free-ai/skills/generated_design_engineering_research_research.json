@@ -1,0 +1,62 @@
+{
+  "id": "generated_design_engineering_research_research",
+  "name": "Design Research Scout",
+  "version": "v1",
+  "purpose": "Gather web and open-source context for design requests before answering.",
+  "tags": [
+    "design",
+    "research",
+    "generated",
+    "engineering",
+    "practices",
+    "prompt",
+    "web"
+  ],
+  "triggers": [
+    "engineering",
+    "practices",
+    "prompt",
+    "recent",
+    "research",
+    "compare"
+  ],
+  "exclusions": [],
+  "dependencies": [],
+  "latency_hint": "medium",
+  "token_budget_hint": 450,
+  "risk_class": "low",
+  "output_contract": {
+    "type": "object",
+    "fields": [
+      "answer",
+      "why"
+    ]
+  },
+  "prompt_fragments": [
+    "Collect external context relevant to design and engineering.",
+    "Prefer concise evidence summaries and then hand off to the main response path."
+  ],
+  "validation_rules": {},
+  "source_type": "generated",
+  "source_reference": "heuristic+web+github",
+  "source_license": "generated",
+  "imported_at": "2026-04-22T17:06:01.282Z",
+  "enabled": true,
+  "deprecated": false,
+  "compatibility": {
+    "personas": [
+      "neo_design_expert",
+      "technical",
+      "researcher",
+      "default"
+    ],
+    "runtime_modes": [
+      "hybrid",
+      "cloud_only",
+      "offline_optional"
+    ]
+  },
+  "schema_version": "skillManifest.v1",
+  "quality_state": "provisional_active",
+  "generated_from_prompt": "Research: summarize recent best practices for prompt engineering"
+}

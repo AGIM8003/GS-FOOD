@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://free-ai.local/schemas/swarmFanInRollup.v1.json",
+  "title": "SwarmFanInRollup (host-owned aggregate)",
+  "description": "Rollup object emitted on fan-in alongside per-worker receipts. FREEAI.md §19.4. Engine may mirror a subset under swarm.fan_in when the host delegates merge logging.",
+  "type": "object",
+  "required": ["schema_version", "swarm_task_id", "child_trace_ids", "merge_strategy"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "swarmFanInRollup.v1" },
+    "swarm_task_id": { "type": "string" },
+    "workers_attempted": { "type": "integer", "minimum": 0 },
+    "workers_succeeded": { "type": "integer", "minimum": 0 },
+    "merge_strategy": { "type": "string" },
+    "judge_model_id": { "type": ["string", "null"] },
+    "aggregate_latency_ms": { "type": ["number", "null"] },
+    "partial_merge": { "type": "boolean" },
+    "child_trace_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Per-worker trace_id values for correlation with §22."
+    }
+  },
+  "additionalProperties": true
+}

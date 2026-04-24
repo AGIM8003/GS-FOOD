@@ -2,9 +2,12 @@ import fs from 'fs/promises';
 import { join } from 'path';
 import { addGraphEdge, summarizeGraph, upsertGraphNode } from './graph.js';
 
-const VAULT = join(process.cwd(),'memory','vault');
-const INDEX = join(process.cwd(),'memory','index.json');
-const EDGES = join(process.cwd(),'memory','edges');
+import os from 'os';
+
+const BASE_MEM_DIR = join(os.homedir(), '.gemini', 'antigravity', 'memory');
+const VAULT = join(BASE_MEM_DIR, 'vault');
+const INDEX = join(BASE_MEM_DIR, 'index.json');
+const EDGES = join(BASE_MEM_DIR, 'edges');
 
 async function ensure(){
   await fs.mkdir(VAULT, { recursive: true });
@@ -15,8 +18,18 @@ async function ensure(){
 export async function writeMemory(mem){
   await ensure();
   const id = `mem-${Date.now()}-${Math.random().toString(36).slice(2,6)}`;
+  // Tier Enforcement
+  const tier = mem.write_tier || 'tier1';
+  if (tier === 'tier3' && !mem.confirmed_by_user) {
+    throw new Error('Tier 3 persistence blocked: User confirmation required for identity memory.');
+  }
+  if (tier === 'tier2' && (mem.confidence || 0.6) < 0.75) {
+    throw new Error('Tier 2 persistence blocked: Evidence confidence threshold not met.');
+  }
+
   const record = {
     memory_id: id,
+    user_id: mem.user_id || 'anonymous',
     category: mem.category || 'general',
     subject: mem.subject || (mem.summary||'').slice(0,80),
     summary: mem.summary || '',
@@ -30,12 +43,14 @@ export async function writeMemory(mem){
     memory_origin: mem.memory_origin || 'system',
     sensitivity_class: mem.sensitivity_class || 'normal',
     provenance: mem.provenance || null,
+    write_tier: tier,
+    confirmed_by_user: mem.confirmed_by_user || false,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString()
   };
   await fs.writeFile(join(VAULT, `${id}.json`), JSON.stringify(record,null,2),'utf8');
   const idx = JSON.parse(await fs.readFile(INDEX,'utf8'));
-  idx.push({ memory_id: id, category: record.category, subject: record.subject, created_at: record.created_at, importance: record.importance });
+  idx.push({ memory_id: id, category: record.category, subject: record.subject, created_at: record.created_at, importance: record.importance, write_tier: record.write_tier });
   await fs.writeFile(INDEX, JSON.stringify(idx,null,2),'utf8');
   await upsertGraphNode({
     node_id: id,
@@ -47,6 +62,17 @@ export async function writeMemory(mem){
     provenance: record.provenance,
     meta: { category: record.category, retention_class: record.retention_class },
   }).catch(() => null);
+  if (record.user_id !== 'anonymous') {
+    const userNode = await upsertGraphNode({
+      type: 'identity',
+      key: `user-${record.user_id}`,
+      label: `User ${record.user_id}`
+    }).catch(() => null);
+    if (userNode) {
+      await addGraphEdge({ from: id, to: userNode.node_id, relation: 'belongs_to', provenance: record.provenance, confidence: record.confidence }).catch(() => null);
+    }
+  }
+
   if (record.subject) {
     const subjectNode = await upsertGraphNode({
       type: 'subject',
@@ -56,6 +82,9 @@ export async function writeMemory(mem){
     }).catch(() => null);
     if (subjectNode) {
       await addGraphEdge({ from: id, to: subjectNode.node_id, relation: 'about', provenance: record.provenance, confidence: record.confidence }).catch(() => null);
+      if (record.user_id !== 'anonymous') {
+         await addGraphEdge({ from: `user-${record.user_id}`, to: subjectNode.node_id, relation: 'has_trait', provenance: record.provenance, confidence: record.confidence }).catch(() => null);
+      }
     }
   }
   return record;

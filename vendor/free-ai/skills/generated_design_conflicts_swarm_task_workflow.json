@@ -1,0 +1,61 @@
+{
+  "id": "generated_design_conflicts_swarm_task_workflow",
+  "name": "Design Conflicts Workflow",
+  "version": "v1",
+  "purpose": "Handle design swarm_task requests when bundled skills are weak or absent.",
+  "tags": [
+    "design",
+    "swarm_task",
+    "generated",
+    "conflicts",
+    "fan-in",
+    "only"
+  ],
+  "triggers": [
+    "conflicts",
+    "fan-in",
+    "only",
+    "outputs",
+    "partial"
+  ],
+  "exclusions": [],
+  "dependencies": [],
+  "latency_hint": "medium",
+  "token_budget_hint": 600,
+  "risk_class": "low",
+  "output_contract": {
+    "type": "object",
+    "fields": [
+      "answer",
+      "why"
+    ]
+  },
+  "prompt_fragments": [
+    "Adapt the response to design context and emphasize conflicts.",
+    "Use the strongest available persona, preferably swarm_role_reviewer, and maintain continuity with the active conversation.",
+    "If the domain remains uncertain, expose assumptions and proceed with the closest practical answer instead of blocking."
+  ],
+  "validation_rules": {},
+  "source_type": "generated",
+  "source_reference": "heuristic+web+github",
+  "source_license": "generated",
+  "imported_at": "2026-04-13T16:52:43.786Z",
+  "enabled": true,
+  "deprecated": false,
+  "compatibility": {
+    "personas": [
+      "swarm_role_reviewer",
+      "technical",
+      "researcher",
+      "default"
+    ],
+    "runtime_modes": [
+      "hybrid",
+      "cloud_only",
+      "offline_optional"
+    ]
+  },
+  "schema_version": "skillManifest.v1",
+  "quality_state": "provisional_active",
+  "generated_from_prompt": "Fan-in placeholder: prior workers produced partial outputs; summarize conflicts only."
+}

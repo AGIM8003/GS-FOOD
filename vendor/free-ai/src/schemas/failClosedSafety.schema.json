@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Fail-Closed Safety Invariant Schema",
+  "description": "Schema enforcing fail-closed bounds on zero-trust payloads for industrial robotics and clinical data pathways.",
+  "type": "object",
+  "properties": {
+    "domain": {
+      "type": "string",
+      "enum": ["industrial", "clinical", "logistics"]
+    },
+    "classification": {
+      "type": "string",
+      "enum": ["public", "internal", "restricted", "critical"]
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "type": "string"
+        },
+        "pii_present": {
+          "type": "boolean"
+        },
+        "max_temperature_celsius": {
+          "type": "number",
+          "maximum": 80
+        },
+        "max_speed_rpm": {
+          "type": "number",
+          "maximum": 5000
+        }
+      },
+      "required": ["operation"]
+    }
+  },
+  "required": ["domain", "classification", "payload"],
+  "additionalProperties": false
+}

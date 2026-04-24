@@ -3,6 +3,7 @@ run = "bash replit_run.sh"
 [env]
 PYTHONPATH = "server"
 NODE_ENV = "production"
+GSFOOD_ENGINE_MODE = "V4_CYBERNETIC_OS"
 
 [nix]
 channel = "stable-23_05"

@@ -29,8 +29,8 @@ export async function loadConfig() {
     providers: providers.providers || [],
     port: process.env.PORT ? Number(process.env.PORT) : 3000,
     l2_enabled: process.env.L2_ENABLED === '1' || false,
-    // runtime mode: cloud_only | hybrid | offline_optional | local_only
-    mode: process.env.FREEAI_MODE || settings.mode || 'hybrid',
+    // runtime mode strictly enforced by GS FOOD OS
+    mode: process.env.GSFOOD_ENGINE_MODE || 'V4_CYBERNETIC_OS',
     training: settings.training || null,
   };
 }
