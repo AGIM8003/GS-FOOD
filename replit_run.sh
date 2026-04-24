@@ -47,9 +47,9 @@ PORT=3000 node src/server.js &
 NODE_PID=$!
 
 # 3. Boot Python FastAPI in foreground connecting them
-echo '[3] Booting cybernetic orchestration API (Public 0.0.0.0:8080)'
+echo '[3] Booting cybernetic orchestration API (Public 0.0.0.0:5000)'
 cd ../../server
-exec uvicorn app.main:app --host 0.0.0.0 --port 8080
+exec uvicorn app.main:app --host 0.0.0.0 --port 5000
 
 # Clean stop trap for the vendor node on exit
 trap "kill $NODE_PID" EXIT

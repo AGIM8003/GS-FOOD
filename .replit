@@ -12,3 +12,4 @@ channel = "stable-23_05"
 deploymentTarget = "cloudrun"
 ignorePorts = false
 runCommand = "bash replit_run.sh"
+localPort = 5000

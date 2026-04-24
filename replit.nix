@@ -1,7 +1,7 @@
-{
+{ pkgs }: {
   deps = [
-    pkgs.nodejs-18_x
-    pkgs.python312
+    pkgs.nodejs_18
+    pkgs.python311
     pkgs.nodePackages.pm2
   ];
 }
