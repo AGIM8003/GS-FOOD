@@ -1,7 +1,7 @@
 import { runGovernanceCycle } from '../providers/governance.js';
 import { summarizeHealthMatrix, recordProviderCapability } from '../providers/healthMatrix.js';
 import { snapshotAll } from '../providers/budgetGuardian.js';
-import { getProviderLadderStatus, computeProviderLadder } from '../providers/ladder.js';
+import { computeProviderLadder } from '../providers/ladder.js';
 
 let intervalTimer = null;
 
